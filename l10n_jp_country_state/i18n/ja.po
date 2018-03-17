@@ -1,0 +1,252 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-17 14:42+0000\n"
+"PO-Revision-Date: 2018-03-17 14:42+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-01
+msgid "Hokkaido"
+msgstr "北海道"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-02
+msgid "Aomori"
+msgstr "青森県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-03
+msgid "Iwate"
+msgstr "岩手県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-04
+msgid "Miyagi"
+msgstr "宮城県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-05
+msgid "Akita"
+msgstr "秋田県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-06
+msgid "Yamagata"
+msgstr "山形県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-07
+msgid "Fukushima"
+msgstr "福島県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-08
+msgid "Ibaraki"
+msgstr "茨城県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-09
+msgid "Tochigi"
+msgstr "栃木県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-10
+msgid "Gunma"
+msgstr "群馬県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-11
+msgid "Saitama"
+msgstr "埼玉県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-12
+msgid "Chiba"
+msgstr "千葉県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-13
+msgid "Tokyo"
+msgstr "東京都"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-14
+msgid "Kanagawa"
+msgstr "神奈川県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-15
+msgid "Niigata"
+msgstr "新潟県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-16
+msgid "Toyama"
+msgstr "富山県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-17
+msgid "Ishikawa"
+msgstr "石川県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-18
+msgid "Fukui"
+msgstr "福井県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-19
+msgid "Yamanashi"
+msgstr "山梨県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-20
+msgid "Nagano"
+msgstr "長野県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-21
+msgid "Gifu"
+msgstr "岐阜県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-22
+msgid "Shizuoka"
+msgstr "静岡県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-23
+msgid "Aichi"
+msgstr "愛知県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-24
+msgid "Mie"
+msgstr "三重県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-25
+msgid "Shiga"
+msgstr "滋賀県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-26
+msgid "Kyoto"
+msgstr "京都府"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-27
+msgid "Osaka"
+msgstr "大阪府"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-28
+msgid "Hyogo"
+msgstr "兵庫県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-29
+msgid "Nara"
+msgstr "奈良県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-30
+msgid "Wakayama"
+msgstr "和歌山県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-31
+msgid "Tottori"
+msgstr "鳥取県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-32
+msgid "Shimane"
+msgstr "島根県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-33
+msgid "Okayama"
+msgstr "岡山県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-34
+msgid "Hiroshima"
+msgstr "広島県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-35
+msgid "Yamaguchi"
+msgstr "山口県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-36
+msgid "Tokushima"
+msgstr "徳島県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-37
+msgid "Kagawa"
+msgstr "香川県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-38
+msgid "Ehime"
+msgstr "愛媛県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-39
+msgid "Kochi"
+msgstr "高知県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-40
+msgid "Fukuoka"
+msgstr "福岡県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-41
+msgid "Saga"
+msgstr "佐賀県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-42
+msgid "Nagasaki"
+msgstr "長崎県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-43
+msgid "Kumamoto"
+msgstr "熊本県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-44
+msgid "Oita"
+msgstr "大分県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-45
+msgid "Miyazaki"
+msgstr "宮崎県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-46
+msgid "Kagoshima"
+msgstr "鹿児島県"
+
+#. module: base
+#: model:res.country.state,name:base.state_jp_jp-47
+msgid "Okinawa"
+msgstr "沖縄県"
+
