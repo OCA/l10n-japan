@@ -7,7 +7,3 @@ Japanese localization for Odoo
 
 Odoo modules related to Japan.
 
-
-Translation Status
-------------------
-[![Transifex Status](https://www.transifex.com/projects/p/OCA-l10n-japan-11-0/chart/image_png)](https://www.transifex.com/projects/p/OCA-l10n-japan-11-0)
