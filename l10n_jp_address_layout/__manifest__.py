@@ -16,6 +16,7 @@
 This module provides Japan address input field layout.
     """,
     'data': [
+        'views/assets.xml',
         'views/res_partner_views.xml',
         'data/res_country_data.xml',
     ],
