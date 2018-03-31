@@ -6,14 +6,16 @@
         <field name="model">res.partner</field>
         <field name="arch" type="xml">
             <form>
-                <div class="o_address_format">
+                <div class="o_address_format o_zip_state_city">
                     <field name="type" invisible="1"/>
                     <field name="parent_id" invisible="1"/>
                     <div class="oe_edit_only">
                         <button name="open_parent" type="object" string="(edit)" class="oe_link" attrs="{'invisible': ['|', ('parent_id', '=', False), ('type', '!=', 'contact')]}"/>
                     </div>
-                    〒 <field name="zip" placeholder="ZIP" class="o_address_zip" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
                     <div>
+                        <span class="oe_read_only">〒</span>
+                        <field name="zip" placeholder="ZIP" class="o_address_zip" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                        <br class="oe_read_only"/>
                         <field name="state_id" class="o_address_state" placeholder="State" options='{"no_open": True}' attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" context="{'country_id': country_id, 'zip': zip}"/>
                         <field name="city" placeholder="City" class="o_address_city" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
                     </div>
