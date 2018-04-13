@@ -8,7 +8,7 @@ from odoo import models, fields
 class ResPartnerTitle(models.Model):
     _inherit = 'res.partner.title'
 
-    title_position = fields.Selection(
+    display_position = fields.Selection(
         [('before', "Before Name"), ('after', "After Name")],
-        string='Title Position',
+        string='Display Position',
     )

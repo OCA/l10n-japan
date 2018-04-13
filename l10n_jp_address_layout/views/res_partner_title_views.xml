@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="base.view_partner_title_tree"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='shortcut']" position="after">
-                <field name="title_position"/>
+                <field name="display_position"/>
             </xpath>
         </field>
     </record>
@@ -18,7 +18,7 @@
         <field name="inherit_id" ref="base.view_partner_title_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='shortcut']" position="after">
-                <field name="title_position"/>
+                <field name="display_position"/>
             </xpath>
         </field>
     </record>
