@@ -53,7 +53,7 @@ msgstr "都道府県/州"
 #. module: l10n_jp_address_layout
 #: model:ir.ui.view,arch_db:l10n_jp_address_layout.res_partner_japan_address_form
 msgid "State"
-msgstr "都道府県・州"
+msgstr "都道府県/州"
 
 #. module: l10n_jp_address_layout
 #: model:ir.ui.view,arch_db:l10n_jp_address_layout.res_partner_japan_address_form
