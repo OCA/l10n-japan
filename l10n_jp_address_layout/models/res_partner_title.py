@@ -10,5 +10,5 @@ class ResPartnerTitle(models.Model):
 
     title_position = fields.Selection(
         [('before', "Before Name"), ('after', "After Name")],
-        string= 'Title Position',
+        string='Title Position',
     )
