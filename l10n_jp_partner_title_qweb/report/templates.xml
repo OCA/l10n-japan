@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="contact_name" inherit_id="base.contact_name" >
+
+        <xpath expr="//span[@itemprop='name']" position="before">
+            <t t-if="object.title and object.title.display_position == 'before'">
+                <span itemprop="title" t-esc="object.title.name"/>
+            </t>
+            <!--<t t-if="not object.title and object.lang">-->
+                <!--<t t-foreach="request.env['res.lang'].search([('code','=',object.lang)])" t-as="lang">-->
+                    <!--<t t-if="object.is_company and lang.default_company_title_id and lang.default_company_title_id.display_position == 'before'">-->
+                        <!--<span itemprop="title" t-esc="lang.default_company_title_id.name"/>-->
+                    <!--</t>-->
+                    <!--<t t-if="not object.is_company and lang.default_contact_title_id and lang.default_contact_title_id.display_position == 'before'">-->
+                        <!--<span itemprop="title" t-esc="lang.default_contact_title_id.name"/>-->
+                    <!--</t>-->
+                <!--</t>-->
+            <!--</t>-->
+        </xpath>
+        <xpath expr="//span[@itemprop='name']" position="after">
+            <t t-if="object.title and object.title.display_position == 'after'">
+                <span itemprop="title" t-esc="object.title.name"/>
+            </t>
+            <!--<t t-if="not object.title and object.lang">-->
+                <!--<t t-foreach="request.env['res.lang'].search([('code','=',object.lang)])" t-as="lang">-->
+                    <!--<t t-if="object.is_company and lang.default_company_title_id and lang.default_company_title_id.display_position == 'after'">-->
+                        <!--<span itemprop="title" t-esc="lang.default_company_title_id.name"/>-->
+                    <!--</t>-->
+                    <!--<t t-if="not object.is_company and lang.default_contact_title_id and lang.default_contact_title_id.display_position == 'after'">-->
+                        <!--<span itemprop="title" t-esc="lang.default_contact_title_id.name"/>-->
+                    <!--</t>-->
+                <!--</t>-->
+            <!--</t>-->
+        </xpath>
+    </template>
+
+</odoo>
