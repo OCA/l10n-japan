@@ -15,8 +15,8 @@ class ResPartnerTitle(models.Model):
     lang_id = fields.Many2one(
         'res.lang',
         string='Language',
-        help='The Language for which this title should be proposed to in '
-             'partner records.',
+        help='The Language for which this title should be proposed in partner '
+             'records.',
     )
     for_company = fields.Boolean(
         'For Company',
