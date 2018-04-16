@@ -21,7 +21,7 @@ class ResPartner(models.Model):
     def _compute_title(self):
         for partner in self:
             if not partner.lang or self._is_linked_to_company(
-                    self.commercial_company_name):
+                    partner.commercial_company_name):
                 partner.title = False
             else:
                 lang_id = self.env['res.lang'].search(
