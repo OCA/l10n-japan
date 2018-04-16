@@ -9,6 +9,9 @@
             <xpath expr="//field[@name='title']" position="attributes">
                 <attribute name="attrs"/>
             </xpath>
+            <xpath expr="//notebook//form//field[@name='title']" position="attributes">
+                <attribute name="attrs"/>
+            </xpath>
         </field>
     </record>
 
