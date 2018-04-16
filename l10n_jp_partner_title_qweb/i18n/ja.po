@@ -59,10 +59,3 @@ msgstr "選択した言語の取引先に、この敬称を提案します。"
 #: model:ir.model,name:l10n_jp_partner_title_qweb.model_res_partner_title
 msgid "res.partner.title"
 msgstr "res.partner.title"
-
-#. module: l10n_jp_partner_title_qweb
-#: model:res.partner.title,name:l10n_jp_partner_title_qweb.res_partner_title_onchuu
-#: model:res.partner.title,shortcut:l10n_jp_partner_title_qweb.res_partner_title_onchuu
-msgid "御中"
-msgstr "御中"
-
