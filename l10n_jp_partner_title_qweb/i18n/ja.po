@@ -56,6 +56,12 @@ msgid "The Language for which this title should be proposed in partner records."
 msgstr "選択した言語の取引先に、この敬称を提案します。"
 
 #. module: l10n_jp_partner_title_qweb
+#: code:addons/l10n_jp_partner_title_qweb/models/res_partner_title.py:34
+#, python-format
+msgid "You cannot have more than one record for a combination of \"Language\" and \"For Company\"."
+msgstr "同一の言語と会社用の組み合わせで複数のレコードを持つことはできません。"
+
+#. module: l10n_jp_partner_title_qweb
 #: model:ir.model,name:l10n_jp_partner_title_qweb.model_res_partner_title
 msgid "res.partner.title"
 msgstr "res.partner.title"
