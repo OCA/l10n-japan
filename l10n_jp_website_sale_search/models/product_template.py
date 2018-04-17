@@ -11,44 +11,44 @@ class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
     name_roman = fields.Char(
-        compute='_get_name_roman',
+        compute='_compute_name_roman',
         store=True,
     )
     description_roman = fields.Char(
-        compute='_get_description_roman',
+        compute='_compute_description_roman',
         store=True,
     )
     description_sale_roman = fields.Char(
-        compute='_get_description_sale_roman',
+        compute='_compute_description_sale_roman',
         store=True,
     )
     default_code_roman = fields.Char(
-        compute='_get_default_code_roman',
+        compute='_compute_default_code_roman',
         store=True,
     )
 
     @api.depends('name')
-    def _get_name_roman(self):
+    def _compute_name_roman(self):
         for pt in self:
             if pt.name:
                 pt.name_roman = self.get_roman_string(pt.name)
 
     @api.depends('description')
-    def _get_description_roman(self):
+    def _compute_description_roman(self):
         for pt in self:
             if pt.description:
                 pt.description_roman = self.get_roman_string(
                     pt.description)
 
     @api.depends('description_sale')
-    def _get_description_sale_roman(self):
+    def _compute_description_sale_roman(self):
         for pt in self:
             if pt.description_sale:
                 pt.description_sale_roman = self.get_roman_string(
                     pt.description_sale)
 
     @api.depends('default_code')
-    def _get_default_code_roman(self):
+    def _compute_default_code_roman(self):
         for pt in self:
             if pt.default_code:
                 pt.default_code_roman = self.get_roman_string(
