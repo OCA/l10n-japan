@@ -19,6 +19,6 @@ Convert all the ascii characters into half-spaced for search.
     """,
     'data': [
     ],
-    'external_dependencies': {'python': ['pykakasi', 'siz semidbm', 'jaconv']},
+    'external_dependencies': {'python': ['jaconv']},
     'installable': True,
 }

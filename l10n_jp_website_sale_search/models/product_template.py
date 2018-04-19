@@ -2,6 +2,7 @@
 # Copyright 2018 Quartile Limited
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
+from odoo import models, fields, api
 import logging
 _logger = logging.getLogger(__name__)
 
@@ -9,8 +10,6 @@ try:
     import jaconv
 except ImportError:
     _logger.warning('jaconv library not found.')
-
-from odoo import models, fields, api
 
 
 class ProductTemplate(models.Model):
