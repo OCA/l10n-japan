@@ -60,7 +60,10 @@ class ProductTemplate(models.Model):
                     pt.default_code)
 
     def get_roman_string(self, string):
-        from pykakasi import kakasi
+        try:
+            from pykakasi import kakasi
+        except ImportError:
+            _logger.warning('pykakasi library not found.')
         kakasi = kakasi()
         kakasi.setMode('H', 'a')
         kakasi.setMode('K', 'a')

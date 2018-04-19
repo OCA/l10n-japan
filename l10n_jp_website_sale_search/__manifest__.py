@@ -19,6 +19,5 @@ Convert all the ascii characters into half-spaced for search.
     """,
     'data': [
     ],
-    'external_dependencies': {'python': ['jaconv']},
     'installable': True,
 }
