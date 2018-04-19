@@ -62,13 +62,13 @@ class ProductTemplate(models.Model):
     def get_roman_string(self, string):
         try:
             from pykakasi import kakasi
+            kakasi = kakasi()
+            kakasi.setMode('H', 'a')
+            kakasi.setMode('K', 'a')
+            kakasi.setMode('J', 'a')
+            kakasi.setMode('r', 'Hepburn')
+            kakasi.setMode('s', True)
+            roman_converter = kakasi.getConverter()
+            return jaconv.z2h(roman_converter.do(string))
         except ImportError:
             _logger.warning('pykakasi library not found.')
-        kakasi = kakasi()
-        kakasi.setMode('H', 'a')
-        kakasi.setMode('K', 'a')
-        kakasi.setMode('J', 'a')
-        kakasi.setMode('r', 'Hepburn')
-        kakasi.setMode('s', True)
-        roman_converter = kakasi.getConverter()
-        return jaconv.z2h(roman_converter.do(string))
