@@ -11,6 +11,7 @@ class L10nJpPartnerTitleQwebCase(common.TransactionCase):
     def setUp(self):
         super(L10nJpPartnerTitleQwebCase, self).setUp()
         self.japanese = self.env.ref('base.lang_ja_JP')
+        self.japanese.active = True
         self.title_sama = self.env.ref(
             'l10n_jp_partner_title_qweb.res_partner_title_sama')
         self.title_onchuu = self.env.ref(
