@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="contact_name" inherit_id="base.contact_name" >
+        <xpath expr="//span[@itemprop='name']" position="before">
+            <t t-if="object.title and object.title.display_position == 'before'">
+                <span itemprop="title" t-esc="object.title.name"/>
+            </t>
+        </xpath>
+        <xpath expr="//span[@itemprop='name']" position="after">
+            <t t-if="object.title and object.title.display_position == 'after'">
+                <span itemprop="title" t-esc="object.title.name"/>
+            </t>
+        </xpath>
+    </template>
+
+</odoo>
