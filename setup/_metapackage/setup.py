@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo12-addon-l10n_jp_address_layout',
         'odoo12-addon-l10n_jp_country_state',
+        'odoo12-addon-l10n_jp_partner_title_qweb',
     ],
     classifiers=[
         'Programming Language :: Python',
