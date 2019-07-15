@@ -16,4 +16,4 @@ class Website(models.Model):
     def display_japan_address_layout(self):
         return request.env.user.partner_id.country_id and \
             request.env.user.partner_id.country_id.code == 'JP' and \
-                request.env.user.lang and request.env.user.lang == 'ja_JP'
+            request.env.user.lang and request.env.user.lang == 'ja_JP'
