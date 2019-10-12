@@ -6,4 +6,3 @@ Japanese localization for Odoo
 ==============================
 
 Odoo modules related to Japan.
-
