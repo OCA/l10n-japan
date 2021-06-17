@@ -3,13 +3,10 @@
 {
     "name": "Japan Country States",
     "version": "13.0.1.0.0",
-    "depends": ["base_country_state_translatable",],
+    "depends": ["base_country_state_translatable"],
     "author": "Quartile Limited, " "Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "website": "https://github.com/OCA/l10n-japan",
     "category": "Localization",
-    "description": """
-This module updates Japanese prefecture data with translation.
-    """,
     "installable": True,
 }
