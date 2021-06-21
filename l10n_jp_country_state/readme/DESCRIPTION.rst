@@ -1,1 +1,1 @@
-This module updates country state data of Japan with translation.
+This module will load translation of Japanese prefectures.
