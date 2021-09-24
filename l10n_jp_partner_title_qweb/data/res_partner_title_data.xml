@@ -1,19 +1,16 @@
-<?xml version="1.0" encoding='UTF-8'?>
+<?xml version="1.0" encoding='UTF-8' ?>
 <odoo noupdate="1">
-
     <record id="res_partner_title_sama" model="res.partner.title">
         <field name="name">様</field>
         <field name="shortcut">様</field>
         <field name="display_position">after</field>
-        <field name="lang_id" ref="base.lang_ja_JP"/>
+        <field name="lang_id" ref="base.lang_ja_JP" />
     </record>
-
     <record id="res_partner_title_onchuu" model="res.partner.title">
         <field name="name">御中</field>
         <field name="shortcut">御中</field>
         <field name="display_position">after</field>
-        <field name="lang_id" ref="base.lang_ja_JP"/>
-        <field name="for_company" eval="True"/>
+        <field name="lang_id" ref="base.lang_ja_JP" />
+        <field name="for_company" eval="True" />
     </record>
-
 </odoo>
