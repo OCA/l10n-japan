@@ -1,2 +1,2 @@
-This module makes necessary adjustments to show title ("様" for individuals,
-"御中" for companies) for partner names in QWeb reports.
+This module makes necessary adjustments to show title "様" and
+"御中" in configured display position for partner names in QWeb reports.

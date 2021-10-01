@@ -4,13 +4,10 @@
         <field name="name">様</field>
         <field name="shortcut">様</field>
         <field name="display_position">after</field>
-        <field name="lang_id" ref="base.lang_ja_JP" />
     </record>
     <record id="res_partner_title_onchuu" model="res.partner.title">
         <field name="name">御中</field>
         <field name="shortcut">御中</field>
         <field name="display_position">after</field>
-        <field name="lang_id" ref="base.lang_ja_JP" />
-        <field name="for_company" eval="True" />
     </record>
 </odoo>
