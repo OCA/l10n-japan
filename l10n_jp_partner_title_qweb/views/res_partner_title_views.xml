@@ -17,8 +17,6 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='shortcut']" position="after">
                 <field name="display_position" />
-                <field name="lang_id" />
-                <field name="for_company" />
             </xpath>
         </field>
     </record>
