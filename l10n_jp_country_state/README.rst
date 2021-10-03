@@ -25,7 +25,7 @@ Japan Country States
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
-This module will load translation of Japanese prefectures.
+This module updates country state data of Japan with translation.
 
 **Table of contents**
 
