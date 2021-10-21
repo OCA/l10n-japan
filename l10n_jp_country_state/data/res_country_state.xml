@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="base.state_jp_jp-01" model="res.country.state">
+      <field name="name">Hokkaido</field>
+    </record>
+    <record id="base.state_jp_jp-02" model="res.country.state">
+      <field name="name">Aomori</field>
+    </record>
+    <record id="base.state_jp_jp-03" model="res.country.state">
+      <field name="name">Iwate</field>
+    </record>
+    <record id="base.state_jp_jp-04" model="res.country.state">
+      <field name="name">Miyagi</field>
+    </record>
+    <record id="base.state_jp_jp-05" model="res.country.state">
+      <field name="name">Akita</field>
+    </record>
+    <record id="base.state_jp_jp-06" model="res.country.state">
+      <field name="name">Yamagata</field>
+    </record>
+    <record id="base.state_jp_jp-07" model="res.country.state">
+      <field name="name">Fukushima</field>
+    </record>
+    <record id="base.state_jp_jp-08" model="res.country.state">
+      <field name="name">Ibraki</field>
+    </record>
+    <record id="base.state_jp_jp-09" model="res.country.state">
+      <field name="name">Tochigi</field>
+    </record>
+    <record id="base.state_jp_jp-10" model="res.country.state">
+      <field name="name">Gunma</field>
+    </record>
+    <record id="base.state_jp_jp-11" model="res.country.state">
+      <field name="name">Saitama</field>
+    </record>
+    <record id="base.state_jp_jp-12" model="res.country.state">
+      <field name="name">Chiba</field>
+    </record>
+    <record id="base.state_jp_jp-13" model="res.country.state">
+      <field name="name">Tokyo</field>
+    </record>
+    <record id="base.state_jp_jp-14" model="res.country.state">
+      <field name="name">Kanagawa</field>
+    </record>
+    <record id="base.state_jp_jp-15" model="res.country.state">
+      <field name="name">Niigata</field>
+    </record>
+    <record id="base.state_jp_jp-16" model="res.country.state">
+      <field name="name">Toyama</field>
+    </record>
+    <record id="base.state_jp_jp-17" model="res.country.state">
+      <field name="name">Ishikawa</field>
+    </record>
+    <record id="base.state_jp_jp-18" model="res.country.state">
+      <field name="name">Fukui</field>
+    </record>
+    <record id="base.state_jp_jp-19" model="res.country.state">
+      <field name="name">Yamanashi</field>
+    </record>
+    <record id="base.state_jp_jp-20" model="res.country.state">
+      <field name="name">Nagano</field>
+    </record>
+    <record id="base.state_jp_jp-21" model="res.country.state">
+      <field name="name">Gifu</field>
+    </record>
+    <record id="base.state_jp_jp-22" model="res.country.state">
+      <field name="name">Shizuoka</field>
+    </record>
+    <record id="base.state_jp_jp-23" model="res.country.state">
+      <field name="name">Aichi</field>
+    </record>
+    <record id="base.state_jp_jp-24" model="res.country.state">
+      <field name="name">Mie</field>
+    </record>
+    <record id="base.state_jp_jp-25" model="res.country.state">
+      <field name="name">Shiga</field>
+    </record>
+    <record id="base.state_jp_jp-26" model="res.country.state">
+      <field name="name">Kyoto</field>
+    </record>
+    <record id="base.state_jp_jp-27" model="res.country.state">
+      <field name="name">Osaka</field>
+    </record>
+    <record id="base.state_jp_jp-28" model="res.country.state">
+      <field name="name">Hyogo</field>
+    </record>
+    <record id="base.state_jp_jp-29" model="res.country.state">
+      <field name="name">Nara</field>
+    </record>
+    <record id="base.state_jp_jp-30" model="res.country.state">
+      <field name="name">Wakayama</field>
+    </record>
+    <record id="base.state_jp_jp-31" model="res.country.state">
+      <field name="name">Tottori</field>
+    </record>
+    <record id="base.state_jp_jp-32" model="res.country.state">
+      <field name="name">Shimane</field>
+    </record>
+    <record id="base.state_jp_jp-33" model="res.country.state">
+      <field name="name">Okayama</field>
+    </record>
+    <record id="base.state_jp_jp-34" model="res.country.state">
+      <field name="name">Hiroshima</field>
+    </record>
+    <record id="base.state_jp_jp-35" model="res.country.state">
+      <field name="name">Yamaguchi</field>
+    </record>
+    <record id="base.state_jp_jp-36" model="res.country.state">
+      <field name="name">Tokushima</field>
+    </record>
+    <record id="base.state_jp_jp-37" model="res.country.state">
+      <field name="name">Kagawa</field>
+    </record>
+    <record id="base.state_jp_jp-38" model="res.country.state">
+      <field name="name">Ehime</field>
+    </record>
+    <record id="base.state_jp_jp-39" model="res.country.state">
+      <field name="name">Kochi</field>
+    </record>
+    <record id="base.state_jp_jp-40" model="res.country.state">
+      <field name="name">Fukuoka</field>
+    </record>
+    <record id="base.state_jp_jp-41" model="res.country.state">
+      <field name="name">Saga</field>
+    </record>
+    <record id="base.state_jp_jp-42" model="res.country.state">
+      <field name="name">Nagasaki</field>
+    </record>
+    <record id="base.state_jp_jp-43" model="res.country.state">
+      <field name="name">Kumamoto</field>
+    </record>
+    <record id="base.state_jp_jp-44" model="res.country.state">
+      <field name="name">Oita</field>
+    </record>
+    <record id="base.state_jp_jp-45" model="res.country.state">
+      <field name="name">Miyazaki</field>
+    </record>
+    <record id="base.state_jp_jp-46" model="res.country.state">
+      <field name="name">Kagoshima</field>
+    </record>
+    <record id="base.state_jp_jp-47" model="res.country.state">
+      <field name="name">Okinawa</field>
+    </record>
+
+</odoo>
