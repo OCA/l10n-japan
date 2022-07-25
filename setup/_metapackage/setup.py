@@ -8,6 +8,7 @@ setuptools.setup(
     description="Meta package for oca-l10n-japan Odoo addons",
     version=version,
     install_requires=[
+        'odoo13-addon-l10n_jp_address_layout',
         'odoo13-addon-l10n_jp_country_state',
     ],
     classifiers=[
