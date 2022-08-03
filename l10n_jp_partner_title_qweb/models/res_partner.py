@@ -15,7 +15,6 @@ class ResPartner(models.Model):
         readonly=False,
     )
 
-    @api.multi
     @api.depends("lang", "is_company")
     def _compute_title(self):
         for partner in self:
