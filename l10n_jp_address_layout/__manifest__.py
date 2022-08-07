@@ -2,8 +2,8 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 {
     "name": "Japan Address Layout",
-    "version": "13.0.1.0.0",
-    "depends": ["base"],
+    "version": "13.0.1.0.1",
+    "depends": ["web"],
     "author": "Quartile Limited, " "Odoo Community Association (OCA)",
     "license": "LGPL-3",
     "website": "https://github.com/OCA/l10n-japan",
