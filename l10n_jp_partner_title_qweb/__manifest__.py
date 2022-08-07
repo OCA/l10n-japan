@@ -4,7 +4,7 @@
     "name": "Japan Partner Title QWeb",
     "version": "13.0.1.0.0",
     "depends": ["base"],
-    "author": "Quartile Limited, " "Odoo Community Association (OCA)",
+    "author": "Quartile Limited, Odoo Community Association (OCA)",
     "license": "LGPL-3",
     "website": "https://github.com/OCA/l10n-japan",
     "category": "Localization",
