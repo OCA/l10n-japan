@@ -17,7 +17,11 @@ TODO: add repo description.
 
 [//]: # (addons)
 
-This part will be replaced when running the oca-gen-addons-table script from OCA/maintainer-tools.
+Available addons
+----------------
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[l10n_jp_address_layout](l10n_jp_address_layout/) | 15.0.1.0.0 |  | Japan Address Layout
 
 [//]: # (end addons)
 
