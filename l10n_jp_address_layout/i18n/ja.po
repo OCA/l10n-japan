@@ -23,6 +23,11 @@ msgstr "(編集)"
 
 #. module: l10n_jp_address_layout
 #: model_terms:ir.ui.view,arch_db:l10n_jp_address_layout.res_partner_japan_address_form
+msgid "<span class=\"oe_read_only\">〒</span>"
+msgstr ""
+
+#. module: l10n_jp_address_layout
+#: model_terms:ir.ui.view,arch_db:l10n_jp_address_layout.res_partner_japan_address_form
 msgid "City"
 msgstr "市区町村"
 
