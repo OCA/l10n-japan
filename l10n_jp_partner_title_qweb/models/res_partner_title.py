@@ -8,5 +8,6 @@ class ResPartnerTitle(models.Model):
     _inherit = "res.partner.title"
 
     display_position = fields.Selection(
-        [("before", "Before Name"), ("after", "After Name")], string="Display Position",
+        [("before", "Before Name"), ("after", "After Name")],
+        string="Display Position",
     )
