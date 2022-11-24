@@ -1,1 +1,1 @@
-This module updates country state data of Japan with translation.
+This module only adds translations to country state records for Japan, for the sake of convenience.
