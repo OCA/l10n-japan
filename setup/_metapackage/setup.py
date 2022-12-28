@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo-addon-l10n_jp_address_layout>=15.0dev,<15.1dev',
+        'odoo-addon-l10n_jp_partner_title_qweb>=15.0dev,<15.1dev',
     ],
     classifiers=[
         'Programming Language :: Python',
