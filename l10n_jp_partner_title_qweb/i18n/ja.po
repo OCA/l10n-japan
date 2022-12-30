@@ -17,19 +17,14 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: l10n_jp_partner_title_qweb
-#: selection:res.partner.title,display_position:0
+#: model:ir.model.fields.selection,name:l10n_jp_partner_title_qweb.selection__res_partner_title__display_position__after
 msgid "After Name"
 msgstr "名前の後"
 
 #. module: l10n_jp_partner_title_qweb
-#: selection:res.partner.title,display_position:0
+#: model:ir.model.fields.selection,name:l10n_jp_partner_title_qweb.selection__res_partner_title__display_position__before
 msgid "Before Name"
 msgstr "名前の前"
-
-#. module: l10n_jp_partner_title_qweb
-#: model:ir.model,name:l10n_jp_partner_title_qweb.model_res_partner
-msgid "Contact"
-msgstr "連絡先"
 
 #. module: l10n_jp_partner_title_qweb
 #: model:ir.model.fields,field_description:l10n_jp_partner_title_qweb.field_res_partner_title__display_position
@@ -37,52 +32,37 @@ msgid "Display Position"
 msgstr "表示位置"
 
 #. module: l10n_jp_partner_title_qweb
-#: model:ir.model.fields,field_description:l10n_jp_partner_title_qweb.field_res_partner_title__for_company
-msgid "For Company"
-msgstr "会社用"
-
-#. module: l10n_jp_partner_title_qweb
-#: model:ir.model.fields,help:l10n_jp_partner_title_qweb.field_res_partner_title__for_company
-msgid ""
-"If selected, this title should be proposed to company partners according to "
-"the language selection of the partner."
-msgstr ""
-"選択された場合、この敬称は「会社」の取引先にて言語選択に応じて提案されます。"
-
-#. module: l10n_jp_partner_title_qweb
-#: model:ir.model.fields,field_description:l10n_jp_partner_title_qweb.field_res_partner_title__lang_id
-msgid "Language"
-msgstr "言語"
-
-#. module: l10n_jp_partner_title_qweb
 #: model:ir.model,name:l10n_jp_partner_title_qweb.model_res_partner_title
 msgid "Partner Title"
 msgstr "取引先敬称"
 
-#. module: l10n_jp_partner_title_qweb
-#: model:ir.model.fields,help:l10n_jp_partner_title_qweb.field_res_partner_title__lang_id
-msgid ""
-"The Language for which this title should be proposed in partner records."
-msgstr "選択した言語の取引先に、この敬称を提案します。"
+#~ msgid "Contact"
+#~ msgstr "連絡先"
 
-#. module: l10n_jp_partner_title_qweb
-#: model:ir.model.fields,field_description:l10n_jp_partner_title_qweb.field_res_partner__title
-#: model:ir.model.fields,field_description:l10n_jp_partner_title_qweb.field_res_users__title
-msgid "Title"
-msgstr "敬称"
+#~ msgid "For Company"
+#~ msgstr "会社用"
 
-#. module: l10n_jp_partner_title_qweb
-#: code:addons/l10n_jp_partner_title_qweb/models/res_partner_title.py:33
+#~ msgid ""
+#~ "If selected, this title should be proposed to company partners according "
+#~ "to the language selection of the partner."
+#~ msgstr ""
+#~ "選択された場合、この敬称は「会社」の取引先にて言語選択に応じて提案されま"
+#~ "す。"
+
+#~ msgid "Language"
+#~ msgstr "言語"
+
+#~ msgid ""
+#~ "The Language for which this title should be proposed in partner records."
+#~ msgstr "選択した言語の取引先に、この敬称を提案します。"
+
+#~ msgid "Title"
+#~ msgstr "敬称"
+
 #, python-format
-msgid ""
-"You cannot have more than one record for a combination of \"Language\" and "
-"\"For Company\"."
-msgstr ""
-"同一の「言語」と「会社用」の組み合わせで複数のレコードを持つことはできませ"
-"ん。"
-
-#. module: l10n_jp_partner_title_qweb
-#: model:res.partner.title,name:l10n_jp_partner_title_qweb.res_partner_title_onchuu
-#: model:res.partner.title,shortcut:l10n_jp_partner_title_qweb.res_partner_title_onchuu
-msgid "御中"
-msgstr ""
+#~ msgid ""
+#~ "You cannot have more than one record for a combination of \"Language\" "
+#~ "and \"For Company\"."
+#~ msgstr ""
+#~ "同一の「言語」と「会社用」の組み合わせで複数のレコードを持つことはできませ"
+#~ "ん。"
