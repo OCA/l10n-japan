@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="registration_number">
+        <t
+            t-if="o and o._name in ('account.move', 'account.payment') and o._show_registration_number()"
+        >
+            <div>Registration No.: <span t-field="company.vat" /></div>
+        </t>
+    </template>
+    <template
+        id="l10n_jp_external_layout_standard"
+        inherit_id="web.external_layout_standard"
+    >
+        <xpath expr="//div[@name='company_address']/.." position="after">
+            <t
+                t-call="l10n_jp_account_report_registration_number.registration_number"
+            />
+        </xpath>
+    </template>
+    <template id="l10n_jp_external_layout_bold" inherit_id="web.external_layout_bold">
+        <xpath expr="//div[@name='company_address']" position="inside">
+            <t
+                t-call="l10n_jp_account_report_registration_number.registration_number"
+            />
+        </xpath>
+    </template>
+    <template id="l10n_jp_external_layout_boxed" inherit_id="web.external_layout_boxed">
+        <xpath expr="//div[@name='company_address']" position="inside">
+            <t
+                t-call="l10n_jp_account_report_registration_number.registration_number"
+            />
+        </xpath>
+    </template>
+    <template
+        id="l10n_jp_external_layout_striped"
+        inherit_id="web.external_layout_striped"
+    >
+        <xpath
+            expr="//div[hasclass('float-start') and hasclass('company_address')]"
+            position="inside"
+        >
+            <t
+                t-call="l10n_jp_account_report_registration_number.registration_number"
+            />
+        </xpath>
+    </template>
+</odoo>
