@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0+e\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-03 10:03+0000\n"
-"PO-Revision-Date: 2024-02-03 10:03+0000\n"
+"POT-Creation-Date: 2024-02-07 08:04+0000\n"
+"PO-Revision-Date: 2024-02-07 08:04+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,12 +21,14 @@ msgid "Contact"
 msgstr "連絡先"
 
 #. module: l10n_jp_partner_zip_address
+#. odoo-python
 #: code:addons/l10n_jp_partner_zip_address/models/zip_search_mixin.py:0
 #, python-format
 msgid "Only digits are allowed."
 msgstr "数値のみで入力してください。"
 
 #. module: l10n_jp_partner_zip_address
+#. odoo-python
 #: code:addons/l10n_jp_partner_zip_address/models/zip_search_mixin.py:0
 #, python-format
 msgid "Postcode should be 7 digits."

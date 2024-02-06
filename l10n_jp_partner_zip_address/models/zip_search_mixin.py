@@ -28,7 +28,7 @@ class ZipSearchMixin(models.AbstractModel):
 
     def _make_zip_request(self, request_url):
         try:
-            response = requests.get(request_url)
+            response = requests.get(request_url, timeout=10)
             response.raise_for_status()  # Raise HTTPError for bad responses
             return response.json()
         except requests.exceptions.HTTPError as http_err:
@@ -54,6 +54,12 @@ class ZipSearchMixin(models.AbstractModel):
             self.state_id = self.env["res.country.state"].search(
                 [("name", "=", address_data[0]["address1"])], limit=1
             )
+            if not self.state_id and self.env.lang != "ja_JP":
+                self.state_id = (
+                    self.env["res.country.state"]
+                    .with_context(lang="ja_JP")
+                    .search([("name", "=", address_data[0]["address1"])], limit=1)
+                )
             self.city = address_data[0]["address2"]
             self.street = address_data[0]["address3"]
             self.country_id = japan
