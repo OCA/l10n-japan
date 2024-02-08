@@ -28,7 +28,7 @@ class ZipSearchMixin(models.AbstractModel):
 
     def _make_zip_request(self, request_url):
         try:
-            response = requests.get(request_url)
+            response = requests.get(request_url, timeout=10)
             response.raise_for_status()  # Raise HTTPError for bad responses
             return response.json()
         except requests.exceptions.HTTPError as http_err:
