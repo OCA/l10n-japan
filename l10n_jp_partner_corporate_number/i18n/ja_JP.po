@@ -1,0 +1,108 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_jp_partner_corporate_number
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-16 03:20+0000\n"
+"PO-Revision-Date: 2024-04-16 03:20+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_jp_partner_corporate_number
+#: model:ir.model,name:l10n_jp_partner_corporate_number.model_res_company
+msgid "Companies"
+msgstr "会社"
+
+#. module: l10n_jp_partner_corporate_number
+#: model:ir.model,name:l10n_jp_partner_corporate_number.model_res_partner
+msgid "Contact"
+msgstr "連絡先"
+
+#. module: l10n_jp_partner_corporate_number
+#: model:ir.model.fields,field_description:l10n_jp_partner_corporate_number.field_res_partner__corporate_number
+#: model:ir.model.fields,field_description:l10n_jp_partner_corporate_number.field_res_users__corporate_number
+#: model_terms:ir.ui.view,arch_db:l10n_jp_partner_corporate_number.view_res_partner_search_inherit
+msgid "Corporate Number"
+msgstr "法人番号"
+
+#. module: l10n_jp_partner_corporate_number
+#. odoo-python
+#: code:addons/l10n_jp_partner_corporate_number/models/res_partner.py:0
+#, python-format
+msgid "Corporate Number must be 13 digits."
+msgstr ""
+
+#. module: l10n_jp_partner_corporate_number
+#: model:ir.model.fields,help:l10n_jp_partner_corporate_number.field_res_company__error_message
+msgid ""
+"Custom error message to display when a duplicate corporate number is "
+"detected and behavior is set to 'Error'."
+msgstr ""
+
+#. module: l10n_jp_partner_corporate_number
+#: model:ir.model.fields,help:l10n_jp_partner_corporate_number.field_res_company__warning_message
+msgid ""
+"Custom warning message to display when a duplicate corporate number is "
+"detected and behavior is set to 'Warning'."
+msgstr ""
+
+#. module: l10n_jp_partner_corporate_number
+#: model:ir.model.fields,help:l10n_jp_partner_corporate_number.field_res_company__duplicate_corp_number_behavior
+msgid ""
+"Define the behavior when a duplicate corporate number is detected: 'Error' "
+"will block the operation, 'Warning' will allow but notify."
+msgstr ""
+
+#. module: l10n_jp_partner_corporate_number
+#: model:ir.model.fields,field_description:l10n_jp_partner_corporate_number.field_res_company__duplicate_corp_number_behavior
+msgid "Duplicate Corp Number Behavior"
+msgstr ""
+
+#. module: l10n_jp_partner_corporate_number
+#: model_terms:ir.ui.view,arch_db:l10n_jp_partner_corporate_number.view_company_form_inherit
+msgid "Duplicate Corp Number Settings"
+msgstr ""
+
+#. module: l10n_jp_partner_corporate_number
+#: model:ir.model.fields,field_description:l10n_jp_partner_corporate_number.field_res_partner__duplicate_corp_number_warning_message
+#: model:ir.model.fields,field_description:l10n_jp_partner_corporate_number.field_res_users__duplicate_corp_number_warning_message
+msgid "Duplicate Corp Number Warning Message"
+msgstr ""
+
+#. module: l10n_jp_partner_corporate_number
+#: model:ir.model.fields.selection,name:l10n_jp_partner_corporate_number.selection__res_company__duplicate_corp_number_behavior__error
+msgid "Error"
+msgstr ""
+
+#. module: l10n_jp_partner_corporate_number
+#: model:ir.model.fields,field_description:l10n_jp_partner_corporate_number.field_res_company__error_message
+msgid "Error Message for Duplicate Corp Number"
+msgstr ""
+
+#. module: l10n_jp_partner_corporate_number
+#: model_terms:ir.ui.view,arch_db:l10n_jp_partner_corporate_number.view_partner_form_corporate_number
+msgid "Get corp. info."
+msgstr "法人情報取得"
+
+#. module: l10n_jp_partner_corporate_number
+#: model:ir.model.fields,help:l10n_jp_partner_corporate_number.field_res_partner__corporate_number
+#: model:ir.model.fields,help:l10n_jp_partner_corporate_number.field_res_users__corporate_number
+msgid "Japanese Corporate Registration Number"
+msgstr "日本の法人番号"
+
+#. module: l10n_jp_partner_corporate_number
+#: model:ir.model.fields.selection,name:l10n_jp_partner_corporate_number.selection__res_company__duplicate_corp_number_behavior__warning
+msgid "Warning"
+msgstr ""
+
+#. module: l10n_jp_partner_corporate_number
+#: model:ir.model.fields,field_description:l10n_jp_partner_corporate_number.field_res_company__warning_message
+msgid "Warning Message for Duplicate Corp Number"
+msgstr ""

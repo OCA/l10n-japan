@@ -1,0 +1,27 @@
+<odoo>
+    <record id="view_company_form_inherit" model="ir.ui.view">
+        <field name="name">res.company.form.inherit</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='general_info']" position="after">
+                <page
+                    string="Duplicate Corp Number Settings"
+                    name="duplicate_corp_number_settings"
+                >
+                    <group>
+                        <field name="duplicate_corp_number_behavior" />
+                        <field
+                            name="error_message"
+                            attrs="{'invisible': [('duplicate_corp_number_behavior', '!=', 'error')]}"
+                        />
+                        <field
+                            name="warning_message"
+                            attrs="{'invisible': [('duplicate_corp_number_behavior', '!=', 'warning')]}"
+                        />
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
