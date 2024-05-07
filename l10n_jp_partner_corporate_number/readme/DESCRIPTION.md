@@ -1,0 +1,1 @@
+This module add a corporate registration number by Japanese government and get it information through API.

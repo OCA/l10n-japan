@@ -1,0 +1,60 @@
+<odoo>
+    <record id="view_res_partner_search_inherit" model="ir.ui.view">
+        <field name="name">res.partner.search.corpnum.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter" />
+        <field name="arch" type="xml">
+            <search>
+                <field name="corporate_number" />
+                <filter
+                    string="Corporate Number"
+                    name="corporate_number"
+                    domain="[('corporate_number','ilike',self)]"
+                />
+            </search>
+        </field>
+    </record>
+    <record id="view_res_partner_list_inherit" model="ir.ui.view">
+        <field name="name">res.partner.list.corpnum.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='display_name']" position="after">
+                <field name="corporate_number" optional="show" />
+            </xpath>
+        </field>
+    </record>
+    <record id="view_partner_form_corporate_number" model="ir.ui.view">
+        <field name="name">res.partner.form.corporate.number</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <div
+                    class="alert alert-danger"
+                    role="alert"
+                    attrs="{'invisible': [('duplicate_corp_number_warning_message', '=', False)]}"
+                >
+                    <field
+                        name="duplicate_corp_number_warning_message"
+                        class="oe_inline"
+                    />
+                </div>
+            </xpath>
+            <xpath expr="//form/sheet" position="before">
+                <button
+                    string="Get corp. info."
+                    type="object"
+                    name="fetch_corporate_info"
+                    attrs="{'invisible':[('company_type', '=', 'person'), ('parent_id', '!=', False)]}"
+                />
+            </xpath>
+            <xpath expr="//field[@name='vat']" position="after">
+                <field
+                    name="corporate_number"
+                    attrs="{'invisible':[('company_type', '=', 'person'), ('parent_id', '!=', False)]}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
