@@ -1,0 +1,59 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* report_alternative_layout
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-15 08:24+0000\n"
+"PO-Revision-Date: 2025-02-15 08:24+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: report_alternative_layout
+#: model_terms:ir.ui.view,arch_db:report_alternative_layout.external_layout_standard
+msgid "<strong>Remit-to:</strong>"
+msgstr "<strong>振込先:</strong>"
+
+#. module: report_alternative_layout
+#: model:ir.model.fields,field_description:report_alternative_layout.field_ir_actions_report__apply_alternative_layout
+msgid "Apply Alternative Layout"
+msgstr "代替レイアウトを適用"
+
+#. module: report_alternative_layout
+#: model:ir.model.fields,help:report_alternative_layout.field_ir_actions_report__show_remit_to_bank
+msgid "If selected, remit-to bank account will show in the report output."
+msgstr "選択すると、印刷帳票に振込先が表示されます。"
+
+#. module: report_alternative_layout
+#: model:ir.model.fields,help:report_alternative_layout.field_ir_actions_report__apply_alternative_layout
+msgid ""
+"If selected, the alternative layout will be applied in the printed report."
+msgstr "選択すると、印刷帳票に代替レイアウトが適用されます。"
+
+#. module: report_alternative_layout
+#: model:ir.model.fields,help:report_alternative_layout.field_ir_actions_report__show_commercial_partner
+msgid ""
+"If selected, the commercial partner of the document partner will show in the"
+" report output (instead of the document partner)."
+msgstr "選択すると、ドキュメントの取引先の代わりに商業取引先(親)がレポートで出力されます。"
+
+#. module: report_alternative_layout
+#: model:ir.model,name:report_alternative_layout.model_ir_actions_report
+msgid "Report Action"
+msgstr "レポートアクション"
+
+#. module: report_alternative_layout
+#: model:ir.model.fields,field_description:report_alternative_layout.field_ir_actions_report__show_commercial_partner
+msgid "Show Commercial Partner"
+msgstr "商業取引先(親)を表示"
+
+#. module: report_alternative_layout
+#: model:ir.model.fields,field_description:report_alternative_layout.field_ir_actions_report__show_remit_to_bank
+msgid "Show Remit-to Bank"
+msgstr "振込先を表示"
