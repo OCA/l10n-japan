@@ -1,0 +1,16 @@
+<odoo>
+    <record id="view_act_report_form" model="ir.ui.view">
+        <field name="name">ir.actions.report</field>
+        <field name="model">ir.actions.report</field>
+        <field name="inherit_id" ref="base.act_report_xml_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']/../.." position="inside">
+                <group>
+                    <field name="apply_alternative_layout" />
+                    <field name="show_commercial_partner" />
+                    <field name="show_remit_to_bank" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
