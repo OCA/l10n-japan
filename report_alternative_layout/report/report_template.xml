@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="external_layout_standard" inherit_id="web.external_layout_standard">
+        <!-- Hide company address in the header if alternative layout is selected -->
+        <xpath expr="//div[@name='company_address']/ul" position="attributes">
+            <attribute
+                name="t-if"
+            >not env.context.get('apply_alternative_layout')</attribute>
+        </xpath>
+        <!-- Show company address in the body if alternative layout is selected -->
+        <xpath expr="//t[@t-call='web.address_layout']" position="attributes">
+            <attribute
+                name="t-if"
+            >not env.context.get('apply_alternative_layout')</attribute>
+        </xpath>
+        <xpath expr="//t[@t-call='web.address_layout']" position="after">
+            <t t-else="">
+                <t
+                    t-set="report"
+                    t-value="o.env['ir.actions.report']._get_report_from_name(xmlid)"
+                />
+                <t t-set="partner" t-value="report._get_partner(o.partner_id)" />
+                <div class="row" name="address_layout">
+                    <div class="col-7" name="partner_address">
+                        <div
+                            t-esc="partner"
+                            t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": true}'
+                        />
+                        <div
+                            name="information_block"
+                            t-if="information_block"
+                            class="mt-3"
+                        >
+                            <t t-out="information_block" />
+                        </div>
+                    </div>
+                    <div class="col-5" name="company_address">
+                        <ul class="list-unstyled">
+                            <li t-if="company.is_company_details_empty">
+                                <t
+                                    t-esc="company.partner_id"
+                                    t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'
+                                />
+                            </li>
+                            <li t-else=""><t t-esc="company.company_details" /></li>
+                            <li t-if="forced_vat">
+                                <t t-esc="company.country_id.vat_label or 'Tax ID'" />:
+                                <span t-esc="forced_vat" />
+                            </li>
+                        </ul>
+                        <t
+                            t-set="remit_to_bank"
+                            t-value="report._get_remit_to_bank(o)"
+                        />
+                        <div name="remit_to_bank" t-if="remit_to_bank" class="mt16">
+                            <strong>Remit-to:</strong>
+                            <ul class="list-unstyled">
+                                <li><span t-field="remit_to_bank.bank_id" /></li>
+                                <li><span t-field="remit_to_bank.acc_number" /></li>
+                                <li>
+                                    <span t-field="remit_to_bank.acc_holder_name" />
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+    </template>
+</odoo>
