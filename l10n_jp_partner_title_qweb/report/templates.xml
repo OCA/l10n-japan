@@ -3,12 +3,12 @@
     <template id="contact_name" inherit_id="base.contact_name">
         <xpath expr="//span[@itemprop='name']" position="before">
             <t t-if="object.title and object.title.display_position == 'before'">
-                <span itemprop="title" t-esc="object.title.name" />
+                <span itemprop="title" t-field="object.title" />
             </t>
         </xpath>
         <xpath expr="//span[@itemprop='name']" position="after">
             <t t-if="object.title and object.title.display_position == 'after'">
-                <span itemprop="title" t-esc="object.title.name" />
+                <span itemprop="title" t-field="object.title" />
             </t>
         </xpath>
     </template>
