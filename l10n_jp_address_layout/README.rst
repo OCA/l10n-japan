@@ -39,8 +39,8 @@ form to be in Japanese style (postal code -> prefecture -> city...).
 Usage
 =====
 
-The address layout of the partner form will look as shown in below
-image.
+The address layout of the partner form will appear as shown in the image
+below when your company's country is set to Japan.
 
 |image1|
 
@@ -62,7 +62,7 @@ Credits
 Authors
 -------
 
-* Quartile Limited
+* Quartile
 
 Contributors
 ------------
