@@ -8,15 +8,6 @@
                 <div class="o_address_format">
                     <field name="type" invisible="1" />
                     <field name="parent_id" invisible="1" />
-                    <div class="oe_edit_only">
-                        <button
-                            name="open_parent"
-                            type="object"
-                            string="(edit)"
-                            class="oe_link"
-                            invisible="type != 'contact' or not parent_id"
-                        />
-                    </div>
                     <div>
                         <span>〒</span>
                         <field
