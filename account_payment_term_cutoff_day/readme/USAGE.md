@@ -1,0 +1,4 @@
+- Create an invoice/bill.
+- Choose the payment term in which you have assigned cutoff_day in the payment term line.
+- Choose an invoice date/bill date that is later than cutoff_day.
+- You will see that the due date is extended by one extra month compared to the normal due date.
