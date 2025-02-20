@@ -1,0 +1,40 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_payment_term_cutoff_day
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-21 02:37+0000\n"
+"PO-Revision-Date: 2025-02-21 02:37+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_payment_term_cutoff_day
+#: model:ir.model.fields,field_description:account_payment_term_cutoff_day.field_account_payment_term_line__cutoff_day
+msgid "Cutoff Day"
+msgstr "締日"
+
+#. module: account_payment_term_cutoff_day
+#: model:ir.model,name:account_payment_term_cutoff_day.model_account_payment_term_line
+msgid "Payment Terms Line"
+msgstr "支払条件明細"
+
+#. module: account_payment_term_cutoff_day
+#: model:ir.model.fields,help:account_payment_term_cutoff_day.field_account_payment_term_line__cutoff_day
+msgid ""
+"Specify the cutoff day of the month for adjusting invoice due dates.For "
+"example, if you set this field to 20, any invoice dated on the 21st or later"
+" will have its due date moved to the following month.Setting 0 is treated "
+"the same as having no cutoff day, which in practice is the same as setting "
+"31."
+msgstr ""
+"請求書の支払期日を調整するための月の締日を指定してください。"
+"例えば、このフィールドを20に設定すると、請求書の日付が21日以降の場合、"
+"その支払期日は翌月に繰り越されます。"
+"0を設定すると締日が無いものとして扱われ、実質的に31と同じ設定になります。"
