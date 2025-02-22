@@ -8,6 +8,7 @@ setuptools.setup(
     description="Meta package for oca-l10n-japan Odoo addons",
     version=version,
     install_requires=[
+        'odoo-addon-account_payment_term_cutoff_day>=16.0dev,<16.1dev',
         'odoo-addon-l10n_jp_account_report_registration_number>=16.0dev,<16.1dev',
         'odoo-addon-l10n_jp_address_layout>=16.0dev,<16.1dev',
         'odoo-addon-l10n_jp_country_state>=16.0dev,<16.1dev',
