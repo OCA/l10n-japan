@@ -1,0 +1,57 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* report_alternative_layout
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: report_alternative_layout
+#: model_terms:ir.ui.view,arch_db:report_alternative_layout.external_layout_standard
+msgid "<strong>Remit-to:</strong>"
+msgstr ""
+
+#. module: report_alternative_layout
+#: model:ir.model.fields,field_description:report_alternative_layout.field_ir_actions_report__apply_alternative_layout
+msgid "Apply Alternative Layout"
+msgstr ""
+
+#. module: report_alternative_layout
+#: model:ir.model.fields,help:report_alternative_layout.field_ir_actions_report__show_remit_to_bank
+msgid "If selected, remit-to bank account will show in the report output."
+msgstr ""
+
+#. module: report_alternative_layout
+#: model:ir.model.fields,help:report_alternative_layout.field_ir_actions_report__apply_alternative_layout
+msgid ""
+"If selected, the alternative layout will be applied in the printed report."
+msgstr ""
+
+#. module: report_alternative_layout
+#: model:ir.model.fields,help:report_alternative_layout.field_ir_actions_report__show_commercial_partner
+msgid ""
+"If selected, the commercial partner of the document partner will show in the"
+" report output (instead of the document partner)."
+msgstr ""
+
+#. module: report_alternative_layout
+#: model:ir.model,name:report_alternative_layout.model_ir_actions_report
+msgid "Report Action"
+msgstr ""
+
+#. module: report_alternative_layout
+#: model:ir.model.fields,field_description:report_alternative_layout.field_ir_actions_report__show_commercial_partner
+msgid "Show Commercial Partner"
+msgstr ""
+
+#. module: report_alternative_layout
+#: model:ir.model.fields,field_description:report_alternative_layout.field_ir_actions_report__show_remit_to_bank
+msgid "Show Remit-to Bank"
+msgstr ""
