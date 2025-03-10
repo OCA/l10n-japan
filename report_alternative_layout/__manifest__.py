@@ -1,4 +1,4 @@
-# Copyright 2024 Quartile
+# Copyright 2024-2025 Quartile (https://www.quartile.co)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
     "name": "Report Alternative Layout",
@@ -7,7 +7,7 @@
     "license": "AGPL-3",
     "author": "Quartile, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/l10n-japan",
-    "depends": ["base"],
+    "depends": ["web"],
     "data": [
         "data/report_paperformat_data.xml",
         "report/report_template.xml",
