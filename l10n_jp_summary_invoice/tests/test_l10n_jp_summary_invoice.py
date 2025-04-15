@@ -1,0 +1,175 @@
+# Copyright 2024 Quartile
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+
+from odoo.exceptions import ValidationError
+from odoo.fields import Command
+from odoo.tests.common import TransactionCase
+
+
+class TestSummaryInvoice(TransactionCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.company = cls.env["res.company"].create(
+            {
+                "name": "test company",
+                "currency_id": cls.env.ref("base.JPY").id,
+                "country_id": cls.env.ref("base.jp").id,
+                "tax_calculation_rounding_method": "round_globally",
+            }
+        )
+        cls.env.company = cls.company
+        account_receivable = cls.env["account.account"].create(
+            {
+                "code": "test2",
+                "name": "receivable",
+                "reconcile": True,
+                "account_type": "asset_receivable",
+            }
+        )
+        cls.partner = cls.env["res.partner"].create(
+            {
+                "name": "Test Partner",
+                "property_account_receivable_id": account_receivable.id,
+            }
+        )
+        cls.bank_account = cls.env["res.partner.bank"].create(
+            {
+                "partner_id": cls.env.company.partner_id.id,
+                "acc_number": "1234567890",
+            }
+        )
+        cls.product = cls.env["product.product"].create({"name": "Test Product"})
+        cls.tax_10 = cls.env["account.tax"].create(
+            {
+                "name": "Test Tax 10%",
+                "amount": 10.0,
+                "type_tax_use": "sale",
+            }
+        )
+        cls.journal = cls.env["account.journal"].create(
+            {"code": "test", "name": "test", "type": "sale"}
+        )
+        cls.account_income = cls.env["account.account"].create(
+            {
+                "code": "test1",
+                "name": "income",
+                "account_type": "income",
+            }
+        )
+
+    def _create_invoice(self, amount, tax, bank=None):
+        invoice = (
+            self.env["account.move"]
+            .with_company(self.company)
+            .create(
+                {
+                    "move_type": "out_invoice",
+                    "partner_id": self.partner.id,
+                    "partner_bank_id": bank and bank.id,
+                    "invoice_line_ids": [
+                        Command.create(
+                            {
+                                "product_id": self.product.id,
+                                "account_id": self.account_income.id,
+                                "quantity": 1,
+                                "price_unit": amount,
+                                "tax_ids": [Command.set(tax.ids)],
+                            }
+                        )
+                    ],
+                }
+            )
+        )
+        invoice.action_post()
+        return invoice
+
+    def test_get_moves_filters_billed_and_flags(self):
+        invoice = self._create_invoice(50, self.tax_10)
+        invoice.write({"is_not_for_billing": True})
+        billing = self.env["account.billing"].create({"partner_id": self.partner.id})
+        moves = billing._get_moves()
+        self.assertNotIn(invoice.id, moves.ids)
+
+    def test_constrains_invoice_not_for_billing(self):
+        invoice = self._create_invoice(100, self.tax_10)
+        invoice.write({"is_not_for_billing": True})
+        with self.assertRaises(ValidationError):
+            self.env["account.billing"].create(
+                {
+                    "partner_id": self.partner.id,
+                    "billing_line_ids": [Command.create({"move_id": invoice.id})],
+                }
+            )
+
+    def test_constrains_remit_to_bank_conflict(self):
+        invoice = self._create_invoice(100, self.tax_10, bank=self.bank_account)
+        other_bank = self.env["res.partner.bank"].create(
+            {
+                "partner_id": self.env.company.partner_id.id,
+                "acc_number": "other_bank_acc",
+            }
+        )
+        with self.assertRaises(ValidationError):
+            self.env["account.billing"].create(
+                {
+                    "partner_id": self.partner.id,
+                    "remit_to_bank_id": other_bank.id,
+                    "billing_line_ids": [Command.create({"move_id": invoice.id})],
+                }
+            )
+
+    def test_compute_billing_due_date(self):
+        inv1 = self._create_invoice(100, self.tax_10)
+        inv2 = self._create_invoice(200, self.tax_10)
+        inv1.invoice_date_due = inv1.invoice_date_due.replace(day=5)
+        inv2.invoice_date_due = inv2.invoice_date_due.replace(day=25)
+        billing = self.env["account.billing"].create(
+            {
+                "partner_id": self.partner.id,
+                "billing_line_ids": [
+                    Command.create({"move_id": inv1.id}),
+                    Command.create({"move_id": inv2.id}),
+                ],
+            }
+        )
+        self.assertEqual(billing.date_due, inv2.invoice_date_due)
+
+    def test_update_remit_to_bank_defaulting(self):
+        invoice = self._create_invoice(100, self.tax_10, bank=self.bank_account)
+        billing = self.env["account.billing"].create(
+            {
+                "partner_id": self.partner.id,
+                "billing_line_ids": [Command.create({"move_id": invoice.id})],
+            }
+        )
+        self.assertEqual(billing.remit_to_bank_id, self.bank_account)
+
+    def test_create_tax_adjustment_entry(self):
+        inv_1 = self._create_invoice(101, self.tax_10)
+        inv_2 = self._create_invoice(102, self.tax_10)
+        inv_3 = self._create_invoice(103, self.tax_10)
+        self.assertEqual(inv_1.amount_tax, 10)
+        self.assertEqual(inv_2.amount_tax, 10)
+        self.assertEqual(inv_3.amount_tax, 10)
+        invoices = inv_1 + inv_2 + inv_3
+        action = invoices.action_create_billing()
+        billing = self.env["account.billing"].browse(action["res_id"])
+        self.assertEqual(billing.state, "draft")
+        billing.with_company(self.company).validate_billing()
+        tax_totals = billing.tax_totals
+        groups_by_subtotal = tax_totals.get("groups_by_subtotal", {})
+        key = next(iter(groups_by_subtotal))
+        tax_group_amount_dict = {
+            entry["tax_group_id"]: entry["tax_group_amount"] * -1
+            for entry in groups_by_subtotal[key]
+        }
+        billing_tax_amount = round(
+            tax_group_amount_dict.get(self.tax_10.tax_group_id.id, 0), 0
+        )
+        self.assertEqual(abs(billing_tax_amount), 31)
+        tax_adjustment_entry = billing.tax_adjustment_entry_id
+        self.assertTrue(
+            tax_adjustment_entry, "Tax adjustment journal entry should be created."
+        )
+        self.assertEqual(tax_adjustment_entry.amount_total_signed, 1)
