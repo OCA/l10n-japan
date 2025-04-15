@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_account_billing_form_inherit" model="ir.ui.view">
+        <field name="name">account.billing.form.inherit</field>
+        <field name="model">account.billing</field>
+        <field name="inherit_id" ref="account_billing.view_account_billing_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_paid_all']" position="after">
+                <field name="company_partner_id" invisible="1" />
+                <field
+                    name="remit_to_bank_id"
+                    attrs="{'invisible':[('bill_type','!=','out_invoice')]}"
+                />
+            </xpath>
+            <xpath expr="//field[@name='date']" position="after">
+                <field
+                    name="date_due"
+                    attrs="{'invisible':[('bill_type','!=','out_invoice')]}"
+                />
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page
+                    string="Tax Adjustment"
+                    attrs="{'invisible':[('tax_adjustment_entry_id','=',False)]}"
+                >
+                    <group>
+                        <group>
+                            <field name="tax_adjustment_entry_id" readonly="1" />
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

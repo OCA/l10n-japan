@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field
+            name="name"
+        >res.config.settings.view.form - l10n_jp_summary_invoice</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <div id="invoicing_settings" position="after">
+                <h2>Summary Invoices</h2>
+                <div
+                    class="row mt16 o_settings_container"
+                    id="summary_invoice_settings"
+                >
+                    <div
+                        class="col-12 col-lg-6 o_setting_box"
+                        id="summary_invoice_remark"
+                    >
+                        <div class="o_setting_left_pane" />
+                        <div class="o_setting_right_pane">
+                            <label for="summary_invoice_remark" />
+                            <span
+                                class="fa fa-lg fa-building-o"
+                                title="Values set here are company-specific."
+                                aria-label="Values set here are company-specific."
+                                groups="base.group_multi_company"
+                                role="img"
+                            />
+                            <div class="text-muted">
+                                Specify the header remark to be displayed on the printed summary invoice
+                            </div>
+                            <div class="content-group">
+                                <div class="mt16">
+                                    <div>
+                                        <field
+                                            name="summary_invoice_remark"
+                                            class="oe_account_terms mt-5 w-100"
+                                            placeholder="E.g., Please find the invoice details below."
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="col-12 col-lg-6 o_setting_box"
+                        id="show_sale_order_number"
+                    >
+                        <div class="o_setting_left_pane">
+                            <field name="show_sale_order_number" />
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="show_sale_order_number" />
+                            <div class="text-muted">
+                                Show the sales order number in the summary invoice report lines
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="col-12 col-lg-6 o_setting_box"
+                        id="show_invoice_narration"
+                    >
+                        <div class="o_setting_left_pane">
+                            <field name="show_invoice_narration" />
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="show_invoice_narration" />
+                            <div class="text-muted">
+                                The narration will appear for each invoice in the summary invoice report if selected
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="col-12 col-lg-6 o_setting_box"
+                        id="show_invoice_total_amount"
+                    >
+                        <div class="o_setting_left_pane">
+                            <field name="show_invoice_total_amount" />
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="show_invoice_total_amount" />
+                            <div class="text-muted">
+                                The total amount per invoice will appear in the summary invoice report if selected
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </field>
+    </record>
+</odoo>
