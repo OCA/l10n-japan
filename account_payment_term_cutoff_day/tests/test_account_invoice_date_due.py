@@ -13,15 +13,10 @@ class TestPaymentTermCutoffDate(TransactionCase):
         cls.payment_term = cls.env["account.payment.term"].create(
             {"name": "Test Payment Term"}
         )
-        cls.payment_term_line = cls.env["account.payment.term.line"].create(
-            {
-                "payment_id": cls.payment_term.id,
-                "value": "balance",
-                "months": 1,
-                "end_month": True,
-                "cutoff_day": 20,
-            }
-        )
+        cls.payment_term_line = cls.payment_term.line_ids
+        cls.payment_term_line.has_cutoff_day = True
+        cls.payment_term_line.months = 1
+        cls.payment_term_line.cutoff_day = 20
 
     def test_due_date_before_cutoff_day(self):
         """Test if due date remains unchanged when invoice date is
@@ -46,10 +41,10 @@ class TestPaymentTermCutoffDate(TransactionCase):
         )
 
     def test_due_date_no_cutoff_day(self):
-        """Test if due date remains unchanged when cutoff_day is not set"""
-        self.payment_term_line.cutoff_day = False
+        """Test if due date remains unchanged when has_cutoff_day is False"""
+        self.payment_term_line.has_cutoff_day = False
         invoice_date = date(2024, 2, 21)
-        expected_due_date = date(2024, 3, 31)
+        expected_due_date = date(2024, 2, 21)
         computed_due_date = self.payment_term_line._get_due_date(invoice_date)
         self.assertEqual(
             computed_due_date,
