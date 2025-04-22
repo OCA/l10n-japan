@@ -17,23 +17,27 @@ Account Payment Term Cutoff Day
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fl10n--japan-lightgray.png?logo=github
-    :target: https://github.com/OCA/l10n-japan/tree/16.0/account_payment_term_cutoff_day
+    :target: https://github.com/OCA/l10n-japan/tree/18.0/account_payment_term_cutoff_day
     :alt: OCA/l10n-japan
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/l10n-japan-16-0/l10n-japan-16-0-account_payment_term_cutoff_day
+    :target: https://translation.odoo-community.org/projects/l10n-japan-18-0/l10n-japan-18-0-account_payment_term_cutoff_day
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/l10n-japan&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/l10n-japan&target_branch=18.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
 This module extends the Account Payment Terms functionality by
-introducing a cutoff day field (cutoff_day) in
-account.payment.term.line. With this feature, user can define a specific
-cutoff day for payment terms. If an invoice is dated after this cutoff
-day, the system will automatically shift the due date by one additional
-month.
+introducing the fields: *has_cutoff_day*, *months*, and *cutoff_day* in
+``account.payment.term.line``.
+
+With this feature, users can define a specific cutoff day for payment
+terms. If an invoice is dated after this cutoff day, the system will
+automatically shift the due date by one additional month.
+
+The *months* field allows users to specify how many months should be
+added to the invoice date when calculating the due date.
 
 **Table of contents**
 
@@ -43,22 +47,20 @@ month.
 Configuration
 =============
 
-- Go to Invoicing > Configuration > Payment Terms.
-- Select or create a Payment Term.
-- Under the Payment Term Lines, you will see a Cutoff Day field.
-- The Cutoff Day field can only be entered when "End of Month" is
-  enabled.
-- Set a Cutoff Day (e.g., 20 for the 20th day of the month).
+-  Go to Invoicing > Configuration > Payment Terms.
+-  Select or create a Payment Term.
+-  Under Payment Term Lines, enable the Has Cutoff Day option.
+-  Set the Cutoff Day and Months fields accordingly.
 
 Usage
 =====
 
-- Create an invoice/bill.
-- Choose the payment term in which you have assigned cutoff_day in the
-  payment term line.
-- Choose an invoice date/bill date that is later than cutoff_day.
-- You will see that the due date is extended by one extra month compared
-  to the normal due date.
+-  Create an invoice/bill.
+-  Choose the payment term in which you have assigned months and
+   cutoff_day in the payment term line.
+-  Choose an invoice date/bill date that is later than cutoff_day.
+-  You will see that the due date is extended by one additional month,
+   plus the number of months specified in the Months field.
 
 Bug Tracker
 ===========
@@ -66,7 +68,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/l10n-japan/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/l10n-japan/issues/new?body=module:%20account_payment_term_cutoff_day%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/l10n-japan/issues/new?body=module:%20account_payment_term_cutoff_day%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -91,6 +93,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/l10n-japan <https://github.com/OCA/l10n-japan/tree/16.0/account_payment_term_cutoff_day>`_ project on GitHub.
+This module is part of the `OCA/l10n-japan <https://github.com/OCA/l10n-japan/tree/18.0/account_payment_term_cutoff_day>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
