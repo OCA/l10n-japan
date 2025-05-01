@@ -1,4 +1,4 @@
-# Copyright 2023 Quartile Limited
+# Copyright 2023 Quartile (https://www.quartile.co)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import models
@@ -9,7 +9,9 @@ class RegistrationNumberMixin(models.AbstractModel):
     _description = "Registraction Number Mixin"
 
     def _show_registration_number(self):
-        """This method is expected to be extended by the concrete models as necessary."""
+        """This method is expected to be extended by the concrete
+        models as necessary.
+        """
         self.ensure_one()
         if self.company_id.account_fiscal_country_id.code != "JP":
             return False

@@ -35,10 +35,7 @@
         id="l10n_jp_external_layout_striped"
         inherit_id="web.external_layout_striped"
     >
-        <xpath
-            expr="//div[hasclass('float-start') and hasclass('company_address')]"
-            position="inside"
-        >
+        <xpath expr="//div[@name='company_address']" position="inside">
             <t
                 t-call="l10n_jp_account_report_registration_number.registration_number"
             />
