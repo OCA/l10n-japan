@@ -19,9 +19,8 @@ class AccountPaymentTermLine(models.Model):
     )
 
     def _get_due_date(self, date_ref):
-        due_date = super()._get_due_date(date_ref)
         if date_ref and self.end_month and self.cutoff_day:
             date_dt = fields.Date.to_date(date_ref)
             if date_dt.day > self.cutoff_day:
-                due_date += relativedelta(months=1)
-        return due_date
+                date_ref += relativedelta(months=1)
+        return super()._get_due_date(date_ref)
