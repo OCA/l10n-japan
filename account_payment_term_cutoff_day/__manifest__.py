@@ -3,7 +3,7 @@
 
 {
     "name": "Account Payment Term Cutoff Day",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "depends": ["account"],
     "author": "Quartile, Odoo Community Association (OCA)",
     "license": "AGPL-3",
