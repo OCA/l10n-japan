@@ -14,6 +14,7 @@ setuptools.setup(
         'odoo-addon-l10n_jp_country_state>=16.0dev,<16.1dev',
         'odoo-addon-l10n_jp_partner_title_qweb>=16.0dev,<16.1dev',
         'odoo-addon-l10n_jp_partner_zip_address>=16.0dev,<16.1dev',
+        'odoo-addon-l10n_jp_summary_invoice>=16.0dev,<16.1dev',
         'odoo-addon-report_alternative_layout>=16.0dev,<16.1dev',
     ],
     classifiers=[
