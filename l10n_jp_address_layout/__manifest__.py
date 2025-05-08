@@ -1,8 +1,8 @@
-# Copyright 2022 Quartile
+# Copyright 2022 Quartile (https://www.quartile.co)
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 {
     "name": "Japan Address Layout",
-    "version": "17.0.1.0.0",
+    "version": "18.0.1.0.0",
     "depends": ["web"],
     "author": "Quartile, Odoo Community Association (OCA)",
     "license": "LGPL-3",
