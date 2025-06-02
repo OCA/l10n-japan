@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="paperformat_view_form" model="ir.ui.view">
+        <field name="name">paperformat_view_form</field>
+        <field name="model">report.paperformat</field>
+        <field name="inherit_id" ref="base.paperformat_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='report_ids']" position="after">
+                <field name="apply_alternative_layout" />
+                <field
+                    name="show_address_in_header"
+                    attrs="{'invisible': [('apply_alternative_layout', '=', False)]}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
