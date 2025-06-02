@@ -12,6 +12,7 @@
         "data/report_paperformat_data.xml",
         "report/report_template.xml",
         "views/ir_actions_report_views.xml",
+        "views/report_paperformat_views.xml",
     ],
     "installable": True,
 }
