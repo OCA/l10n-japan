@@ -10,7 +10,7 @@ from odoo.exceptions import UserError
 
 try:
     import jaconv
-except (ImportError, IOError) as err:
+except (OSError, ImportError) as err:
     logging.getLogger(__name__).warning(err)
 
 
