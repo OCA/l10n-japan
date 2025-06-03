@@ -1,8 +1,10 @@
-# Copyright 2024 Quartile Limited
+# Copyright 2024 Quartile (https://www.quartile.co)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
+from requests import PreparedRequest, Session
+
 from odoo.exceptions import UserError
-from odoo.tests.common import TransactionCase
+from odoo.tests.common import TransactionCase, _super_send
 
 
 class TestResPartner(TransactionCase):
@@ -10,6 +12,12 @@ class TestResPartner(TransactionCase):
     def setUpClass(cls):
         super().setUpClass()
         cls.partner = cls.env["res.partner"].create({"name": "Test Partner"})
+
+    @classmethod
+    def _request_handler(cls, s: Session, r: PreparedRequest, /, **kw):
+        if r.url.startswith("http://zipcloud.ibsnet.co.jp"):
+            return _super_send(s, r, **kw)
+        return super()._request_handler(s, r, **kw)
 
     def test_onchange_zip_valid(self):
         """Test _onchange_zip with a valid zip code."""
