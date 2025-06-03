@@ -1,4 +1,4 @@
-# Copyright 2024 Quartile Limited
+# Copyright 2024 Quartile (https://www.quartile.co)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 import logging
@@ -16,6 +16,7 @@ except (OSError, ImportError) as err:
 
 class ZipSearchMixin(models.AbstractModel):
     _name = "zip.search.mixin"
+    _description = "ZIP Search Mixin"
 
     def sanitize_zip(self, zipcode):
         field = jaconv.z2h(zipcode, ascii=True, digit=True).replace("-", "")
