@@ -15,7 +15,6 @@
             name="paperformat_id"
             ref="report_alternative_layout.report_paperformat_a4_alt"
         />
-        <field name="apply_alternative_layout" eval="True" />
         <field name="show_remit_to_bank" eval="True" />
     </record>
 </odoo>

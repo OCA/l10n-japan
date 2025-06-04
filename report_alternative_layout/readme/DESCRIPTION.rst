@@ -3,6 +3,7 @@ adjustments to existing external layouts:
 
 - Displays the partner's address on the left side first, followed by the company's
   address on the right side.
+- Displays the document's number and date in the header.
 - Uses the commercial partner's address in place of the partner's address.
 
 Currently, these adjustments are only supported for the standard external layout
