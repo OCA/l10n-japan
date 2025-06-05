@@ -16,12 +16,25 @@ class Report(models.Model):
         "Show Remit-to Bank",
         help="If selected, remit-to bank account will show in the report output.",
     )
-    show_document_number = fields.Boolean()
+    show_document_number = fields.Boolean(
+        "Show Document Number in Header",
+        help="If selected, the document number will show in the report header.",
+    )
     date_field_id = fields.Many2one(
         "ir.model.fields",
         domain="[('model','=', model), ('ttype', 'in', ('date', 'datetime'))]",
+        string="Date Field to Show in Header",
+        help="If set, the report will show the value of this field in the header as "
+        "the date of the document.",
     )
-    date_field_label = fields.Char(translate=True)
+    date_field_label = fields.Char(
+        translate=True,
+        help="Label for the date field in the report header. If not set, the field's "
+        "description will be used.",
+    )
+    apply_alternative_layout = fields.Boolean(
+        related="paperformat_id.apply_alternative_layout"
+    )
 
     def _render_qweb_pdf(self, report_ref, res_ids=None, data=None):
         report = self._get_report(report_ref)
