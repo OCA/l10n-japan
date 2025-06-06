@@ -9,7 +9,7 @@
                 <field name="apply_alternative_layout" />
                 <field
                     name="show_address_in_header"
-                    attrs="{'invisible': [('apply_alternative_layout', '=', False)]}"
+                    invisible="apply_alternative_layout == False"
                 />
             </xpath>
         </field>

@@ -9,7 +9,7 @@
                 <page
                     name="alternative"
                     string="Alternative Layout Settings"
-                    attrs="{'invisible': [('apply_alternative_layout', '!=', True)]}"
+                    invisible="apply_alternative_layout != True"
                 >
                     <group>
                         <group>
@@ -17,7 +17,7 @@
                             <field name="date_field_id" />
                             <field
                                 name="date_field_label"
-                                attrs="{'invisible': [('date_field_id', '=', False)]}"
+                                invisible="date_field_id == False"
                             />
                         </group>
                         <group>
