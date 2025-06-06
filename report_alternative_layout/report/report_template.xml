@@ -18,7 +18,9 @@
                                 t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'
                             />
                         </li>
-                        <li t-else=""><t t-esc="company.company_details" /></li>
+                        <li t-else="">
+                            <t t-esc="company.company_details" />
+                        </li>
                         <li t-if="forced_vat">
                             <t t-esc="company.country_id.vat_label or 'Tax ID'" />:
                             <span t-esc="forced_vat" />
@@ -64,7 +66,7 @@
                         <t t-if="date_value">
                             <div class="col text-end">
                                 <span t-esc="report._get_date_field_label()" />:<span
-                                >&#xa0;</span>
+                            >&#xa0;</span>
                                 <span t-esc="date_value" />
                             </div>
                         </t>
@@ -120,8 +122,12 @@
                     <div name="remit_to_bank" t-if="remit_to_bank" class="mt-3 col-5">
                         <strong>Remit-to:</strong>
                         <ul class="list-unstyled">
-                            <li><span t-field="remit_to_bank.bank_id" /></li>
-                            <li><span t-field="remit_to_bank.acc_number" /></li>
+                            <li>
+                                <span t-field="remit_to_bank.bank_id" />
+                            </li>
+                            <li>
+                                <span t-field="remit_to_bank.acc_number" />
+                            </li>
                             <li>
                                 <span t-field="remit_to_bank.acc_holder_name" />
                             </li>
