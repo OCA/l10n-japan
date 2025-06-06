@@ -32,10 +32,10 @@
     </template>
     <template id="external_layout_standard" inherit_id="web.external_layout_standard">
         <!-- Hide the standard report_header  -->
-        <xpath expr="//div[@class='col-9 text-end']" position="attributes">
+        <xpath expr="//div[@t-field='company.report_header']" position="attributes">
             <attribute name="style">display: none;</attribute>
         </xpath>
-        <xpath expr="//div[@class='col-9 text-end']" position="after">
+        <xpath expr="//div[@t-field='company.report_header']" position="after">
             <!-- Configure Document Layout would throw an error without this condition -->
             <t t-if="report">
                 <t t-set="report_partner" t-value="report._get_report_partner(o)" />
@@ -43,7 +43,7 @@
                     t-set="report"
                     t-value="report.with_context(lang=report_partner.lang)"
                 />
-                <div class="col-9 text-end">
+                <div class="o_company_tagline mw-50 fw-bold">
                     <!-- Display the header only if 'report_header' is set.
                     Handle auto-inserted <p><br></p> from HTML fields -->
                     <t
@@ -80,27 +80,18 @@
         </xpath>
         <!-- Display address in the header when 'show_address_in_header' is enabled -->
         <xpath
-            expr="//div[@class='row'][div[@name='company_address']]"
+            expr="//div[hasclass('row')][div[@name='company_address']]"
             position="after"
         >
-            <div class="row">
-                <div class="col-12">
-                    <t t-if="show_address_in_header">
+            <t t-if="show_address_in_header">
+                <div class="row">
+                    <div class="col-12">
                         <t
                             t-call="report_alternative_layout.report_custom_address_layout"
                         />
-                    </t>
+                    </div>
                 </div>
-            </div>
-        </xpath>
-        <!-- By disabling the default margins,
-        the starting position of the first page and subsequent pages will be aligned,
-        making it easier to adjust layout using the paper format. -->
-        <xpath expr="//div[hasclass('pt-5')]" position="attributes">
-            <attribute name="class" remove="pt-5" />
-            <attribute
-                name="t-att-class"
-            >'pt-5' if not apply_alternative_layout else ""</attribute>
+            </t>
         </xpath>
         <!-- Show company address in the body if alternative layout is selected -->
         <xpath expr="//t[@t-call='web.address_layout']" position="attributes">
