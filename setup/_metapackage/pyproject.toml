@@ -1,0 +1,11 @@
+[project]
+name = "odoo-addons-oca-l10n-japan"
+version = "18.0.20250609.0"
+dependencies = [
+    "odoo-addon-l10n_jp_address_layout==18.0.*",
+]
+classifiers=[
+    "Programming Language :: Python",
+    "Framework :: Odoo",
+    "Framework :: Odoo :: 18.0",
+]
