@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_custom_address_layout">
+        <div class="pt-1">
+            <t t-set="report_partner" t-value="report._get_report_partner(o)" />
+            <div class="row" name="address_layout">
+                <div class="col-7" name="partner_address">
+                    <div
+                        t-esc="report_partner"
+                        t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": true}'
+                    />
+                </div>
+                <div class="col-5" name="company_address">
+                    <ul class="list-unstyled">
+                        <li t-if="company.is_company_details_empty">
+                            <t
+                                t-esc="company.partner_id"
+                                t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'
+                            />
+                        </li>
+                        <li t-else="">
+                            <t t-esc="company.company_details" />
+                        </li>
+                        <li t-if="forced_vat">
+                            <t t-esc="company.country_id.vat_label or 'Tax ID'" />:
+                            <span t-esc="forced_vat" />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </template>
+    <template id="external_layout_standard" inherit_id="web.external_layout_standard">
+        <!-- Hide the standard report_header  -->
+        <xpath expr="//div[@t-field='company.report_header']" position="attributes">
+            <attribute name="style">display: none;</attribute>
+        </xpath>
+        <xpath expr="//div[@t-field='company.report_header']" position="after">
+            <!-- Configure Document Layout would throw an error without this condition -->
+            <t t-if="report">
+                <t t-set="report_partner" t-value="report._get_report_partner(o)" />
+                <t
+                    t-set="report"
+                    t-value="report.with_context(lang=report_partner.lang)"
+                />
+                <div class="o_company_tagline mw-50 fw-bold">
+                    <!-- Display the header only if 'report_header' is set.
+                    Handle auto-inserted <p><br></p> from HTML fields -->
+                    <t
+                        t-if="company.report_header and company.report_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'"
+                    >
+                        <span t-field="company.report_header" name="moto" />
+                    </t>
+                    <!-- Display the document number in header -->
+                    <t t-if="report and report.show_document_number">
+                        <div class="col text-end" t-if="o.name">
+                            <strong>
+                                Document No:
+                                <span t-field="o.name" />
+                            </strong>
+                        </div>
+                    </t>
+                    <!-- Display the date field in header -->
+                    <t t-if="report and report.date_field_id and o">
+                        <t t-set="date_value" t-value="report._get_date_value(o)" />
+                        <t t-if="date_value">
+                            <div class="col text-end">
+                                <span t-esc="report._get_date_field_label()" />:<span
+                            >&#xa0;</span>
+                                <span t-esc="date_value" />
+                            </div>
+                        </t>
+                    </t>
+                </div>
+            </t>
+        </xpath>
+        <!-- Hide company address in the header if alternative layout is selected -->
+        <xpath expr="//div[@name='company_address']/ul" position="attributes">
+            <attribute name="t-if">not apply_alternative_layout</attribute>
+        </xpath>
+        <!-- Display address in the header when 'show_address_in_header' is enabled -->
+        <xpath
+            expr="//div[hasclass('row')][div[@name='company_address']]"
+            position="after"
+        >
+            <t t-if="show_address_in_header">
+                <div class="row">
+                    <div class="col-12">
+                        <t
+                            t-call="report_alternative_layout.report_custom_address_layout"
+                        />
+                    </div>
+                </div>
+            </t>
+        </xpath>
+        <!-- Show company address in the body if alternative layout is selected -->
+        <xpath expr="//t[@t-call='web.address_layout']" position="attributes">
+            <attribute name="t-if">not apply_alternative_layout</attribute>
+        </xpath>
+        <xpath expr="//t[@t-call='web.address_layout']" position="after">
+            <t t-if="apply_alternative_layout and not show_address_in_header">
+                <t t-call="report_alternative_layout.report_custom_address_layout" />
+            </t>
+            <t t-if="report">
+                <!-- Show the information block and Remit-to section in the body -->
+                <t t-set="remit_to_bank" t-value="report._get_remit_to_bank(o)" />
+                <div class="row">
+                    <div class="col-7 mt-3">
+                        <div name="information_block" t-if="information_block">
+                            <t t-out="information_block" />
+                        </div>
+                    </div>
+                    <div name="remit_to_bank" t-if="remit_to_bank" class="mt-3 col-5">
+                        <strong>Remit-to:</strong>
+                        <ul class="list-unstyled">
+                            <li>
+                                <span t-field="remit_to_bank.bank_id" />
+                            </li>
+                            <li>
+                                <span t-field="remit_to_bank.acc_number" />
+                            </li>
+                            <li>
+                                <span t-field="remit_to_bank.acc_holder_name" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+    </template>
+    <template id="external_layout" inherit_id="web.external_layout">
+        <xpath expr="//t[@t-if='not company']" position="after">
+            <t t-if="o and o.env">
+                <t
+                    t-set="report"
+                    t-value="o.env['ir.actions.report']._get_report_from_name(xmlid)"
+                />
+                <t
+                    t-set="apply_alternative_layout"
+                    t-value="env.context.get('apply_alternative_layout')"
+                />
+                <t
+                    t-set="show_address_in_header"
+                    t-value="env.context.get('show_address_in_header')"
+                />
+            </t>
+        </xpath>
+    </template>
+</odoo>
