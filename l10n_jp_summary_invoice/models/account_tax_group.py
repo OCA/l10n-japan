@@ -20,10 +20,10 @@ class AccountTaxGroup(models.Model):
             origin_tax = self._get_tax_for_group()
             adjustment_tax = origin_tax.copy(
                 {
-                    "name": "Adjustment - %s" % self.name,
+                    "name": f"Adjustment - {self.name}",
                     "amount_type": "division",
                     "amount": 100.0,
-                    "price_include": True,
+                    "price_include_override": "tax_included",
                     "description": "N/A",
                     "rounding_adjustment": True,
                 }

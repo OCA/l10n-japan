@@ -14,7 +14,6 @@ class AccountBilling(models.Model):
         compute="_compute_billing_date_due",
         store=True,
         readonly=False,
-        states={"draft": [("readonly", False)]},
         index=True,
         copy=False,
     )
@@ -44,7 +43,8 @@ class AccountBilling(models.Model):
             if invoice_not_for_billing:
                 raise ValidationError(
                     _(
-                        "The invoice %s should not be included in this summary invoice.",
+                        "The invoice %s should not be included in this "
+                        "summary invoice.",
                         invoice_not_for_billing.name,
                     )
                 )
@@ -82,25 +82,21 @@ class AccountBilling(models.Model):
         "currency_id",
     )
     def _compute_tax_totals(self):
+        AccountTax = self.env["account.tax"]
         for bill in self:
-            invoice_lines = bill.billing_line_ids.move_id.invoice_line_ids
-            base_lines = invoice_lines.filtered(
-                lambda line: line.display_type == "product"
+            moves = bill.billing_line_ids.mapped("move_id")
+            base_lines = [
+                base_line
+                for move in moves
+                for base_line in move._get_rounded_base_and_tax_lines()[0]
+            ]
+            AccountTax._add_tax_details_in_base_lines(base_lines, bill.company_id)
+            AccountTax._round_base_lines_tax_details(base_lines, bill.company_id)
+            bill.tax_totals = self.env["account.tax"]._get_tax_totals_summary(
+                base_lines=base_lines,
+                currency=bill.currency_id or bill.company_id.currency_id,
+                company=bill.company_id,
             )
-            base_line_values_list = [
-                line._convert_to_tax_base_line_dict() for line in base_lines
-            ]
-            kwargs = {
-                "base_lines": base_line_values_list,
-                "currency": bill.currency_id or bill.company_id.currency_id,
-            }
-            kwargs["tax_lines"] = [
-                line._convert_to_tax_line_dict()
-                for line in invoice_lines.filtered(
-                    lambda line: line.display_type == "tax"
-                )
-            ]
-            bill.tax_totals = self.env["account.tax"]._prepare_tax_totals(**kwargs)
 
     def _update_remit_to_bank_id(self):
         for rec in self:
@@ -170,14 +166,14 @@ class AccountBilling(models.Model):
         # Tax journal entry will be created only for customer invoice billings.
         for rec in self.filtered(lambda x: x.bill_type == "out_invoice"):
             tax_totals = rec.tax_totals
-            groups_by_subtotal = tax_totals.get("groups_by_subtotal", {})
-            if not groups_by_subtotal:
+            if not tax_totals:
                 continue
-            key = next(iter(groups_by_subtotal))
-            tax_group_amount_dict = {
-                entry["tax_group_id"]: entry["tax_group_amount"] * -1
-                for entry in groups_by_subtotal[key]
-            }
+            tax_group_amount_dict = {}
+            for subtotal in tax_totals.get("subtotals", []):
+                for group in subtotal.get("tax_groups", []):
+                    tax_group_id = group.get("id")
+                    tax_amount = group.get("tax_amount", 0.0)
+                    tax_group_amount_dict[tax_group_id] = tax_amount * -1
             tax_amount_groups_invoices = rec._get_tax_amount_groups_from_invoices()
             tax_group_diff_dict = {}
             for tax_amount_group in tax_amount_groups_invoices:
@@ -217,7 +213,7 @@ class AccountBilling(models.Model):
                 diff_balance += diff
             adjustment_move = self.env["account.move"].create(invoice_vals)
             if diff_balance < 0:
-                adjustment_move.action_switch_invoice_into_refund_credit_note()
+                adjustment_move.action_switch_move_type()
             adjustment_move.action_post()
             rec.tax_adjustment_entry_id = adjustment_move
         return res

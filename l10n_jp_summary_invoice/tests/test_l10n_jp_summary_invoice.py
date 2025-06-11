@@ -40,11 +40,14 @@ class TestSummaryInvoice(TransactionCase):
             }
         )
         cls.product = cls.env["product.product"].create({"name": "Test Product"})
+        tax_group = cls.env["account.tax.group"].create({"name": "Tax Group"})
         cls.tax_10 = cls.env["account.tax"].create(
             {
                 "name": "Test Tax 10%",
                 "amount": 10.0,
                 "type_tax_use": "sale",
+                "company_id": cls.company.id,
+                "tax_group_id": tax_group.id,
             }
         )
         cls.journal = cls.env["account.journal"].create(
@@ -158,12 +161,12 @@ class TestSummaryInvoice(TransactionCase):
         self.assertEqual(billing.state, "draft")
         billing.with_company(self.company).validate_billing()
         tax_totals = billing.tax_totals
-        groups_by_subtotal = tax_totals.get("groups_by_subtotal", {})
-        key = next(iter(groups_by_subtotal))
-        tax_group_amount_dict = {
-            entry["tax_group_id"]: entry["tax_group_amount"] * -1
-            for entry in groups_by_subtotal[key]
-        }
+        tax_group_amount_dict = {}
+        for subtotal in tax_totals.get("subtotals", []):
+            for group in subtotal.get("tax_groups", []):
+                tax_group_id = group.get("id")
+                tax_amount = group.get("tax_amount", 0.0)
+                tax_group_amount_dict[tax_group_id] = tax_amount * -1
         billing_tax_amount = round(
             tax_group_amount_dict.get(self.tax_10.tax_group_id.id, 0), 0
         )
