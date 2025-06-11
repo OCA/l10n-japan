@@ -56,7 +56,7 @@
                         <t t-set="order" t-value="line.sale_line_ids.order_id" />
                         <t
                             t-set="taxes"
-                            t-value="', '.join([(tax.description or tax.name) for tax in line.tax_ids])"
+                            t-value="', '.join([(tax.invoice_label or tax.name) for tax in line.tax_ids])"
                         />
                         <tr>
                             <td t-if="show_order_number" name="td_order_num">
@@ -149,8 +149,9 @@
                                         <strong>Total</strong>
                                     </td>
                                     <td class="text-right">
-                                        <span
-                                            t-esc="o.tax_totals['formatted_amount_total']"
+                                        <strong
+                                            t-out="o.tax_totals['total_amount_currency']"
+                                            t-options='{"widget": "monetary", "display_currency": o.currency_id}'
                                         />
                                     </td>
                                 </tr>
@@ -176,6 +177,7 @@
                                     style="page-break-inside: avoid;"
                                 >
                                     <t t-set="tax_totals" t-value="o.tax_totals" />
+                                    <t t-set="currency" t-value="o.currency_id" />
                                     <t t-call="account.document_tax_totals" />
                                 </table>
                             </div>
