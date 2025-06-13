@@ -90,6 +90,8 @@ class AccountBilling(models.Model):
                 for move in moves
                 for base_line in move._get_rounded_base_and_tax_lines()[0]
             ]
+            for line in base_lines:
+                line["price_unit"] *= line.get("sign", 1) * -1
             AccountTax._add_tax_details_in_base_lines(base_lines, bill.company_id)
             AccountTax._round_base_lines_tax_details(base_lines, bill.company_id)
             bill.tax_totals = self.env["account.tax"]._get_tax_totals_summary(

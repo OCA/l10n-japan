@@ -69,7 +69,9 @@
                                 <span t-field="line.name" />
                             </td>
                             <td name="td_quantity" class="text-end">
-                                <span t-field="line.quantity" />
+                                <span
+                                    t-esc="line.quantity * (-1 if line.move_type in ['out_refund', 'in_refund'] else 1)"
+                                />
                                 <span
                                     t-field="line.product_uom_id"
                                     groups="uom.group_uom"
@@ -91,7 +93,7 @@
                             <td name="td_subtotal" class="text-end">
                                 <span
                                     class="text-nowrap"
-                                    t-field="line.price_subtotal"
+                                    t-esc="line.price_subtotal * (-1 if line.move_type in ['out_refund', 'in_refund'] else 1)"
                                 />
                             </td>
                         </tr>
@@ -114,7 +116,7 @@
                         <td class="text-end">
                             <span
                                 class="text-nowrap"
-                                t-field="invoice.amount_untaxed"
+                                t-esc="invoice.amount_untaxed * (-1 if line.move_type in ['out_refund', 'in_refund'] else 1)"
                             />
                         </td>
                     </tr>
