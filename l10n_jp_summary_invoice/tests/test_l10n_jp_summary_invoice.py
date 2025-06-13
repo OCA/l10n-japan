@@ -61,13 +61,13 @@ class TestSummaryInvoice(TransactionCase):
             }
         )
 
-    def _create_invoice(self, amount, tax, bank=None):
+    def _create_invoice(self, amount, tax, move_type="out_invoice", bank=None):
         invoice = (
             self.env["account.move"]
             .with_company(self.company)
             .create(
                 {
-                    "move_type": "out_invoice",
+                    "move_type": move_type,
                     "partner_id": self.partner.id,
                     "partner_bank_id": bank and bank.id,
                     "invoice_line_ids": [
@@ -156,6 +156,32 @@ class TestSummaryInvoice(TransactionCase):
         self.assertEqual(inv_2.amount_tax, 10)
         self.assertEqual(inv_3.amount_tax, 10)
         invoices = inv_1 + inv_2 + inv_3
+        action = invoices.action_create_billing()
+        billing = self.env["account.billing"].browse(action["res_id"])
+        self.assertEqual(billing.state, "draft")
+        billing.with_company(self.company).validate_billing()
+        tax_totals = billing.tax_totals
+        tax_group_amount_dict = {}
+        for subtotal in tax_totals.get("subtotals", []):
+            for group in subtotal.get("tax_groups", []):
+                tax_group_id = group.get("id")
+                tax_amount = group.get("tax_amount", 0.0)
+                tax_group_amount_dict[tax_group_id] = tax_amount * -1
+        billing_tax_amount = round(
+            tax_group_amount_dict.get(self.tax_10.tax_group_id.id, 0), 0
+        )
+        self.assertEqual(abs(billing_tax_amount), 31)
+        tax_adjustment_entry = billing.tax_adjustment_entry_id
+        self.assertTrue(
+            tax_adjustment_entry, "Tax adjustment journal entry should be created."
+        )
+        self.assertEqual(tax_adjustment_entry.amount_total_signed, 1)
+        inv_1 = self._create_invoice(101, self.tax_10)
+        inv_2 = self._create_invoice(102, self.tax_10)
+        inv_3 = self._create_invoice(103, self.tax_10)
+        inv_4 = self._create_invoice(103, self.tax_10)
+        out_refund = self._create_invoice(103, self.tax_10, "out_refund")
+        invoices = inv_1 + inv_2 + inv_3 + inv_4 + out_refund
         action = invoices.action_create_billing()
         billing = self.env["account.billing"].browse(action["res_id"])
         self.assertEqual(billing.state, "draft")
