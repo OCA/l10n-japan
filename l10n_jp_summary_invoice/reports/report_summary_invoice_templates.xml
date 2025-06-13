@@ -69,7 +69,7 @@
                                 <span t-field="line.name" />
                             </td>
                             <td name="td_quantity" class="text-end">
-                                <span t-field="line.quantity" />
+                                <span t-field="line.signed_quantity" />
                                 <span
                                     t-field="line.product_uom_id"
                                     groups="uom.group_uom"
@@ -91,7 +91,8 @@
                             <td name="td_subtotal" class="text-end">
                                 <span
                                     class="text-nowrap"
-                                    t-field="line.price_subtotal"
+                                    t-esc="line.price_subtotal * (-1 if line.move_type in ['out_refund', 'in_refund'] else 1)"
+                                    t-options='{"widget": "monetary", "display_currency": o.currency_id}'
                                 />
                             </td>
                         </tr>
@@ -114,7 +115,8 @@
                         <td class="text-end">
                             <span
                                 class="text-nowrap"
-                                t-field="invoice.amount_untaxed"
+                                t-esc="invoice.amount_untaxed * (-1 if line.move_type in ['out_refund', 'in_refund'] else 1)"
+                                t-options='{"widget": "monetary", "display_currency": o.currency_id}'
                             />
                         </td>
                     </tr>
