@@ -55,7 +55,11 @@ class ZipSearchMixin(models.AbstractModel):
             self.state_id = self.env["res.country.state"].search(
                 [("name", "=", address_data[0]["address1"])], limit=1
             )
-            if not self.state_id and self.env.lang != "ja_JP":
+            if (
+                not self.state_id
+                and self.env.lang != "ja_JP"
+                and "ja_JP" in self.env["res.lang"].get_installed()
+            ):
                 self.state_id = (
                     self.env["res.country.state"]
                     .with_context(lang="ja_JP")
