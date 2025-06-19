@@ -186,6 +186,11 @@ msgid "Journal Entry"
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
+#: model:ir.model,name:l10n_jp_summary_invoice.model_account_move_line
+msgid "Journal Item"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.bill_line_section_layout
 msgid "Order No."
 msgstr ""
@@ -246,6 +251,11 @@ msgid "Show the sales order number in the summary invoice report lines"
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_move_line__signed_quantity
+msgid "Signed Quantity"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.res_config_settings_view_form
 msgid ""
 "Specify the header remark to be displayed on the printed summary invoice"
@@ -290,6 +300,12 @@ msgstr ""
 #. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.bill_line_section_layout
 msgid "Taxes"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
+#: model:ir.model.fields,help:l10n_jp_summary_invoice.field_account_move_line__signed_quantity
+msgid ""
+"Technical field used to display the value with the correct sign in reports."
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
