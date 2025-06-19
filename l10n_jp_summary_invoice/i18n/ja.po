@@ -192,6 +192,11 @@ msgid "Journal Entry"
 msgstr "仕訳"
 
 #. module: l10n_jp_summary_invoice
+#: model:ir.model,name:l10n_jp_summary_invoice.model_account_move_line
+msgid "Journal Item"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.bill_line_section_layout
 msgid "Order No."
 msgstr "オーダNo."
@@ -252,6 +257,11 @@ msgid "Show the sales order number in the summary invoice report lines"
 msgstr "合計請求書明細行に販売オーダ番号を表示"
 
 #. module: l10n_jp_summary_invoice
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_move_line__signed_quantity
+msgid "Signed Quantity"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.res_config_settings_view_form
 msgid ""
 "Specify the header remark to be displayed on the printed summary invoice"
@@ -297,6 +307,12 @@ msgstr "税グループ"
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.bill_line_section_layout
 msgid "Taxes"
 msgstr "消費税"
+
+#. module: l10n_jp_summary_invoice
+#: model:ir.model.fields,help:l10n_jp_summary_invoice.field_account_move_line__signed_quantity
+msgid ""
+"Technical field used to display the value with the correct sign in reports."
+msgstr ""
 
 #. module: l10n_jp_summary_invoice
 #. odoo-python
