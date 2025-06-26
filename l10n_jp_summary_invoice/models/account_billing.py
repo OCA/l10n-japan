@@ -75,30 +75,39 @@ class AccountBilling(models.Model):
                 move.invoice_date_due for move in billing.billing_line_ids.move_id
             )
 
-    @api.depends_context("lang")
     @api.depends(
         "billing_line_ids",
         "partner_id",
         "currency_id",
     )
     def _compute_tax_totals(self):
-        AccountTax = self.env["account.tax"]
+        """Compute `tax_totals` by building an in-memory draft invoice that reuses all
+        the invoice lines referenced by the billing lines, and then delegating the tax
+        calculation to Odoo's standard `account.move._compute_tax_totals()`.
+        """
         for bill in self:
-            moves = bill.billing_line_ids.mapped("move_id")
-            base_lines = [
-                base_line
-                for move in moves
-                for base_line in move._get_rounded_base_and_tax_lines()[0]
-            ]
-            for line in base_lines:
-                line["price_unit"] *= line.get("sign", 1) * -1
-            AccountTax._add_tax_details_in_base_lines(base_lines, bill.company_id)
-            AccountTax._round_base_lines_tax_details(base_lines, bill.company_id)
-            bill.tax_totals = self.env["account.tax"]._get_tax_totals_summary(
-                base_lines=base_lines,
-                currency=bill.currency_id or bill.company_id.currency_id,
-                company=bill.company_id,
+            src_moves = bill.billing_line_ids.move_id
+            move_type = "out_invoice"
+            if src_moves.filtered(lambda m: m.move_type in ["in_invoice", "in_refund"]):
+                move_type = "in_invoice"
+            src_lines = src_moves.invoice_line_ids
+            cmd_lines = []
+            for src_line in src_lines:
+                vals = src_line.copy_data()[0]
+                vals["quantity"] *= -src_line.move_id.direction_sign
+                cmd_lines.append(Command.create(vals))
+            # Build a transient invoice holding those lines
+            dummy_move = self.env["account.move"].new(
+                {
+                    "move_type": move_type,
+                    "company_id": bill.company_id.id,
+                    "currency_id": bill.currency_id.id,
+                    "partner_id": bill.partner_id.id,
+                    "invoice_line_ids": cmd_lines,
+                }
             )
+            dummy_move._compute_tax_totals()
+            bill.tax_totals = dummy_move.tax_totals
 
     def _update_remit_to_bank_id(self):
         for rec in self:
@@ -192,7 +201,7 @@ class AccountBilling(models.Model):
                 "partner_id": rec.partner_id.id,
                 "date": rec.date,
                 "invoice_origin": rec.name,
-                "ref": "Tax Adjustment",
+                "ref": f"Tax adjustment for {rec.name}",
                 "is_not_for_billing": True,
                 "line_ids": [],
             }
@@ -204,7 +213,7 @@ class AccountBilling(models.Model):
                 invoice_vals["line_ids"].append(
                     Command.create(
                         {
-                            "name": f"Tax Adjustment for {tax_group.name}",
+                            "name": f"Tax adjustment for {tax_group.name}",
                             "account_id": inv_line_account_id,
                             "quantity": 1,
                             "price_unit": diff,
