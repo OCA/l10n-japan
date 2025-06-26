@@ -1,7 +1,8 @@
 [project]
 name = "odoo-addons-oca-l10n-japan"
-version = "18.0.20250624.0"
+version = "18.0.20250626.0"
 dependencies = [
+    "odoo-addon-account_payment_term_cutoff_day==18.0.*",
     "odoo-addon-l10n_jp_address_layout==18.0.*",
     "odoo-addon-l10n_jp_country_state==18.0.*",
     "odoo-addon-l10n_jp_partner_title_qweb==18.0.*",
