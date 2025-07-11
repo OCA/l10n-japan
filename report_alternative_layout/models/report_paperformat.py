@@ -8,11 +8,13 @@ class ReportPaperformat(models.Model):
     _inherit = "report.paperformat"
 
     apply_alternative_layout = fields.Boolean(
+        company_dependent=True,
         help="If selected, the alternative layout will be applied in the printed "
         "report.",
     )
     show_address_in_header = fields.Boolean(
         compute="_compute_show_address_in_header",
+        company_dependent=True,
         help="If selected, the report header will be shown on every page of the "
         "report output.",
         readonly=False,

@@ -9,25 +9,30 @@ class Report(models.Model):
     _inherit = "ir.actions.report"
 
     show_commercial_partner = fields.Boolean(
+        company_dependent=True,
         help="If selected, the commercial partner of the document partner will show "
-        "in the report output (instead of the document partner)."
+        "in the report output (instead of the document partner).",
     )
     show_remit_to_bank = fields.Boolean(
         "Show Remit-to Bank",
+        company_dependent=True,
         help="If selected, remit-to bank account will show in the report output.",
     )
     show_document_number = fields.Boolean(
         "Show Document Number in Header",
+        company_dependent=True,
         help="If selected, the document number will show in the report header.",
     )
     date_field_id = fields.Many2one(
         "ir.model.fields",
+        company_dependent=True,
         domain="[('model','=', model), ('ttype', 'in', ('date', 'datetime'))]",
         string="Date Field to Show in Header",
         help="If set, the report will show the value of this field in the header as "
         "the date of the document.",
     )
     date_field_label = fields.Char(
+        company_dependent=True,
         translate=True,
         help="Label for the date field in the report header. If not set, the field's "
         "description will be used.",

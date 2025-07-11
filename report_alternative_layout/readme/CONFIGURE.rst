@@ -13,3 +13,5 @@ update the following fields as necessary.
 - Show Document Number: If selected, the document number will be displayed in the report header, at the top-right corner.
 - Date Field: If entered, the date of the document will be displayed in the report header, at the top-right corner.
 - Date Field Label: The label to display for the date field in the report, if specified. If not set, the field's name will be used instead.
+
+Note: These settings are company-dependent and can be configured separately for each company in a multi-company environment.
