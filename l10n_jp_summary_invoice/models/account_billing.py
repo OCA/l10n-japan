@@ -125,8 +125,8 @@ class AccountBilling(models.Model):
         self._update_remit_to_bank_id()
         return res
 
-    def _get_moves(self, date=False, types=False):
-        moves = super()._get_moves(date=date, types=types)
+    def _get_moves(self, date, types=False):
+        moves = super()._get_moves(date, types=types)
         if self.remit_to_bank_id:
             moves = moves.filtered(
                 lambda x: x.partner_bank_id == self.remit_to_bank_id
