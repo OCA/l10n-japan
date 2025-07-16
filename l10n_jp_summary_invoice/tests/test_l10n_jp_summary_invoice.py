@@ -101,7 +101,7 @@ class TestSummaryInvoice(TransactionCase):
         invoice = self._create_invoice(50, self.tax_10)
         invoice.write({"is_not_for_billing": True})
         billing = self.env["account.billing"].create({"partner_id": self.partner.id})
-        moves = billing._get_moves()
+        moves = billing._get_moves(billing.threshold_date_type)
         self.assertNotIn(invoice.id, moves.ids)
 
     def test_constrains_invoice_not_for_billing(self):
