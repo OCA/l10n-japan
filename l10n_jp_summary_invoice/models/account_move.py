@@ -21,12 +21,3 @@ class AccountMove(models.Model):
     def action_create_billing(self):
         self._get_partner_bank()
         return super().action_create_billing()
-
-    # TODO: Propose to move this to account_billing?
-    def button_draft(self):
-        for rec in self:
-            if rec.billing_ids.filtered(lambda x: x.state != "cancel"):
-                raise UserError(
-                    _("You cannot reset to draft an invoice that has been billed.")
-                )
-        return super().button_draft()
