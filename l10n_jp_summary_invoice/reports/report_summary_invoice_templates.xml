@@ -5,16 +5,20 @@
             t-value="o.billing_line_ids.move_id.invoice_line_ids"
         />
         <t t-set="display_discount" t-value="any(invoice_lines.mapped('discount'))" />
-        <t t-set="show_order_number" t-value="o.company_id.show_sale_order_number" />
+        <t t-set="has_sale" t-value="'sale_line_ids' in invoice_lines[:1]._fields" />
+        <t
+            t-set="show_order_number"
+            t-value="has_sale and o.company_id.show_sale_order_number"
+        />
         <t
             t-set="show_reference"
-            t-value="any(invoice_lines.mapped('sale_line_ids.order_id.client_order_ref'))"
+            t-value="has_sale and any(invoice_lines.mapped('sale_line_ids.order_id.client_order_ref'))"
         />
         <t
             t-set="line_columns"
             t-value="5 + int(display_discount) + int(show_order_number) + int(show_reference)"
         />
-        <table class="table table-sm o_main_table">
+        <table class="table table-sm o_ignore_layout_styling">
             <thead>
                 <tr>
                     <th
@@ -53,7 +57,10 @@
                                 </td>
                             </tr>
                         </t>
-                        <t t-set="order" t-value="line.sale_line_ids.order_id" />
+                        <t
+                            t-set="order"
+                            t-value="line.sale_line_ids.order_id if has_sale else False"
+                        />
                         <t
                             t-set="taxes"
                             t-value="', '.join([(tax.invoice_label or tax.name) for tax in line.tax_ids])"
@@ -159,29 +166,31 @@
                                 </tr>
                             </h3>
                         </div>
-                        <div class="col-auto mw-100 mb-2">
+                        <div class="col">
                             <strong>Billing Date:</strong>
                             <p class="m-0" t-field="o.date" />
                         </div>
-                        <div class="col-auto mw-100 mb-2">
+                        <div class="col">
                             <strong>Payment Due:</strong>
                             <p class="m-0" t-field="o.date_due" />
                         </div>
                     </div>
                     <t t-call="l10n_jp_summary_invoice.bill_line_section_layout" />
-                    <div class="clearfix mb-4">
-                        <div id="total" class="row">
-                            <div
-                                t-attf-class="#{'col-6' if report_type != 'html' else 'col-sm-7 col-md-6'} ms-auto"
-                            >
-                                <table
-                                    class="table table-sm table-borderless"
-                                    style="page-break-inside: avoid;"
-                                >
-                                    <t t-set="tax_totals" t-value="o.tax_totals" />
-                                    <t t-set="currency" t-value="o.currency_id" />
-                                    <t t-call="account.document_tax_totals" />
-                                </table>
+                    <div class="overflow-hidden">
+                        <div
+                            id="right-elements"
+                            t-attf-class="#{'col-5' if report_type != 'html' else 'col-12 col-md-5'} ms-5 d-inline-block float-end"
+                        >
+                            <div id="total" class="clearfix row">
+                                <div class="ms-auto">
+                                    <table
+                                        class="o_total_table table table-sm table-borderless avoid-page-break-inside border-top-0"
+                                    >
+                                        <t t-set="tax_totals" t-value="o.tax_totals" />
+                                        <t t-set="currency" t-value="o.currency_id" />
+                                        <t t-call="account.document_tax_totals" />
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>

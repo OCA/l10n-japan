@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from odoo import Command, _, api, fields, models
-from odoo.exceptions import UserError, ValidationError
+from odoo.exceptions import ValidationError
 
 
 class AccountBilling(models.Model):
@@ -23,7 +23,9 @@ class AccountBilling(models.Model):
         exportable=False,
     )
     tax_adjustment_entry_id = fields.Many2one("account.move")
-    company_partner_id = fields.Many2one(related="company_id.partner_id", store=True)
+    company_partner_id = fields.Many2one(
+        related="company_id.partner_id", string="Company Partner", store=True
+    )
     remit_to_bank_id = fields.Many2one(
         "res.partner.bank",
         "Remit-to Bank",
