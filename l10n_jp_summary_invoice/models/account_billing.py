@@ -167,12 +167,6 @@ class AccountBilling(models.Model):
         )
 
     def validate_billing(self):
-        for rec in self:
-            # TODO: Move this chack to account_billing?
-            if rec.billing_line_ids.filtered(lambda x: x.move_id.state != "posted"):
-                raise UserError(
-                    _("All invoices must be posted before validating the billing.")
-                )
         res = super().validate_billing()
         # Tax journal entry will be created only for customer invoice billings.
         for rec in self.filtered(lambda x: x.bill_type == "out_invoice"):
