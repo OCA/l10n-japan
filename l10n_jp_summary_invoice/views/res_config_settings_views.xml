@@ -57,6 +57,21 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <label for="partner_field_for_summary_invoice" />
+                            <div class="text-muted">
+                                Select the partner field from the sale order.
+                                If set, the value of this field from the Sales Order related to the summary invoice will be displayed in the summary invoice report lines.
+                            </div>
+                            <div class="mt8">
+                                <field
+                                    name="partner_field_for_summary_invoice"
+                                    class="o_light_label"
+                                />
+                            </div>
+                        </div>
+                    </div>
                     <div
                         class="col-12 col-lg-6 o_setting_box"
                         id="show_invoice_narration"

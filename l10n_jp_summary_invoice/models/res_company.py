@@ -17,6 +17,14 @@ class ResCompany(models.Model):
         help="If enabled, the sales order number will be displayed in the summary "
         "invoice report lines.",
     )
+    partner_field_for_summary_invoice = fields.Many2one(
+        "ir.model.fields",
+        domain=[
+            ("model", "=", "sale.order"),
+            ("ttype", "=", "many2one"),
+            ("relation", "=", "res.partner"),
+        ],
+    )
     show_invoice_narration = fields.Boolean(
         default=True,
         help="If enabled, the invoice narration will be displayed in the summary "

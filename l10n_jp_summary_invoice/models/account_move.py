@@ -30,3 +30,11 @@ class AccountMove(models.Model):
                     _("You cannot reset to draft an invoice that has been billed.")
                 )
         return super().button_draft()
+
+    def get_summary_invoice_original_partner(self):
+        if not self.company_id.partner_field_for_summary_invoice:
+            return False
+        partner_field = self.company_id.partner_field_for_summary_invoice
+        sale_orders = self.invoice_line_ids.mapped("sale_line_ids.order_id")
+        partners = sale_orders.mapped(partner_field.name)
+        return partners[0] if partners else False

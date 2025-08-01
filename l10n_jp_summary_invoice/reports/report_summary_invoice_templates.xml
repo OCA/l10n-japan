@@ -52,6 +52,17 @@
                                     <span t-field="invoice.name" />
                                 </td>
                             </tr>
+                            <t
+                                t-set="original_partner"
+                                t-value="invoice.get_summary_invoice_original_partner()"
+                            />
+                            <t t-if="original_partner">
+                                <tr>
+                                    <td t-att-colspan="line_columns">
+                                        <span t-field="original_partner.name" />
+                                    </td>
+                                </tr>
+                            </t>
                         </t>
                         <t t-set="order" t-value="line.sale_line_ids.order_id" />
                         <t
