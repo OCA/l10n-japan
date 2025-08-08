@@ -7,14 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-03 10:07+0000\n"
-"PO-Revision-Date: 2025-06-03 10:07+0000\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2025-08-08 05:25+0000\n"
+"Last-Translator: Sayaka-qrtl <sayaka@quartile.co>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: report_alternative_layout
 #: model_terms:ir.ui.view,arch_db:report_alternative_layout.external_layout_standard
@@ -29,7 +30,7 @@ msgstr "<strong>振込先:</strong>"
 #. module: report_alternative_layout
 #: model_terms:ir.ui.view,arch_db:report_alternative_layout.view_act_report_form
 msgid "Alternative Layout Settings"
-msgstr ""
+msgstr "代替レイアウト設定"
 
 #. module: report_alternative_layout
 #: model:ir.model.fields,field_description:report_alternative_layout.field_ir_actions_report__apply_alternative_layout
@@ -45,7 +46,7 @@ msgstr "日付項目ラベル"
 #. module: report_alternative_layout
 #: model:ir.model.fields,field_description:report_alternative_layout.field_ir_actions_report__date_field_id
 msgid "Date Field to Show in Header"
-msgstr ""
+msgstr "ヘッダに表示する日付項目"
 
 #. module: report_alternative_layout
 #: model_terms:ir.ui.view,arch_db:report_alternative_layout.external_layout_standard
@@ -69,35 +70,34 @@ msgstr "選択すると、印刷帳票に代替レイアウトが適用されま
 msgid ""
 "If selected, the commercial partner of the document partner will show in the "
 "report output (instead of the document partner)."
-msgstr ""
-"選択すると、ドキュメントの取引先の代わりに商業取引先(親)がレポートで出力され"
-"ます。"
+msgstr "選択すると、印刷帳票に取引先ではなく、その商業取引先(親)が表示されます。"
 
 #. module: report_alternative_layout
 #: model:ir.model.fields,help:report_alternative_layout.field_ir_actions_report__show_document_number
 msgid "If selected, the document number will show in the report header."
-msgstr ""
+msgstr "選択すると、印刷帳票のヘッダーに伝票番号が表示されます。"
 
 #. module: report_alternative_layout
 #: model:ir.model.fields,help:report_alternative_layout.field_report_paperformat__show_address_in_header
 msgid ""
 "If selected, the report header will be shown on every page of the report "
 "output."
-msgstr ""
+msgstr "選択すると、アドレスが印刷帳票のヘッダに表示されます。"
 
 #. module: report_alternative_layout
 #: model:ir.model.fields,help:report_alternative_layout.field_ir_actions_report__date_field_id
 msgid ""
 "If set, the report will show the value of this field in the header as the "
 "date of the document."
-msgstr ""
+msgstr "設定すると、この項目の値が印刷帳票のヘッダに日付として表示されます。"
 
 #. module: report_alternative_layout
 #: model:ir.model.fields,help:report_alternative_layout.field_ir_actions_report__date_field_label
 msgid ""
 "Label for the date field in the report header. If not set, the field's "
 "description will be used."
-msgstr ""
+msgstr "印刷帳票の日付項目に表示するラベルです。設定されていない場合、日付項目がその"
+"まま表示されます。"
 
 #. module: report_alternative_layout
 #: model:ir.model,name:report_alternative_layout.model_report_paperformat
@@ -122,7 +122,7 @@ msgstr "商業取引先(親)を表示"
 #. module: report_alternative_layout
 #: model:ir.model.fields,field_description:report_alternative_layout.field_ir_actions_report__show_document_number
 msgid "Show Document Number in Header"
-msgstr ""
+msgstr "伝票番号をヘッダに表示"
 
 #. module: report_alternative_layout
 #: model:ir.model.fields,field_description:report_alternative_layout.field_ir_actions_report__show_remit_to_bank
