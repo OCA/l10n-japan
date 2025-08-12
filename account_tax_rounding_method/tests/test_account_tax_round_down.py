@@ -18,12 +18,15 @@ class TestAccountTaxRoundDown(TransactionCase):
             }
         )
         cls.env.company = cls.company
+        tax_group = cls.env["account.tax.group"].create({"name": "Tax Group"})
         cls.tax = cls.env["account.tax"].create(
             {
                 "name": "tax 10",
                 "type_tax_use": "sale",
                 "amount": 10,
                 "country_id": cls.env.ref("base.jp").id,
+                "company_id": cls.company.id,
+                "tax_group_id": tax_group.id,
             }
         )
         cls.journal = cls.env["account.journal"].create(

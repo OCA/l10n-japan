@@ -8,5 +8,6 @@ class ResPartner(models.Model):
     _inherit = "res.partner"
 
     tax_rounding_method = fields.Selection(
-        selection=[("HALF-UP", "Half-up"), ("UP", "Round-up"), ("DOWN", "Round-down")]
+        selection=[("HALF-UP", "Half-up"), ("UP", "Round-up"), ("DOWN", "Round-down")],
+        tracking=True,
     )

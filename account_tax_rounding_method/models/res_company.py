@@ -10,4 +10,5 @@ class ResCompany(models.Model):
     tax_rounding_method = fields.Selection(
         selection=[("HALF-UP", "Half-up"), ("UP", "Round-up"), ("DOWN", "Round-down")],
         default="HALF-UP",
+        tracking=True,
     )
