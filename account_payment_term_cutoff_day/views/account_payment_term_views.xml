@@ -5,7 +5,7 @@
         <field name="inherit_id" ref="account.view_payment_term_form" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='nb_days']" position="before">
-                <field name="has_cutoff_day" widget="boolean_toggle" />
+                <field name="has_cutoff_day" />
                 <field
                     name="cutoff_day"
                     readonly="not has_cutoff_day"
