@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from odoo import Command, _, api, fields, models
-from odoo.exceptions import UserError, ValidationError
+from odoo.exceptions import ValidationError
 
 
 class AccountBilling(models.Model):
@@ -44,7 +44,8 @@ class AccountBilling(models.Model):
             if invoice_not_for_billing:
                 raise ValidationError(
                     _(
-                        "The invoice %s should not be included in this summary invoice.",
+                        "The invoice %s should not be included in this "
+                        "summary invoice.",
                         invoice_not_for_billing.name,
                     )
                 )
@@ -168,12 +169,6 @@ class AccountBilling(models.Model):
         )
 
     def validate_billing(self):
-        for rec in self:
-            # TODO: Move this chack to account_billing?
-            if rec.billing_line_ids.filtered(lambda x: x.move_id.state != "posted"):
-                raise UserError(
-                    _("All invoices must be posted before validating the billing.")
-                )
         res = super().validate_billing()
         # Tax journal entry will be created only for customer invoice billings.
         for rec in self.filtered(lambda x: x.bill_type == "out_invoice"):
