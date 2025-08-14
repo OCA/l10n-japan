@@ -43,7 +43,7 @@
                     t-set="report"
                     t-value="report.with_context(lang=report_partner.lang)"
                 />
-                <div class="o_company_tagline mw-50 fw-bold">
+                <div class="col-9 text-end">
                     <!-- Display the header only if 'report_header' is set.
                     Handle auto-inserted <p><br></p> from HTML fields -->
                     <t
@@ -92,6 +92,14 @@
                     </div>
                 </div>
             </t>
+        </xpath>
+        <!-- By disabling the default margins,
+        the starting position of the first page and subsequent pages will be aligned,
+        making it easier to adjust layout using the paper format. -->
+        <xpath expr="//t[@t-call='web.address_layout']/.." position="attributes">
+            <attribute
+                name="t-att-class"
+            >'pt-5' if not apply_alternative_layout else ''</attribute>
         </xpath>
         <!-- Show company address in the body if alternative layout is selected -->
         <xpath expr="//t[@t-call='web.address_layout']" position="attributes">
