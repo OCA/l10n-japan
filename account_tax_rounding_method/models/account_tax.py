@@ -37,7 +37,11 @@ class AccountTax(models.Model):
 
     @api.model
     def _aggregate_taxes(
-        self, to_process, filter_tax_values_to_apply=None, grouping_key_generator=None
+        self,
+        to_process,
+        filter_tax_values_to_apply=None,
+        grouping_key_generator=None,
+        distribute_total_on_line=True,
     ):
         # Clear the tax_rounding_method context if only inclusive taxes are present
         # in to_process, to avoid affecting the rounding behavior and to follow
@@ -52,10 +56,13 @@ class AccountTax(models.Model):
             to_process,
             filter_tax_values_to_apply=filter_tax_values_to_apply,
             grouping_key_generator=grouping_key_generator,
+            distribute_total_on_line=distribute_total_on_line,
         )
 
     @api.model
-    def _prepare_tax_totals(self, base_lines, currency, tax_lines=None):
+    def _prepare_tax_totals(
+        self, base_lines, currency, tax_lines=None, is_company_currency_requested=False
+    ):
         # We assume all base_lines share the same partner,
         # so we use the partner from the first line
         partner = (
@@ -63,4 +70,9 @@ class AccountTax(models.Model):
         )
         tax_rounding_method = self._get_tax_rounding_method(partner)
         self = self.with_context(tax_rounding_method=tax_rounding_method)
-        return super()._prepare_tax_totals(base_lines, currency, tax_lines)
+        return super()._prepare_tax_totals(
+            base_lines,
+            currency,
+            tax_lines=tax_lines,
+            is_company_currency_requested=is_company_currency_requested,
+        )
