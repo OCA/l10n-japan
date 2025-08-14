@@ -40,11 +40,14 @@ class TestSummaryInvoice(TransactionCase):
             }
         )
         cls.product = cls.env["product.product"].create({"name": "Test Product"})
+        tax_group = cls.env["account.tax.group"].create({"name": "Tax Group"})
         cls.tax_10 = cls.env["account.tax"].create(
             {
                 "name": "Test Tax 10%",
                 "amount": 10.0,
                 "type_tax_use": "sale",
+                "company_id": cls.company.id,
+                "tax_group_id": tax_group.id,
             }
         )
         cls.journal = cls.env["account.journal"].create(

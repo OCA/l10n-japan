@@ -12,7 +12,8 @@ class AccountMoveLine(models.Model):
     signed_quantity = fields.Float(
         compute="_compute_signed_quantity",
         digits="Product Unit of Measure",
-        help="Technical field used to display the value with the correct sign in reports.",
+        help="Technical field used to display the value with the correct sign in "
+        "reports.",
     )
 
     def _compute_signed_quantity(self):
