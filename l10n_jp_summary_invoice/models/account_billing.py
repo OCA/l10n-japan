@@ -154,7 +154,7 @@ class AccountBilling(models.Model):
                 ("display_type", "=", "rounding"),
                 ("tax_repartition_line_id", "!=", False),
             ],
-            fields=["tax_group_id", "balance"],
+            fields=["tax_group_id", "amount_currency:sum"],
             groupby=["tax_group_id"],
         )
         return tax_amount_groups
@@ -190,7 +190,7 @@ class AccountBilling(models.Model):
             tax_group_diff_dict = {}
             for tax_amount_group in tax_amount_groups_invoices:
                 tax_group_id = tax_amount_group["tax_group_id"][0]
-                tax_amount_invoices = tax_amount_group["balance"]
+                tax_amount_invoices = tax_amount_group["amount_currency"]
                 tax_amount_bill = tax_group_amount_dict.get(tax_group_id, 0)
                 tax_diff = tax_amount_invoices - tax_amount_bill
                 if tax_diff:
