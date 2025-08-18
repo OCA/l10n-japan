@@ -69,7 +69,13 @@ class TestSummaryInvoice(TransactionCase):
         )
 
     def _create_invoice(
-        self, amount, tax, move_type="out_invoice", bank=None, partner=None
+        self,
+        amount,
+        tax,
+        move_type="out_invoice",
+        bank=None,
+        partner=None,
+        currency_id=None,
     ):
         invoice = (
             self.env["account.move"]
@@ -78,6 +84,7 @@ class TestSummaryInvoice(TransactionCase):
                 {
                     "move_type": move_type,
                     "partner_id": (partner or self.partner).id,
+                    "currency_id": currency_id or self.company.currency_id.id,
                     "partner_bank_id": bank and bank.id,
                     "invoice_line_ids": [
                         Command.create(
@@ -102,7 +109,7 @@ class TestSummaryInvoice(TransactionCase):
         for subtotal in tax_totals.get("subtotals", []):
             for group in subtotal.get("tax_groups", []):
                 tax_group_id = group.get("id")
-                tax_amount = group.get("tax_amount", 0.0)
+                tax_amount = group.get("tax_amount_currency", 0.0)
                 tax_group_amount_dict[tax_group_id] = tax_amount * -1
         return round(tax_group_amount_dict.get(self.tax_10.tax_group_id.id, 0), 0)
 
@@ -248,3 +255,36 @@ class TestSummaryInvoice(TransactionCase):
         billing.action_cancel()
         self.assertFalse(inv1.billing_id)
         self.assertFalse(inv2.billing_id)
+
+    def test_check_tax_adjustment_with_currency_rounding_issue(self):
+        self.assertEqual(self.env.company.currency_id, self.env.ref("base.JPY"))
+        currency_usd = self.env.ref("base.USD")
+        currency_usd.active = True
+        self.env["res.currency.rate"].create(
+            {
+                "name": "2026-03-20",
+                "rate": 1 / 155.0,
+                "currency_id": currency_usd.id,
+                "company_id": self.company.id,
+            }
+        )
+        out_inv_1 = self._create_invoice(
+            100.10, self.tax_10, currency_id=currency_usd.id
+        )
+        out_inv_2 = self._create_invoice(
+            100.10, self.tax_10, currency_id=currency_usd.id
+        )
+        out_inv_3 = self._create_invoice(
+            100.10, self.tax_10, currency_id=currency_usd.id
+        )
+        self.assertEqual(out_inv_1.amount_tax, 10.01)
+        self.assertEqual(out_inv_2.amount_tax, 10.01)
+        self.assertEqual(out_inv_3.amount_tax, 10.01)
+        invoices = out_inv_1 + out_inv_2 + out_inv_3
+        action = invoices.action_create_billing()
+        billing = self.env["account.billing"].browse(action["res_id"])
+        self.assertEqual(billing.state, "draft")
+        self.assertEqual(billing.currency_id, currency_usd)
+        billing.with_company(self.company).validate_billing()
+        self.assertEqual(billing.state, "billed")
+        self.assertFalse(billing.tax_adjustment_entry_id)
