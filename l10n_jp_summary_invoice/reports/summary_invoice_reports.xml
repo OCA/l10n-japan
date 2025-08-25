@@ -8,6 +8,10 @@
         <field name="report_file">l10n_jp_summary_invoice.report_summary_invoice</field>
         <field name="binding_model_id" ref="account_billing.model_account_billing" />
         <field name="binding_type">report</field>
+        <field name="attachment_use">True</field>
+        <field
+            name="attachment"
+        >(object.state == 'posted') and ('Summary Invoice-%s' % (object.name))</field>
         <field
             name="print_report_name"
         >'Summary Invoice-%s%s' % (object.name, object.state == 'draft' and '-draft' or '')</field>
