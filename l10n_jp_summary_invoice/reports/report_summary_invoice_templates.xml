@@ -1,14 +1,20 @@
 <odoo>
     <template id="bill_line_section_layout">
+        <!-- Detect if Sale is installed (field exists on AML) -->
+        <t t-set="aml_model" t-value="env['account.move.line']" />
+        <t t-set="has_sale" t-value="'sale_line_ids' in aml_model._fields" />
         <t
             t-set="invoice_lines"
             t-value="o.billing_line_ids.move_id.invoice_line_ids"
         />
         <t t-set="display_discount" t-value="any(invoice_lines.mapped('discount'))" />
-        <t t-set="show_order_number" t-value="o.company_id.show_sale_order_number" />
+        <t
+            t-set="show_order_number"
+            t-value="has_sale and o.company_id.show_sale_order_number"
+        />
         <t
             t-set="show_reference"
-            t-value="any(invoice_lines.mapped('sale_line_ids.order_id.client_order_ref'))"
+            t-value="has_sale and any(invoice_lines.mapped('sale_line_ids.order_id.client_order_ref'))"
         />
         <t
             t-set="line_columns"
@@ -53,17 +59,20 @@
                                 </td>
                             </tr>
                         </t>
-                        <t t-set="order" t-value="line.sale_line_ids.order_id" />
+                        <t
+                            t-set="order"
+                            t-value="has_sale and line.sale_line_ids.order_id or False"
+                        />
                         <t
                             t-set="taxes"
                             t-value="', '.join([(tax.description or tax.name) for tax in line.tax_ids])"
                         />
                         <tr>
                             <td t-if="show_order_number" name="td_order_num">
-                                <span t-esc="order.name" />
+                                <span t-esc="order and order.name or ''" />
                             </td>
                             <td t-if="show_reference" name="td_order_ref">
-                                <span t-esc="order.client_order_ref" />
+                                <span t-esc="order and order.client_order_ref or ''" />
                             </td>
                             <td name="td_description">
                                 <span t-field="line.name" />
