@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 =====================
 Japan Summary Invoice
 =====================
@@ -17,7 +13,7 @@ Japan Summary Invoice
 .. |badge1| image:: https://img.shields.io/badge/maturity-Alpha-red.png
     :target: https://odoo-community.org/page/development-status
     :alt: Alpha
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fl10n--japan-lightgray.png?logo=github
@@ -57,8 +53,6 @@ settings as necessary:
 
 - **Summary Invoice Remark**: The remark that shows in the header part of the summary
   invoice, such as '下記の通り御請求申し上げます。'.
-- **Show Sales Order Number**: If selected, the sales order number will be shown for
-  each line in the summary invoice.
 - **Show Invoice Narration**: If selected, the narration will appear for each invoice in
   the summary invoice report.
 - **Show Invoice Total Amount**: If selected, the total amount per invoice will appear
