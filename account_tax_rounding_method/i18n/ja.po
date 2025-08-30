@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2025-08-30 14:42+0000\n"
+"Last-Translator: Ryoko Tsuda <ryoko@quartile.co>\n"
 "Language-Team: none\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: account_tax_rounding_method
 #: model_terms:ir.ui.view,arch_db:account_tax_rounding_method.res_config_settings_view_form
@@ -21,59 +23,63 @@ msgid ""
 "specific.\" aria-label=\"Values set here are company-specific.\" "
 "groups=\"base.group_multi_company\" role=\"img\"/>"
 msgstr ""
+"<span class=\"fa fa-lg fa-building-o\" title="
+"\"Values set here are company-specific.\" aria-label="
+"\"ここで設定される値は、会社ごとに異なります。\" groups="
+"\"base.group_multi_company\" role=\"img\"/>"
 
 #. module: account_tax_rounding_method
 #: model_terms:ir.ui.view,arch_db:account_tax_rounding_method.res_config_settings_view_form
 msgid "Apply rounding method to tax amounts"
-msgstr ""
+msgstr "税額に丸め処理を適用"
 
 #. module: account_tax_rounding_method
 #: model:ir.model,name:account_tax_rounding_method.model_res_company
 msgid "Companies"
-msgstr ""
+msgstr "会社"
 
 #. module: account_tax_rounding_method
 #: model:ir.model,name:account_tax_rounding_method.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "コンフィグ設定"
 
 #. module: account_tax_rounding_method
 #: model:ir.model,name:account_tax_rounding_method.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "連絡先"
 
 #. module: account_tax_rounding_method
 #: model:ir.model,name:account_tax_rounding_method.model_res_currency
 msgid "Currency"
-msgstr ""
+msgstr "通貨"
 
 #. module: account_tax_rounding_method
 #: model:ir.model.fields.selection,name:account_tax_rounding_method.selection__res_company__tax_rounding_method__half-up
 #: model:ir.model.fields.selection,name:account_tax_rounding_method.selection__res_partner__tax_rounding_method__half-up
 msgid "Half-up"
-msgstr ""
+msgstr "四捨五入"
 
 #. module: account_tax_rounding_method
 #: model:ir.model,name:account_tax_rounding_method.model_account_move
 msgid "Journal Entry"
-msgstr ""
+msgstr "仕訳"
 
 #. module: account_tax_rounding_method
 #: model:ir.model.fields.selection,name:account_tax_rounding_method.selection__res_company__tax_rounding_method__down
 #: model:ir.model.fields.selection,name:account_tax_rounding_method.selection__res_partner__tax_rounding_method__down
 msgid "Round-down"
-msgstr ""
+msgstr "切り捨て"
 
 #. module: account_tax_rounding_method
 #: model:ir.model.fields.selection,name:account_tax_rounding_method.selection__res_company__tax_rounding_method__up
 #: model:ir.model.fields.selection,name:account_tax_rounding_method.selection__res_partner__tax_rounding_method__up
 msgid "Round-up"
-msgstr ""
+msgstr "切り上げ"
 
 #. module: account_tax_rounding_method
 #: model:ir.model,name:account_tax_rounding_method.model_account_tax
 msgid "Tax"
-msgstr ""
+msgstr "税"
 
 #. module: account_tax_rounding_method
 #: model:ir.model.fields,field_description:account_tax_rounding_method.field_res_company__tax_rounding_method
@@ -82,4 +88,4 @@ msgstr ""
 #: model:ir.model.fields,field_description:account_tax_rounding_method.field_res_users__tax_rounding_method
 #: model_terms:ir.ui.view,arch_db:account_tax_rounding_method.view_partner_property_form
 msgid "Tax Rounding Method"
-msgstr ""
+msgstr "税丸め方法"
