@@ -9,6 +9,9 @@
     "license": "AGPL-3",
     "website": "https://github.com/OCA/l10n-japan",
     "category": "Accounting",
-    "data": ["views/account_payment_term_views.xml"],
+    "data": [
+        "views/account_payment_term_views.xml",
+        "views/account_move_views.xml",
+    ],
     "installable": True,
 }
