@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="account_billing_cutoff_view_form" model="ir.ui.view">
+        <field name="name">wiz.account.billing.cutoff</field>
+        <field name="model">wiz.account.billing.cutoff</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="bill_type" readonly="1" />
+                            <field name="cutoff_date" />
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button
+                        name="action_create_billings"
+                        string="Create Billings"
+                        type="object"
+                        class="btn-primary"
+                    />
+                    <button string="Cancel" special="cancel" class="btn-secondary" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_customer_account_billing_cutoff" model="ir.actions.act_window">
+        <field name="name">Create Billing From Cutoff</field>
+        <field name="res_model">wiz.account.billing.cutoff</field>
+        <field name="view_mode">form</field>
+        <field name="context">{'default_bill_type':'out_invoice'}</field>
+        <field name="target">new</field>
+    </record>
+    <record id="action_supplier_account_billing_cutoff" model="ir.actions.act_window">
+        <field name="name">Create Billing From Cutoff</field>
+        <field name="res_model">wiz.account.billing.cutoff</field>
+        <field name="view_mode">form</field>
+        <field name="context">{'default_bill_type':'in_invoice'}</field>
+        <field name="target">new</field>
+    </record>
+    <menuitem
+        action="action_customer_account_billing_cutoff"
+        id="menu_action_customer_billing"
+        parent="account.menu_finance_receivables"
+        sequence="12"
+    />
+    <menuitem
+        action="action_supplier_account_billing_cutoff"
+        id="menu_action_supplier_billing"
+        parent="account.menu_finance_payables"
+        sequence="12"
+    />
+</odoo>
