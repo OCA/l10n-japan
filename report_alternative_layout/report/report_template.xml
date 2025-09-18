@@ -107,7 +107,7 @@
             <t t-if="apply_alternative_layout and not show_address_in_header">
                 <t t-call="report_alternative_layout.report_custom_address_layout" />
             </t>
-            <t t-if="report">
+            <t t-if="report and apply_alternative_layout">
                 <!-- Show the information block and Remit-to section in the body -->
                 <t t-set="remit_to_bank" t-value="report._get_remit_to_bank(o)" />
                 <div class="row">
