@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -12,19 +12,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-
-#. module: account_tax_rounding_method
-#: model_terms:ir.ui.view,arch_db:account_tax_rounding_method.res_config_settings_view_form
-msgid ""
-"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
-"specific.\" aria-label=\"Values set here are company-specific.\" "
-"groups=\"base.group_multi_company\" role=\"img\"/>"
-msgstr ""
-
-#. module: account_tax_rounding_method
-#: model_terms:ir.ui.view,arch_db:account_tax_rounding_method.res_config_settings_view_form
-msgid "Apply rounding method to tax amounts"
-msgstr ""
 
 #. module: account_tax_rounding_method
 #: model:ir.model,name:account_tax_rounding_method.model_res_company
@@ -53,11 +40,6 @@ msgid "Half-up"
 msgstr ""
 
 #. module: account_tax_rounding_method
-#: model:ir.model,name:account_tax_rounding_method.model_account_move
-msgid "Journal Entry"
-msgstr ""
-
-#. module: account_tax_rounding_method
 #: model:ir.model.fields.selection,name:account_tax_rounding_method.selection__res_company__tax_rounding_method__down
 #: model:ir.model.fields.selection,name:account_tax_rounding_method.selection__res_partner__tax_rounding_method__down
 msgid "Round-down"
@@ -79,6 +61,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:account_tax_rounding_method.field_res_config_settings__tax_rounding_method
 #: model:ir.model.fields,field_description:account_tax_rounding_method.field_res_partner__tax_rounding_method
 #: model:ir.model.fields,field_description:account_tax_rounding_method.field_res_users__tax_rounding_method
+#: model_terms:ir.ui.view,arch_db:account_tax_rounding_method.res_config_settings_view_form
 #: model_terms:ir.ui.view,arch_db:account_tax_rounding_method.view_partner_property_form
 msgid "Tax Rounding Method"
 msgstr ""
