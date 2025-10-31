@@ -2,13 +2,17 @@
 <odoo>
     <template id="contact_name" inherit_id="base.contact_name">
         <xpath expr="//span[@itemprop='name']" position="before">
-            <t t-if="object.title and object.title.display_position == 'before'">
-                <span itemprop="title" t-field="object.title" />
+            <t
+                t-if="object.honorific_title and object.honorific_title_position == 'before'"
+            >
+                <span itemprop="honorific_title" t-field="object.honorific_title" />
             </t>
         </xpath>
         <xpath expr="//span[@itemprop='name']" position="after">
-            <t t-if="object.title and object.title.display_position == 'after'">
-                <span itemprop="title" t-field="object.title" />
+            <t
+                t-if="object.honorific_title and object.honorific_title_position == 'after'"
+            >
+                <span itemprop="honorific_title" t-field="object.honorific_title" />
             </t>
         </xpath>
     </template>

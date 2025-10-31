@@ -1,3 +1,2 @@
-Go to Contacts \> Configuration \> Contact Titles, and update the
-display position (before/after name) for the titles that should show in
-QWeb reports / website pages.
+- Open the partner record.
+- Fill in the Honorific Title and Position fields shown right below the Name field.

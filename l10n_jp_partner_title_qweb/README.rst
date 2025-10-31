@@ -21,21 +21,20 @@ Japan Partner Title QWeb
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fl10n--japan-lightgray.png?logo=github
-    :target: https://github.com/OCA/l10n-japan/tree/18.0/l10n_jp_partner_title_qweb
+    :target: https://github.com/OCA/l10n-japan/tree/19.0/l10n_jp_partner_title_qweb
     :alt: OCA/l10n-japan
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/l10n-japan-18-0/l10n-japan-18-0-l10n_jp_partner_title_qweb
+    :target: https://translation.odoo-community.org/projects/l10n-japan-19-0/l10n-japan-19-0-l10n_jp_partner_title_qweb
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/l10n-japan&target_branch=18.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/l10n-japan&target_branch=19.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module makes necessary adjustments to show titles such as "様" and
-"御中" in the configured display position for partner names in QWeb
-reports and website pages that call the base.conactname template for
-partner name presentation.
+This module adds the *Honorific Title* and *Position fields* to partner
+records, and displays the title in QWeb reports and website pages that
+use the base.contactname template for partner name presentation.
 
 **Table of contents**
 
@@ -45,9 +44,18 @@ partner name presentation.
 Configuration
 =============
 
-Go to Contacts > Configuration > Contact Titles, and update the display
-position (before/after name) for the titles that should show in QWeb
-reports / website pages.
+-  Open the partner record.
+-  Fill in the Honorific Title and Position fields shown right below the
+   Name field.
+
+Known issues / Roadmap
+======================
+
+If you migrate your database from a version earlier than 19.0 to version
+19.0 or later (where res.partner.title no longer exists in the core),
+it’s likely that your previous settings won’t survive the migration
+process. In that case, you may need to manually update the partner
+records with the appropriate titles.
 
 Bug Tracker
 ===========
@@ -55,7 +63,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/l10n-japan/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/l10n-japan/issues/new?body=module:%20l10n_jp_partner_title_qweb%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/l10n-japan/issues/new?body=module:%20l10n_jp_partner_title_qweb%0Aversion:%2019.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -70,9 +78,9 @@ Authors
 Contributors
 ------------
 
-- Tim Lai <tl@quartile.co>
-- Takuya Sawada <takuya@tuntunkun.com>
-- Yoshi Tashiro <tashiro@quartile.co>
+-  Tim Lai <tl@quartile.co>
+-  Takuya Sawada <takuya@tuntunkun.com>
+-  Yoshi Tashiro <tashiro@quartile.co>
 
 Maintainers
 -----------
@@ -87,6 +95,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/l10n-japan <https://github.com/OCA/l10n-japan/tree/18.0/l10n_jp_partner_title_qweb>`_ project on GitHub.
+This module is part of the `OCA/l10n-japan <https://github.com/OCA/l10n-japan/tree/19.0/l10n_jp_partner_title_qweb>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
