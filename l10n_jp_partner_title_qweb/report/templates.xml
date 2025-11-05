@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="contact_name" inherit_id="base.contact_name">
+        <xpath expr="//span[@itemprop='name']" position="before">
+            <t
+                t-if="object.honorific_title and object.honorific_title_position == 'before'"
+            >
+                <span itemprop="honorific_title" t-field="object.honorific_title" />
+            </t>
+        </xpath>
+        <xpath expr="//span[@itemprop='name']" position="after">
+            <t
+                t-if="object.honorific_title and object.honorific_title_position == 'after'"
+            >
+                <span itemprop="honorific_title" t-field="object.honorific_title" />
+            </t>
+        </xpath>
+    </template>
+</odoo>

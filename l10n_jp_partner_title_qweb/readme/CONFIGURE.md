@@ -1,0 +1,2 @@
+- Open the partner record.
+- Fill in the Honorific Title and Position fields shown right below the Name field.

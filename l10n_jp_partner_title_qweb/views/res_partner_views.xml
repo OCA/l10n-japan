@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding='UTF-8' ?>
+<odoo>
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">view.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='email']/.." position="before">
+                <div class="d-flex align-items-baseline w-md-50">
+                    <i class="fa fa-fw me-1 fa-id-badge text-primary" title="Title" />
+                    <field name="honorific_title" placeholder="Honorific Title" />
+                    <field name="honorific_title_position" />
+                </div>
+            </xpath>
+            <xpath expr="//notebook//form//field[@name='email']/.." position="before">
+                <div class="d-flex align-items-baseline w-md-50">
+                    <i class="fa fa-fw me-1 fa-id-badge text-primary" title="Title" />
+                    <field name="honorific_title" placeholder="Honorific Title" />
+                    <field name="honorific_title_position" />
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
