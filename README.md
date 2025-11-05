@@ -17,7 +17,11 @@ l10n-japan
 
 [//]: # (addons)
 
-This part will be replaced when running the oca-gen-addons-table script from OCA/maintainer-tools.
+Available addons
+----------------
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[l10n_jp_partner_title_qweb](l10n_jp_partner_title_qweb/) | 19.0.1.0.0 |  | Japan Partner Title QWeb
 
 [//]: # (end addons)
 
