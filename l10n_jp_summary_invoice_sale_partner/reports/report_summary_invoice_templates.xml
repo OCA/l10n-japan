@@ -4,7 +4,6 @@
         inherit_id="l10n_jp_summary_invoice.bill_line_section_layout"
     >
         <xpath expr="//tr[td/span[@t-field='invoice.invoice_date']]" position="after">
-
             <t t-if="o.company_id.show_sale_order_partner and invoice.partner_sale_id">
                 <tr>
                     <td t-att-colspan="line_columns">
