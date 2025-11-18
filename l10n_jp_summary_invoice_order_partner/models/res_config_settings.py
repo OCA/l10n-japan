@@ -7,9 +7,9 @@ from odoo import fields, models
 class ResConfigSettings(models.TransientModel):
     _inherit = "res.config.settings"
 
-    show_sale_order_partner = fields.Boolean(
-        related="company_id.show_sale_order_partner", readonly=False
+    show_order_partner = fields.Boolean(
+        related="company_id.show_order_partner", readonly=False
     )
-    show_sale_order_shipping_partner = fields.Boolean(
-        related="company_id.show_sale_order_shipping_partner", readonly=False
+    show_order_shipping_partner = fields.Boolean(
+        related="company_id.show_order_shipping_partner", readonly=False
     )

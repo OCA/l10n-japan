@@ -1,0 +1,26 @@
+<odoo>
+    <record id="res_config_settings_view_form_inherit" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.order_partner</field>
+        <field name="model">res.config.settings</field>
+        <field
+            name="inherit_id"
+            ref="l10n_jp_summary_invoice.res_config_settings_view_form"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//setting[@id='show_sale_order_number']" position="after">
+                <setting
+                    id="show_order_partner"
+                    help="Show the sales order partner in the summary invoice report lines"
+                >
+                    <field name="show_order_partner" />
+                </setting>
+                <setting
+                    id="show_order_shipping_partner"
+                    help="Show the sales order shipping address in the summary invoice report lines"
+                >
+                    <field name="show_order_shipping_partner" />
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>
