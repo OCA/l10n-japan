@@ -17,19 +17,19 @@ Japan Summary Invoice Sale Partner
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fl10n--japan-lightgray.png?logo=github
-    :target: https://github.com/OCA/l10n-japan/tree/16.0/l10n_jp_summary_invoice_sale_partner
+    :target: https://github.com/OCA/l10n-japan/tree/18.0/l10n_jp_summary_invoice_sale_partner
     :alt: OCA/l10n-japan
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/l10n-japan-16-0/l10n-japan-16-0-l10n_jp_summary_invoice_sale_partner
+    :target: https://translation.odoo-community.org/projects/l10n-japan-18-0/l10n-japan-18-0-l10n_jp_summary_invoice_sale_partner
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/l10n-japan&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/l10n-japan&target_branch=18.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module displays the sale order partner and the sale order shipping address per invoice
-in the summary invoice.
+This module displays the sale order partner and the sale order shipping
+address per invoice in the summary invoice.
 
 .. IMPORTANT::
    This is an alpha version, the data model and design can change at any time without warning.
@@ -44,19 +44,21 @@ in the summary invoice.
 Configuration
 =============
 
-Go to *Invoicing/Accounting > Configuration > Settings* and update the following
-settings as necessary:
+Go to *Invoicing/Accounting > Configuration > Settings* and update the
+following settings as necessary:
 
-- **Show Sale Order Partner**: If selected, the sales order partner will be shown for
-  each invoice in the summary invoice.
-- **Show Sale Order Shipping Partner**: If selected, the sales order shipping partner 
-  will be shown for each invoice in the summary invoice.
+-  **Show Sale Order Partner**: If selected, the sales order partner
+   will be shown for each invoice in the summary invoice.
+-  **Show Sale Order Shipping Partner**: If selected, the sales order
+   shipping partner will be shown for each invoice in the summary
+   invoice.
 
 Known issues / Roadmap
 ======================
 
-This module cannot display the sale order partner and the sale order shipping address for
-each invoice line, nor at the summary invoice level.
+This module cannot display the sale order partner and the sale order
+shipping address for each invoice line, nor at the summary invoice
+level.
 
 Bug Tracker
 ===========
@@ -64,7 +66,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/l10n-japan/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/l10n-japan/issues/new?body=module:%20l10n_jp_summary_invoice_sale_partner%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/l10n-japan/issues/new?body=module:%20l10n_jp_summary_invoice_sale_partner%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -72,12 +74,12 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Quartile
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -89,6 +91,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/l10n-japan <https://github.com/OCA/l10n-japan/tree/16.0/l10n_jp_summary_invoice_sale_partner>`_ project on GitHub.
+This module is part of the `OCA/l10n-japan <https://github.com/OCA/l10n-japan/tree/18.0/l10n_jp_summary_invoice_sale_partner>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
