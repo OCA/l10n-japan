@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 ===============================
 Account Payment Term Cutoff Day
 ===============================
@@ -17,7 +13,7 @@ Account Payment Term Cutoff Day
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fl10n--japan-lightgray.png?logo=github
@@ -40,8 +36,7 @@ With this feature, users can define a specific cutoff day for payment
 terms. If an invoice is dated after this cutoff day, the system will
 automatically shift the due date by one additional month.
 
-The *months* field allows users to specify how many months should be
-added to the invoice date when calculating the due date.
+It also adds the cutoff_date field in account.move.
 
 **Table of contents**
 
@@ -51,20 +46,20 @@ added to the invoice date when calculating the due date.
 Configuration
 =============
 
-- Go to Invoicing > Configuration > Payment Terms.
-- Select or create a Payment Term.
-- Under Payment Term Lines, enable the Has Cutoff Day option.
-- Set the Cutoff Day and Months fields accordingly.
+-  Go to Invoicing > Configuration > Payment Terms.
+-  Select or create a Payment Term.
+-  Under Payment Term Lines, enable the Has Cutoff Day option.
+-  Set the Cutoff Day and Months fields accordingly.
 
 Usage
 =====
 
-- Create an invoice/bill.
-- Choose the payment term in which you have assigned months and
-  cutoff_day in the payment term line.
-- Choose an invoice date/bill date that is later than cutoff_day.
-- You will see that the due date is extended by one additional month,
-  plus the number of months specified in the Months field.
+-  Create an invoice/bill.
+-  Choose the payment term in which you have assigned months and
+   cutoff_day in the payment term line.
+-  Choose an invoice date/bill date that is later than cutoff_day.
+-  You will see that the due date is extended by one additional month,
+   plus the number of months specified in the Months field.
 
 Bug Tracker
 ===========
