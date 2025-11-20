@@ -17,9 +17,22 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: account_payment_term_cutoff_day
+#: model:ir.model.fields,field_description:account_payment_term_cutoff_day.field_account_bank_statement_line__cutoff_date
+#: model:ir.model.fields,field_description:account_payment_term_cutoff_day.field_account_move__cutoff_date
+#: model:ir.model.fields,field_description:account_payment_term_cutoff_day.field_account_payment__cutoff_date
+#: model_terms:ir.ui.view,arch_db:account_payment_term_cutoff_day.view_account_invoice_filter
+msgid "Cutoff Date"
+msgstr ""
+
+#. module: account_payment_term_cutoff_day
 #: model:ir.model.fields,field_description:account_payment_term_cutoff_day.field_account_payment_term_line__cutoff_day
 msgid "Cutoff Day"
 msgstr "締日"
+
+#. module: account_payment_term_cutoff_day
+#: model:ir.model,name:account_payment_term_cutoff_day.model_account_move
+msgid "Journal Entry"
+msgstr ""
 
 #. module: account_payment_term_cutoff_day
 #: model:ir.model,name:account_payment_term_cutoff_day.model_account_payment_term_line
@@ -32,9 +45,17 @@ msgid ""
 "Specify the cutoff day of the month for adjusting invoice due dates.For "
 "example, if you set this field to 20, any invoice dated on the 21st or later "
 "will have its due date moved to the following month.Setting 0 is treated the "
-"same as having no cutoff day, which in practice is the same as setting 31."
+"same as having no cutoff day"
 msgstr ""
-"請求書の支払期日を調整するための月の締日を指定してください。例えば、この"
-"フィールドを20に設定すると、請求書の日付が21日以降の場合、その支払期日は翌月"
-"に繰り越されます。0を設定すると締日が無いものとして扱われ、実質的に31と同じ設"
-"定になります。"
+
+#~ msgid ""
+#~ "Specify the cutoff day of the month for adjusting invoice due dates.For "
+#~ "example, if you set this field to 20, any invoice dated on the 21st or "
+#~ "later will have its due date moved to the following month.Setting 0 is "
+#~ "treated the same as having no cutoff day, which in practice is the same "
+#~ "as setting 31."
+#~ msgstr ""
+#~ "請求書の支払期日を調整するための月の締日を指定してください。例えば、この"
+#~ "フィールドを20に設定すると、請求書の日付が21日以降の場合、その支払期日は翌"
+#~ "月に繰り越されます。0を設定すると締日が無いものとして扱われ、実質的に31と"
+#~ "同じ設定になります。"
