@@ -35,6 +35,8 @@ cutoff day for payment terms. If an invoice is dated after this cutoff
 day, the system will automatically shift the due date by one additional
 month.
 
+It also adds the cutoff_date field in account.move.
+
 **Table of contents**
 
 .. contents::
@@ -43,22 +45,22 @@ month.
 Configuration
 =============
 
-- Go to Invoicing > Configuration > Payment Terms.
-- Select or create a Payment Term.
-- Under the Payment Term Lines, you will see a Cutoff Day field.
-- The Cutoff Day field can only be entered when "End of Month" is
-  enabled.
-- Set a Cutoff Day (e.g., 20 for the 20th day of the month).
+-  Go to Invoicing > Configuration > Payment Terms.
+-  Select or create a Payment Term.
+-  Under the Payment Term Lines, you will see a Cutoff Day field.
+-  The Cutoff Day field can only be entered when "End of Month" is
+   enabled.
+-  Set a Cutoff Day (e.g., 20 for the 20th day of the month).
 
 Usage
 =====
 
-- Create an invoice/bill.
-- Choose the payment term in which you have assigned cutoff_day in the
-  payment term line.
-- Choose an invoice date/bill date that is later than cutoff_day.
-- You will see that the due date is extended by one extra month compared
-  to the normal due date.
+-  Create an invoice/bill.
+-  Choose the payment term in which you have assigned cutoff_day in the
+   payment term line.
+-  Choose an invoice date/bill date that is later than cutoff_day.
+-  You will see that the due date is extended by one extra month
+   compared to the normal due date.
 
 Bug Tracker
 ===========
