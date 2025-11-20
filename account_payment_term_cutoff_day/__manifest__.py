@@ -11,6 +11,7 @@
     "category": "Accounting",
     "data": [
         "views/account_payment_term_views.xml",
+        "views/account_move_views.xml",
     ],
     "installable": True,
 }

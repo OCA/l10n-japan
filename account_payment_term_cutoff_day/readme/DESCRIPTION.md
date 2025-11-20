@@ -7,3 +7,5 @@ date by one additional month.
 
 The *months* field allows users to specify how many months should be added to the 
 invoice date when calculating the due date.
+
+It also adds the cutoff_date field in account.move.
