@@ -47,7 +47,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[account_payment_term_cutoff_day](account_payment_term_cutoff_day/) | 18.0.1.0.0 |  | Account Payment Term Cutoff Day
+[account_payment_term_cutoff_day](account_payment_term_cutoff_day/) | 18.0.1.1.0 |  | Account Payment Term Cutoff Day
 [account_tax_rounding_method](account_tax_rounding_method/) | 18.0.1.0.0 |  | Account Tax Rounding Method
 [l10n_jp_address_layout](l10n_jp_address_layout/) | 18.0.1.0.0 |  | Japan Address Layout
 [l10n_jp_country_state](l10n_jp_country_state/) | 18.0.1.0.0 |  | Japan Country States
