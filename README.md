@@ -21,6 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
+[l10n_jp_address_layout](l10n_jp_address_layout/) | 19.0.1.0.0 |  | Japan Address Layout
 [l10n_jp_partner_title_qweb](l10n_jp_partner_title_qweb/) | 19.0.1.0.0 |  | Japan Partner Title QWeb
 
 [//]: # (end addons)
