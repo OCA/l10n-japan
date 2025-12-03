@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_move_form" model="ir.ui.view">
+        <field name="name">account.move.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='narration']" position="after">
+                <field name="show_delivery_note_narration" invisible="1" />
+                <field
+                    name="delivery_note_narration"
+                    placeholder="Delivery Note Comment"
+                    invisible="move_type not in ('out_invoice', 'out_refund') or not show_delivery_note_narration"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
