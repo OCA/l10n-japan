@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="report_delivery_note" model="ir.actions.report">
+        <field name="name">Delivery Note PDF</field>
+        <field name="model">account.move</field>
+        <field
+            name="report_name"
+        >account_move_delivery_invoice.report_delivery_note_template</field>
+        <field name="report_type">qweb-pdf</field>
+        <field
+            name="report_file"
+        >account_move_delivery_invoice.report_delivery_note_template</field>
+        <field name="binding_model_id" ref="account.model_account_move" />
+        <field name="binding_type">report</field>
+        <field
+            name="print_report_name"
+        >'Delivery Note-%s%s' % (object.name, object.state == 'draft' and '-draft' or '')</field>
+    </record>
+</odoo>
