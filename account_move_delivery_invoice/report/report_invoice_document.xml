@@ -1,0 +1,99 @@
+<odoo>
+    <template
+        id="report_invoice_document_inherit_title"
+        inherit_id="account.report_invoice_document"
+    >
+        <xpath expr="//t[@t-set='layout_document_title']" position="after">
+            <t t-if="o.move_type in ('out_invoice', 'out_refund')">
+                <t
+                    t-set="document_title"
+                    t-value="o.get_report_document_title(is_delivery_note)"
+                />
+                <t t-if="document_title">
+                    <t t-set="layout_document_title">
+                        <span t-esc="document_title" />
+                        <span t-field="o.name" />
+                    </t>
+                </t>
+            </t>
+        </xpath>
+        <xpath expr="//th[@name='th_taxes']" position="attributes">
+            <attribute name="t-attf-class">
+                text-end
+                {{ ' d-none d-md-table-cell'
+                if report_type == 'html' or is_delivery_note
+                else '' }}
+            </attribute>
+        </xpath>
+        <xpath expr="//td[@name='td_taxes']" position="attributes">
+            <attribute name="t-if">not is_delivery_note</attribute>
+        </xpath>
+        <xpath expr="//div[@name='comment']" position="before">
+            <div
+                class="text-muted mb-3"
+                t-if="is_delivery_note and o.company_id.use_delivery_note_narration and not is_html_empty(o.delivery_note_narration)"
+                name="delivery_note_narration"
+            >
+                <span t-field="o.delivery_note_narration" />
+            </div>
+        </xpath>
+        <xpath expr="//div[@id='payment_term']" position="attributes">
+            <attribute name="t-if">not is_delivery_note</attribute>
+        </xpath>
+        <xpath expr="//div[@id='payment_term']" position="after">
+            <div
+                class="text-muted mt-3 mb-3"
+                t-attf-style="#{'text-align:justify;text-justify:inter-word;' if o.company_id.terms_type != 'html' else ''}"
+                t-if="not is_html_empty(o.narration) and is_delivery_note and not o.company_id.hide_narration_on_delivery_note"
+                name="comment"
+            >
+                <span t-field="o.narration" />
+            </div>
+        </xpath>
+    </template>
+
+    <template
+        id="document_tax_totals_template_delivery_inherit"
+        inherit_id="account.document_tax_totals_template"
+    >
+        <xpath
+            expr="//t[@t-foreach=&quot;subtotal['tax_groups']&quot;]/tr"
+            position="attributes"
+        >
+            <attribute name="t-if">not is_delivery_note</attribute>
+        </xpath>
+        <xpath
+            expr="//tr[@t-if=&quot;'cash_rounding_base_amount_currency' in tax_totals&quot;]"
+            position="attributes"
+        >
+            <attribute name="t-if">
+                not is_delivery_note and
+                'cash_rounding_base_amount_currency' in tax_totals
+            </attribute>
+        </xpath>
+        <xpath expr="//tr[hasclass('o_total')]" position="attributes">
+            <attribute name="t-if">not is_delivery_note</attribute>
+        </xpath>
+    </template>
+
+    <template
+        id="document_tax_totals_company_currency_template_delivery_inherit"
+        inherit_id="account.document_tax_totals_company_currency_template"
+    >
+        <xpath
+            expr="//p[hasclass('tax_computation_company_currency')]"
+            position="attributes"
+        >
+            <attribute name="t-if">not is_delivery_note</attribute>
+        </xpath>
+        <xpath
+            expr="//t[@t-foreach=&quot;subtotal['tax_groups']&quot;]/tr"
+            position="attributes"
+        >
+            <attribute name="t-if">not is_delivery_note</attribute>
+        </xpath>
+        <xpath expr="//tr[hasclass('o_total')]" position="attributes">
+            <attribute name="t-if">not is_delivery_note</attribute>
+        </xpath>
+    </template>
+</odoo>
