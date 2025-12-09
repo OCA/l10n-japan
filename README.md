@@ -47,6 +47,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
+[account_move_delivery_invoice](account_move_delivery_invoice/) | 18.0.1.0.0 | <a href='https://github.com/yostashiro'><img src='https://github.com/yostashiro.png' width='32' height='32' style='border-radius:50%;' alt='yostashiro'/></a> <a href='https://github.com/aungkokolin1997'><img src='https://github.com/aungkokolin1997.png' width='32' height='32' style='border-radius:50%;' alt='aungkokolin1997'/></a> | Account Move Delivery Invoice
 [account_payment_term_cutoff_day](account_payment_term_cutoff_day/) | 18.0.1.1.0 |  | Account Payment Term Cutoff Day
 [account_tax_rounding_method](account_tax_rounding_method/) | 18.0.1.0.0 |  | Account Tax Rounding Method
 [l10n_jp_address_layout](l10n_jp_address_layout/) | 18.0.1.0.0 |  | Japan Address Layout
