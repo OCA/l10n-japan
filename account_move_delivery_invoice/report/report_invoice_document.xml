@@ -28,23 +28,21 @@
         <xpath expr="//td[@name='td_taxes']" position="attributes">
             <attribute name="t-if">not is_delivery_note</attribute>
         </xpath>
-        <xpath expr="//div[@name='comment']" position="before">
-            <div
-                class="text-muted mb-3"
-                t-if="is_delivery_note and o.company_id.use_delivery_note_narration and not is_html_empty(o.delivery_note_narration)"
-                name="delivery_note_narration"
-            >
-                <span t-field="o.delivery_note_narration" />
-            </div>
-        </xpath>
         <xpath expr="//div[@id='payment_term']" position="attributes">
             <attribute name="t-if">not is_delivery_note</attribute>
         </xpath>
         <xpath expr="//div[@id='payment_term']" position="after">
             <div
-                class="text-muted mt-3 mb-3"
+                class="text-muted my-3"
+                t-if="is_delivery_note and o.company_id.use_delivery_note_narration and not is_html_empty(o.delivery_note_narration)"
+                name="delivery_note_narration"
+            >
+                <span t-field="o.delivery_note_narration" />
+            </div>
+            <div
+                class="text-muted my-3"
                 t-attf-style="#{'text-align:justify;text-justify:inter-word;' if o.company_id.terms_type != 'html' else ''}"
-                t-if="not is_html_empty(o.narration) and is_delivery_note and not o.company_id.hide_narration_on_delivery_note"
+                t-if="is_delivery_note and not o.company_id.hide_narration_on_delivery_note and not is_html_empty(o.narration)"
                 name="comment"
             >
                 <span t-field="o.narration" />
