@@ -3,7 +3,7 @@
 
 {
     "name": "Account Move Delivery Invoice",
-    "version": "18.0.1.0.0",
+    "version": "18.0.1.1.0",
     "depends": ["account"],
     "author": "Quartile, Odoo Community Association (OCA)",
     "license": "AGPL-3",
