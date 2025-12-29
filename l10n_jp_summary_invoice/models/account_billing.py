@@ -17,10 +17,26 @@ class AccountBilling(models.Model):
         index=True,
         copy=False,
     )
-    tax_totals = fields.Binary(
+    tax_totals = fields.Json(
         string="Billing Totals",
         compute="_compute_tax_totals",
+        store=True,
         exportable=False,
+    )
+    amount_untaxed = fields.Monetary(
+        string="Untaxed Amount",
+        compute="_compute_tax_totals",
+        store=True,
+    )
+    amount_tax = fields.Monetary(
+        string="Tax Amount",
+        compute="_compute_tax_totals",
+        store=True,
+    )
+    amount_total = fields.Monetary(
+        string="Total Amount",
+        compute="_compute_tax_totals",
+        store=True,
     )
     tax_adjustment_entry_id = fields.Many2one("account.move")
     company_partner_id = fields.Many2one(
@@ -77,18 +93,24 @@ class AccountBilling(models.Model):
                 move.invoice_date_due for move in billing.billing_line_ids.move_id
             )
 
-    @api.depends(
-        "billing_line_ids",
-        "partner_id",
-        "currency_id",
-    )
+    @api.depends("billing_line_ids", "partner_id", "currency_id")
     def _compute_tax_totals(self):
         """Compute `tax_totals` by building an in-memory draft invoice that reuses all
         the invoice lines referenced by the billing lines, and then delegating the tax
         calculation to Odoo's standard `account.move._compute_tax_totals()`.
         """
         for bill in self:
+            bill.tax_totals = self.env["account.tax"]._get_tax_totals_summary(
+                base_lines=[],
+                currency=bill.currency_id or bill.company_id.currency_id,
+                company=bill.company_id,
+            )
+            bill.amount_untaxed = 0.0
+            bill.amount_tax = 0.0
+            bill.amount_total = 0.0
             src_moves = bill.billing_line_ids.move_id
+            if not src_moves:
+                continue
             move_type = "out_invoice"
             if src_moves.filtered(lambda m: m.move_type in ["in_invoice", "in_refund"]):
                 move_type = "in_invoice"
@@ -110,6 +132,10 @@ class AccountBilling(models.Model):
             )
             dummy_move._compute_tax_totals()
             bill.tax_totals = dummy_move.tax_totals
+            if bill.tax_totals:
+                bill.amount_untaxed = bill.tax_totals.get("base_amount_currency", 0.0)
+                bill.amount_total = bill.tax_totals.get("total_amount_currency", 0.0)
+                bill.amount_tax = bill.amount_total - bill.amount_untaxed
 
     def _update_remit_to_bank_id(self):
         for rec in self:

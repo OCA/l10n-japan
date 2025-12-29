@@ -19,7 +19,7 @@
             t-value="5 + int(display_discount) + int(show_order_number) + int(show_reference)"
         />
         <table class="table table-sm o_ignore_layout_styling">
-            <thead>
+            <thead style="background-color: lightgray;">
                 <tr>
                     <th
                         t-if="show_order_number"
@@ -153,7 +153,7 @@
                     >
                         <div class="col-6">
                             <h3>
-                                <tr class="border-black o_total">
+                                <tr name="total_row" class="border-black o_total">
                                     <td>
                                         <strong>Total</strong>
                                     </td>

@@ -158,6 +158,22 @@ class TestSummaryInvoice(TransactionCase):
         )
         self.assertEqual(billing.remit_to_bank_id, self.bank_account)
 
+    def test_compute_amount_fields(self):
+        inv1 = self._create_invoice(100, self.tax_10)
+        inv2 = self._create_invoice(200, self.tax_10)
+        billing = self.env["account.billing"].create(
+            {
+                "partner_id": self.partner.id,
+                "billing_line_ids": [
+                    Command.create({"move_id": inv1.id}),
+                    Command.create({"move_id": inv2.id}),
+                ],
+            }
+        )
+        self.assertEqual(billing.amount_untaxed, 300)
+        self.assertEqual(billing.amount_tax, 30)
+        self.assertEqual(billing.amount_total, 330)
+
     def test_create_tax_adjustment_entry(self):
         out_inv_1 = self._create_invoice(102, self.tax_10)
         out_inv_2 = self._create_invoice(102, self.tax_10)
