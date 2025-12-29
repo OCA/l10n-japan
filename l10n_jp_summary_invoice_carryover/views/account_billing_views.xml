@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_account_billing_form_carryover" model="ir.ui.view">
+        <field name="name">account.billing.form.carryover</field>
+        <field name="model">account.billing</field>
+        <field name="inherit_id" ref="account_billing.view_account_billing_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Carryover" invisible="bill_type != 'out_invoice'">
+                    <group>
+                        <group>
+                            <field name="prev_billing_id" />
+                        </group>
+                        <group>
+                            <field name="show_carryover_amounts" />
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <label
+                                for="prev_billed_amount"
+                                string="Previous Billed Amount"
+                            />
+                            <div class="o_row">
+                                <field name="prev_billed_amount" nolabel="1" />
+                                <span class="text-muted ms-2">Manual Adj.</span>
+                                <field
+                                    name="use_prev_billed_amount_manual"
+                                    nolabel="1"
+                                    widget="boolean_toggle"
+                                />
+                                <field
+                                    name="prev_billed_amount_manual"
+                                    nolabel="1"
+                                    invisible="not use_prev_billed_amount_manual"
+                                />
+                            </div>
+                            <label for="payment_amount" string="Payment Amount" />
+                            <div class="o_row">
+                                <field name="payment_amount" nolabel="1" />
+                                <span class="text-muted ms-2">Manual Adj.</span>
+                                <field
+                                    name="use_payment_amount_manual"
+                                    nolabel="1"
+                                    widget="boolean_toggle"
+                                />
+                                <field
+                                    name="payment_amount_manual"
+                                    nolabel="1"
+                                    invisible="not use_payment_amount_manual"
+                                />
+                            </div>
+                        </group>
+                        <group>
+                            <field name="carryover_amount" />
+                            <field
+                                name="amount_total"
+                                string="Current Purchase Amount"
+                            />
+                            <field name="total_billed_amount" />
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

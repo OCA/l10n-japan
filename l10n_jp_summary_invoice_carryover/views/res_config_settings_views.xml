@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field
+            name="name"
+        >res.config.settings.view.form - l10n_jp_summary_invoice_carryover</field>
+        <field name="model">res.config.settings</field>
+        <field
+            name="inherit_id"
+            ref="l10n_jp_summary_invoice.res_config_settings_view_form"
+        />
+        <field name="arch" type="xml">
+            <block id="summary_invoice_settings" position="inside">
+                <setting
+                    id="show_carryover_amounts"
+                    help="The carryover amounts will appear in the summary invoice report if selected"
+                >
+                    <field name="show_carryover_amounts" />
+                </setting>
+            </block>
+        </field>
+    </record>
+</odoo>
