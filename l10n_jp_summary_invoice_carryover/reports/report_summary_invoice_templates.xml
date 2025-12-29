@@ -1,0 +1,89 @@
+<odoo>
+    <template
+        id="report_summary_invoice_document_carryover"
+        inherit_id="l10n_jp_summary_invoice.report_summary_invoice_document"
+    >
+        <xpath
+            expr="//t[@t-call='l10n_jp_summary_invoice.bill_line_section_layout']"
+            position="before"
+        >
+            <div t-if="o.show_carryover_amounts" class="row mb-4">
+                <div class="col-12">
+                    <table class="table table-sm o_ignore_layout_styling">
+                        <thead style="background-color: lightgray;">
+                            <tr>
+                                <th class="text-center" style="width: 20%;">
+                                    Previous Billed Amt
+                                </th>
+                                <th class="text-center" style="width: 20%;">
+                                    Payment Amt
+                                </th>
+                                <th class="text-center" style="width: 20%;">
+                                    Carryover Amt
+                                </th>
+                                <th class="text-center" style="width: 20%;">
+                                    Current Purchase Amt
+                                </th>
+                                <th class="border-0 p-0" style="min-width: 0.2rem;" />
+                                <th class="text-center" style="width: 20%;">
+                                    Total Billed Amt
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-end">
+                                    <span
+                                        t-esc="o._get_prev_billed_amount()"
+                                        t-options='{"widget": "monetary", "display_currency": o.currency_id}'
+                                    />
+                                </td>
+                                <td class="text-end">
+                                    <span
+                                        t-esc="o._get_payment_amount()"
+                                        t-options='{"widget": "monetary", "display_currency": o.currency_id}'
+                                    />
+                                </td>
+                                <td class="text-end">
+                                    <span
+                                        t-field="o.carryover_amount"
+                                        t-options='{"widget": "monetary", "display_currency": o.currency_id}'
+                                    />
+                                </td>
+                                <td class="text-end">
+                                    <span
+                                        t-field="o.amount_total"
+                                        t-options='{"widget": "monetary", "display_currency": o.currency_id}'
+                                    />
+                                </td>
+                                <td class="border-0 p-0" />
+                                <td class="text-end">
+                                    <span
+                                        t-field="o.total_billed_amount"
+                                        t-options='{"widget": "monetary", "display_currency": o.currency_id}'
+                                    />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//tr[@name='total_row']" position="attributes">
+            <attribute name="t-if">not o.show_carryover_amounts</attribute>
+        </xpath>
+        <xpath expr="//tr[@name='total_row']" position="after">
+            <tr t-if="o.show_carryover_amounts" class="border-black o_total">
+                <td>
+                    <strong>Total Billed Amt</strong>
+                </td>
+                <td class="text-right">
+                    <strong
+                        t-field="o.total_billed_amount"
+                        t-options='{"widget": "monetary", "display_currency": o.currency_id}'
+                    />
+                </td>
+            </tr>
+        </xpath>
+    </template>
+</odoo>

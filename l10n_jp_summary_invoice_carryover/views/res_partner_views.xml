@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_partner_form_carryover" model="ir.ui.view">
+        <field name="name">res.partner.form.carryover</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='sales_purchases']" position="inside">
+                <group
+                    string="Summary Invoice"
+                    invisible="not is_company and parent_id"
+                >
+                    <field name="show_carryover_amounts" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
