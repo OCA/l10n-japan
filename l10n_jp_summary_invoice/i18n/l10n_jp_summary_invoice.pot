@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -18,14 +18,6 @@ msgstr ""
 msgid ""
 "'Summary Invoice-%s%s' % (object.name, object.state == 'draft' and '-draft' "
 "or '')"
-msgstr ""
-
-#. module: l10n_jp_summary_invoice
-#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.res_config_settings_view_form
-msgid ""
-"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
-"specific.\" aria-label=\"Values set here are company-specific.\" "
-"groups=\"base.group_multi_company\" role=\"img\"/>"
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
@@ -59,13 +51,6 @@ msgid "Account Billing"
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
-#. odoo-python
-#: code:addons/l10n_jp_summary_invoice/models/account_billing.py:0
-#, python-format
-msgid "All invoices must be posted before validating the billing."
-msgstr ""
-
-#. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,help:l10n_jp_summary_invoice.field_account_billing__threshold_date_type
 msgid ""
 "All invoices with date (threshold date type) before and equal to threshold "
@@ -93,6 +78,11 @@ msgid "Companies"
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__company_partner_id
+msgid "Company Partner"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
 #: model:ir.model,name:l10n_jp_summary_invoice.model_res_config_settings
 msgid "Config Settings"
 msgstr ""
@@ -101,6 +91,11 @@ msgstr ""
 #: model:ir.model.fields,help:l10n_jp_summary_invoice.field_res_company__summary_invoice_remark
 #: model:ir.model.fields,help:l10n_jp_summary_invoice.field_res_config_settings__summary_invoice_remark
 msgid "Content here will be displayed in the summary invoice report."
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_billing_search
+msgid "Currency"
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
@@ -120,7 +115,7 @@ msgstr ""
 
 #. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.res_config_settings_view_form
-msgid "E.g., Please find the invoice details below."
+msgid "Header Remark"
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
@@ -164,14 +159,12 @@ msgstr ""
 #. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,help:l10n_jp_summary_invoice.field_account_bank_statement_line__is_not_for_billing
 #: model:ir.model.fields,help:l10n_jp_summary_invoice.field_account_move__is_not_for_billing
-#: model:ir.model.fields,help:l10n_jp_summary_invoice.field_account_payment__is_not_for_billing
 msgid "If selected, the invoice is excluded from the billing process."
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_bank_statement_line__is_not_for_billing
 #: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_move__is_not_for_billing
-#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_payment__is_not_for_billing
 msgid "Is Not For Billing"
 msgstr ""
 
@@ -186,20 +179,24 @@ msgid "Journal Entry"
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
+#: model:ir.model,name:l10n_jp_summary_invoice.model_account_move_line
+msgid "Journal Item"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.bill_line_section_layout
 msgid "Order No."
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
-#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__company_partner_id
-msgid "Partner"
+#. odoo-python
+#: code:addons/l10n_jp_summary_invoice/models/account_move.py:0
+msgid "Please select invoices with the same recipient bank."
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
-#. odoo-python
-#: code:addons/l10n_jp_summary_invoice/models/account_move.py:0
-#, python-format
-msgid "Please select invoices with the same recipient bank."
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_billing_form_inherit
+msgid "Print Summary Invoice"
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
@@ -246,6 +243,11 @@ msgid "Show the sales order number in the summary invoice report lines"
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_move_line__signed_quantity
+msgid "Signed Quantity"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.res_config_settings_view_form
 msgid ""
 "Specify the header remark to be displayed on the printed summary invoice"
@@ -283,6 +285,11 @@ msgid "Tax Adjustment Entry"
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__amount_tax
+msgid "Tax Amount"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
 #: model:ir.model,name:l10n_jp_summary_invoice.model_account_tax_group
 msgid "Tax Group"
 msgstr ""
@@ -293,9 +300,14 @@ msgid "Taxes"
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
+#: model:ir.model.fields,help:l10n_jp_summary_invoice.field_account_move_line__signed_quantity
+msgid ""
+"Technical field used to display the value with the correct sign in reports."
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
 #. odoo-python
 #: code:addons/l10n_jp_summary_invoice/models/account_billing.py:0
-#, python-format
 msgid "The invoice %s should not be included in this summary invoice."
 msgstr ""
 
@@ -309,7 +321,6 @@ msgstr ""
 #. module: l10n_jp_summary_invoice
 #. odoo-python
 #: code:addons/l10n_jp_summary_invoice/models/account_billing.py:0
-#, python-format
 msgid ""
 "The remit-to bank of the billing is inconsistent with the one on the "
 "invoices."
@@ -328,13 +339,34 @@ msgid "Threshold Date Type"
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_billing_tree
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_supplier_billing_tree
+msgid "Total"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__amount_total
+msgid "Total Amount"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_billing_tree
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_supplier_billing_tree
+msgid "Total Tax"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_billing_tree
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_supplier_billing_tree
+msgid "Total Untaxed"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.bill_line_section_layout
 msgid "Unit Price"
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
-#. odoo-python
-#: code:addons/l10n_jp_summary_invoice/models/account_move.py:0
-#, python-format
-msgid "You cannot reset to draft an invoice that has been billed."
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__amount_untaxed
+msgid "Untaxed Amount"
 msgstr ""
