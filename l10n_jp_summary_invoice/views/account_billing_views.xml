@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_account_billing_tree" model="ir.ui.view">
+        <field name="name">account.billing.list</field>
+        <field name="model">account.billing</field>
+        <field name="inherit_id" ref="account_billing.view_account_billing_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_paid_all']" position="before">
+                <field name="currency_id" optional="hide" />
+                <field name="amount_untaxed" sum="Total Untaxed" optional="hide" />
+                <field name="amount_tax" sum="Total Tax" optional="hide" />
+                <field name="amount_total" sum="Total" optional="show" />
+            </xpath>
+        </field>
+    </record>
+    <record id="view_account_supplier_billing_tree" model="ir.ui.view">
+        <field name="name">account.supplier.billing.list</field>
+        <field name="model">account.billing</field>
+        <field
+            name="inherit_id"
+            ref="account_billing.view_account_supplier_billing_tree"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_paid_all']" position="before">
+                <field name="currency_id" optional="hide" />
+                <field name="amount_untaxed" sum="Total Untaxed" optional="hide" />
+                <field name="amount_tax" sum="Total Tax" optional="hide" />
+                <field name="amount_total" sum="Total" optional="show" />
+            </xpath>
+        </field>
+    </record>
+    <record id="view_account_billing_form_inherit" model="ir.ui.view">
+        <field name="name">account.billing.form.inherit</field>
+        <field name="model">account.billing</field>
+        <field name="inherit_id" ref="account_billing.view_account_billing_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_register_payment']" position="before">
+                <button
+                    name="%(report_jp_summary_invoice)d"
+                    string="Print Summary Invoice"
+                    type="action"
+                    class="oe_highlight"
+                    invisible="state != 'billed'"
+                />
+                <button
+                    name="%(report_jp_summary_invoice)d"
+                    string="Print Summary Invoice"
+                    type="action"
+                    invisible="state == 'billed'"
+                />
+            </xpath>
+            <xpath expr="//field[@name='payment_paid_all']" position="after">
+                <field name="company_partner_id" invisible="1" />
+                <field name="remit_to_bank_id" invisible="bill_type != 'out_invoice'" />
+            </xpath>
+            <xpath expr="//field[@name='date']" position="after">
+                <field name="date_due" invisible="bill_type != 'out_invoice'" />
+            </xpath>
+            <xpath expr="//field[@name='billing_line_ids']" position="after">
+                <group>
+                    <group class="oe_subtotal_footer">
+                        <field
+                            name="tax_totals"
+                            widget="account-tax-totals-field"
+                            nolabel="1"
+                            colspan="2"
+                            readonly="1"
+                        />
+                    </group>
+                </group>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page
+                    string="Tax Adjustment"
+                    invisible="tax_adjustment_entry_id == False"
+                >
+                    <group>
+                        <group>
+                            <field name="tax_adjustment_entry_id" readonly="1" />
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_billing_search" model="ir.ui.view">
+        <field name="name">account.billing.search</field>
+        <field name="model">account.billing</field>
+        <field name="inherit_id" ref="account_billing.view_billing_search" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="currency_id" />
+            </xpath>
+            <xpath expr="//filter[@name='group_by_state']" position="after">
+                <filter
+                    name="group_by_currency"
+                    string="Currency"
+                    context="{'group_by':'currency_id'}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
