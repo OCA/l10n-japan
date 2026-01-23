@@ -58,7 +58,9 @@ class TestSummaryInvoice(TransactionCase):
             }
         )
 
-    def _create_invoice(self, amount, tax, move_type="out_invoice", bank=None):
+    def _create_invoice(
+        self, amount, tax, move_type="out_invoice", bank=None, currency_id=None
+    ):
         invoice = (
             self.env["account.move"]
             .with_company(self.company)
@@ -66,6 +68,7 @@ class TestSummaryInvoice(TransactionCase):
                 {
                     "move_type": move_type,
                     "partner_id": self.partner.id,
+                    "currency_id": currency_id or self.company.currency_id.id,
                     "partner_bank_id": bank and bank.id,
                     "invoice_line_ids": [
                         Command.create(
@@ -193,4 +196,21 @@ class TestSummaryInvoice(TransactionCase):
         billing_tax_amount = self._get_billing_tax_amount(billing)
         # The total tax amount should be 20 (204 * 0.1)
         self.assertEqual(abs(billing_tax_amount), 20)
+        self.assertFalse(billing.tax_adjustment_entry_id)
+
+    def test_check_tax_adjustment_entry_with_different_currency(self):
+        self.assertEqual(self.env.company.currency_id, self.env.ref("base.JPY"))
+        currency_usd = self.env.ref("base.USD")
+        currency_usd.active = True
+        out_inv_1 = self._create_invoice(100, self.tax_10, currency_id=currency_usd.id)
+        out_inv_2 = self._create_invoice(100, self.tax_10, currency_id=currency_usd.id)
+        out_inv_3 = self._create_invoice(100, self.tax_10, currency_id=currency_usd.id)
+        invoices = out_inv_1 + out_inv_2 + out_inv_3
+        action = invoices.action_create_billing()
+        billing = self.env["account.billing"].browse(action["res_id"])
+        self.assertEqual(billing.state, "draft")
+        self.assertEqual(billing.currency_id, currency_usd)
+        billing.with_company(self.company).validate_billing()
+        billing_tax_amount = self._get_billing_tax_amount(billing)
+        self.assertEqual(abs(billing_tax_amount), 30)
         self.assertFalse(billing.tax_adjustment_entry_id)
