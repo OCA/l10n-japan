@@ -37,6 +37,7 @@ class TestSummaryInvoice(TransactionCase):
             {
                 "partner_id": cls.env.company.partner_id.id,
                 "acc_number": "1234567890",
+                "allow_out_payment": True,
             }
         )
         cls.product = cls.env["product.product"].create({"name": "Test Product"})
