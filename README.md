@@ -1,4 +1,7 @@
 
+[![Support the OCA](https://odoo-community.org/readme-banner-image)](https://odoo-community.org/get-involved?utm_source=repo-readme)
+
+# l10n-japan
 [![Runboat](https://img.shields.io/badge/runboat-Try%20me-875A7B.png)](https://runboat.odoo-community.org/builds?repo=OCA/l10n-japan&target_branch=16.0)
 [![Pre-commit Status](https://github.com/OCA/l10n-japan/actions/workflows/pre-commit.yml/badge.svg?branch=16.0)](https://github.com/OCA/l10n-japan/actions/workflows/pre-commit.yml?query=branch%3A16.0)
 [![Build Status](https://github.com/OCA/l10n-japan/actions/workflows/test.yml/badge.svg?branch=16.0)](https://github.com/OCA/l10n-japan/actions/workflows/test.yml?query=branch%3A16.0)
@@ -7,9 +10,7 @@
 
 <!-- /!\ do not modify above this line -->
 
-# l10n-japan
-
-TODO: add repo description.
+Odoo日本向けローカリゼーション (l10n-japan)
 
 <!-- /!\ do not modify below this line -->
 
