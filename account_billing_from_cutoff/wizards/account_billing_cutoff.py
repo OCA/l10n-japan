@@ -68,11 +68,11 @@ class AccountBillingCutoff(models.TransientModel):
                 billings |= existing_billing
             else:
                 billings |= recs._create_billing(partner)
-        return {
-            "type": "ir.actions.act_window",
-            "name": "Billings",
-            "res_model": "account.billing",
-            "view_mode": "tree,form",
-            "domain": [("id", "in", billings.ids)],
-            "target": "current",
-        }
+        xml_id = (
+            "account_billing.action_customer_billing"
+            if self.bill_type == "out_invoice"
+            else "account_billing.action_supplier_billing"
+        )
+        action = self.env["ir.actions.act_window"]._for_xml_id(xml_id)
+        action["domain"] = [("id", "in", billings.ids)]
+        return action
