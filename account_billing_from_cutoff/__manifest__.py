@@ -3,7 +3,8 @@
 
 {
     "name": "Account Billing From Cutoff",
-    "version": "16.0.1.0.0",
+    "summary": "Create billings based on invoice cutoff dates",
+    "version": "18.0.1.0.0",
     "depends": [
         "account_billing",
         "account_payment_term_cutoff_day",
@@ -18,5 +19,6 @@
         "wizards/account_billing_cutoff.xml",
     ],
     "development_status": "Alpha",
+    "maintainers": ["yostashiro", "aungkokolin1997"],
     "installable": True,
 }

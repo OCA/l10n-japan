@@ -19,7 +19,9 @@ class TestBillingFromCutoff(TransactionCase):
         cls.payment_term = cls.env.ref(
             "account.account_payment_term_end_following_month"
         )
-        cls.payment_term.line_ids.write({"months": 1, "cutoff_day": 20})
+        cls.payment_term.line_ids.write(
+            {"has_cutoff_day": True, "months": 1, "cutoff_day": 20}
+        )
         cls.product = cls.env.ref("product.product_product_4")
         cls.currency_eur = cls.env.ref("base.EUR")
         cls.currency_eur.active = True
@@ -28,7 +30,7 @@ class TestBillingFromCutoff(TransactionCase):
         cls.account_revenue = cls.env["account.account"].search(
             [
                 ("account_type", "=", "income"),
-                ("company_id", "=", cls.env.company.id),
+                ("company_ids", "in", cls.env.company.id),
             ],
             limit=1,
         )
@@ -111,7 +113,8 @@ class TestBillingFromCutoff(TransactionCase):
         self.assertEqual(len(billings), 1)
         self.assertEqual(billings.billing_line_ids.mapped("move_id"), inv_1)
         # 2) cutoff = 2025-10-31 → partner_1 USD inv_3 added to existing draft billing,
-        # partner_1 EUR inv_5 creates a new billing. 2 billings returned (1 updated + 1 new).
+        # partner_1 EUR inv_5 creates a new billing. 2 billings returned
+        # (1 updated + 1 new).
         billing_usd = billings
         action = self._run_create_billing_wizard(date(2025, 10, 31))
         billing_ids = self._created_billing_ids(action)
@@ -121,7 +124,8 @@ class TestBillingFromCutoff(TransactionCase):
         self.assertEqual(billing_usd.billing_line_ids.mapped("move_id"), inv_1 | inv_3)
         billing_eur = billings - billing_usd
         self.assertEqual(billing_eur.billing_line_ids.mapped("move_id"), inv_5)
-        # 3) Re-run same cutoff → nothing new (already billed and still in billed/draft states)
+        # 3) Re-run same cutoff → nothing new
+        # (already billed and still in billed/draft states)
         action = self._run_create_billing_wizard(date(2025, 10, 31))
         billing_ids = self._created_billing_ids(action)
         billings = self.env["account.billing"].browse(billing_ids)
@@ -129,7 +133,7 @@ class TestBillingFromCutoff(TransactionCase):
         # 4) Cancel existing billings, include partner_2 in billing, rerun → 4 billings
         #    (p1 USD/EUR again because previous are cancelled; plus p2 USD/EUR)
         self.env["account.billing"].search([]).write({"state": "cancel"})
-        self.partner_2.is_not_for_billing = False
+        (inv_2 | inv_4 | inv_6).is_not_for_billing = False
         action = self._run_create_billing_wizard(date(2025, 10, 31))
         billing_ids = self._created_billing_ids(action)
         billings = self.env["account.billing"].browse(billing_ids)
