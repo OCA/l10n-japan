@@ -16,6 +16,7 @@
         "views/account_move_views.xml",
         "views/account_tax_views.xml",
         "views/res_config_settings_views.xml",
+        "views/res_partner_views.xml",
     ],
     "maintainers": ["yostashiro", "aungkokolin1997"],
     "development_status": "Alpha",

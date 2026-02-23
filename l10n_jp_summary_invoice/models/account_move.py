@@ -9,6 +9,9 @@ class AccountMove(models.Model):
     _inherit = "account.move"
 
     is_not_for_billing = fields.Boolean(
+        compute="_compute_is_not_for_billing",
+        store=True,
+        readonly=False,
         help="If selected, the invoice is excluded from the billing process.",
     )
     billing_id = fields.Many2one(
@@ -24,6 +27,13 @@ class AccountMove(models.Model):
                 lambda b: b.state != "cancel"
             )
             move.billing_id = valid_billings[:1]
+
+    @api.depends("partner_id")
+    def _compute_is_not_for_billing(self):
+        for move in self:
+            # Intentionally not using move.commercial_partner_id to allow more granular
+            # control
+            move.is_not_for_billing = move.partner_id.is_not_for_billing
 
     def _get_partner_bank(self):
         partner_banks = self.mapped("partner_bank_id")
