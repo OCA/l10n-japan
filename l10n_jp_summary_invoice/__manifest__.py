@@ -15,6 +15,7 @@
         "views/account_move_views.xml",
         "views/account_tax_views.xml",
         "views/res_config_settings_views.xml",
+        "views/res_partner_views.xml",
     ],
     "development_status": "Alpha",
     "installable": True,
