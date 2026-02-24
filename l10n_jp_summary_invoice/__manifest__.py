@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
     "name": "Japan Summary Invoice",
-    "version": "18.0.1.1.0",
+    "version": "18.0.1.1.1",
     "category": "Japanese Localization",
     "author": "Quartile, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/l10n-japan",
