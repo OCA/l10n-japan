@@ -126,6 +126,11 @@ class AccountBilling(models.Model):
         self._update_remit_to_bank_id()
         return res
 
+    def _get_moves_domain(self, date=False, types=False):
+        domain = super()._get_moves_domain(date=date, types=types)
+        domain.append(("is_not_for_billing", "=", False))
+        return domain
+
     def _get_moves(self, date=False, types=False):
         moves = super()._get_moves(date=date, types=types)
         if self.remit_to_bank_id:
@@ -136,7 +141,6 @@ class AccountBilling(models.Model):
         # Prevent the billing from adding already billed invoices
         moves -= moves.filtered(
             lambda x: x.billing_ids.filtered(lambda x: x.state != "cancel")
-            or x.is_not_for_billing
         )
         return moves
 
