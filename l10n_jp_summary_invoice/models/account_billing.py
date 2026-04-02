@@ -190,7 +190,7 @@ class AccountBilling(models.Model):
         self.ensure_one()
         return self.env["account.account"]._get_most_frequent_account_for_partner(
             company_id=self.company_id.id,
-            partner_id=self.partner_id.id,
+            partner_id=self.partner_id.commercial_partner_id.id,
             move_type="out_invoice",
         )
 
