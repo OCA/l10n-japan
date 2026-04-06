@@ -1,12 +1,63 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
+    <record id="view_account_invoice_filter" model="ir.ui.view">
+        <field name="name">account.move.search</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_account_invoice_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="billing_id" string="Billing" />
+            </xpath>
+            <xpath expr="//filter[@name='out_refund']" position="after">
+                <separator />
+                <filter
+                    name="filter_billable"
+                    string="Billable Invoices"
+                    domain="[('billing_id', '=', False), ('is_not_for_billing', '=', False)]"
+                />
+                <filter
+                    name="filter_billed"
+                    string="Billed Invoices"
+                    domain="[('billing_id', '!=', False)]"
+                />
+            </xpath>
+            <xpath expr="//filter[@name='partner']" position="after">
+                <filter
+                    name="group_by_billing"
+                    string="Billing"
+                    context="{'group_by': 'billing_id'}"
+                />
+            </xpath>
+        </field>
+    </record>
+    <record id="view_invoice_tree" model="ir.ui.view">
+        <field name="name">account.invoice.tree</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account_billing.view_invoice_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='billing_ids']" position="attributes">
+                <attribute name="column_invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='billing_ids']" position="after">
+                <field name="billing_id" optional="show" />
+            </xpath>
+        </field>
+    </record>
     <record id="view_move_form" model="ir.ui.view">
         <field name="name">account.move.form</field>
         <field name="model">account.move</field>
         <field name="inherit_id" ref="account.view_move_form" />
         <field name="arch" type="xml">
-            <xpath expr="//group[@name='accounting_info_group']" position="inside">
-                <field name="is_not_for_billing" />
+            <xpath expr="//field[@name='billing_ids']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[@name='other_info']" position="after">
+                <page string="Billing" name="billing_info">
+                    <group>
+                        <field name="billing_id" />
+                        <field name="is_not_for_billing" />
+                    </group>
+                </page>
             </xpath>
         </field>
     </record>
