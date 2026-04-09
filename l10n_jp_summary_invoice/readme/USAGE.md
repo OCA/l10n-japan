@@ -6,6 +6,9 @@
     - **Due Date**: The earliest due date among the selected invoices
       will be proposed. Adjust this as necessary as it will show in the
       printed document.
+    - **Exclude invoices from billing**: On each invoice form, you can
+      check the "Is not for billing" field in the Billing tab to exclude
+      specific invoices from the billing process.
 2.  Validate the billing. An invoice for tax adjustment will be created
     automatically in case the recalculated tax amount is different from
     the summary of the tax amounts in the selected invoices.

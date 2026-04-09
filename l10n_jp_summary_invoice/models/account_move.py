@@ -1,7 +1,7 @@
 # Copyright 2025 Quartile (https://www.quartile.co)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import _, fields, models
+from odoo import _, api, fields, models
 from odoo.exceptions import UserError
 
 
@@ -11,6 +11,25 @@ class AccountMove(models.Model):
     is_not_for_billing = fields.Boolean(
         help="If selected, the invoice is excluded from the billing process.",
     )
+    # TODO: This field should be moved to account_billing module.
+    billing_line_ids = fields.One2many(
+        comodel_name="account.billing.line",
+        inverse_name="move_id",
+        string="Billing Lines",
+    )
+    billing_id = fields.Many2one(
+        comodel_name="account.billing",
+        compute="_compute_billing_id",
+        store=True,
+    )
+
+    @api.depends("billing_line_ids", "billing_line_ids.billing_id.state")
+    def _compute_billing_id(self):
+        for move in self:
+            valid_billings = move.billing_line_ids.mapped("billing_id").filtered(
+                lambda b: b.state != "cancel"
+            )
+            move.billing_id = valid_billings[:1]
 
     def _get_partner_bank(self):
         partner_banks = self.mapped("partner_bank_id")
