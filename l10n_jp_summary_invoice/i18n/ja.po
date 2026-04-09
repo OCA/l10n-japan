@@ -25,14 +25,6 @@ msgstr ""
 "'合計請求書-%s%s' % (object.name, object.state == 'draft' and '-draft' or '')"
 
 #. module: l10n_jp_summary_invoice
-#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.res_config_settings_view_form
-msgid ""
-"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
-"specific.\" aria-label=\"Values set here are company-specific.\" "
-"groups=\"base.group_multi_company\" role=\"img\"/>"
-msgstr ""
-
-#. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.bill_line_section_layout
 msgid "<span>Disc.%</span>"
 msgstr "<span>値引%</span>"
@@ -63,13 +55,6 @@ msgid "Account Billing"
 msgstr "合計請求書"
 
 #. module: l10n_jp_summary_invoice
-#. odoo-python
-#: code:addons/l10n_jp_summary_invoice/models/account_billing.py:0
-#, python-format
-msgid "All invoices must be posted before validating the billing."
-msgstr "すべての請求書が記帳済でなければ合計請求書は検証できません。"
-
-#. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,help:l10n_jp_summary_invoice.field_account_billing__threshold_date_type
 msgid ""
 "All invoices with date (threshold date type) before and equal to threshold "
@@ -80,6 +65,30 @@ msgstr "閾日タイプの日付が閾日以前請求書が合計請求書明細
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.bill_line_section_layout
 msgid "Amount"
 msgstr "金額"
+
+#. module: l10n_jp_summary_invoice
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_invoice_filter
+msgid "Billable Invoices"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_invoice_filter
+msgid "Billed Invoices"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_bank_statement_line__billing_id
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_move__billing_id
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_invoice_filter
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_move_form
+msgid "Billing"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_bank_statement_line__billing_line_ids
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_move__billing_line_ids
+msgid "Billing Lines"
+msgstr ""
 
 #. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__tax_totals
@@ -97,6 +106,11 @@ msgid "Companies"
 msgstr "会社"
 
 #. module: l10n_jp_summary_invoice
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__company_partner_id
+msgid "Company Partner"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
 #: model:ir.model,name:l10n_jp_summary_invoice.model_res_config_settings
 msgid "Config Settings"
 msgstr "コンフィグ設定"
@@ -106,6 +120,11 @@ msgstr "コンフィグ設定"
 #: model:ir.model.fields,help:l10n_jp_summary_invoice.field_res_config_settings__summary_invoice_remark
 msgid "Content here will be displayed in the summary invoice report."
 msgstr "こちらの内容は合計請求書に表示されます。"
+
+#. module: l10n_jp_summary_invoice
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_billing_search
+msgid "Currency"
+msgstr ""
 
 #. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__date_due
@@ -124,8 +143,8 @@ msgstr "ドラフト合計請求書"
 
 #. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.res_config_settings_view_form
-msgid "E.g., Please find the invoice details below."
-msgstr "例: 下記の通りご請求申し上げます。"
+msgid "Header Remark"
+msgstr ""
 
 #. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,help:l10n_jp_summary_invoice.field_res_company__show_invoice_narration
@@ -170,14 +189,12 @@ msgstr ""
 #. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,help:l10n_jp_summary_invoice.field_account_bank_statement_line__is_not_for_billing
 #: model:ir.model.fields,help:l10n_jp_summary_invoice.field_account_move__is_not_for_billing
-#: model:ir.model.fields,help:l10n_jp_summary_invoice.field_account_payment__is_not_for_billing
 msgid "If selected, the invoice is excluded from the billing process."
 msgstr "選択した場合、請求書は合計請求書への追加対象外となります。"
 
 #. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_bank_statement_line__is_not_for_billing
 #: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_move__is_not_for_billing
-#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_payment__is_not_for_billing
 msgid "Is Not For Billing"
 msgstr "合計請求書対象外"
 
@@ -192,21 +209,25 @@ msgid "Journal Entry"
 msgstr "仕訳"
 
 #. module: l10n_jp_summary_invoice
+#: model:ir.model,name:l10n_jp_summary_invoice.model_account_move_line
+msgid "Journal Item"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.bill_line_section_layout
 msgid "Order No."
 msgstr "オーダNo."
 
 #. module: l10n_jp_summary_invoice
-#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__company_partner_id
-msgid "Partner"
-msgstr "取引先"
-
-#. module: l10n_jp_summary_invoice
 #. odoo-python
 #: code:addons/l10n_jp_summary_invoice/models/account_move.py:0
-#, python-format
 msgid "Please select invoices with the same recipient bank."
 msgstr "振込先が同じ請求書を選択してください。"
+
+#. module: l10n_jp_summary_invoice
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_billing_form_inherit
+msgid "Print Summary Invoice"
+msgstr ""
 
 #. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.bill_line_section_layout
@@ -252,6 +273,11 @@ msgid "Show the sales order number in the summary invoice report lines"
 msgstr "合計請求書明細行に販売オーダ番号を表示"
 
 #. module: l10n_jp_summary_invoice
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_move_line__signed_quantity
+msgid "Signed Quantity"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.res_config_settings_view_form
 msgid ""
 "Specify the header remark to be displayed on the printed summary invoice"
@@ -289,6 +315,11 @@ msgid "Tax Adjustment Entry"
 msgstr "消費税調整仕訳"
 
 #. module: l10n_jp_summary_invoice
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__amount_tax
+msgid "Tax Amount"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
 #: model:ir.model,name:l10n_jp_summary_invoice.model_account_tax_group
 msgid "Tax Group"
 msgstr "税グループ"
@@ -299,9 +330,14 @@ msgid "Taxes"
 msgstr "消費税"
 
 #. module: l10n_jp_summary_invoice
+#: model:ir.model.fields,help:l10n_jp_summary_invoice.field_account_move_line__signed_quantity
+msgid ""
+"Technical field used to display the value with the correct sign in reports."
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
 #. odoo-python
 #: code:addons/l10n_jp_summary_invoice/models/account_billing.py:0
-#, python-format
 msgid "The invoice %s should not be included in this summary invoice."
 msgstr "請求書 %s はこの合計請求書に追加できません。"
 
@@ -315,7 +351,6 @@ msgstr "選択すると、各請求書の備考が合計請求書に表示され
 #. module: l10n_jp_summary_invoice
 #. odoo-python
 #: code:addons/l10n_jp_summary_invoice/models/account_billing.py:0
-#, python-format
 msgid ""
 "The remit-to bank of the billing is inconsistent with the one on the "
 "invoices."
@@ -334,13 +369,48 @@ msgid "Threshold Date Type"
 msgstr "閾日タイプ"
 
 #. module: l10n_jp_summary_invoice
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_billing_tree
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_supplier_billing_tree
+msgid "Total"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__amount_total
+msgid "Total Amount"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_billing_tree
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_supplier_billing_tree
+msgid "Total Tax"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_billing_tree
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_supplier_billing_tree
+msgid "Total Untaxed"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.bill_line_section_layout
 msgid "Unit Price"
 msgstr "単価"
 
 #. module: l10n_jp_summary_invoice
-#. odoo-python
-#: code:addons/l10n_jp_summary_invoice/models/account_move.py:0
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__amount_untaxed
+msgid "Untaxed Amount"
+msgstr ""
+
 #, python-format
-msgid "You cannot reset to draft an invoice that has been billed."
-msgstr "合計請求書に追加した請求書はドラフトに戻せません。"
+#~ msgid "All invoices must be posted before validating the billing."
+#~ msgstr "すべての請求書が記帳済でなければ合計請求書は検証できません。"
+
+#~ msgid "E.g., Please find the invoice details below."
+#~ msgstr "例: 下記の通りご請求申し上げます。"
+
+#~ msgid "Partner"
+#~ msgstr "取引先"
+
+#, python-format
+#~ msgid "You cannot reset to draft an invoice that has been billed."
+#~ msgstr "合計請求書に追加した請求書はドラフトに戻せません。"
