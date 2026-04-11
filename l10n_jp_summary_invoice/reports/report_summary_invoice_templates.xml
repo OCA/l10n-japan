@@ -76,7 +76,11 @@
                                 <span t-esc="order.client_order_ref" />
                             </td>
                             <td name="td_description">
-                                <span t-field="line.name" />
+                                <span
+                                    t-if="line.name"
+                                    t-field="line.name"
+                                    t-options="{'widget': 'text'}"
+                                />
                             </td>
                             <td name="td_quantity" class="text-end">
                                 <span t-field="line.signed_quantity" />
