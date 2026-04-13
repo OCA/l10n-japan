@@ -49,6 +49,9 @@ class AccountBilling(models.Model):
         help="If not specified, the first bank account linked to the company will show "
         "in the report.",
     )
+    report_subtitle = fields.Char(
+        help="Subtitle to be printed below the title of the summary invoice report.",
+    )
 
     @api.constrains("state", "billing_line_ids")
     def _check_account_move_billability(self):
