@@ -239,6 +239,11 @@ msgid "Remit-to Bank"
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__report_subtitle
+msgid "Report Subtitle"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_tax__rounding_adjustment
 msgid "Rounding Adjustment"
 msgstr ""
@@ -275,6 +280,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.res_config_settings_view_form
 msgid ""
 "Specify the header remark to be displayed on the printed summary invoice"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
+#: model:ir.model.fields,help:l10n_jp_summary_invoice.field_account_billing__report_subtitle
+msgid "Subtitle to be printed below the title of the summary invoice report."
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
