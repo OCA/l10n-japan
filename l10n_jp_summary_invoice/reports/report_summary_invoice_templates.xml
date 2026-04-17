@@ -147,6 +147,9 @@
                         >Cancelled Summary Invoice</span>
                         <span t-field="o.name" />
                     </h2>
+                    <h4 t-if="o.report_subtitle" class="mt-1 fw-normal">
+                        <span t-field="o.report_subtitle" />
+                    </h4>
                     <div t-if="o.company_id.summary_invoice_remark">
                         <span t-field="o.company_id.summary_invoice_remark" />
                     </div>
