@@ -245,6 +245,11 @@ msgid "Remit-to Bank"
 msgstr "振込先銀行"
 
 #. module: l10n_jp_summary_invoice
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__report_subtitle
+msgid "Report Subtitle"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_tax__rounding_adjustment
 msgid "Rounding Adjustment"
 msgstr "丸め調整"
@@ -282,6 +287,11 @@ msgstr ""
 msgid ""
 "Specify the header remark to be displayed on the printed summary invoice"
 msgstr "合計請求書ヘッダーに表示するコメントを指定してください"
+
+#. module: l10n_jp_summary_invoice
+#: model:ir.model.fields,help:l10n_jp_summary_invoice.field_account_billing__report_subtitle
+msgid "Subtitle to be printed below the title of the summary invoice report."
+msgstr ""
 
 #. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.report_summary_invoice_document
