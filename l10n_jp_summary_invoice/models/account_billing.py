@@ -175,7 +175,7 @@ class AccountBilling(models.Model):
         associated with billing lines.
         """
         self.ensure_one()
-        tax_amount_groups = self.env["account.move.line"].read_group(
+        tax_amount_groups_tuples = self.env["account.move.line"]._read_group(
             domain=[
                 ("move_id", "in", self.billing_line_ids.move_id.ids),
                 "|",
@@ -184,9 +184,16 @@ class AccountBilling(models.Model):
                 ("display_type", "=", "rounding"),
                 ("tax_repartition_line_id", "!=", False),
             ],
-            fields=["tax_group_id", "balance"],
             groupby=["tax_group_id"],
+            aggregates=["amount_currency:sum"],
         )
+        tax_amount_groups = [
+            {
+                "tax_group_id": (group.id, group.name),
+                "amount_currency": amount_sum,
+            }
+            for group, amount_sum in tax_amount_groups_tuples
+        ]
         return tax_amount_groups
 
     def _get_inv_line_account_id(self):
@@ -208,22 +215,23 @@ class AccountBilling(models.Model):
             for subtotal in tax_totals.get("subtotals", []):
                 for group in subtotal.get("tax_groups", []):
                     tax_group_id = group.get("id")
-                    tax_amount = group.get("tax_amount", 0.0)
+                    tax_amount = group.get("tax_amount_currency", 0.0)
                     tax_group_amount_dict[tax_group_id] = tax_amount * -1
             tax_amount_groups_invoices = rec._get_tax_amount_groups_from_invoices()
             tax_group_diff_dict = {}
             for tax_amount_group in tax_amount_groups_invoices:
                 tax_group_id = tax_amount_group["tax_group_id"][0]
-                tax_amount_invoices = tax_amount_group["balance"]
+                tax_amount_invoices = tax_amount_group["amount_currency"]
                 tax_amount_bill = tax_group_amount_dict.get(tax_group_id, 0)
                 tax_diff = tax_amount_invoices - tax_amount_bill
-                if tax_diff:
+                if not rec.currency_id.is_zero(tax_diff):
                     tax_group_diff_dict[tax_group_id] = tax_diff
             if not tax_group_diff_dict:
                 continue
             invoice_vals = {
                 "move_type": "out_invoice",
                 "partner_id": rec.partner_id.id,
+                "currency_id": rec.currency_id.id,
                 "date": rec.date,
                 "invoice_origin": rec.name,
                 "ref": f"Tax adjustment for {rec.name}",
