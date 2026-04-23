@@ -81,12 +81,6 @@ msgid "Billing"
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
-#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_bank_statement_line__billing_line_ids
-#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_move__billing_line_ids
-msgid "Billing Lines"
-msgstr ""
-
-#. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__tax_totals
 msgid "Billing Totals"
 msgstr ""
