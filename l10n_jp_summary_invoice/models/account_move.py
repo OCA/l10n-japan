@@ -11,12 +11,6 @@ class AccountMove(models.Model):
     is_not_for_billing = fields.Boolean(
         help="If selected, the invoice is excluded from the billing process.",
     )
-    # TODO: This field should be moved to account_billing module.
-    billing_line_ids = fields.One2many(
-        comodel_name="account.billing.line",
-        inverse_name="move_id",
-        string="Billing Lines",
-    )
     billing_id = fields.Many2one(
         comodel_name="account.billing",
         compute="_compute_billing_id",
