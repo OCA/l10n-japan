@@ -32,6 +32,13 @@ Account Move Delivery Invoice
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
+このモジュールは、請求書に納品書レポート（納品書）を追加します。
+レポートには標準の請求書と同じ内容が表示されますが、カスタムタイトルが使用され、税情報は含まれません。
+
+請求書、クレジットノート、納品書、返品伝票に対して、レポートタイトルを個別に設定できます。
+
+--------------
+
 This module adds a Delivery Note report (納品書) to invoices. The report
 displays the same content as the standard invoice but with a custom
 title and no tax information.
@@ -47,6 +54,12 @@ delivery notes, and return slips.
 Use Cases / Context
 ===================
 
+このモジュールは、納品の検証と請求書の生成を行った後に納品書を作成する業務フローを想定して設計されています。
+
+納品の検証前（出荷準備段階）に納品書を作成する必要がある場合、このモジュールは要件を満たしません。
+
+--------------
+
 This module is designed for business flows where delivery notes are
 created after validating the delivery and generating the invoice.
 
@@ -56,6 +69,17 @@ requirements.
 
 Configuration
 =============
+
+*請求 → 設定 → 設定画面* に移動してください：
+
+- **請求書レポート（PDF）タイトル**:
+  請求書関連のPDFレポートにカスタムタイトルを設定できます。空欄の場合はデフォルトタイトルが使用されます。
+- **納品書コメントを使用**:
+  請求書およびクレジットノートに納品書コメント欄を有効にします（デフォルトで有効）。
+- **納品書のナレーション非表示**:
+  納品書および返品伝票のPDFで、標準の請求書ナレーション（取引条件）を非表示にします（デフォルトで有効）。
+
+--------------
 
 Go to *Invoicing → Configuration → Settings*:
 
