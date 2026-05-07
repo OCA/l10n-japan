@@ -8,5 +8,8 @@
     "license": "AGPL-3",
     "website": "https://github.com/OCA/l10n-japan",
     "category": "Localization",
+    "data": [
+        "data/res.country.state.csv",
+    ],
     "installable": True,
 }
