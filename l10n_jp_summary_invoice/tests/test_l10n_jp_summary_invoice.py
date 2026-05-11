@@ -3,10 +3,11 @@
 
 from odoo.exceptions import ValidationError
 from odoo.fields import Command
-from odoo.tests.common import TransactionCase
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestSummaryInvoice(TransactionCase):
+class TestSummaryInvoice(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -18,7 +19,9 @@ class TestSummaryInvoice(TransactionCase):
                 "tax_calculation_rounding_method": "round_globally",
             }
         )
-        cls.env.company = cls.company
+        cls.env = cls.env(
+            context=dict(cls.env.context, allowed_company_ids=[cls.company.id])
+        )
         account_receivable = cls.env["account.account"].create(
             {
                 "code": "test2",
@@ -211,7 +214,7 @@ class TestSummaryInvoice(TransactionCase):
         self.assertTrue(tax_adj_entry)
         self.assertEqual(tax_adj_entry.amount_total_signed, 1)
         billing.action_cancel()
-        self.assertTrue(tax_adj_entry.state, "cancel")
+        self.assertEqual(tax_adj_entry.state, "cancel")
         self.assertFalse(billing.tax_adjustment_entry_id)
         # Add a credit note to the billing
         out_ref = self._create_invoice(102, self.tax_10, "out_refund")

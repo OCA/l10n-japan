@@ -13,22 +13,6 @@
             </xpath>
         </field>
     </record>
-    <record id="view_account_supplier_billing_tree" model="ir.ui.view">
-        <field name="name">account.supplier.billing.list</field>
-        <field name="model">account.billing</field>
-        <field
-            name="inherit_id"
-            ref="account_billing.view_account_supplier_billing_tree"
-        />
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='payment_paid_all']" position="before">
-                <field name="currency_id" optional="hide" />
-                <field name="amount_untaxed" sum="Total Untaxed" optional="hide" />
-                <field name="amount_tax" sum="Total Tax" optional="hide" />
-                <field name="amount_total" sum="Total" optional="show" />
-            </xpath>
-        </field>
-    </record>
     <record id="view_account_billing_form_inherit" model="ir.ui.view">
         <field name="name">account.billing.form.inherit</field>
         <field name="model">account.billing</field>
