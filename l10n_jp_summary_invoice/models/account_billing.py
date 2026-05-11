@@ -1,7 +1,7 @@
 # Copyright 2024-2025 Quartile (https://www.quartile.co)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from odoo import Command, _, api, fields, models
+from odoo import Command, api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -63,7 +63,7 @@ class AccountBilling(models.Model):
             )[:1]
             if invoice_not_for_billing:
                 raise ValidationError(
-                    _(
+                    self.env._(
                         "The invoice %s should not be included in this "
                         "summary invoice.",
                         invoice_not_for_billing.name,
@@ -81,7 +81,7 @@ class AccountBilling(models.Model):
                 and rec.remit_to_bank_id != partner_bank
             ):
                 raise ValidationError(
-                    _(
+                    self.env._(
                         "The remit-to bank of the billing is inconsistent with the "
                         "one on the invoices.",
                     )
@@ -232,6 +232,7 @@ class AccountBilling(models.Model):
                 "move_type": "out_invoice",
                 "partner_id": rec.partner_id.id,
                 "currency_id": rec.currency_id.id,
+                "company_id": rec.company_id.id,
                 "date": rec.date,
                 "invoice_origin": rec.name,
                 "ref": f"Tax adjustment for {rec.name}",
