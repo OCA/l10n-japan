@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
     "name": "Report Alternative Layout",
+    "summary": "対外帳票に日本用の代替レイアウトを適用",
     "version": "19.0.1.0.0",
     "category": "Reporting",
     "license": "AGPL-3",
@@ -14,5 +15,6 @@
         "views/ir_actions_report_views.xml",
         "views/report_paperformat_views.xml",
     ],
+    "maintainers": ["yostashiro", "aungkokolin1997"],
     "installable": True,
 }

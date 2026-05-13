@@ -31,13 +31,18 @@
         </div>
     </template>
     <template id="external_layout_standard" inherit_id="web.external_layout_standard">
-        <!-- Hide the standard report_header  -->
+        <!-- Hide the standard report_header only when the alternative layout is on,
+             so reports using the stock layout keep the original header placement.
+             Preserve the upstream `company.report_header` guard so the placeholder
+             div is not emitted when the company has no header configured. -->
         <xpath expr="//div[@t-field='company.report_header']" position="attributes">
-            <attribute name="style">display: none;</attribute>
+            <attribute
+                name="t-if"
+            >company.report_header and not apply_alternative_layout</attribute>
         </xpath>
         <xpath expr="//div[@t-field='company.report_header']" position="after">
             <!-- Configure Document Layout would throw an error without this condition -->
-            <t t-if="report">
+            <t t-if="report and apply_alternative_layout">
                 <t t-set="report_partner" t-value="report._get_report_partner(o)" />
                 <t
                     t-set="report"
@@ -75,14 +80,11 @@
             </t>
         </xpath>
         <!-- Hide company address in the header if alternative layout is selected -->
-        <xpath expr="//div[@name='company_address']/ul" position="attributes">
+        <xpath expr="//ul[@name='company_address_list']" position="attributes">
             <attribute name="t-if">not apply_alternative_layout</attribute>
         </xpath>
         <!-- Display address in the header when 'show_address_in_header' is enabled -->
-        <xpath
-            expr="//div[hasclass('row')][div[@name='company_address']]"
-            position="after"
-        >
+        <xpath expr="//div[@name='company_address']/.." position="after">
             <t t-if="show_address_in_header">
                 <div class="row">
                     <div class="col-12">
