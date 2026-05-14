@@ -35,7 +35,9 @@ class AccountPaymentTermLine(models.Model):
     def _get_due_date(self, date_ref):
         self.ensure_one()
         if date_ref and self.has_cutoff_day:
-            self.delay_type = "days_after_end_of_month"
             date_ref = self._get_cutoff_date(date_ref)
             date_ref += relativedelta(months=self.months)
+            return date_utils.end_of(date_ref, "month") + relativedelta(
+                days=self.nb_days
+            )
         return super()._get_due_date(date_ref)
