@@ -15,7 +15,6 @@ class TestPaymentTermCutoffDate(TransactionCase):
         )
         # There should be a default line
         cls.payment_term_line = cls.payment_term.line_ids
-        cls.payment_term_line = cls.payment_term.line_ids
         cls.payment_term_line.has_cutoff_day = True
         cls.payment_term_line.months = 1
         cls.payment_term_line.cutoff_day = 20

@@ -17,8 +17,7 @@
                     invisible="not has_cutoff_day"
                 />
             </xpath>
-            <field name="delay_type" position='attributes'>
-                <attribute name="readonly">has_cutoff_day</attribute>
+            <field name="delay_type" position="attributes">
                 <attribute name="invisible">has_cutoff_day</attribute>
             </field>
         </field>
