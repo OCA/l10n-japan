@@ -1,0 +1,42 @@
+<odoo noupdate="1">
+    <!-- 20th cutoff, end of next month -->
+    <record
+        id="account_payment_term_cutoff20_next_month_end"
+        model="account.payment.term"
+    >
+        <field name="name">20日締翌月末払</field>
+        <field
+            name="line_ids"
+            eval="[
+            Command.clear(),
+            Command.create({
+                'value': 'percent',
+                'value_amount': 100.0,
+                'has_cutoff_day': True,
+                'cutoff_day': 20,
+                'months': 1,
+                'nb_days': 0,
+            })]"
+        />
+    </record>
+    <!-- 20th cutoff, 15th of the month after next -->
+    <record
+        id="account_payment_term_cutoff20_2months_15th"
+        model="account.payment.term"
+    >
+        <field name="name">20日締翌々月15日払</field>
+        <field
+            name="line_ids"
+            eval="[
+            Command.clear(),
+            Command.create({
+                'value': 'percent',
+                'value_amount': 100.0,
+                'has_cutoff_day': True,
+                'cutoff_day': 20,
+                'months': 1,
+                'nb_days': 15,
+            })]"
+        />
+    </record>
+</odoo>
