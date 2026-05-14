@@ -1,11 +1,9 @@
-This module extends the Account Payment Terms functionality by introducing the 
-fields: *has_cutoff_day*, *months*, and *cutoff_day* in `account.payment.term.line`.
+支払条件に「締日」の概念を追加します。
 
-With this feature, users can define a specific cutoff day for payment terms. If an 
-invoice is dated after this cutoff day, the system will automatically shift the due 
-date by one additional month.
+支払条件の明細行に「締日あり」「月数」「締日」のフィールドを追加し、
+締日を基準とした支払期日の計算を可能にします。
 
-The *months* field allows users to specify how many months should be added to the 
-invoice date when calculating the due date.
+請求書の日付が締日を過ぎている場合、支払期日が自動的に翌月に繰り越されます。
+「月数」フィールドで、締日から何ヶ月後の月末を基準とするかを指定できます。
 
-It also adds the cutoff_date field in account.move.
+また、請求書（account.move）に「締日」フィールドを追加します。
