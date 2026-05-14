@@ -13,5 +13,8 @@
         "views/account_payment_term_views.xml",
         "views/account_move_views.xml",
     ],
+    "demo": [
+        "demo/account_payment_term_demo.xml",
+    ],
     "installable": True,
 }
