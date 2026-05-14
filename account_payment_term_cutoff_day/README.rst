@@ -32,18 +32,15 @@ Account Payment Term Cutoff Day
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module extends the Account Payment Terms functionality by
-introducing the fields: *has_cutoff_day*, *months*, and *cutoff_day* in
-``account.payment.term.line``.
+支払条件に「締日」の概念を追加します。
 
-With this feature, users can define a specific cutoff day for payment
-terms. If an invoice is dated after this cutoff day, the system will
-automatically shift the due date by one additional month.
+支払条件の明細行に「締日あり」「月数」「締日」のフィールドを追加し、
+締日を基準とした支払期日の計算を可能にします。
 
-The *months* field allows users to specify how many months should be
-added to the invoice date when calculating the due date.
+請求書の日付が締日を過ぎている場合、支払期日が自動的に翌月に繰り越されます。
+「月数」フィールドで、締日から何ヶ月後の月末を基準とするかを指定できます。
 
-It also adds the cutoff_date field in account.move.
+また、請求書（account.move）に「締日」フィールドを追加します。
 
 **Table of contents**
 
@@ -53,20 +50,27 @@ It also adds the cutoff_date field in account.move.
 Configuration
 =============
 
--  Go to Invoicing > Configuration > Payment Terms.
--  Select or create a Payment Term.
--  Under Payment Term Lines, enable the Has Cutoff Day option.
--  Set the Cutoff Day and Months fields accordingly.
+-  *会計(または請求) > 設定 > 支払条件* を開く
+-  支払条件を選択または新規作成
+-  支払条件の明細行で「締日あり」を有効化
+-  「締日」と「月数」を設定
 
 Usage
 =====
 
--  Create an invoice/bill.
--  Choose the payment term in which you have assigned months and
-   cutoff_day in the payment term line.
--  Choose an invoice date/bill date that is later than cutoff_day.
--  You will see that the due date is extended by one additional month,
-   plus the number of months specified in the Months field.
+顧客請求書/仕入先請求書に締日付きの支払条件を設定すると、適切な締日および支払期日が
+提案されます。
+
+支払期日は以下のロジックで自動計算:
+
+-  請求日が締日以前の場合、当月の締日を基準日とする
+-  請求日が締日より後の場合、翌月の締日を基準日とする
+-  基準日に「月数」を加算した月の月末を支払期日とする
+
+例: 締日=20、月数=1 の場合
+
+-  請求日が2月20日 → 基準日: 2月20日 → 支払期日: 3月31日
+-  請求日が2月21日 → 基準日: 3月20日 → 支払期日: 4月30日
 
 Bug Tracker
 ===========
@@ -98,6 +102,17 @@ This module is maintained by the OCA.
 OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
+
+.. |maintainer-yostashiro| image:: https://github.com/yostashiro.png?size=40px
+    :target: https://github.com/yostashiro
+    :alt: yostashiro
+.. |maintainer-AungKoKoLin1997| image:: https://github.com/AungKoKoLin1997.png?size=40px
+    :target: https://github.com/AungKoKoLin1997
+    :alt: AungKoKoLin1997
+
+Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
+
+|maintainer-yostashiro| |maintainer-AungKoKoLin1997| 
 
 This module is part of the `OCA/l10n-japan <https://github.com/OCA/l10n-japan/tree/19.0/account_payment_term_cutoff_day>`_ project on GitHub.
 

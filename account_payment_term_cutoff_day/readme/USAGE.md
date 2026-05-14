@@ -1,5 +1,13 @@
-- Create an invoice/bill.
-- Choose the payment term in which you have assigned months and cutoff_day in the payment term line.
-- Choose an invoice date/bill date that is later than cutoff_day.
-- You will see that the due date is extended by one additional month,
-  plus the number of months specified in the Months field.
+顧客請求書/仕入先請求書に締日付きの支払条件を設定すると、適切な締日および支払期日が
+提案されます。
+
+支払期日は以下のロジックで自動計算:
+
+- 請求日が締日以前の場合、当月の締日を基準日とする
+- 請求日が締日より後の場合、翌月の締日を基準日とする
+- 基準日に「月数」を加算した月の月末を支払期日とする
+
+例: 締日=20、月数=1 の場合
+
+- 請求日が2月20日 → 基準日: 2月20日 → 支払期日: 3月31日
+- 請求日が2月21日 → 基準日: 3月20日 → 支払期日: 4月30日

@@ -1,4 +1,4 @@
-- Go to Invoicing > Configuration > Payment Terms.
-- Select or create a Payment Term.
-- Under Payment Term Lines, enable the Has Cutoff Day option.
-- Set the Cutoff Day and Months fields accordingly.
+- *会計(または請求) > 設定 > 支払条件* を開く
+- 支払条件を選択または新規作成
+- 支払条件の明細行で「締日あり」を有効化
+- 「締日」と「月数」を設定
