@@ -19,12 +19,13 @@ class TestPaymentTermCutoffDate(TransactionCase):
         cls.payment_term_line.has_cutoff_day = True
         cls.payment_term_line.months = 1
         cls.payment_term_line.cutoff_day = 20
+        cls.partner = cls.env["res.partner"].create({"name": "Test Partner"})
 
     def _create_invoice(self, invoice_date):
         return self.env["account.move"].create(
             {
                 "move_type": "out_invoice",
-                "partner_id": self.env.ref("base.res_partner_1").id,
+                "partner_id": self.partner.id,
                 "invoice_date": invoice_date,
                 "invoice_payment_term_id": self.payment_term.id,
             }
