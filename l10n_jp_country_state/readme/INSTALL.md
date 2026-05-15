@@ -1,2 +1,2 @@
-`base_country_state_translatable` from `partner-contact` repository is
-needed as a dependency.
+依存モジュールとして、`partner-contact`リポジトリの
+`base_country_state_translatable`が必要です。
