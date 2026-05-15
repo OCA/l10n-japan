@@ -32,8 +32,8 @@ Japan Address Layout
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module provides the data to switch the address layout of partner
-form to be in Japanese style (postal code -> prefecture -> city...).
+取引先フォームの住所レイアウトを日本式（郵便番号 → 都道府県 →
+市区町村...）に切り替えるためのデータを提供します。
 
 **Table of contents**
 
@@ -43,8 +43,7 @@ form to be in Japanese style (postal code -> prefecture -> city...).
 Usage
 =====
 
-The address layout of the partner form will appear as shown in the image
-below when your company's country is set to Japan.
+自社の国を日本に設定すると、取引先フォームの住所レイアウトが下図のように表示されます。
 
 |image1|
 
@@ -87,6 +86,17 @@ This module is maintained by the OCA.
 OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
+
+.. |maintainer-yostashiro| image:: https://github.com/yostashiro.png?size=40px
+    :target: https://github.com/yostashiro
+    :alt: yostashiro
+.. |maintainer-AungKoKoLin1997| image:: https://github.com/AungKoKoLin1997.png?size=40px
+    :target: https://github.com/AungKoKoLin1997
+    :alt: AungKoKoLin1997
+
+Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
+
+|maintainer-yostashiro| |maintainer-AungKoKoLin1997| 
 
 This module is part of the `OCA/l10n-japan <https://github.com/OCA/l10n-japan/tree/19.0/l10n_jp_address_layout>`_ project on GitHub.
 

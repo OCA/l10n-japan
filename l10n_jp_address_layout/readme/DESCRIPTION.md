@@ -1,2 +1,1 @@
-This module provides the data to switch the address layout of partner
-form to be in Japanese style (postal code -\> prefecture -\> city...).
+取引先フォームの住所レイアウトを日本式（郵便番号 → 都道府県 → 市区町村...）に切り替えるためのデータを提供します。
