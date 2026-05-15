@@ -375,13 +375,14 @@ ul.auto-toc {
 !! source digest: sha256:ade0fed9ffddfed37a5b14be0097e9e2e65ed7de090c81d5635e8339223d5b22
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 <p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/license-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/l10n-japan/tree/19.0/l10n_jp_country_state"><img alt="OCA/l10n-japan" src="https://img.shields.io/badge/github-OCA%2Fl10n--japan-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/l10n-japan-19-0/l10n-japan-19-0-l10n_jp_country_state"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/l10n-japan&amp;target_branch=19.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
-<p>As of Odoo 17, the Japan prefecture (<tt class="docutils literal">res.country.state</tt>) records are
-shipped with their native Japanese names (e.g. <tt class="docutils literal">東京都</tt>, <tt class="docutils literal">北海道</tt>)
-as the source value. This module overrides those records to use English
-names (e.g. <tt class="docutils literal">Tokyo</tt>, <tt class="docutils literal">Hokkaido</tt>) as the source and provides Japanese
-translations, so users with <tt class="docutils literal">ja_JP</tt> selected continue to see the
-native prefecture names while other users see the romanized English
-names.</p>
+<p>Odoo
+17以降、日本の都道府県（<tt class="docutils literal">res.country.state</tt>）レコードは、日本語名
+（例:
+<tt class="docutils literal">東京都</tt>、<tt class="docutils literal">北海道</tt>）がソース値として登録されています。本モジュー
+ルはこれらのレコードを上書きし、ソース値を英語名（例: <tt class="docutils literal">Tokyo</tt>、
+<tt class="docutils literal">Hokkaido</tt>）に変更したうえで、日本語訳を提供します。これにより、言語に
+<tt class="docutils literal">ja_JP</tt>を選択しているユーザーには引き続き日本語の都道府県名が表示され、
+それ以外のユーザーには英語表記の名称が表示されます。</p>
 <p><strong>Table of contents</strong></p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
@@ -397,8 +398,8 @@ names.</p>
 </div>
 <div class="section" id="installation">
 <h2><a class="toc-backref" href="#toc-entry-1">Installation</a></h2>
-<p><tt class="docutils literal">base_country_state_translatable</tt> from <tt class="docutils literal"><span class="pre">partner-contact</span></tt> repository
-is needed as a dependency.</p>
+<p>依存モジュールとして、<tt class="docutils literal"><span class="pre">partner-contact</span></tt>リポジトリの
+<tt class="docutils literal">base_country_state_translatable</tt>が必要です。</p>
 </div>
 <div class="section" id="bug-tracker">
 <h2><a class="toc-backref" href="#toc-entry-2">Bug Tracker</a></h2>
