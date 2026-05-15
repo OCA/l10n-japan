@@ -9,5 +9,8 @@
     "website": "https://github.com/OCA/l10n-japan",
     "category": "Localization",
     "maintainers": ["yostashiro", "aungkokolin1997"],
+    "data": [
+        "data/res.country.state.csv",
+    ],
     "installable": True,
 }
