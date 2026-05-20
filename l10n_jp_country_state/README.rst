@@ -32,8 +32,14 @@ Japan Country States
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module only adds translations to country state records for Japan,
-for the sake of convenience.
+Odoo
+17以降、日本の都道府県（\ ``res.country.state``\ ）レコードは、日本語名
+（例:
+``東京都``\ 、\ ``北海道``\ ）がソース値として登録されています。本モジュー
+ルはこれらのレコードを上書きし、ソース値を英語名（例: ``Tokyo``\ 、
+``Hokkaido``\ ）に変更したうえで、日本語訳を提供します。これにより、言語に
+``ja_JP``\ を選択しているユーザーには引き続き日本語の都道府県名が表示され、
+それ以外のユーザーには英語表記の名称が表示されます。
 
 **Table of contents**
 
@@ -43,8 +49,8 @@ for the sake of convenience.
 Installation
 ============
 
-``base_country_state_translatable`` from ``partner-contact`` repository
-is needed as a dependency.
+依存モジュールとして、\ ``partner-contact``\ リポジトリの
+``base_country_state_translatable``\ が必要です。
 
 Bug Tracker
 ===========
@@ -67,8 +73,8 @@ Authors
 Contributors
 ------------
 
-- Yoshi Tashiro <tashiro@quartile.co>
-- Tomohiro Abe <tomohiro@quartile.co>
+-  Yoshi Tashiro <tashiro@quartile.co>
+-  Tomohiro Abe <tomohiro@quartile.co>
 
 Maintainers
 -----------
