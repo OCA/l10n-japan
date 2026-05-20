@@ -3,7 +3,7 @@
 {
     "name": "Japan Country States",
     "summary": "日本の都道府県を英語表記化し日本語訳を提供",
-    "version": "19.0.1.0.0",
+    "version": "19.0.1.1.0",
     "depends": ["base_country_state_translatable"],
     "author": "Quartile, Odoo Community Association (OCA)",
     "license": "AGPL-3",
