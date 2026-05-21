@@ -3,7 +3,7 @@
 {
     "name": "Japan Address Layout",
     "summary": "取引先の住所レイアウトを日本式に切替",
-    "version": "19.0.1.0.0",
+    "version": "19.0.1.0.1",
     "depends": ["web"],
     "author": "Quartile, Odoo Community Association (OCA)",
     "license": "LGPL-3",
