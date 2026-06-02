@@ -1,0 +1,21 @@
+{
+  "walletables": [
+    {
+      "id": 4430264,
+      "name": "三菱ＵＦＪ（法人）（API）",
+      "bank_id": 3843,
+      "type": "bank_account",
+      "update_date": "2025-10-26"
+    },
+    {
+      "id": 7168567,
+      "name": "現金",
+      "bank_id": null,
+      "type": "wallet",
+      "update_date": "2025-10-26"
+    }
+  ],
+  "meta": {
+    "up_to_date": true
+  }
+}

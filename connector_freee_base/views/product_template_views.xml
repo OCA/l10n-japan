@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Takahiro SUNAGA <t.sunaga@takahii.co>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_product_template_form_freee" model="ir.ui.view">
+        <field name="name">product.template.form.freee</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page
+                    name="freee_mapping"
+                    string="freee Mapping"
+                    groups="connector_freee_base.group_freee_admin"
+                >
+                    <group>
+                        <field name="freee_item_id" readonly="1" />
+                        <field name="freee_item_name" readonly="1" />
+                        <div colspan="2">
+                            <button
+                                name="action_open_freee_item_wizard"
+                                type="object"
+                                string="Pick from freee"
+                                class="btn-secondary"
+                                icon="fa-search"
+                            />
+                            <button
+                                name="action_clear_freee_item"
+                                type="object"
+                                string="Clear mapping"
+                                class="btn-link"
+                                icon="fa-times"
+                                invisible="not freee_item_id"
+                                confirm="Clear the freee item mapping? Exported deal lines for this product will omit item_id."
+                            />
+                        </div>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_template_tree_view_freee" model="ir.ui.view">
+        <field name="name">product.template.list.freee</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="inside">
+                <field
+                    name="freee_item_id"
+                    optional="hide"
+                    readonly="1"
+                    groups="connector_freee_base.group_freee_admin"
+                />
+                <field
+                    name="freee_item_name"
+                    optional="hide"
+                    readonly="1"
+                    groups="connector_freee_base.group_freee_admin"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <!-- The Accounting / Invoicing "Customers → Products" menu renders
+         account's own primary product list view (account.product_template_view_tree),
+         not product's. Without this inherit the freee columns would be
+         absent (not even in the optional-column chooser) on that path —
+         which is the entry point recommended in readme/USAGE.md. account
+         is a hard dependency of this module, so the xmlid always exists. -->
+    <record id="account_product_template_view_tree_freee" model="ir.ui.view">
+        <field name="name">product.template.list.account.freee</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="account.product_template_view_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="inside">
+                <field
+                    name="freee_item_id"
+                    optional="hide"
+                    readonly="1"
+                    groups="connector_freee_base.group_freee_admin"
+                />
+                <field
+                    name="freee_item_name"
+                    optional="hide"
+                    readonly="1"
+                    groups="connector_freee_base.group_freee_admin"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,1607 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* connector_freee_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20260119\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-02 05:11+0000\n"
+"PO-Revision-Date: 2026-06-02 05:11+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/freee_backend.py:0
+msgid ""
+"%(label)s must be an https:// URL on a freee domain (e.g. "
+"https://api.freee.co.jp or https://accounts.secure.freee.co.jp). Pointing it"
+" elsewhere would send the freee access token or client secret to a non-freee"
+" host. Got: %(value)s"
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/freee_backend.py:0
+msgid "(empty)"
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/freee_backend.py:0
+msgid "(error body suppressed)"
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/freee_backend.py:0
+msgid "(non-JSON error body suppressed)"
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/freee_backend.py:0
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__api_base_url
+msgid "API Base URL"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model,name:connector_freee_base.model_account_account
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_account_item_fetch_wizard__account_id
+msgid "Account"
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/components/mapper.py:0
+msgid ""
+"Account %(account)s has no freee_account_item_id set and journal %(journal)s"
+" has no freee fallback; map one of them before exporting invoice "
+"%(invoice)s."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__active
+msgid "Active"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model,name:connector_freee_base.model_account_analytic_account
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_section_fetch_wizard__analytic_account_id
+msgid "Analytic Account"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/freee_backend.py:0
+msgid "Authorize the backend before fetching companies."
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_backend_form
+msgid "Authorize with freee"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields.selection,name:connector_freee_base.selection__freee_backend__state__authorized
+msgid "Authorized"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_account_item_fetch_wizard_line__available
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_item_fetch_wizard_line__available
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_partner_fetch_wizard_line__available
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_tax_code_fetch_wizard_line__available
+msgid "Available"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_account_item_fetch_wizard__line_ids
+msgid "Available Account Items"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_company_fetch_wizard__line_ids
+msgid "Available Companies"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_item_fetch_wizard__line_ids
+msgid "Available Items"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_partner_fetch_wizard__line_ids
+msgid "Available Partners"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_section_fetch_wizard__line_ids
+msgid "Available Sections"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_tax_code_fetch_wizard__line_ids
+msgid "Available Tax Codes"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_walletable_fetch_wizard__line_ids
+msgid "Available Walletables"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_account_item_fetch_wizard__backend_id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_company_fetch_wizard__backend_id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_item_fetch_wizard__backend_id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_partner_fetch_wizard__backend_id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_section_fetch_wizard__backend_id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_tax_code_fetch_wizard__backend_id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_walletable_fetch_wizard__backend_id
+msgid "Backend"
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/wizards/freee_account_item_fetch_wizard.py:0
+#: code:addons/connector_freee_base/wizards/freee_item_fetch_wizard.py:0
+#: code:addons/connector_freee_base/wizards/freee_partner_fetch_wizard.py:0
+#: code:addons/connector_freee_base/wizards/freee_section_fetch_wizard.py:0
+#: code:addons/connector_freee_base/wizards/freee_tax_code_fetch_wizard.py:0
+#: code:addons/connector_freee_base/wizards/freee_walletable_fetch_wizard.py:0
+msgid "Backend %s has no freee Company ID set."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.ui.menu,name:connector_freee_base.menu_freee_backend
+msgid "Backends"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_walletable_fetch_wizard_line__bank_id
+msgid "Bank ID"
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_company_fetch_wizard_form
+msgid "Cancel"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_account_item_fetch_wizard_line__category
+msgid "Category"
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_account_journal_form_freee
+msgid "Clear (→ unsettled)"
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_account_account_form_freee
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_account_analytic_account_form_freee
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_account_journal_form_freee
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_account_tax_form_freee
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_product_template_form_freee
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_res_partner_form_freee
+msgid "Clear mapping"
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_account_account_form_freee
+msgid ""
+"Clear the freee account item on this account? Invoices using it will fall "
+"back to the journal-level fallback if set, otherwise fail to export."
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_account_journal_form_freee
+msgid ""
+"Clear the freee account-item fallback on this journal? Lines whose own "
+"account is also unmapped will fail to export."
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_product_template_form_freee
+msgid ""
+"Clear the freee item mapping? Exported deal lines for this product will omit"
+" item_id."
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_res_partner_form_freee
+msgid ""
+"Clear the freee partner mapping? The deal will fall back to the partner "
+"reference, or omit the partner if none is set."
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_account_analytic_account_form_freee
+msgid ""
+"Clear the freee section mapping? Exported deal lines using it will omit "
+"section_id."
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_account_tax_form_freee
+msgid ""
+"Clear the freee tax code? Invoices using this tax will fail to export until "
+"a tax code is mapped again."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__client_id
+msgid "Client ID"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__client_secret
+msgid "Client Secret"
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_account_item_fetch_wizard_form
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_item_fetch_wizard_form
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_partner_fetch_wizard_form
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_section_fetch_wizard_form
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_tax_code_fetch_wizard_form
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_walletable_fetch_wizard_form
+msgid "Close"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_partner_fetch_wizard_line__code
+msgid "Code"
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_company_fetch_wizard_form
+msgid ""
+"Companies returned by\n"
+"                    <code>GET /api/1/companies</code>. Click\n"
+"                    <em>Use this</em> on the row you want to bind to this\n"
+"                    backend."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__company_id
+msgid "Company"
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/freee_backend.py:0
+msgid ""
+"Company %(company)s already has an authorized & active freee backend. "
+"Archive or revoke the other backend before authorizing this one — keeping "
+"both live would double-post every invoice to freee."
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/freee_backend.py:0
+msgid "Connection successful."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model,name:connector_freee_base.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_account_item_fetch_wizard__create_uid
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_account_item_fetch_wizard_line__create_uid
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__create_uid
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_company_fetch_wizard__create_uid
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_company_fetch_wizard_line__create_uid
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_item_fetch_wizard__create_uid
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_item_fetch_wizard_line__create_uid
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_partner_fetch_wizard__create_uid
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_partner_fetch_wizard_line__create_uid
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_section_fetch_wizard__create_uid
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_section_fetch_wizard_line__create_uid
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_tax_code_fetch_wizard__create_uid
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_tax_code_fetch_wizard_line__create_uid
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_walletable_fetch_wizard__create_uid
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_walletable_fetch_wizard_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_account_item_fetch_wizard__create_date
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_account_item_fetch_wizard_line__create_date
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__create_date
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_company_fetch_wizard__create_date
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_company_fetch_wizard_line__create_date
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_item_fetch_wizard__create_date
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_item_fetch_wizard_line__create_date
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_partner_fetch_wizard__create_date
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_partner_fetch_wizard_line__create_date
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_section_fetch_wizard__create_date
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_section_fetch_wizard_line__create_date
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_tax_code_fetch_wizard__create_date
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_tax_code_fetch_wizard_line__create_date
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_walletable_fetch_wizard__create_date
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_walletable_fetch_wizard_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_backend_form
+msgid "Credentials"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_freee_backend__export_from_date
+msgid ""
+"Cron sweep only enqueues posted invoices whose ``invoice_date`` is on or "
+"after this date. Stamped to today the first time the backend transitions to "
+"``authorized`` so a fresh install does not retroactively flood freee with "
+"every historical invoice. Admin-editable for back-dated catch-up."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__debug_log_request_payload
+msgid "Debug: log request payload"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_freee_backend__debug_log_request_payload
+msgid ""
+"Developer / troubleshooting only — keep OFF in production.\n"
+"When ON, each freee export/delete job's Result (Settings → Technical → Queue Job) additionally contains the full request payload sent to freee and freee's raw response. Those carry partner, amounts and per-line text into the UNENCRYPTED, broadly-readable queue.job.result column — the exposure the connector deliberately avoids by default (see readme/SECURITY.md, H1). Remember to turn it OFF again after troubleshooting."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_tax_code_fetch_wizard_line__display_category
+msgid "Display Category"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_account_item_fetch_wizard__display_name
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_account_item_fetch_wizard_line__display_name
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__display_name
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_company_fetch_wizard__display_name
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_company_fetch_wizard_line__display_name
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_item_fetch_wizard__display_name
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_item_fetch_wizard_line__display_name
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_partner_fetch_wizard__display_name
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_partner_fetch_wizard_line__display_name
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_section_fetch_wizard__display_name
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_section_fetch_wizard_line__display_name
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_tax_code_fetch_wizard__display_name
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_tax_code_fetch_wizard_line__display_name
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_walletable_fetch_wizard__display_name
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_walletable_fetch_wizard_line__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_account_tax__freee_tax_name
+msgid ""
+"Display name of the matching freee tax, captured when the code is set via "
+"the picker wizard. Display-only — only the code gets sent to the API."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__encrypted_access_token
+msgid "Encrypted Access Token"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__encrypted_client_secret
+msgid "Encrypted Client Secret"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__encrypted_refresh_token
+msgid "Encrypted Refresh Token"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields.selection,name:connector_freee_base.selection__freee_backend__state__error
+msgid "Error"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__export_from_date
+msgid "Export From"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_res_partner__freee_partner_code
+#: model:ir.model.fields,help:connector_freee_base.field_res_users__freee_partner_code
+msgid ""
+"External code of the matching ``partner`` on freee. Stored as a fallback for"
+" the ``partner_code`` field of the deal payload when no ``freee_partner_id``"
+" is available."
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_backend_form
+msgid "Fetch Company IDs"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model,name:connector_freee_base.model_freee_account_item_fetch_wizard
+msgid "Fetch freee Account Items"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model,name:connector_freee_base.model_freee_company_fetch_wizard
+msgid "Fetch freee Companies"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model,name:connector_freee_base.model_freee_item_fetch_wizard
+msgid "Fetch freee Items"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model,name:connector_freee_base.model_freee_partner_fetch_wizard
+msgid "Fetch freee Partners"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model,name:connector_freee_base.model_freee_section_fetch_wizard
+msgid "Fetch freee Sections"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model,name:connector_freee_base.model_freee_tax_code_fetch_wizard
+msgid "Fetch freee Tax Codes"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model,name:connector_freee_base.model_freee_walletable_fetch_wizard
+msgid "Fetch freee Walletables"
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_account_item_fetch_wizard_form
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_item_fetch_wizard_form
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_partner_fetch_wizard_form
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_section_fetch_wizard_form
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_tax_code_fetch_wizard_form
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_walletable_fetch_wizard_form
+msgid "Fetch from freee"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_partner_fetch_wizard__name_filter
+msgid "Filter by Name"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_freee_backend__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_freee_backend__request_timeout
+msgid ""
+"HTTP request timeout in seconds. A value of 0 falls back to the connector "
+"default at call time."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_freee_backend__external_company_name
+msgid ""
+"Human-readable company name reported by freee. Populated by the Fetch "
+"Company IDs wizard."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_account_item_fetch_wizard__id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_account_item_fetch_wizard_line__id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_company_fetch_wizard__id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_company_fetch_wizard_line__id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_item_fetch_wizard__id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_item_fetch_wizard_line__id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_partner_fetch_wizard__id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_partner_fetch_wizard_line__id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_section_fetch_wizard__id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_section_fetch_wizard_line__id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_tax_code_fetch_wizard__id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_tax_code_fetch_wizard_line__id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_walletable_fetch_wizard__id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_walletable_fetch_wizard_line__id
+msgid "ID"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_account_account__freee_account_item_id
+msgid ""
+"ID of the matching ``account_item`` on freee. Resolved on the freee "
+"developer console / API and stored here so the mapper can populate "
+"``details[].account_item_id`` when exporting invoices."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_product_product__freee_item_id
+#: model:ir.model.fields,help:connector_freee_base.field_product_template__freee_item_id
+msgid ""
+"ID of the matching ``item`` on freee. Stored here so exporters can populate "
+"``details[].item_id`` in the deal payload without round-tripping the API on "
+"every push."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_res_partner__freee_partner_id
+#: model:ir.model.fields,help:connector_freee_base.field_res_users__freee_partner_id
+msgid ""
+"ID of the matching ``partner`` on freee. Stored here so exporters can "
+"populate ``partner_id`` in the deal payload without round-tripping the API "
+"on every push."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_account_analytic_account__freee_section_id
+msgid ""
+"ID of the matching ``section`` on freee. Stored here so exporters can "
+"populate ``details[].section_id`` in the deal payload without round-tripping"
+" the API on every push."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_freee_backend__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_freee_backend__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_freee_backend__message_has_error
+#: model:ir.model.fields,help:connector_freee_base.field_freee_backend__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/freee_backend.py:0
+msgid "Invalid OAuth state."
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/components/mapper.py:0
+msgid ""
+"Invoice has no partner; cannot export to freee. Set a partner on the invoice"
+" or exclude it from freee export."
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/freee_backend.py:0
+msgid ""
+"Invoice issue date %(issue)s is on or before the freee lock date %(lock)s "
+"for backend '%(backend)s'. freee will not accept changes inside a closed "
+"period — adjust the lock_date on the backend (or reverse the invoice in a "
+"post-lock period) before retrying."
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/components/mapper.py:0
+msgid ""
+"Invoice line '%(line)s' on %(invoice)s carries multiple taxes with "
+"freee_tax_code mapped (%(codes)s). freee's details[].tax_code is a single "
+"scalar so multi-tax rows cannot be expressed on freee — split the row, or "
+"unmap one of the taxes before exporting."
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/components/mapper.py:0
+msgid ""
+"Invoice line '%(line)s' on %(invoice)s has no tax with freee_tax_code set; "
+"map every applicable tax via the freee wizard before exporting."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model,name:connector_freee_base.model_account_journal
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_account_item_fetch_wizard__journal_id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_walletable_fetch_wizard__journal_id
+msgid "Journal"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_account_item_fetch_wizard__write_uid
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_account_item_fetch_wizard_line__write_uid
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__write_uid
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_company_fetch_wizard__write_uid
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_company_fetch_wizard_line__write_uid
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_item_fetch_wizard__write_uid
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_item_fetch_wizard_line__write_uid
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_partner_fetch_wizard__write_uid
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_partner_fetch_wizard_line__write_uid
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_section_fetch_wizard__write_uid
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_section_fetch_wizard_line__write_uid
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_tax_code_fetch_wizard__write_uid
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_tax_code_fetch_wizard_line__write_uid
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_walletable_fetch_wizard__write_uid
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_walletable_fetch_wizard_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_account_item_fetch_wizard__write_date
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_account_item_fetch_wizard_line__write_date
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__write_date
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_company_fetch_wizard__write_date
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_company_fetch_wizard_line__write_date
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_item_fetch_wizard__write_date
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_item_fetch_wizard_line__write_date
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_partner_fetch_wizard__write_date
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_partner_fetch_wizard_line__write_date
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_section_fetch_wizard__write_date
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_section_fetch_wizard_line__write_date
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_tax_code_fetch_wizard__write_date
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_tax_code_fetch_wizard_line__write_date
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_walletable_fetch_wizard__write_date
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_walletable_fetch_wizard_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_freee_backend__lock_date
+msgid ""
+"Last day of the most recent closed (locked) period on freee — a monthly or "
+"year-end close. Invoices whose ``invoice_date`` is on or before this date "
+"are skipped by the cron sweep, and the manual *Sync to freee* button raises "
+"a clear error instead of letting freee reject the request. Leave empty to "
+"disable the check."
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_backend_form
+msgid ""
+"List companies your freee account can access and pick one to bind to this "
+"backend."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_section_fetch_wizard_line__long_name
+msgid "Long Name"
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_account_journal_form_freee
+msgid ""
+"Map a freee walletable (account) to export this\n"
+"                            journal's invoices as <strong>settled</strong>\n"
+"                            deals paid through that walletable. Leave empty\n"
+"                            to export them as <strong>unsettled</strong>\n"
+"                            — the default."
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/account_account.py:0
+#: code:addons/connector_freee_base/models/account_journal.py:0
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_account_item_fetch_wizard_form
+msgid "Map freee Account Item"
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/product_template.py:0
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_item_fetch_wizard_form
+msgid "Map freee Item"
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/res_partner.py:0
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_partner_fetch_wizard_form
+msgid "Map freee Partner"
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/account_analytic_account.py:0
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_section_fetch_wizard_form
+msgid "Map freee Section"
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/account_tax.py:0
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_tax_code_fetch_wizard_form
+msgid "Map freee Tax Code"
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/account_journal.py:0
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_walletable_fetch_wizard_form
+msgid "Map freee Walletable"
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_account_journal_form_freee
+msgid ""
+"Map this journal to a freee account item to\n"
+"                            split its sales (e.g. EC-site vs. manual\n"
+"                            invoices) into a different freee account item.\n"
+"                            Leave empty to use the per-account mapping."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/controllers/main.py:0
+msgid "Missing OAuth parameters."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_account_item_fetch_wizard_line__name
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__name
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_company_fetch_wizard_line__name
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_item_fetch_wizard_line__name
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_partner_fetch_wizard_line__name
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_section_fetch_wizard_line__name
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_tax_code_fetch_wizard_line__name
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_walletable_fetch_wizard_line__name
+msgid "Name"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_company_fetch_wizard_line__name_kana
+msgid "Name (Kana)"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_account_account__freee_account_item_name
+msgid ""
+"Name of the matching ``account_item`` on freee, captured when the ID is set "
+"via the picker wizard. Display-only — the ID is what gets sent to the API."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_product_product__freee_item_name
+#: model:ir.model.fields,help:connector_freee_base.field_product_template__freee_item_name
+msgid ""
+"Name of the matching ``item`` on freee, captured when the ID is set via the "
+"picker wizard. Display-only — the ID is what gets sent to the API."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_res_partner__freee_partner_name
+#: model:ir.model.fields,help:connector_freee_base.field_res_users__freee_partner_name
+msgid ""
+"Name of the matching ``partner`` on freee, captured when the ID is set via "
+"the picker wizard. Display-only — the ID is what gets sent to the API."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_account_analytic_account__freee_section_name
+msgid ""
+"Name of the matching ``section`` on freee, captured when the ID is set via "
+"the picker wizard. Display-only — the ID is what gets sent to the API."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_account_journal__freee_account_item_name
+msgid ""
+"Name of the matching freee ``account_item``, captured when the ID is set via"
+" the picker wizard. Display-only — the ID is what gets sent to the API."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_account_journal__freee_walletable_name
+msgid ""
+"Name of the matching freee walletable, captured when the id is set via the "
+"picker wizard. Display-only."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/freee_backend.py:0
+msgid "No refresh token stored — re-authorize the backend."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields.selection,name:connector_freee_base.selection__freee_backend__state__draft
+msgid "Not Authorized"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_freee_backend__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_freee_backend__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/freee_backend.py:0
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__oauth_base_url
+msgid "OAuth Base URL"
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/freee_backend.py:0
+msgid "OAuth state mismatch."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__oauth_state
+msgid "Oauth State"
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/controllers/main.py:0
+msgid "Only freee administrators may complete authorization."
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/freee_backend.py:0
+msgid "Only freee administrators may manage credentials."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_freee_partner_fetch_wizard__name_filter
+msgid ""
+"Optional ``keyword`` query parameter forwarded to ``/api/1/partners``. "
+"Server-side substring match on the freee partner name."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_account_journal__freee_account_item_id
+msgid ""
+"Optional freee ``account_item`` id used as a fallback for invoice lines "
+"whose own account has no ``freee_account_item_id`` mapped. The per-account "
+"mapping on ``account.account`` always wins when set; this journal-level "
+"value resolves only the lines where the account is left intentionally "
+"unmapped — for example to keep one common Odoo sales account and split it "
+"into different freee account items per journal (manual customer invoices vs."
+" EC-site sales). Leave empty when all relevant accounts already carry their "
+"own freee mapping."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_account_journal__freee_walletable_id
+msgid ""
+"Optional freee ``walletable`` (account) id. When set, every invoice on this "
+"journal is exported as a settled freee deal paid through this walletable. "
+"Leave empty to export the deal as unsettled — the default behaviour."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_section_fetch_wizard_line__parent_external_id
+msgid "Parent freee Section ID"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_partner_fetch_wizard__partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/components/mapper.py:0
+msgid ""
+"Partner '%(partner)s' has no freee mapping (neither freee_partner_id nor "
+"freee_partner_code). Open the partner, run *Pick from freee* and map it "
+"before exporting — unmapped partners would otherwise land on freee with no "
+"partner and silently pollute the sales-by-partner / AR aging reports."
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_account_journal_form_freee
+msgid "Pick Walletable from freee"
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_account_account_form_freee
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_account_analytic_account_form_freee
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_account_journal_form_freee
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_account_tax_form_freee
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_product_template_form_freee
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_res_partner_form_freee
+msgid "Pick from freee"
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_account_item_fetch_wizard_form
+msgid ""
+"Pick the freee Backend, click\n"
+"                    <em>Fetch from freee</em> to load\n"
+"                    <code>/api/1/account_items</code>, then click\n"
+"                    <em>Use this</em> on the row you want to bind."
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_item_fetch_wizard_form
+msgid ""
+"Pick the freee Backend, click\n"
+"                    <em>Fetch from freee</em> to load\n"
+"                    <code>/api/1/items</code>, then click\n"
+"                    <em>Use this</em> on the row you want to bind."
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_section_fetch_wizard_form
+msgid ""
+"Pick the freee Backend, click\n"
+"                    <em>Fetch from freee</em> to load\n"
+"                    <code>/api/1/sections</code>, then click\n"
+"                    <em>Use this</em> on the row you want to bind."
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_tax_code_fetch_wizard_form
+msgid ""
+"Pick the freee Backend, click\n"
+"                    <em>Fetch from freee</em> to load\n"
+"                    <code>/api/1/taxes/companies/{company_id}</code>, then click\n"
+"                    <em>Use this</em> on the row you want to bind."
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_walletable_fetch_wizard_form
+msgid ""
+"Pick the freee Backend, click\n"
+"                    <em>Fetch from freee</em> to load\n"
+"                    <code>/api/1/walletables</code>, then click\n"
+"                    <em>Use this</em> on the walletable that settles\n"
+"                    this journal's invoices. Invoices on this journal will\n"
+"                    then be exported as <strong>settled</strong> deals;\n"
+"                    clear the mapping to go back to unsettled."
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_partner_fetch_wizard_form
+msgid ""
+"Pick the freee Backend, optionally enter a name\n"
+"                    keyword, click <em>Fetch from freee</em> to load\n"
+"                    <code>/api/1/partners</code>, then click\n"
+"                    <em>Use this</em> on the row you want to bind."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model,name:connector_freee_base.model_product_template
+msgid "Product"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_item_fetch_wizard__product_tmpl_id
+msgid "Product Tmpl"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_freee_backend__redirect_uri
+msgid "Redirect URI to register in the freee developer console."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__redirect_uri
+msgid "Redirect Uri"
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_backend_form
+msgid ""
+"Register the\n"
+"                                <strong>Redirect URI</strong> shown above\n"
+"                                in the freee developer console, then click\n"
+"                                <em>Authorize with freee</em>."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__request_timeout
+msgid "Request Timeout"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_backend_form
+msgid "Revoke Tokens"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_company_fetch_wizard_line__role
+msgid "Role"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/wizards/freee_account_item_fetch_wizard.py:0
+#: code:addons/connector_freee_base/wizards/freee_item_fetch_wizard.py:0
+#: code:addons/connector_freee_base/wizards/freee_partner_fetch_wizard.py:0
+#: code:addons/connector_freee_base/wizards/freee_section_fetch_wizard.py:0
+#: code:addons/connector_freee_base/wizards/freee_tax_code_fetch_wizard.py:0
+#: code:addons/connector_freee_base/wizards/freee_walletable_fetch_wizard.py:0
+msgid "Select an authorized freee backend."
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/freee_backend.py:0
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_company_fetch_wizard_form
+msgid "Select freee Company"
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/freee_backend.py:0
+msgid "Set Client ID and Client Secret before authorizing."
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/freee_backend.py:0
+msgid "Set the freee Company ID before testing the connection."
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_account_journal_form_freee
+msgid "Settlement Walletable"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_account_item_fetch_wizard_line__shortcut
+msgid "Shortcut"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_account_item_fetch_wizard_line__shortcut_num
+msgid "Shortcut #"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_item_fetch_wizard_line__shortcut1
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_partner_fetch_wizard_line__shortcut1
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_section_fetch_wizard_line__shortcut1
+msgid "Shortcut1"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_item_fetch_wizard_line__shortcut2
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_partner_fetch_wizard_line__shortcut2
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_section_fetch_wizard_line__shortcut2
+msgid "Shortcut2"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__state
+msgid "State"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_freee_backend__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/freee_backend.py:0
+msgid "System parameter 'web.base.url' is not configured."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model,name:connector_freee_base.model_account_tax
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_tax_code_fetch_wizard__tax_id
+msgid "Tax"
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_backend_form
+msgid "Test Connection"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_freee_backend__external_company_id
+msgid ""
+"The freee 'company_id' bound to this backend. Required by most /api/1/* "
+"endpoints."
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_backend_form
+msgid "This will clear stored tokens. Continue?"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__token_expires_at
+msgid "Token Expires At"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_walletable_fetch_wizard_line__walletable_type
+msgid "Type"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_freee_backend__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/freee_backend.py:0
+msgid "Unknown freee backend."
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_account_journal_form_freee
+msgid ""
+"Unmap the walletable? Invoices on this journal will be exported as unsettled"
+" deals."
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_account_item_fetch_wizard_form
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_company_fetch_wizard_form
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_item_fetch_wizard_form
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_partner_fetch_wizard_form
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_section_fetch_wizard_form
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_tax_code_fetch_wizard_form
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_walletable_fetch_wizard_form
+msgid "Use this"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:mail.activity.type,summary:connector_freee_base.mail_activity_freee_verify_config
+msgid "Verify freee backend configuration before sync"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_freee_backend__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_account_item_fetch_wizard_line__wizard_id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_company_fetch_wizard_line__wizard_id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_item_fetch_wizard_line__wizard_id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_partner_fetch_wizard_line__wizard_id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_section_fetch_wizard_line__wizard_id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_tax_code_fetch_wizard_line__wizard_id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_walletable_fetch_wizard_line__wizard_id
+msgid "Wizard"
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/wizards/freee_company_fetch_wizard.py:0
+msgid "Wizard is not bound to a freee backend."
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/wizards/freee_walletable_fetch_wizard.py:0
+msgid "Wizard is not bound to a journal."
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/wizards/freee_partner_fetch_wizard.py:0
+msgid "Wizard is not bound to a partner."
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/wizards/freee_item_fetch_wizard.py:0
+msgid "Wizard is not bound to a product."
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/wizards/freee_tax_code_fetch_wizard.py:0
+msgid "Wizard is not bound to a tax."
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/wizards/freee_account_item_fetch_wizard.py:0
+msgid "Wizard is not bound to an account or journal."
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/wizards/freee_section_fetch_wizard.py:0
+msgid "Wizard is not bound to an analytic account."
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/freee_backend.py:0
+#: model:ir.ui.menu,name:connector_freee_base.menu_freee_root
+msgid "freee"
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/components/adapter.py:0
+msgid "freee %(method)s %(path)s failed (HTTP %(status)s): %(body)s"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model,name:connector_freee_base.model_freee_account_item_fetch_wizard_line
+msgid "freee Account Item Choice"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_account_account__freee_account_item_id
+#: model:ir.model.fields,field_description:connector_freee_base.field_account_journal__freee_account_item_id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_account_item_fetch_wizard_line__external_id
+msgid "freee Account Item ID"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_account_account__freee_account_item_name
+#: model:ir.model.fields,field_description:connector_freee_base.field_account_journal__freee_account_item_name
+msgid "freee Account Item Name"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:res.groups,name:connector_freee_base.group_freee_admin
+msgid "freee Administrator"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model,name:connector_freee_base.model_freee_backend
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_backend_form
+msgid "freee Backend"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.constraint,message:connector_freee_base.constraint_freee_backend_name_company_uniq
+msgid "freee Backend name must be unique per company."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.actions.act_window,name:connector_freee_base.action_freee_backend
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_freee_backend_tree
+msgid "freee Backends"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__external_company_name
+msgid "freee Company"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model,name:connector_freee_base.model_freee_company_fetch_wizard_line
+msgid "freee Company Choice"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__external_company_id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_company_fetch_wizard_line__external_id
+msgid "freee Company ID"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.module.category,name:connector_freee_base.module_category_connector_freee
+msgid "freee Connector"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model,name:connector_freee_base.model_freee_item_fetch_wizard_line
+msgid "freee Item Choice"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_item_fetch_wizard_line__external_id
+#: model:ir.model.fields,field_description:connector_freee_base.field_product_product__freee_item_id
+#: model:ir.model.fields,field_description:connector_freee_base.field_product_template__freee_item_id
+msgid "freee Item ID"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_product_product__freee_item_name
+#: model:ir.model.fields,field_description:connector_freee_base.field_product_template__freee_item_name
+msgid "freee Item Name"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_backend__lock_date
+msgid "freee Lock Date"
+msgstr ""
+
+#. module: connector_freee_base
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_account_account_form_freee
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_account_analytic_account_form_freee
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_account_journal_form_freee
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_account_tax_form_freee
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_product_template_form_freee
+#: model_terms:ir.ui.view,arch_db:connector_freee_base.view_res_partner_form_freee
+msgid "freee Mapping"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model,name:connector_freee_base.model_freee_partner_fetch_wizard_line
+msgid "freee Partner Choice"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_res_partner__freee_partner_code
+#: model:ir.model.fields,field_description:connector_freee_base.field_res_users__freee_partner_code
+msgid "freee Partner Code"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_partner_fetch_wizard_line__external_id
+#: model:ir.model.fields,field_description:connector_freee_base.field_res_partner__freee_partner_id
+#: model:ir.model.fields,field_description:connector_freee_base.field_res_users__freee_partner_id
+msgid "freee Partner ID"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_res_partner__freee_partner_name
+#: model:ir.model.fields,field_description:connector_freee_base.field_res_users__freee_partner_name
+msgid "freee Partner Name"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model,name:connector_freee_base.model_freee_section_fetch_wizard_line
+msgid "freee Section Choice"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_account_analytic_account__freee_section_id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_section_fetch_wizard_line__external_id
+msgid "freee Section ID"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_account_analytic_account__freee_section_name
+msgid "freee Section Name"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_account_tax__freee_tax_code
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_tax_code_fetch_wizard_line__code
+msgid "freee Tax Code"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model,name:connector_freee_base.model_freee_tax_code_fetch_wizard_line
+msgid "freee Tax Code Choice"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_account_tax__freee_tax_name
+msgid "freee Tax Name"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:res.groups,name:connector_freee_base.group_freee_user
+msgid "freee User"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model,name:connector_freee_base.model_freee_walletable_fetch_wizard_line
+msgid "freee Walletable Choice"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_account_journal__freee_walletable_id
+#: model:ir.model.fields,field_description:connector_freee_base.field_freee_walletable_fetch_wizard_line__external_id
+msgid "freee Walletable ID"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_account_journal__freee_walletable_name
+msgid "freee Walletable Name"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,field_description:connector_freee_base.field_account_journal__freee_walletable_type
+msgid "freee Walletable Type"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_account_tax__freee_tax_code
+msgid ""
+"freee ``tax_code`` to set on each detail line (e.g. ``21`` for the standard "
+"10% sales rate, ``24`` for the 8% reduced sales rate). freee's deals API "
+"rejects the value unless it is an integer."
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/freee_backend.py:0
+msgid "freee authentication failed (HTTP %s)."
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/controllers/main.py:0
+msgid "freee authorization was denied: %s"
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/freee_backend.py:0
+msgid "freee backend %s is not authorized."
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/freee_backend.py:0
+msgid ""
+"freee credential encryption key is not configured. Add "
+"'connector_freee_base_encryption_key = <Fernet key>' to odoo.conf (generate "
+"one with `python -c \"from cryptography.fernet import Fernet; "
+"print(Fernet.generate_key().decode())\"`) and restart."
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/freee_backend.py:0
+msgid "freee did not return an access token."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:mail.activity.type,summary:connector_freee_base.mail_activity_freee_export_failures
+msgid "freee invoice export failures need attention"
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/components/adapter.py:0
+msgid ""
+"freee rejected the access token even after a refresh (HTTP 401). Re-"
+"authorize the backend."
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/components/adapter.py:0
+msgid "freee returned a non-JSON response (%(method)s %(path)s)."
+msgstr ""
+
+#. module: connector_freee_base
+#. odoo-python
+#: code:addons/connector_freee_base/models/freee_backend.py:0
+msgid "freee returned no companies for the authorized account."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:ir.model.fields,help:connector_freee_base.field_account_journal__freee_walletable_type
+msgid ""
+"freee walletable ``type`` (bank_account / credit_card / wallet), required "
+"alongside the id for the deal's ``payments[].from_walletable_type``. Set by "
+"the picker wizard."
+msgstr ""
+
+#. module: connector_freee_base
+#: model:mail.activity.type,name:connector_freee_base.mail_activity_freee_export_failures
+msgid "freee: export failures"
+msgstr ""
+
+#. module: connector_freee_base
+#: model:mail.activity.type,name:connector_freee_base.mail_activity_freee_verify_config
+msgid "freee: verify configuration"
+msgstr ""
