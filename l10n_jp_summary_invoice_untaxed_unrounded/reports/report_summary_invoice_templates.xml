@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+        id="bill_line_section_layout"
+        inherit_id="l10n_jp_summary_invoice.bill_line_section_layout"
+    >
+        <!--
+            Always disclose the unrounded line subtotal and the per-invoice
+            untaxed amount, formatted with the company's untaxed-unrounded
+            digits, so the printed amounts reflect the decimals that currency
+            rounding would otherwise hide. The currency-rounded spans are hidden
+            (not removed) so other modules can still inherit them.
+        -->
+        <xpath expr="//td[@name='td_subtotal']/span" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <xpath expr="//td[@name='td_subtotal']/span" position="after">
+            <span class="text-nowrap">
+                <t t-if="o.currency_id.position == 'before'"><t
+                    t-out="o.currency_id.symbol"
+                />&amp;nbsp;</t>
+                <t
+                    t-out="line.price_subtotal_unrounded * (-1 if line.move_type in ['out_refund', 'in_refund'] else 1)"
+                    t-options-widget="'float'"
+                    t-options-precision="o.company_id.untaxed_unrounded_digits"
+                />
+                <t t-if="o.currency_id.position == 'after'">&amp;nbsp;<t
+                    t-out="o.currency_id.symbol"
+                /></t>
+            </span>
+        </xpath>
+        <xpath expr="//tr[@name='amount_untaxed']/td[2]/span" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <xpath expr="//tr[@name='amount_untaxed']/td[2]/span" position="after">
+            <span class="text-nowrap">
+                <t t-if="o.currency_id.position == 'before'"><t
+                    t-out="o.currency_id.symbol"
+                />&amp;nbsp;</t>
+                <t
+                    t-out="invoice.amount_untaxed_unrounded * (-1 if invoice.move_type in ['out_refund', 'in_refund'] else 1)"
+                    t-options-widget="'float'"
+                    t-options-precision="o.company_id.untaxed_unrounded_digits"
+                />
+                <t t-if="o.currency_id.position == 'after'">&amp;nbsp;<t
+                    t-out="o.currency_id.symbol"
+                /></t>
+            </span>
+        </xpath>
+    </template>
+</odoo>
