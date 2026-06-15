@@ -224,3 +224,76 @@ class TestSummaryInvoiceCarryover(TransactionCase):
         self._register_payment(billing1.billing_line_ids.move_id, 500)
         # Carryover amounts remain frozen
         self.assertEqual(billing2.carryover_amount, 1100)
+
+    def test_carryover_accumulates_when_nothing_paid(self):
+        """Invoices from periods older than the previous one must keep being carried
+        over (regression for chains of 3+ unpaid periods)."""
+        self._create_billing(1000, date(2025, 1, 15), validate=True)
+        self._create_billing(2000, date(2025, 2, 15), validate=True)
+        # Period 3: prev = billing2, but nothing has been paid in any period.
+        billing3 = self._create_billing(3000, date(2025, 3, 15))
+        # The whole 1100 (period 1) + 2200 (period 2) is still outstanding.
+        self.assertEqual(billing3.payment_amount, 0)
+        self.assertEqual(billing3.carryover_amount, 3300)
+        self.assertEqual(billing3.total_billed_amount, 6600)
+
+    def test_carryover_counts_payment_on_older_billing(self):
+        """A payment on a billing older than the previous one is reflected in the
+        carryover of the current billing."""
+        billing1 = self._create_billing(1000, date(2025, 1, 15), validate=True)
+        self._create_billing(2000, date(2025, 2, 15), validate=True)
+        # Pay period 1 in full before creating period 3.
+        self._register_payment(billing1.billing_line_ids.move_id, 1100)
+        billing3 = self._create_billing(3000, date(2025, 3, 15))
+        # Only period 2's 2200 is still outstanding.
+        self.assertEqual(billing3.payment_amount, 1100)
+        self.assertEqual(billing3.carryover_amount, 2200)
+        self.assertEqual(billing3.total_billed_amount, 5500)
+
+    def test_carryover_reacts_to_later_payment_on_older_billing(self):
+        """Paying a billing older than the immediate previous one, after the current
+        draft already exists, must still update its carryover (reactivity flows
+        through the recursive total_billed_amount dependency)."""
+        billing1 = self._create_billing(1000, date(2025, 1, 15), validate=True)
+        self._create_billing(2000, date(2025, 2, 15), validate=True)
+        billing3 = self._create_billing(3000, date(2025, 3, 15))  # draft
+        self.assertEqual(billing3.payment_amount, 0)
+        self.assertEqual(billing3.carryover_amount, 3300)
+        # Pay period 1 (older than billing3's previous billing) afterwards.
+        self._register_payment(billing1.billing_line_ids.move_id, 1100)
+        self.assertEqual(billing3.payment_amount, 1100)
+        self.assertEqual(billing3.carryover_amount, 2200)
+        self.assertEqual(billing3.total_billed_amount, 5500)
+
+    def test_show_carryover_amounts_company_default(self):
+        """With the partner on 'default', the company setting decides, and a change
+        of the company setting refreshes existing billings."""
+        self.partner.show_carryover_amounts = "default"
+        billing = self._create_billing(1000)
+        self.assertTrue(billing.show_carryover_amounts)
+        self.company.show_carryover_amounts = False
+        self.assertFalse(billing.show_carryover_amounts)
+
+    def test_show_carryover_amounts_partner_override(self):
+        """An explicit partner setting overrides the company default and refreshes
+        existing billings when it changes."""
+        billing = self._create_billing(1000)
+        self.partner.show_carryover_amounts = "no"
+        self.assertFalse(billing.show_carryover_amounts)
+        self.partner.show_carryover_amounts = "yes"
+        self.assertTrue(billing.show_carryover_amounts)
+
+    def test_validate_billing_does_not_refreeze(self):
+        """Re-validating an already-validated billing must keep the frozen manual
+        values untouched."""
+        self._create_billing(1000, date(2025, 1, 15), validate=True)
+        billing2 = self._create_billing(2000, date(2025, 2, 15), validate=True)
+        self.assertEqual(billing2.prev_billed_amount_manual, 1100)
+        self.assertEqual(billing2.payment_amount_manual, 0)
+        # Adjust the frozen values manually, then validate again.
+        billing2.prev_billed_amount_manual = 9999
+        billing2.payment_amount_manual = 7777
+        billing2.validate_billing()
+        self.env.flush_all()
+        self.assertEqual(billing2.prev_billed_amount_manual, 9999)
+        self.assertEqual(billing2.payment_amount_manual, 7777)

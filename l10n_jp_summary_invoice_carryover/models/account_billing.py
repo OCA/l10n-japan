@@ -52,7 +52,8 @@ class AccountBilling(models.Model):
     payment_amount = fields.Monetary(
         compute="_compute_carryover_amounts",
         store=True,
-        help="Payments received on previous billing invoices.",
+        help="Net decrease of the receivables billed on the previous billing, i.e. "
+        "the previous billed amount less what still stands open of it.",
     )
     carryover_amount = fields.Monetary(
         compute="_compute_carryover_amounts",
@@ -88,12 +89,16 @@ class AccountBilling(models.Model):
             ("id", "!=", self.id),
         ]
 
-    @api.depends("partner_id", "bill_type", "currency_id", "date", "state")
+    @api.depends(
+        "partner_id", "bill_type", "currency_id", "date", "state", "company_id"
+    )
     def _compute_prev_billing_candidate_ids(self):
         for rec in self:
             rec.prev_billing_candidate_ids = self.search(rec._get_prev_billing_domain())
 
-    @api.depends("partner_id", "bill_type", "currency_id", "date", "state")
+    @api.depends(
+        "partner_id", "bill_type", "currency_id", "date", "state", "company_id"
+    )
     def _compute_prev_billing_id(self):
         for rec in self:
             rec.prev_billing_id = self.search(
@@ -138,17 +143,26 @@ class AccountBilling(models.Model):
             prev_billing = rec.prev_billing_id
             if prev_billing:
                 rec.prev_billed_amount = prev_billing.total_billed_amount
-                current_residual = (
-                    sum(line.amount_residual for line in prev_billing.billing_line_ids)
-                    + prev_billing.tax_adjustment_entry_id.amount_residual
+                # The amount still outstanding is the residual of every previous
+                # billing in the chain, not just the immediately previous one: each
+                # invoice belongs to a single billing, so the unpaid amount carried
+                # over from older periods only lives on those earlier billings.
+                prior_billings = rec.prev_billing_candidate_ids
+                outstanding = sum(
+                    prior_billings.billing_line_ids.mapped("amount_residual")
+                ) + sum(
+                    prior_billings.mapped("tax_adjustment_entry_id.amount_residual")
                 )
-                rec.payment_amount = rec.prev_billed_amount - current_residual
+                rec.payment_amount = rec.prev_billed_amount - outstanding
             prev_billed_amount = rec._get_prev_billed_amount()
             payment_amount = rec._get_payment_amount()
             rec.carryover_amount = prev_billed_amount - payment_amount
             rec.total_billed_amount = rec.carryover_amount + rec.amount_total
 
-    @api.depends("partner_id")
+    @api.depends(
+        "partner_id.commercial_partner_id.show_carryover_amounts",
+        "company_id.show_carryover_amounts",
+    )
     def _compute_show_carryover_amounts(self):
         for rec in self:
             partner = rec.partner_id.commercial_partner_id
