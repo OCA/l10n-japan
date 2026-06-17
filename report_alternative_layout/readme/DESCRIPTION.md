@@ -1,11 +1,9 @@
-This module introduces an alternative layout for QWeb reports with the
-following adjustments to existing external layouts:
+このモジュールは、QWeb 帳票向けに代替レイアウトを追加し、既存の外部レイアウトに
+対して以下の変更を行います。
 
-- Displays the partner's address on the left side first, followed by the
-  company's address on the right side.
-- Displays the document's number and date in the header.
-- Uses the commercial partner's address in place of the partner's
-  address.
+- 取引先の住所を左側に、その後に会社住所を右側に表示します。
+- 帳票ヘッダーに帳票番号と日付を表示します。
+- 取引先住所の代わりに、商業取引先(親)の住所を使用できます。
 
-Currently, these adjustments are only supported for the standard
-external layout (external_layout_standard).
+現在、これらの調整は標準の外部レイアウト
+(`external_layout_standard`) にのみ対応しています。
