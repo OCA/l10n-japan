@@ -375,17 +375,16 @@ ul.auto-toc {
 !! source digest: sha256:fe1d23d642e02a8c22632690c78aa2b46cfd1f376244a327eb074b488f9d5462
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 <p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/license-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/l10n-japan/tree/19.0/report_alternative_layout"><img alt="OCA/l10n-japan" src="https://img.shields.io/badge/github-OCA%2Fl10n--japan-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/l10n-japan-19-0/l10n-japan-19-0-report_alternative_layout"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/l10n-japan&amp;target_branch=19.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
-<p>This module introduces an alternative layout for QWeb reports with the
-following adjustments to existing external layouts:</p>
+<p>このモジュールは、QWeb
+帳票向けに代替レイアウトを追加し、既存の外部レイアウトに
+対して以下の変更を行います。</p>
 <ul class="simple">
-<li>Displays the partner’s address on the left side first, followed by
-the company’s address on the right side.</li>
-<li>Displays the document’s number and date in the header.</li>
-<li>Uses the commercial partner’s address in place of the partner’s
-address.</li>
+<li>取引先の住所を左側に、その後に会社住所を右側に表示します。</li>
+<li>帳票ヘッダーに帳票番号と日付を表示します。</li>
+<li>取引先住所の代わりに、商業取引先(親)の住所を使用できます。</li>
 </ul>
-<p>Currently, these adjustments are only supported for the standard
-external layout (external_layout_standard).</p>
+<p>現在、これらの調整は標準の外部レイアウト (<tt class="docutils literal">external_layout_standard</tt>)
+にのみ対応しています。</p>
 <p><strong>Table of contents</strong></p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
@@ -401,30 +400,30 @@ external layout (external_layout_standard).</p>
 </div>
 <div class="section" id="configuration">
 <h2><a class="toc-backref" href="#toc-entry-1">Configuration</a></h2>
-<p>Go to <em>Settings &gt; Technical &gt; Reporting &gt; Paper Format</em>, and open a
-paper format of your choice, and update the following fields as
-necessary. - Apply Alternative Layout: If selected, the alternative
-layout will be applied to the reports using this paper format. - Show
-Address In Header: If selected, the partner’s address will be shown in
-the report header on every page (only applies to the alternative
-layout).</p>
-<p>Go to <em>Settings &gt; Technical &gt; Reporting &gt; Reports</em>, and open a report of
-your choice, and update the following fields as necessary.</p>
+<p><em>設定 &gt; 技術設定 &gt; レポーティング &gt; 用紙</em>
+に移動し、任意の用紙フォーマットを開いて、必要に応じて以下の項目を設定します。</p>
 <ul class="simple">
-<li>Paper Format: Select a paper format with ‘Apply Alternative Layout’
-enabled if you want to use the alternative layout.</li>
-<li>Show Commercial Partner: If selected, the commercial partner of the
-document partner will show in the report output (instead of the
-document partner).</li>
-<li>Show Remit-to Bank: If selected, the remite-to bank infomation will
-be shown in the printed report.</li>
-<li>Show Document Number: If selected, the document number will be
-displayed in the report header, at the top-right corner.</li>
-<li>Date Field: If entered, the date of the document will be displayed in
-the report header, at the top-right corner.</li>
-<li>Date Field Label: The label to display for the date field in the
-report, if specified. If not set, the field’s name will be used
-instead.</li>
+<li>代替レイアウトを適用:
+有効にすると、その用紙フォーマットを使用する帳票に代替レイアウトが適用されます。</li>
+<li>アドレスをヘッダに表示:
+有効にすると、帳票の各ページのヘッダーに取引先住所を表示します
+（代替レイアウト使用時のみ有効）。</li>
+</ul>
+<p>次に、<em>設定 &gt; 技術設定 &gt; レポーティング &gt; レポート</em>
+に移動し、任意のレポートを開いて、必要に応じて以下の項目を設定します。</p>
+<ul class="simple">
+<li>用紙: 代替レイアウトを使用する場合は、<tt class="docutils literal">代替レイアウトを適用</tt>
+を有効にした 用紙フォーマットを選択します。</li>
+<li>商業取引先(親)を表示:
+有効にすると、印刷帳票に取引先ではなく、その商業取引先(親)が表示されます。</li>
+<li>振込先を表示: 有効にすると、印刷帳票に振込先が表示されます。</li>
+<li>伝票番号をヘッダに表示:
+有効にすると、印刷帳票のヘッダーに伝票番号が表示されます。</li>
+<li>ヘッダに表示する日付項目:
+設定すると、この項目の値が印刷帳票のヘッダに日付として表示されます。</li>
+<li>日付項目ラベル:
+印刷帳票の日付項目に表示するラベルです。設定されていない場合、日付項目がその
+まま表示されます。</li>
 </ul>
 </div>
 <div class="section" id="bug-tracker">

@@ -32,17 +32,16 @@ Report Alternative Layout
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module introduces an alternative layout for QWeb reports with the
-following adjustments to existing external layouts:
+このモジュールは、QWeb
+帳票向けに代替レイアウトを追加し、既存の外部レイアウトに
+対して以下の変更を行います。
 
--  Displays the partner's address on the left side first, followed by
-   the company's address on the right side.
--  Displays the document's number and date in the header.
--  Uses the commercial partner's address in place of the partner's
-   address.
+- 取引先の住所を左側に、その後に会社住所を右側に表示します。
+- 帳票ヘッダーに帳票番号と日付を表示します。
+- 取引先住所の代わりに、商業取引先(親)の住所を使用できます。
 
-Currently, these adjustments are only supported for the standard
-external layout (external_layout_standard).
+現在、これらの調整は標準の外部レイアウト (``external_layout_standard``)
+にのみ対応しています。
 
 **Table of contents**
 
@@ -52,31 +51,30 @@ external layout (external_layout_standard).
 Configuration
 =============
 
-Go to *Settings > Technical > Reporting > Paper Format*, and open a
-paper format of your choice, and update the following fields as
-necessary. - Apply Alternative Layout: If selected, the alternative
-layout will be applied to the reports using this paper format. - Show
-Address In Header: If selected, the partner's address will be shown in
-the report header on every page (only applies to the alternative
-layout).
+*設定 > 技術設定 > レポーティング > 用紙*
+に移動し、任意の用紙フォーマットを開いて、必要に応じて以下の項目を設定します。
 
-Go to *Settings > Technical > Reporting > Reports*, and open a report of
-your choice, and update the following fields as necessary.
+- 代替レイアウトを適用:
+  有効にすると、その用紙フォーマットを使用する帳票に代替レイアウトが適用されます。
+- アドレスをヘッダに表示:
+  有効にすると、帳票の各ページのヘッダーに取引先住所を表示します
+  （代替レイアウト使用時のみ有効）。
 
--  Paper Format: Select a paper format with 'Apply Alternative Layout'
-   enabled if you want to use the alternative layout.
--  Show Commercial Partner: If selected, the commercial partner of the
-   document partner will show in the report output (instead of the
-   document partner).
--  Show Remit-to Bank: If selected, the remite-to bank infomation will
-   be shown in the printed report.
--  Show Document Number: If selected, the document number will be
-   displayed in the report header, at the top-right corner.
--  Date Field: If entered, the date of the document will be displayed in
-   the report header, at the top-right corner.
--  Date Field Label: The label to display for the date field in the
-   report, if specified. If not set, the field's name will be used
-   instead.
+次に、\ *設定 > 技術設定 > レポーティング > レポート*
+に移動し、任意のレポートを開いて、必要に応じて以下の項目を設定します。
+
+- 用紙: 代替レイアウトを使用する場合は、\ ``代替レイアウトを適用``
+  を有効にした 用紙フォーマットを選択します。
+- 商業取引先(親)を表示:
+  有効にすると、印刷帳票に取引先ではなく、その商業取引先(親)が表示されます。
+- 振込先を表示: 有効にすると、印刷帳票に振込先が表示されます。
+- 伝票番号をヘッダに表示:
+  有効にすると、印刷帳票のヘッダーに伝票番号が表示されます。
+- ヘッダに表示する日付項目:
+  設定すると、この項目の値が印刷帳票のヘッダに日付として表示されます。
+- 日付項目ラベル:
+  印刷帳票の日付項目に表示するラベルです。設定されていない場合、日付項目がその
+  まま表示されます。
 
 Bug Tracker
 ===========
@@ -99,11 +97,11 @@ Authors
 Contributors
 ------------
 
--  `Quartile <https://www.quartile.co>`__:
+- `Quartile <https://www.quartile.co>`__:
 
-   -  Tatsuki Kanda
-   -  Aung Ko Ko Lin
-   -  Yoshi Tashiro
+  - Tatsuki Kanda
+  - Aung Ko Ko Lin
+  - Yoshi Tashiro
 
 Maintainers
 -----------
