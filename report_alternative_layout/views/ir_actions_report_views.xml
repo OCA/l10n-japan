@@ -1,0 +1,32 @@
+<odoo>
+    <record id="view_act_report_form" model="ir.ui.view">
+        <field name="name">ir.actions.report</field>
+        <field name="model">ir.actions.report</field>
+        <field name="inherit_id" ref="base.act_report_xml_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <field name="apply_alternative_layout" invisible="1" />
+                <page
+                    name="alternative"
+                    string="Alternative Layout Settings"
+                    invisible="apply_alternative_layout != True"
+                >
+                    <group>
+                        <group>
+                            <field name="show_document_number" />
+                            <field name="date_field_id" />
+                            <field
+                                name="date_field_label"
+                                invisible="date_field_id == False"
+                            />
+                        </group>
+                        <group>
+                            <field name="show_remit_to_bank" />
+                            <field name="show_commercial_partner" />
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
