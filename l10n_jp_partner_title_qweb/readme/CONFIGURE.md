@@ -1,2 +1,2 @@
-- Open the partner record.
-- Fill in the Honorific Title and Position fields shown right below the Name field.
+- 取引先レコードを開く
+- 「名前」フィールドのすぐ下に表示される「敬称」と「位置」フィールドを入力する
