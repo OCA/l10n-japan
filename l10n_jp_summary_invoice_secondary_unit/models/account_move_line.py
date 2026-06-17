@@ -1,7 +1,7 @@
 # Copyright 2026 Quartile (https://www.quartile.co)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class AccountMoveLine(models.Model):
@@ -16,6 +16,7 @@ class AccountMoveLine(models.Model):
         "reports.",
     )
 
+    @api.depends("secondary_uom_qty", "move_type")
     def _compute_signed_secondary_uom_qty(self):
         for line in self:
             sign = -1 if line.move_type in ("out_refund", "in_refund") else 1
