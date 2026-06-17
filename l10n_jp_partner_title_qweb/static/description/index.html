@@ -375,9 +375,9 @@ ul.auto-toc {
 !! source digest: sha256:1fa39b3f1c129d618ff7f0cf5c88565b10bd094392cfa66fb1523ef232c8765c
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 <p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/lgpl-3.0-standalone.html"><img alt="License: LGPL-3" src="https://img.shields.io/badge/license-LGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/l10n-japan/tree/19.0/l10n_jp_partner_title_qweb"><img alt="OCA/l10n-japan" src="https://img.shields.io/badge/github-OCA%2Fl10n--japan-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/l10n-japan-19-0/l10n-japan-19-0-l10n_jp_partner_title_qweb"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/l10n-japan&amp;target_branch=19.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
-<p>This module adds the <em>Honorific Title</em> and <em>Position fields</em> to partner
-records, and displays the title in QWeb reports and website pages that
-use the base.contactname template for partner name presentation.</p>
+<p>「敬称」と「位置」フィールドを取引先レコードに追加します。また、取引先名の表示に
+<tt class="docutils literal">base.contactname</tt>
+テンプレートを使用するQWebレポートおよびウェブサイトページに敬称を表示します。</p>
 <p><strong>Table of contents</strong></p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
@@ -395,18 +395,14 @@ use the base.contactname template for partner name presentation.</p>
 <div class="section" id="configuration">
 <h2><a class="toc-backref" href="#toc-entry-1">Configuration</a></h2>
 <ul class="simple">
-<li>Open the partner record.</li>
-<li>Fill in the Honorific Title and Position fields shown right below the
-Name field.</li>
+<li>取引先レコードを開く</li>
+<li>「名前」フィールドのすぐ下に表示される「敬称」と「位置」フィールドを入力する</li>
 </ul>
 </div>
 <div class="section" id="known-issues-roadmap">
 <h2><a class="toc-backref" href="#toc-entry-2">Known issues / Roadmap</a></h2>
-<p>If you migrate your database from a version earlier than 19.0 to version
-19.0 or later (where res.partner.title no longer exists in the core),
-it’s likely that your previous settings won’t survive the migration
-process. In that case, you may need to manually update the partner
-records with the appropriate titles.</p>
+<p>19.0より前のバージョンから19.0以降（コアから <tt class="docutils literal">res.partner.title</tt>
+が削除されたバージョン）へのデータベース移行を行う場合、以前の設定が移行プロセスで引き継がれない可能性があります。その場合は、取引先レコードの敬称を手動で更新する必要があります。</p>
 </div>
 <div class="section" id="bug-tracker">
 <h2><a class="toc-backref" href="#toc-entry-3">Bug Tracker</a></h2>
@@ -441,6 +437,8 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 <p>OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.</p>
+<p>Current <a class="reference external" href="https://odoo-community.org/page/maintainer-role">maintainers</a>:</p>
+<p><a class="reference external image-reference" href="https://github.com/yostashiro"><img alt="yostashiro" src="https://github.com/yostashiro.png?size=40px" /></a> <a class="reference external image-reference" href="https://github.com/AungKoKoLin1997"><img alt="AungKoKoLin1997" src="https://github.com/AungKoKoLin1997.png?size=40px" /></a></p>
 <p>This module is part of the <a class="reference external" href="https://github.com/OCA/l10n-japan/tree/19.0/l10n_jp_partner_title_qweb">OCA/l10n-japan</a> project on GitHub.</p>
 <p>You are welcome to contribute. To learn how please visit <a class="reference external" href="https://odoo-community.org/page/Contribute">https://odoo-community.org/page/Contribute</a>.</p>
 </div>

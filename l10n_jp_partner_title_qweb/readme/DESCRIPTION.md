@@ -1,3 +1,1 @@
-This module adds the *Honorific Title* and *Position fields* to partner records,
-and displays the title in QWeb reports and website pages that use the base.contactname 
-template for partner name presentation.
+「敬称」と「位置」フィールドを取引先レコードに追加します。また、取引先名の表示に `base.contactname` テンプレートを使用するQWebレポートおよびウェブサイトページに敬称を表示します。

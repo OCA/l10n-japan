@@ -32,9 +32,9 @@ Japan Partner Title QWeb
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module adds the *Honorific Title* and *Position fields* to partner
-records, and displays the title in QWeb reports and website pages that
-use the base.contactname template for partner name presentation.
+「敬称」と「位置」フィールドを取引先レコードに追加します。また、取引先名の表示に
+``base.contactname``
+テンプレートを使用するQWebレポートおよびウェブサイトページに敬称を表示します。
 
 **Table of contents**
 
@@ -44,18 +44,14 @@ use the base.contactname template for partner name presentation.
 Configuration
 =============
 
-- Open the partner record.
-- Fill in the Honorific Title and Position fields shown right below the
-  Name field.
+- 取引先レコードを開く
+- 「名前」フィールドのすぐ下に表示される「敬称」と「位置」フィールドを入力する
 
 Known issues / Roadmap
 ======================
 
-If you migrate your database from a version earlier than 19.0 to version
-19.0 or later (where res.partner.title no longer exists in the core),
-it’s likely that your previous settings won’t survive the migration
-process. In that case, you may need to manually update the partner
-records with the appropriate titles.
+19.0より前のバージョンから19.0以降（コアから ``res.partner.title``
+が削除されたバージョン）へのデータベース移行を行う場合、以前の設定が移行プロセスで引き継がれない可能性があります。その場合は、取引先レコードの敬称を手動で更新する必要があります。
 
 Bug Tracker
 ===========
@@ -94,6 +90,17 @@ This module is maintained by the OCA.
 OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
+
+.. |maintainer-yostashiro| image:: https://github.com/yostashiro.png?size=40px
+    :target: https://github.com/yostashiro
+    :alt: yostashiro
+.. |maintainer-AungKoKoLin1997| image:: https://github.com/AungKoKoLin1997.png?size=40px
+    :target: https://github.com/AungKoKoLin1997
+    :alt: AungKoKoLin1997
+
+Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
+
+|maintainer-yostashiro| |maintainer-AungKoKoLin1997| 
 
 This module is part of the `OCA/l10n-japan <https://github.com/OCA/l10n-japan/tree/19.0/l10n_jp_partner_title_qweb>`_ project on GitHub.
 
