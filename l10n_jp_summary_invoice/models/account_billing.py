@@ -176,7 +176,7 @@ class AccountBilling(models.Model):
                 )
         res = super().validate_billing()
         # Tax journal entry will be created only for customer invoice billings.
-        for rec in self.filtered(lambda x: x.bill_type == "out_invoice"):
+        for rec in self.filtered(lambda x: x.bill_type in ["out_invoice", "in_invoice"]):
             tax_totals = rec.tax_totals
             groups_by_subtotal = tax_totals.get("groups_by_subtotal", {})
             if not groups_by_subtotal:
