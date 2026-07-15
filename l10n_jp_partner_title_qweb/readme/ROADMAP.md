@@ -1,4 +1,1 @@
-If you migrate your database from a version earlier than 19.0 to version 19.0 or later
-(where res.partner.title no longer exists in the core), it’s likely that your previous
-settings won’t survive the migration process. In that case, you may need to manually
-update the partner records with the appropriate titles.
+19.0より前のバージョンから19.0以降（コアから `res.partner.title` が削除されたバージョン）へのデータベース移行を行う場合、以前の設定が移行プロセスで引き継がれない可能性があります。その場合は、取引先レコードの敬称を手動で更新する必要があります。
