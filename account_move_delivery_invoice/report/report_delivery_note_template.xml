@@ -1,0 +1,7 @@
+<odoo>
+    <template id="report_delivery_note_template">
+        <t t-call="account.report_invoice">
+            <t t-set="is_delivery_note" t-value="True" />
+        </t>
+    </template>
+</odoo>
