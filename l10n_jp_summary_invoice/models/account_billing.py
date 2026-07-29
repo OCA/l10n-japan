@@ -20,23 +20,7 @@ class AccountBilling(models.Model):
     tax_totals = fields.Json(
         string="Billing Totals",
         compute="_compute_tax_totals",
-        store=True,
         exportable=False,
-    )
-    amount_untaxed = fields.Monetary(
-        string="Untaxed Amount",
-        compute="_compute_tax_totals",
-        store=True,
-    )
-    amount_tax = fields.Monetary(
-        string="Tax Amount",
-        compute="_compute_tax_totals",
-        store=True,
-    )
-    amount_total = fields.Monetary(
-        string="Total Amount",
-        compute="_compute_tax_totals",
-        store=True,
     )
     tax_adjustment_entry_id = fields.Many2one("account.move")
     company_partner_id = fields.Many2one(
@@ -101,6 +85,11 @@ class AccountBilling(models.Model):
         """Compute `tax_totals` by building an in-memory draft invoice that reuses all
         the invoice lines referenced by the billing lines, and then delegating the tax
         calculation to Odoo's standard `account.move._compute_tax_totals()`.
+
+        As in `account.move`, the field is not stored: the labels it holds (e.g.
+        "Untaxed Amount", tax group names) are translated when the value is built, so
+        it has to be built in the language of the reader (i.e. the partner's one in the
+        report).
         """
         for bill in self:
             bill.tax_totals = self.env["account.tax"]._get_tax_totals_summary(
@@ -108,9 +97,6 @@ class AccountBilling(models.Model):
                 currency=bill.currency_id or bill.company_id.currency_id,
                 company=bill.company_id,
             )
-            bill.amount_untaxed = 0.0
-            bill.amount_tax = 0.0
-            bill.amount_total = 0.0
             src_moves = bill.billing_line_ids.move_id
             if not src_moves:
                 continue
@@ -135,10 +121,16 @@ class AccountBilling(models.Model):
             )
             dummy_move._compute_tax_totals()
             bill.tax_totals = dummy_move.tax_totals
-            if bill.tax_totals:
-                bill.amount_untaxed = bill.tax_totals.get("base_amount_currency", 0.0)
-                bill.amount_total = bill.tax_totals.get("total_amount_currency", 0.0)
-                bill.amount_tax = bill.amount_total - bill.amount_untaxed
+
+    @api.depends("billing_line_ids", "partner_id", "currency_id")
+    def _compute_amount(self):
+        super()._compute_amount()
+        for bill in self:
+            tax_totals = bill.tax_totals or {}
+            bill.amount_untaxed = tax_totals.get("base_amount_currency", 0.0)
+            bill.amount_total = tax_totals.get("total_amount_currency", 0.0)
+            bill.amount_tax = bill.amount_total - bill.amount_untaxed
+        return
 
     def _update_remit_to_bank_id(self):
         for rec in self:
