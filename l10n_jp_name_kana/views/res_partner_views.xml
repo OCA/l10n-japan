@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Quartile
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.form (kana name)</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//h1[field[@name='name']]" position="after">
+                <field name="name_kana" placeholder="e.g. ヤマダショウジ" />
+            </xpath>
+        </field>
+    </record>
+    <record id="view_partner_simple_form" model="ir.ui.view">
+        <field name="name">res.partner.simple.form (kana name)</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_simple_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//h1[field[@name='name']]" position="after">
+                <field name="name_kana" placeholder="e.g. ヤマダショウジ" />
+            </xpath>
+        </field>
+    </record>
+    <record id="view_partner_tree" model="ir.ui.view">
+        <field name="name">res.partner.list (kana name)</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree" />
+        <field name="arch" type="xml">
+            <field name="display_name" position="after">
+                <field name="name_kana" optional="hide" />
+            </field>
+        </field>
+    </record>
+    <record id="view_res_partner_filter" model="ir.ui.view">
+        <field name="name">res.partner.search (kana name)</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter" />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="name_kana_search" string="Name (Kana)" />
+            </field>
+        </field>
+    </record>
+</odoo>
