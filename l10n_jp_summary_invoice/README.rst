@@ -64,6 +64,11 @@ settings as necessary:
 - **Show Invoice Total Amount**: If selected, the total amount per invoice will appear
   in the summary invoice report.
 
+To exclude billing for invoices created for a particular partner:
+
+- Go to Contacts and select the partner.
+- In the Invoicing (or Accounting) tab, enable 'Is Not For Billing'.
+
 Usage
 =====
 
