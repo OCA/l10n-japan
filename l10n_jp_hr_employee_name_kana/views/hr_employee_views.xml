@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Quartile
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_employee_form" model="ir.ui.view">
+        <field name="name">hr.employee.form (kana name)</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_title')]/h1" position="after">
+                <field name="name_kana" placeholder="e.g. ヤマダ タロウ" />
+            </xpath>
+        </field>
+    </record>
+    <record id="view_employee_tree" model="ir.ui.view">
+        <field name="name">hr.employee.list (kana name)</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_tree" />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="name_kana" optional="hide" />
+            </field>
+        </field>
+    </record>
+    <record id="view_employee_filter" model="ir.ui.view">
+        <field name="name">hr.employee.search (kana name)</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_filter" />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="name_kana_search" string="Name (Kana)" />
+            </field>
+        </field>
+    </record>
+    <record id="hr_employee_public_view_form" model="ir.ui.view">
+        <field name="name">hr.employee.public.form (kana name)</field>
+        <field name="model">hr.employee.public</field>
+        <field name="inherit_id" ref="hr.hr_employee_public_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_title')]/h1" position="after">
+                <field name="name_kana" />
+            </xpath>
+        </field>
+    </record>
+    <record id="hr_employee_public_view_tree" model="ir.ui.view">
+        <field name="name">hr.employee.public.list (kana name)</field>
+        <field name="model">hr.employee.public</field>
+        <field name="inherit_id" ref="hr.hr_employee_public_view_tree" />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="name_kana" optional="hide" />
+            </field>
+        </field>
+    </record>
+    <record id="hr_employee_public_view_search" model="ir.ui.view">
+        <field name="name">hr.employee.public.search (kana name)</field>
+        <field name="model">hr.employee.public</field>
+        <field name="inherit_id" ref="hr.hr_employee_public_view_search" />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="name_kana_search" string="Name (Kana)" />
+            </field>
+        </field>
+    </record>
+</odoo>
