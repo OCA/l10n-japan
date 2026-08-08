@@ -45,20 +45,6 @@
                     </div>
                     <div
                         class="col-12 col-lg-6 o_setting_box"
-                        id="show_sale_order_number"
-                    >
-                        <div class="o_setting_left_pane">
-                            <field name="show_sale_order_number" />
-                        </div>
-                        <div class="o_setting_right_pane">
-                            <label for="show_sale_order_number" />
-                            <div class="text-muted">
-                                Show the sales order number in the summary invoice report lines
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="col-12 col-lg-6 o_setting_box"
                         id="show_invoice_narration"
                     >
                         <div class="o_setting_left_pane">
