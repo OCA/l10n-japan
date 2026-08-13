@@ -112,6 +112,7 @@ class TestBillingFromCutoff(TransactionCase):
         billings = self.env["account.billing"].browse(billing_ids)
         self.assertEqual(len(billings), 1)
         self.assertEqual(billings.billing_line_ids.mapped("move_id"), inv_1)
+        self.assertEqual(billings.threshold_date, date(2025, 9, 30))
         # 2) cutoff = 2025-10-31 → partner_1 USD inv_3 added to existing draft billing,
         # partner_1 EUR inv_5 creates a new billing. 2 billings returned
         # (1 updated + 1 new).
@@ -122,8 +123,10 @@ class TestBillingFromCutoff(TransactionCase):
         self.assertEqual(len(billings), 2)
         self.assertIn(billing_usd.id, billings.ids)
         self.assertEqual(billing_usd.billing_line_ids.mapped("move_id"), inv_1 | inv_3)
+        self.assertEqual(billing_usd.threshold_date, date(2025, 10, 31))
         billing_eur = billings - billing_usd
         self.assertEqual(billing_eur.billing_line_ids.mapped("move_id"), inv_5)
+        self.assertEqual(billing_eur.threshold_date, date(2025, 10, 31))
         # 3) Re-run same cutoff → nothing new
         # (already billed and still in billed/draft states)
         action = self._run_create_billing_wizard(date(2025, 10, 31))
@@ -142,3 +145,56 @@ class TestBillingFromCutoff(TransactionCase):
             billings.billing_line_ids.mapped("move_id"),
             inv_1 | inv_2 | inv_3 | inv_4 | inv_5 | inv_6,
         )
+        for billing in billings:
+            billing.validate_billing()
+
+    def test_billing_on_due_date_is_not_reused(self):
+        inv_1 = self.create_invoice(
+            partner=self.partner_1,
+            currency=self.currency_usd,
+            invoice_date=date(2025, 9, 15),
+        )
+        action = self._run_create_billing_wizard(date(2025, 9, 30))
+        billing_1 = self.env["account.billing"].browse(
+            self._created_billing_ids(action)
+        )
+        self.assertEqual(billing_1.threshold_date_type, "invoice_date")
+        billing_1.threshold_date_type = "invoice_date_due"
+
+        inv_2 = self.create_invoice(
+            partner=self.partner_1,
+            currency=self.currency_usd,
+            invoice_date=date(2025, 9, 21),
+        )
+        action = self._run_create_billing_wizard(date(2025, 10, 31))
+        billing_2 = self.env["account.billing"].browse(
+            self._created_billing_ids(action)
+        )
+        # The draft billing based on due dates is left untouched, and a new billing
+        # is created for the moves selected from the cutoff date.
+        self.assertNotIn(billing_1.id, billing_2.ids)
+        self.assertEqual(billing_1.billing_line_ids.mapped("move_id"), inv_1)
+        self.assertEqual(billing_1.threshold_date, date(2025, 9, 30))
+        self.assertEqual(billing_2.billing_line_ids.mapped("move_id"), inv_2)
+        self.assertEqual(billing_2.threshold_date, date(2025, 10, 31))
+
+    def test_append_does_not_lower_threshold_date(self):
+        inv_1 = self.create_invoice(
+            partner=self.partner_1,
+            currency=self.currency_usd,
+            invoice_date=date(2025, 9, 15),
+        )
+        action = self._run_create_billing_wizard(date(2025, 9, 30))
+        billing = self.env["account.billing"].browse(self._created_billing_ids(action))
+        billing.threshold_date = date(2025, 11, 30)
+
+        inv_2 = self.create_invoice(
+            partner=self.partner_1,
+            currency=self.currency_usd,
+            invoice_date=date(2025, 9, 21),
+        )
+        self._run_create_billing_wizard(date(2025, 10, 31))
+
+        self.assertEqual(billing.billing_line_ids.mapped("move_id"), inv_1 | inv_2)
+        self.assertEqual(billing.threshold_date, date(2025, 11, 30))
+        billing.validate_billing()

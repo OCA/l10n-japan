@@ -48,26 +48,38 @@ class AccountBillingCutoff(models.TransientModel):
             return {"type": "ir.actions.act_window_close"}
         groups = defaultdict(lambda: self.env["account.move"])
         for m in moves:
-            key = (m.partner_id.id, m.currency_id.id)
+            key = (m.partner_id.id, m.currency_id.id, m.partner_bank_id.id)
             groups[key] |= m
         billings = self.env["account.billing"]
-        for (partner_id, currency_id), recs in groups.items():
+        for (partner_id, currency_id, partner_bank_id), recs in groups.items():
             partner = self.env["res.partner"].browse(partner_id)
             existing_billing = self.env["account.billing"].search(
                 [
                     ("partner_id", "=", partner_id),
                     ("currency_id", "=", currency_id),
+                    ("remit_to_bank_id", "=", partner_bank_id),
+                    ("company_id", "=", self.env.company.id),
                     ("bill_type", "=", recs._get_billing_type()),
+                    # The cutoff date is derived from the invoice date, so a billing
+                    # based on due dates cannot be extended with the moves selected
+                    # here without making its threshold date inconsistent.
+                    ("threshold_date_type", "=", "invoice_date"),
                     ("state", "=", "draft"),
                 ],
                 limit=1,
             )
             if existing_billing:
+                existing_billing.threshold_date = max(
+                    existing_billing.threshold_date, self.cutoff_date
+                )
                 billing_line_dict = existing_billing._get_billing_line_dict(recs)
                 existing_billing.billing_line_ids.create(billing_line_dict)
                 billings |= existing_billing
             else:
-                billings |= recs._create_billing(partner)
+                billings |= recs.with_context(
+                    default_threshold_date=self.cutoff_date,
+                    default_threshold_date_type="invoice_date",
+                )._create_billing(partner)
         xml_id = (
             "account_billing.action_customer_billing"
             if self.bill_type == "out_invoice"
