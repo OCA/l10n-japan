@@ -13,6 +13,7 @@ class AccountBillingCutoff(models.TransientModel):
     cutoff_date = fields.Date(required=True, default=fields.Date.context_today)
     bill_type = fields.Selection(
         selection=[("out_invoice", "Customer Invoice"), ("in_invoice", "Vendor Bill")],
+        required=True,
         readonly=True,
     )
 
@@ -74,6 +75,7 @@ class AccountBillingCutoff(models.TransientModel):
                 )
                 billing_line_dict = existing_billing._get_billing_line_dict(recs)
                 existing_billing.billing_line_ids.create(billing_line_dict)
+                existing_billing._sort_billing_lines()
                 billings |= existing_billing
             else:
                 billings |= recs.with_context(
