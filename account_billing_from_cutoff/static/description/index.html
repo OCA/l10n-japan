@@ -399,6 +399,18 @@ Only for development or testing purpose, do not use in production.
 Cutoff</em></li>
 <li>Set the cutoff date and click on <em>Create Billings</em></li>
 </ul>
+<p>The cutoff date you enter becomes the threshold date of the billing:</p>
+<ul class="simple">
+<li>A new billing is created with <em>Invoice Date</em> as its threshold date
+type and the cutoff date as its threshold date.</li>
+<li>When the invoices are added to an existing draft billing, its
+threshold date is moved forward to the cutoff date. A threshold date
+that is already later is kept, so that it is never lowered.</li>
+<li>A draft billing whose threshold date type is <em>Due Date</em> is not
+reused. As the cutoff date is derived from the invoice date, applying
+it to such a billing would leave its threshold date earlier than the
+due dates of its lines and prevent the billing from being validated.</li>
+</ul>
 </div>
 <div class="section" id="bug-tracker">
 <h1><a class="toc-backref" href="#toc-entry-2">Bug Tracker</a></h1>
