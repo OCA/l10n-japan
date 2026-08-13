@@ -1,0 +1,87 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_billing_from_cutoff
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_billing_from_cutoff
+#: model:ir.model,name:account_billing_from_cutoff.model_wiz_account_billing_cutoff
+msgid "Account Billing From Cutoff"
+msgstr ""
+
+#. module: account_billing_from_cutoff
+#: model:ir.model.fields,field_description:account_billing_from_cutoff.field_wiz_account_billing_cutoff__bill_type
+msgid "Bill Type"
+msgstr ""
+
+#. module: account_billing_from_cutoff
+#: model_terms:ir.ui.view,arch_db:account_billing_from_cutoff.account_billing_cutoff_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: account_billing_from_cutoff
+#: model:ir.actions.act_window,name:account_billing_from_cutoff.action_customer_account_billing_cutoff
+#: model:ir.actions.act_window,name:account_billing_from_cutoff.action_supplier_account_billing_cutoff
+#: model:ir.ui.menu,name:account_billing_from_cutoff.menu_action_customer_billing
+#: model:ir.ui.menu,name:account_billing_from_cutoff.menu_action_supplier_billing
+msgid "Create Billing From Cutoff"
+msgstr ""
+
+#. module: account_billing_from_cutoff
+#: model_terms:ir.ui.view,arch_db:account_billing_from_cutoff.account_billing_cutoff_view_form
+msgid "Create Billings"
+msgstr ""
+
+#. module: account_billing_from_cutoff
+#: model:ir.model.fields,field_description:account_billing_from_cutoff.field_wiz_account_billing_cutoff__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: account_billing_from_cutoff
+#: model:ir.model.fields,field_description:account_billing_from_cutoff.field_wiz_account_billing_cutoff__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: account_billing_from_cutoff
+#: model:ir.model.fields.selection,name:account_billing_from_cutoff.selection__wiz_account_billing_cutoff__bill_type__out_invoice
+msgid "Customer Invoice"
+msgstr ""
+
+#. module: account_billing_from_cutoff
+#: model:ir.model.fields,field_description:account_billing_from_cutoff.field_wiz_account_billing_cutoff__cutoff_date
+msgid "Cutoff Date"
+msgstr ""
+
+#. module: account_billing_from_cutoff
+#: model:ir.model.fields,field_description:account_billing_from_cutoff.field_wiz_account_billing_cutoff__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: account_billing_from_cutoff
+#: model:ir.model.fields,field_description:account_billing_from_cutoff.field_wiz_account_billing_cutoff__id
+msgid "ID"
+msgstr ""
+
+#. module: account_billing_from_cutoff
+#: model:ir.model.fields,field_description:account_billing_from_cutoff.field_wiz_account_billing_cutoff__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: account_billing_from_cutoff
+#: model:ir.model.fields,field_description:account_billing_from_cutoff.field_wiz_account_billing_cutoff__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: account_billing_from_cutoff
+#: model:ir.model.fields.selection,name:account_billing_from_cutoff.selection__wiz_account_billing_cutoff__bill_type__in_invoice
+msgid "Vendor Bill"
+msgstr ""
