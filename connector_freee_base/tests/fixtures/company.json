@@ -1,0 +1,60 @@
+{
+  "company": {
+    "id": 12195334,
+    "name": "",
+    "name_kana": "",
+    "display_name": "開発用テスト事業所",
+    "tax_at_source_calc_type": 1,
+    "contact_name": null,
+    "head_count": null,
+    "corporate_number": "",
+    "txn_number_format": "not_used",
+    "default_wallet_account_id": 972197239,
+    "private_settlement": true,
+    "minus_format": 0,
+    "org_code": 1,
+    "company_number": "8349278784",
+    "role": "admin",
+    "phone1": "03-3000-0000",
+    "phone2": null,
+    "fax": "03-3000-0000",
+    "zipcode": "141-0032",
+    "prefecture_code": 12,
+    "street_name1": "品川区大崎1-2-2",
+    "street_name2": "アートヴィレッジ大崎セントラルタワー 21階",
+    "invoice_layout": "default_classic",
+    "amount_fraction": 0,
+    "use_partner_code": false,
+    "industry_class": "",
+    "industry_code": "",
+    "workflow_setting": "disable",
+    "fiscal_years": [
+      {
+        "id": 11843199,
+        "use_industry_template": false,
+        "indirect_write_off_method": false,
+        "start_date": "2025-01-01",
+        "end_date": "2025-12-31",
+        "depreciation_record_method": 0,
+        "tax_method": 0,
+        "sales_tax_business_code": 0,
+        "tax_fraction": 0,
+        "tax_account_method": 0,
+        "return_code": 0
+      },
+      {
+        "id": 11843200,
+        "use_industry_template": false,
+        "indirect_write_off_method": false,
+        "start_date": "2026-01-01",
+        "end_date": "2026-12-31",
+        "depreciation_record_method": 0,
+        "tax_method": 0,
+        "sales_tax_business_code": 0,
+        "tax_fraction": 0,
+        "tax_account_method": 2,
+        "return_code": 0
+      }
+    ]
+  }
+}

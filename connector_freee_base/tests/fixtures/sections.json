@@ -1,0 +1,64 @@
+{
+  "sections": [
+    {
+      "id": 3615078,
+      "company_id": 12195334,
+      "name": "営業部",
+      "long_name": null,
+      "available": true,
+      "shortcut1": null,
+      "shortcut2": null,
+      "indent_count": 0,
+      "parent_id": null,
+      "update_date": "2025-09-23"
+    },
+    {
+      "id": 3615077,
+      "company_id": 12195334,
+      "name": "営業部門",
+      "long_name": null,
+      "available": true,
+      "shortcut1": null,
+      "shortcut2": null,
+      "indent_count": 0,
+      "parent_id": null,
+      "update_date": "2025-09-23"
+    },
+    {
+      "id": 3668412,
+      "company_id": 12195334,
+      "name": "販促部",
+      "long_name": null,
+      "available": true,
+      "shortcut1": null,
+      "shortcut2": null,
+      "indent_count": 0,
+      "parent_id": null,
+      "update_date": "2025-10-26"
+    },
+    {
+      "id": 3668411,
+      "company_id": 12195334,
+      "name": "販売部",
+      "long_name": null,
+      "available": true,
+      "shortcut1": null,
+      "shortcut2": null,
+      "indent_count": 0,
+      "parent_id": null,
+      "update_date": "2025-10-26"
+    },
+    {
+      "id": 3615076,
+      "company_id": 12195334,
+      "name": "開発部門",
+      "long_name": null,
+      "available": true,
+      "shortcut1": null,
+      "shortcut2": null,
+      "indent_count": 0,
+      "parent_id": null,
+      "update_date": "2025-09-23"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "taxes": [
+    {
+      "code": 129,
+      "name": "sales_with_tax_10",
+      "name_ja": "課税売上10%",
+      "display_category": "tax_10",
+      "available": true
+    },
+    {
+      "code": 156,
+      "name": "sales_with_tax_reduced_8",
+      "name_ja": "課税売上8%（軽）",
+      "display_category": "tax_r8",
+      "available": true
+    },
+    {
+      "code": 101,
+      "name": "sales_with_tax_8",
+      "name_ja": "課税売上8%",
+      "display_category": "tax_8",
+      "available": true
+    },
+    {
+      "code": 21,
+      "name": "sales_with_tax",
+      "name_ja": "課税売上",
+      "display_category": "tax_5",
+      "available": true
+    },
+    {
+      "code": 136,
+      "name": "purchase_with_tax_10",
+      "name_ja": "課対仕入10%",
+      "display_category": "tax_10",
+      "available": true
+    }
+  ]
+}

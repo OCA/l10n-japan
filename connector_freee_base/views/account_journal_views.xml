@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Takahiro SUNAGA <t.sunaga@takahii.co>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_account_journal_form_freee" model="ir.ui.view">
+        <field name="name">account.journal.form.freee</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.view_account_journal_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page
+                    name="freee_mapping"
+                    string="freee Mapping"
+                    groups="connector_freee_base.group_freee_admin"
+                >
+                    <group string="Account Item">
+                        <field name="freee_account_item_id" readonly="1" />
+                        <field name="freee_account_item_name" readonly="1" />
+                        <div colspan="2">
+                            <button
+                                name="action_open_freee_account_item_wizard"
+                                type="object"
+                                string="Pick from freee"
+                                class="btn-secondary"
+                                icon="fa-search"
+                            />
+                            <button
+                                name="action_clear_freee_account_item"
+                                type="object"
+                                string="Clear mapping"
+                                class="btn-link"
+                                icon="fa-times"
+                                invisible="not freee_account_item_id"
+                                confirm="Clear the freee account-item fallback on this journal? Lines whose own account is also unmapped will fail to export."
+                            />
+                        </div>
+                    </group>
+                    <group string="Settlement Walletable">
+                        <field name="freee_walletable_id" readonly="1" />
+                        <field name="freee_walletable_type" readonly="1" />
+                        <field name="freee_walletable_name" readonly="1" />
+                        <div colspan="2">
+                            <button
+                                name="action_open_freee_walletable_wizard"
+                                type="object"
+                                string="Pick from freee"
+                                class="btn-secondary"
+                                icon="fa-search"
+                            />
+                            <button
+                                name="action_clear_freee_walletable"
+                                type="object"
+                                string="Clear mapping"
+                                class="btn-link"
+                                icon="fa-times"
+                                invisible="not freee_walletable_id"
+                                confirm="Unmap the walletable? Invoices on this journal will be exported as unsettled deals."
+                            />
+                        </div>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_account_journal_tree_freee" model="ir.ui.view">
+        <field name="name">account.journal.list.freee</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.view_account_journal_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="inside">
+                <field
+                    name="freee_account_item_id"
+                    optional="hide"
+                    readonly="1"
+                    groups="connector_freee_base.group_freee_admin"
+                />
+                <field
+                    name="freee_account_item_name"
+                    optional="hide"
+                    readonly="1"
+                    groups="connector_freee_base.group_freee_admin"
+                />
+                <field
+                    name="freee_walletable_id"
+                    optional="hide"
+                    readonly="1"
+                    groups="connector_freee_base.group_freee_admin"
+                />
+                <field
+                    name="freee_walletable_name"
+                    optional="hide"
+                    readonly="1"
+                    groups="connector_freee_base.group_freee_admin"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,20 @@
+{
+  "companies": [
+    {
+      "id": 12195324,
+      "name": "",
+      "name_kana": "",
+      "display_name": "開発用テスト事業所１",
+      "company_number": "0740850370",
+      "role": "admin"
+    },
+    {
+      "id": 12195334,
+      "name": "",
+      "name_kana": "",
+      "display_name": "開発用テスト事業所",
+      "company_number": "8349278784",
+      "role": "admin"
+    }
+  ]
+}

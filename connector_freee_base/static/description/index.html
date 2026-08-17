@@ -1,0 +1,946 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils: https://docutils.sourceforge.io/" />
+<title>Connector freee Base</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 9511 2024-01-13 09:50:07Z milde $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+Despite the name, some widely supported CSS2 features are used.
+
+See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+.subscript {
+  vertical-align: sub;
+  font-size: smaller }
+
+.superscript {
+  vertical-align: super;
+  font-size: smaller }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
+  overflow: hidden;
+}
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title, .code .error {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left, table.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right, table.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.align-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: inherit }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+.align-top    {
+  vertical-align: top }
+
+.align-middle {
+  vertical-align: middle }
+
+.align-bottom {
+  vertical-align: bottom }
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block, pre.math, pre.code {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+pre.code .ln { color: gray; } /* line numbers */
+pre.code, code { background-color: #eeeeee }
+pre.code .comment, code .comment { color: #5C6576 }
+pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
+pre.code .literal.string, code .literal.string { color: #0C5404 }
+pre.code .name.builtin, code .name.builtin { color: #352B84 }
+pre.code .deleted, code .deleted { background-color: #DEB0A1}
+pre.code .inserted, code .inserted { background-color: #A3D289}
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic, pre.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+/* "booktabs" style (no vertical lines) */
+table.docutils.booktabs {
+  border: 0px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-collapse: collapse;
+}
+table.docutils.booktabs * {
+  border: 0px;
+}
+table.docutils.booktabs th {
+  border-bottom: thin solid;
+  text-align: left;
+}
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document" id="connector-freee-base">
+<h1 class="title">Connector freee Base</h1>
+
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! This file is generated by oca-gen-addon-readme !!
+!! changes will be overwritten.                   !!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! source digest: sha256:420d000ea745df881db5f6d7577de1b5fc65eeb2d2db87c98d5b97b555909fa2
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Alpha" src="https://img.shields.io/badge/maturity-Alpha-red.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/l10n-japan/tree/18.0/connector_freee_base"><img alt="OCA/l10n-japan" src="https://img.shields.io/badge/github-OCA%2Fl10n--japan-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/l10n-japan-18-0/l10n-japan-18-0-connector_freee_base"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/l10n-japan&amp;target_branch=18.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
+<p>This module is the base layer of an OCA-style connector for the freee
+Accounting cloud service. It provides:</p>
+<ul class="simple">
+<li>A <tt class="docutils literal">freee.backend</tt> model that represents an authenticated freee
+company binding (multi-company aware).</li>
+<li>An OAuth 2.0 Authorization Code flow with transparent access-token
+refresh.</li>
+<li>An encrypted credential store for client secrets and refresh tokens.</li>
+<li>A <tt class="docutils literal">backend.adapter</tt> component — reusable across freee feature
+modules within this connector family — that wraps the freee REST API
+and maps HTTP errors onto the <tt class="docutils literal">queue_job</tt> retry semantics (429 / 5xx
+/ network failures become <tt class="docutils literal">RetryableJobError</tt>).</li>
+<li>A <tt class="docutils literal">freee.export.mapper</tt> abstract base component that every freee
+feature module’s export mapper inherits — it bundles the freee
+collection and <tt class="docutils literal">export.mapper</tt> usage, plus master-data resolution
+helpers that turn Odoo master records (account, tax, analytic account,
+product, partner) into the freee ids stored on them by the picker
+wizards, so every feature module maps master data identically.</li>
+</ul>
+<p>It is intended to be the dependency for freee feature modules — siblings
+that depend on this base directly and never on each other — which
+synchronise specific business objects (e.g. customer invoices,
+purchases, expenses) to freee.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">This is an alpha version, the data model and design can change at any time without warning.
+Only for development or testing purpose, do not use in production.
+<a class="reference external" href="https://odoo-community.org/page/development-status">More details on development status</a></p>
+</div>
+<p><strong>Table of contents</strong></p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#configuration" id="toc-entry-1">Configuration</a></li>
+<li><a class="reference internal" href="#usage" id="toc-entry-2">Usage</a><ul>
+<li><a class="reference internal" href="#pick-the-freee-company-on-the-backend" id="toc-entry-3">Pick the freee company on the backend</a></li>
+<li><a class="reference internal" href="#required-freee-application-scopes" id="toc-entry-4">Required freee application scopes</a></li>
+<li><a class="reference internal" href="#sync-master-data-with-freee" id="toc-entry-5">Sync master data with freee</a><ul>
+<li><a class="reference internal" href="#splitting-sales-by-journal-account-journal-mapping" id="toc-entry-6">Splitting sales by journal — <tt class="docutils literal">account.journal</tt> mapping</a></li>
+<li><a class="reference internal" href="#settling-via-a-walletable-account-account-journal-mapping" id="toc-entry-7">Settling via a walletable (account) — <tt class="docutils literal">account.journal</tt> mapping</a></li>
+<li><a class="reference internal" href="#required-permissions" id="toc-entry-8">Required permissions</a></li>
+<li><a class="reference internal" href="#reaching-the-product-form" id="toc-entry-9">Reaching the product form</a></li>
+<li><a class="reference internal" href="#showing-the-analytic-accounting-menu" id="toc-entry-10">Showing the Analytic Accounting menu</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#programmatic-access" id="toc-entry-11">Programmatic access</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#known-issues-roadmap" id="toc-entry-12">Known issues / Roadmap</a></li>
+<li><a class="reference internal" href="#bug-tracker" id="toc-entry-13">Bug Tracker</a></li>
+<li><a class="reference internal" href="#credits" id="toc-entry-14">Credits</a><ul>
+<li><a class="reference internal" href="#authors" id="toc-entry-15">Authors</a></li>
+<li><a class="reference internal" href="#contributors" id="toc-entry-16">Contributors</a></li>
+<li><a class="reference internal" href="#maintainers" id="toc-entry-17">Maintainers</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="configuration">
+<h1><a class="toc-backref" href="#toc-entry-1">Configuration</a></h1>
+<ol class="arabic">
+<li><p class="first">In the freee developer console, register an application and note its
+<em>Client ID</em> and <em>Client Secret</em>. Two things must be configured on the
+freee app <em>before</em> you authorize the backend from Odoo:</p>
+<ul>
+<li><p class="first"><strong>Callback URL</strong> — add the redirect URI shown on the freee Backend
+form to the application’s allowed callbacks. The exact value is</p>
+<pre class="literal-block">
+&lt;your Odoo URL&gt;/freee/oauth/callback
+</pre>
+<p>(e.g. <tt class="docutils literal"><span class="pre">https://erp.example.co.jp/freee/oauth/callback</span></tt>). The
+Backend form computes this from the <em>System Parameter</em>
+<tt class="docutils literal">web.base.url</tt>, so make sure that points at the public URL of the
+Odoo instance before clicking <em>Authorize with freee</em>.</p>
+</li>
+<li><p class="first"><strong>Application scopes</strong> — tick exactly the scopes this connector
+uses, no more, no less. The full table (read-only vs.
+read-and-update) is in <tt class="docutils literal">readme/USAGE.md</tt> under <em>Required freee
+application scopes</em>. Missing scopes do not block authorization —
+they fail later, when a wizard or export job hits the endpoint they
+were supposed to cover.</p>
+</li>
+</ul>
+</li>
+<li><p class="first">In Odoo, go to <strong>Connector → freee → Backends</strong> and create a record
+for the company you want to synchronise.</p>
+</li>
+<li><p class="first">Paste the Client ID and Client Secret. Save the record.</p>
+</li>
+<li><p class="first">Click <strong>Authorize with freee</strong>. You will be redirected to freee,
+asked to grant access, and sent back to the backend form. The state
+should become <em>Authorized</em>.</p>
+</li>
+<li><p class="first">Click <strong>Test Connection</strong> to confirm the access token works.</p>
+</li>
+</ol>
+<p>Tokens are stored encrypted at rest with a Fernet key you must provide
+in <tt class="docutils literal">odoo.conf</tt>, under <tt class="docutils literal">[options]</tt>:</p>
+<pre class="code ini literal-block">
+<span class="na">connector_freee_base_encryption_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;Fernet key&gt;</span>
+</pre>
+<p>Generate a key with:</p>
+<pre class="code bash literal-block">
+python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())&quot;</span>
+</pre>
+<p>The key is read from <tt class="docutils literal">odoo.conf</tt> only — it is <strong>not</strong> generated
+automatically and <strong>not</strong> stored in the database, so it never lands in a
+<tt class="docutils literal">pg_dump</tt>. If it is missing when a credential is saved or an export
+runs, the connector raises a clear error instead of running unprotected.
+Restart Odoo after adding or changing it, back up <tt class="docutils literal">odoo.conf</tt>
+separately from the database, and see <tt class="docutils literal">readme/RUNBOOK.md</tt> for
+rotation.</p>
+</div>
+<div class="section" id="usage">
+<h1><a class="toc-backref" href="#toc-entry-2">Usage</a></h1>
+<div class="section" id="pick-the-freee-company-on-the-backend">
+<h2><a class="toc-backref" href="#toc-entry-3">Pick the freee company on the backend</a></h2>
+<p>Once the backend has been authorized (see <em>Configuration</em> for the OAuth
+setup), click <strong>Fetch Companies</strong> on the backend form to load
+<tt class="docutils literal">/api/1/companies</tt>. Pick the row matching the freee company you want
+this backend to drive, and click <em>Use this</em>. The freee <tt class="docutils literal">company_id</tt> is
+stored on the backend — it is not exposed in the freee web UI; this
+wizard is the only way to discover it.</p>
+<p>Click <strong>Test Connection</strong> to verify the bearer token reaches
+<tt class="docutils literal"><span class="pre">/api/1/companies/{company_id}</span></tt> successfully.</p>
+</div>
+<div class="section" id="required-freee-application-scopes">
+<h2><a class="toc-backref" href="#toc-entry-4">Required freee application scopes</a></h2>
+<p>The freee OAuth application backing this connector must request the
+exact scopes below — every other scope can stay unticked. Set them in
+the freee developer console (<em>App → Scopes</em> tab) <strong>before</strong> authorizing
+the backend, otherwise the master-data sync wizards (next section) will
+fail with HTTP 403 even when the access token itself is valid.</p>
+<p><strong>Read-only — used by the fetch wizards and Verify Configuration:</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="37%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">freee scope (Accounting)</th>
+<th class="head">What this connector reads it for</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Account items</td>
+<td><tt class="docutils literal">GET /api/1/account_items</tt> — map Odoo
+<em>Chart of Accounts</em> / journals</td>
+</tr>
+<tr><td>Companies</td>
+<td><tt class="docutils literal">GET /api/1/companies</tt> (and <tt class="docutils literal"><span class="pre">…/{id}</span></tt>) —
+bind backend, <em>Test Connection</em></td>
+</tr>
+<tr><td>Items</td>
+<td><tt class="docutils literal">GET /api/1/items</tt> — map Odoo <em>Products</em></td>
+</tr>
+<tr><td>Partners</td>
+<td><tt class="docutils literal">GET /api/1/partners</tt> — map Odoo
+<em>Contacts</em></td>
+</tr>
+<tr><td>Sections</td>
+<td><tt class="docutils literal">GET /api/1/sections</tt> — map Odoo
+<em>Analytic Accounts</em></td>
+</tr>
+<tr><td>Tax classifications</td>
+<td><tt class="docutils literal">GET <span class="pre">/api/1/taxes/companies/{company_id}</span></tt>
+— map Odoo <em>Taxes</em></td>
+</tr>
+<tr><td>Walletables</td>
+<td><tt class="docutils literal">GET /api/1/walletables</tt> — map Odoo
+<em>Journals</em> (settlement account)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Read + update — used by invoice export:</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="38%" />
+<col width="62%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">freee scope (Accounting)</th>
+<th class="head">What this connector writes there</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Deals</td>
+<td><tt class="docutils literal">POST</tt> / <tt class="docutils literal">PUT</tt> /
+<tt class="docutils literal">DELETE /api/1/deals</tt> — the actual
+invoice export</td>
+</tr>
+</tbody>
+</table>
+<p>That is the entire surface: every other freee resource is left alone.
+Granting fewer scopes silently breaks whichever wizard or job hits the
+missing one; granting more is unnecessary.</p>
+<p>After changing scopes on the freee side you must re-authorize the
+backend (Connectors → freee → Backends → <em>Authorize with freee</em>) — the
+issued access token bakes the scopes in, so an existing token keeps the
+old, narrower set even after the app definition has changed.</p>
+</div>
+<div class="section" id="sync-master-data-with-freee">
+<h2><a class="toc-backref" href="#toc-entry-5">Sync master data with freee</a></h2>
+<p>Before any feature module (e.g. <tt class="docutils literal">connector_freee_invoice</tt>) can push
+records to freee, a few Odoo records must be mapped to their freee
+counterparts. Each mapping uses the same <em>fetch + select</em> wizard
+pattern:</p>
+<ol class="arabic simple">
+<li>Open the Odoo record (account, tax, partner, …).</li>
+<li>Scroll to the <strong>freee Mapping</strong> group (visible only to <em>freee
+Administrator</em>).</li>
+<li>Click <strong>Pick from freee</strong> to open the wizard.</li>
+<li>Pick the target <strong>freee Backend</strong> (defaults to the first authorized
+backend).</li>
+<li>Click <strong>Fetch from freee</strong> — the wizard calls the corresponding
+<tt class="docutils literal">GET <span class="pre">/api/1/...</span></tt> endpoint and populates the list.</li>
+<li>Click <strong>Use this</strong> on the row you want to bind. The freee id (and
+freee name, where applicable) is written onto the Odoo record.</li>
+</ol>
+<p>The supported masters are:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="25%" />
+<col width="35%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Odoo model</th>
+<th class="head">Field(s) written</th>
+<th class="head">freee endpoint</th>
+<th class="head">Where to find
+it</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">account.account</tt></td>
+<td><tt class="docutils literal">freee_account_item_id</tt>,
+<tt class="docutils literal">freee_account_item_name</tt></td>
+<td><tt class="docutils literal">/api/1/account_items</tt></td>
+<td>Accounting →
+Configuration
+→ Chart of
+Accounts</td>
+</tr>
+<tr><td><tt class="docutils literal">account.journal</tt></td>
+<td><tt class="docutils literal">freee_account_item_id</tt>,
+<tt class="docutils literal">freee_account_item_name</tt></td>
+<td><tt class="docutils literal">/api/1/account_items</tt></td>
+<td>Accounting →
+Configuration
+→ Journals →
+<em>freee
+Mapping</em> tab —
+<strong>optional</strong>,
+see <em>Splitting
+sales by
+journal</em> below</td>
+</tr>
+<tr><td><tt class="docutils literal">account.journal</tt></td>
+<td><tt class="docutils literal">freee_walletable_id</tt>,
+<tt class="docutils literal">freee_walletable_type</tt>,
+<tt class="docutils literal">freee_walletable_name</tt></td>
+<td><tt class="docutils literal">/api/1/walletables</tt></td>
+<td>Accounting →
+Configuration
+→ Journals →
+<em>freee
+Mapping</em> tab
+(settlement
+account) —
+<strong>optional</strong>,
+see <em>Settling
+via a
+walletable</em>
+below</td>
+</tr>
+<tr><td><tt class="docutils literal">account.tax</tt></td>
+<td><tt class="docutils literal">freee_tax_code</tt>,
+<tt class="docutils literal">freee_tax_name</tt></td>
+<td><tt class="docutils literal"><span class="pre">/api/1/taxes/companies/{company_id}</span></tt></td>
+<td>Accounting →
+Configuration
+→ Taxes</td>
+</tr>
+<tr><td><tt class="docutils literal">res.partner</tt></td>
+<td><tt class="docutils literal">freee_partner_id</tt>,
+<tt class="docutils literal">freee_partner_code</tt>,
+<tt class="docutils literal">freee_partner_name</tt></td>
+<td><tt class="docutils literal">/api/1/partners</tt> (optional
+<tt class="docutils literal">keyword</tt> filter)</td>
+<td>Contacts →
+form view</td>
+</tr>
+<tr><td><tt class="docutils literal">product.template</tt></td>
+<td><tt class="docutils literal">freee_item_id</tt>,
+<tt class="docutils literal">freee_item_name</tt></td>
+<td><tt class="docutils literal">/api/1/items</tt></td>
+<td>Accounting /
+Invoicing →
+Customers →
+Products (or
+Sales /
+Purchase /
+Inventory if
+installed; see
+<em>Reaching the
+product form</em>
+note below)</td>
+</tr>
+<tr><td><tt class="docutils literal">account.analytic.account</tt></td>
+<td><tt class="docutils literal">freee_section_id</tt>,
+<tt class="docutils literal">freee_section_name</tt></td>
+<td><tt class="docutils literal">/api/1/sections</tt></td>
+<td>Accounting /
+Invoicing →
+Configuration
+→ Analytic
+Accounts (see
+<em>Analytic
+Accounting</em>
+note below)</td>
+</tr>
+</tbody>
+</table>
+<p>Re-running a wizard always replaces its previous list — pick from the
+freshly fetched data, not stale rows. The wizards do not write to freee;
+they only <em>read</em> from freee and store the chosen id on the Odoo side.</p>
+<div class="section" id="splitting-sales-by-journal-account-journal-mapping">
+<h3><a class="toc-backref" href="#toc-entry-6">Splitting sales by journal — <tt class="docutils literal">account.journal</tt> mapping</a></h3>
+<p>Sales fed through different Odoo journals — e.g. manually raised
+customer invoices vs. an EC-site sales journal — sometimes need to land
+on <strong>different freee account items</strong> so the two streams stay separable
+in freee, even when they post to the same Odoo income account.</p>
+<p>The exporter resolves each deal line’s <tt class="docutils literal">account_item_id</tt> with this
+precedence:</p>
+<ol class="arabic simple">
+<li>the <strong>line’s income account</strong> <tt class="docutils literal">freee_account_item_id</tt> (if set) —
+the natural Odoo account ↔ freee account mapping, used in the vast
+majority of cases;</li>
+<li>otherwise the <strong>invoice’s journal</strong> <tt class="docutils literal">freee_account_item_id</tt> (if
+set) — the per-journal/walletable fallback that lets you split sales
+by journal;</li>
+<li>otherwise the export fails with a <tt class="docutils literal">MappingError</tt> naming both.</li>
+</ol>
+<p>To split sales by journal, <strong>leave the shared Odoo account intentionally
+unmapped</strong> (e.g. clear <tt class="docutils literal">freee_account_item_id</tt> on the shared Sales
+account) and set the freee account item on each journal instead. Open
+<em>Accounting → Configuration → Journals</em>, pick the journal (e.g. the EC
+sales journal), and on the <em>freee Mapping</em> tab use <em>Pick from freee</em>
+exactly like the chart of accounts. Lines posting to the shared account
+then resolve their freee account item from whichever journal carried the
+invoice.</p>
+<p>When the account is mapped, the journal-level value is ignored — so
+journal mapping is an opt-in fallback, never a silent override of the
+per-account configuration.</p>
+</div>
+<div class="section" id="settling-via-a-walletable-account-account-journal-mapping">
+<h3><a class="toc-backref" href="#toc-entry-7">Settling via a walletable (account) — <tt class="docutils literal">account.journal</tt> mapping</a></h3>
+<p>By default every exported deal is <strong>unsettled</strong> — freee records the
+income/expense but no payment. To have invoices on a given journal
+exported as <strong>settled</strong> (paid), map a freee walletable (account) onto
+that journal:</p>
+<p><em>Accounting → Configuration → Journals</em> → pick the journal → <em>freee
+Mapping</em> tab → <strong>settlement account</strong> → <em>Pick walletable from freee</em>
+(loads <tt class="docutils literal">/api/1/walletables</tt>: bank account / credit card / cash) → <em>Use
+this</em>. <em>Clear (→ unsettled)</em> removes the mapping.</p>
+<p>Effect on export:</p>
+<ul class="simple">
+<li><strong>walletable mapped</strong> → the deal carries one <tt class="docutils literal">payments[]</tt> entry for
+the full tax-inclusive total, <tt class="docutils literal">from_walletable_id</tt> /
+<tt class="docutils literal">from_walletable_type</tt> from the mapping, dated the invoice’s
+<em>Invoice Date</em> (the connector does not track real settlement timing —
+it books the payment on the issue date, a deliberate simplification);</li>
+<li><strong>walletable not mapped</strong> (the default) → no <tt class="docutils literal">payments</tt> is sent and
+freee keeps the deal unsettled — unchanged behaviour;</li>
+<li><strong>refunds (``out_refund``)</strong> on a journal with a walletable settle the
+same way but with a <strong>negative</strong> <tt class="docutils literal"><span class="pre">payments[].amount</span></tt> (money flowing
+back out); with no walletable they stay unsettled.</li>
+</ul>
+<p>This is independent of the account-item split above: a journal can map a
+walletable, an account item, both, or neither.</p>
+</div>
+<div class="section" id="required-permissions">
+<h3><a class="toc-backref" href="#toc-entry-8">Required permissions</a></h3>
+<p>Two layers of access apply to every mapping:</p>
+<ul>
+<li><p class="first"><strong>freee Administrator</strong> (<tt class="docutils literal">connector_freee_base.group_freee_admin</tt>) —
+gates the <em>freee Mapping</em> group on every form (the freee fields and
+the <em>Pick from freee</em> button are hidden without it). All five fetch
+wizards also live behind this group.</p>
+</li>
+<li><p class="first"><strong>The native Odoo group required to edit the underlying record.</strong>
+Picking a freee Mapping is a write on the Odoo record, so the user
+also needs whatever Odoo normally requires to edit that model:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Odoo model</th>
+<th class="head">Required Odoo group</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">account.account</tt></td>
+<td><em>Accounting → Show Full Accounting
+Features</em>
+(<tt class="docutils literal">account.group_account_manager</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">account.tax</tt></td>
+<td><em>Accounting → Show Full Accounting
+Features</em>
+(<tt class="docutils literal">account.group_account_manager</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">account.analytic.account</tt></td>
+<td><em>Accounting → Analytic Accounting</em>
+(<tt class="docutils literal">analytic.group_analytic_accounting</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">res.partner</tt></td>
+<td>Standard internal user</td>
+</tr>
+<tr><td><tt class="docutils literal">product.template</tt></td>
+<td>Any group with <tt class="docutils literal">product.template</tt>
+write access — granted by <em>Sales</em>,
+<em>Purchase</em> or <em>Inventory</em> (the base
+<tt class="docutils literal">product</tt> module alone has no UI)</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<p>In particular, mapping the <strong>Chart of Accounts</strong> (and <strong>Taxes</strong>)
+requires <em>Show Full Accounting Features</em> — <em>Billing</em> alone is not
+enough. A user with only <em>freee Administrator</em> but without the right
+accounting group will see the <em>Pick from freee</em> button but the wizard’s
+<em>Use this</em> save will fail with a standard Odoo access error.</p>
+</div>
+<div class="section" id="reaching-the-product-form">
+<h3><a class="toc-backref" href="#toc-entry-9">Reaching the product form</a></h3>
+<p>The core <tt class="docutils literal">product</tt> module defines <tt class="docutils literal">product.template</tt> but does
+<strong>not</strong> register a top-level <em>Products</em> menu on its own. Several
+consumer apps register one — pick whichever your install already has:</p>
+<ul class="simple">
+<li><strong>Accounting / Invoicing → Customers → Products</strong> — provided by the
+<tt class="docutils literal">account</tt> module, which is a hard dependency of
+<tt class="docutils literal">connector_freee_base</tt>, so this path is <strong>always available</strong>. It is
+the recommended entry point on a minimal install.</li>
+<li><strong>Sales → Products → Products</strong> — same records, but with the Sales-app
+extras (price lists, optional products, sales tab).</li>
+<li><strong>Purchase → Products → Products</strong> — same records, with the
+Purchase-app extras.</li>
+<li><strong>Inventory → Products → Products</strong> — same records, with stock /
+variants / routes.</li>
+</ul>
+<p>All four menus are views over the same <tt class="docutils literal">product.template</tt> data, so the
+<em>freee Mapping</em> group appears in any of them. Item mapping is optional —
+invoices export fine without <tt class="docutils literal">freee_item_id</tt> set on the line’s
+product.</p>
+</div>
+<div class="section" id="showing-the-analytic-accounting-menu">
+<h3><a class="toc-backref" href="#toc-entry-10">Showing the Analytic Accounting menu</a></h3>
+<p>The <em>Analytic Accounts</em> menu is hidden by default in stock Odoo (both
+Community and Enterprise). If you cannot find <em>Analytic Accounts</em> under
+<strong>Accounting → Configuration</strong> (Enterprise) or <strong>Invoicing →
+Configuration</strong> (Community), enable it like this:</p>
+<ol class="arabic simple">
+<li>Open <strong>Settings → Users &amp; Companies → Users</strong>, pick the user.</li>
+<li>Under the <strong>Accounting</strong> rights, tick <strong>Analytic Accounting</strong> (this
+assigns the <tt class="docutils literal">analytic.group_analytic_accounting</tt> group).</li>
+<li>Save and refresh the browser. The <em>Analytic Accounts</em> menu appears
+under the Accounting / Invoicing app’s <em>Configuration</em> submenu, next
+to <em>Chart of Accounts</em> and <em>Taxes</em>.</li>
+</ol>
+<p>This module installs on Odoo Community as well as Enterprise — it
+depends only on the <tt class="docutils literal">account</tt>, <tt class="docutils literal">analytic</tt> and <tt class="docutils literal">product</tt> core
+modules plus the OCA <tt class="docutils literal">connector</tt> and <tt class="docutils literal">queue_job</tt> modules, none of
+which are Enterprise-only. The menu label differs between editions
+(<em>Accounting</em> vs <em>Invoicing</em>) but the configuration submenu and the
+<em>freee Mapping</em> group on each form work the same way.</p>
+</div>
+</div>
+<div class="section" id="programmatic-access">
+<h2><a class="toc-backref" href="#toc-entry-11">Programmatic access</a></h2>
+<p>The API client is reachable through a connector work context:</p>
+<pre class="code python literal-block">
+<span class="n">backend</span> <span class="o">=</span> <span class="n">env</span><span class="p">[</span><span class="s2">&quot;freee.backend&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="w">
+</span>    <span class="p">[(</span><span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="s2">&quot;authorized&quot;</span><span class="p">)],</span> <span class="n">limit</span><span class="o">=</span><span class="mi">1</span><span class="w">
+</span><span class="p">)</span><span class="w">
+</span><span class="k">with</span> <span class="n">backend</span><span class="o">.</span><span class="n">work_on</span><span class="p">(</span><span class="n">backend</span><span class="o">.</span><span class="n">_name</span><span class="p">)</span> <span class="k">as</span> <span class="n">work</span><span class="p">:</span><span class="w">
+</span>    <span class="n">adapter</span> <span class="o">=</span> <span class="n">work</span><span class="o">.</span><span class="n">component</span><span class="p">(</span><span class="n">usage</span><span class="o">=</span><span class="s2">&quot;backend.adapter&quot;</span><span class="p">)</span><span class="w">
+</span>    <span class="n">me</span> <span class="o">=</span> <span class="n">adapter</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/api/1/users/me&quot;</span><span class="p">)</span><span class="w">
+</span>    <span class="n">sections</span> <span class="o">=</span> <span class="n">adapter</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="w">
+</span>        <span class="s2">&quot;/api/1/sections&quot;</span><span class="p">,</span><span class="w">
+</span>        <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;company_id&quot;</span><span class="p">:</span> <span class="n">backend</span><span class="o">.</span><span class="n">external_company_id</span><span class="p">},</span><span class="w">
+</span>    <span class="p">)</span>
+</pre>
+<p>The adapter accepts <tt class="docutils literal">get</tt>, <tt class="docutils literal">post</tt>, <tt class="docutils literal">put</tt>, <tt class="docutils literal">delete</tt> and returns
+the decoded JSON body. Transient errors (HTTP 429, 5xx, network
+failures) raise <tt class="docutils literal">RetryableJobError</tt>, so calls dispatched through
+<tt class="docutils literal">queue_job</tt> retry automatically.</p>
+</div>
+</div>
+<div class="section" id="known-issues-roadmap">
+<h1><a class="toc-backref" href="#toc-entry-12">Known issues / Roadmap</a></h1>
+<p><tt class="docutils literal">connector_freee_base</tt> is <strong>Alpha</strong> — we’re shipping it to gather
+early-adopter reactions. Known limitations and deliberate deferrals, so
+adopters decide knowingly:</p>
+<ul class="simple">
+<li><strong>No automated test exercises a real freee company.</strong> Every test mocks
+the HTTP layer, so the OAuth flow, token refresh and API client are
+proven for parsing and control flow, <strong>not</strong> against a live freee
+company. A pilot against a real freee company is required before any
+customer rollout — see the RUNBOOK of the freee feature module you
+adopt (e.g. invoice export) for the pilot checklist.</li>
+<li><strong>Encryption posture is modest by design.</strong> Client secret, access
+token and refresh token are Fernet-encrypted. The key lives in
+<tt class="docutils literal">odoo.conf</tt> (read via <tt class="docutils literal">tools.config</tt>), so it is kept <strong>out of the
+database</strong> and absent from any <tt class="docutils literal">pg_dump</tt> — this defends DB dumps and
+casual reads, <strong>not</strong> a compromised live host that can read
+<tt class="docutils literal">odoo.conf</tt> or process memory. Losing the key forces
+re-authorization of every backend. An external-KMS / dedicated
+secrets-manager option is out of scope for now. Full threat model in
+<tt class="docutils literal">connector_freee_base/readme/SECURITY.md</tt>.</li>
+<li><strong>Master-data mapping is consumed but not auto-resolved.</strong> The picker
+wizards store freee ids on the Odoo master records
+(<tt class="docutils literal">freee_account_item_id</tt>, <tt class="docutils literal">freee_tax_code</tt>, <tt class="docutils literal">freee_partner_id</tt>,
+<tt class="docutils literal">freee_item_id</tt>, <tt class="docutils literal">freee_section_id</tt>, journal walletable /
+account-item overrides); the shared mapper (reused across freee
+feature modules within this connector family) consumes them with
+documented precedence (see USAGE) but does not auto-match Odoo records
+to freee masters.</li>
+</ul>
+</div>
+<div class="section" id="bug-tracker">
+<h1><a class="toc-backref" href="#toc-entry-13">Bug Tracker</a></h1>
+<p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/l10n-japan/issues">GitHub Issues</a>.
+In case of trouble, please check there if your issue has already been reported.
+If you spotted it first, help us to smash it by providing a detailed and welcomed
+<a class="reference external" href="https://github.com/OCA/l10n-japan/issues/new?body=module:%20connector_freee_base%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
+<p>Do not contact contributors directly about support or help with technical issues.</p>
+</div>
+<div class="section" id="credits">
+<h1><a class="toc-backref" href="#toc-entry-14">Credits</a></h1>
+<div class="section" id="authors">
+<h2><a class="toc-backref" href="#toc-entry-15">Authors</a></h2>
+<ul class="simple">
+<li>Takahiro SUNAGA &lt;<a class="reference external" href="mailto:t.sunaga&#64;takahii.co">t.sunaga&#64;takahii.co</a>&gt;</li>
+</ul>
+</div>
+<div class="section" id="contributors">
+<h2><a class="toc-backref" href="#toc-entry-16">Contributors</a></h2>
+<ul class="simple">
+<li>Takahiro SUNAGA <a class="reference external" href="mailto:t.sunaga&#64;takahii.co">t.sunaga&#64;takahii.co</a></li>
+</ul>
+</div>
+<div class="section" id="maintainers">
+<h2><a class="toc-backref" href="#toc-entry-17">Maintainers</a></h2>
+<p>This module is maintained by the OCA.</p>
+<a class="reference external image-reference" href="https://odoo-community.org">
+<img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" />
+</a>
+<p>OCA, or the Odoo Community Association, is a nonprofit organization whose
+mission is to support the collaborative development of Odoo features and
+promote its widespread use.</p>
+<p>Current <a class="reference external" href="https://odoo-community.org/page/maintainer-role">maintainer</a>:</p>
+<p><a class="reference external image-reference" href="https://github.com/takahii03"><img alt="takahii03" src="https://github.com/takahii03.png?size=40px" /></a></p>
+<p>This module is part of the <a class="reference external" href="https://github.com/OCA/l10n-japan/tree/18.0/connector_freee_base">OCA/l10n-japan</a> project on GitHub.</p>
+<p>You are welcome to contribute. To learn how please visit <a class="reference external" href="https://odoo-community.org/page/Contribute">https://odoo-community.org/page/Contribute</a>.</p>
+</div>
+</div>
+</div>
+</body>
+</html>
