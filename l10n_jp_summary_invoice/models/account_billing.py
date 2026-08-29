@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from odoo import Command, _, api, fields, models
-from odoo.exceptions import ValidationError
+from odoo.exceptions import UserError, ValidationError
 
 
 class AccountBilling(models.Model):
@@ -52,6 +52,25 @@ class AccountBilling(models.Model):
     report_subtitle = fields.Char(
         help="Subtitle to be printed below the title of the summary invoice report.",
     )
+    is_billing_sent = fields.Boolean(
+        string="Printed/Sent",
+        copy=False,
+        tracking=True,
+        help="It indicates that the summary invoice has been sent or its PDF "
+        "has been generated.",
+    )
+
+    @api.ondelete(at_uninstall=False)
+    def _unlink_except_billing_sent(self):
+        sent_billings = self.filtered("is_billing_sent")
+        if sent_billings:
+            raise UserError(
+                _(
+                    "You cannot delete the following summary invoice(s) "
+                    "because they have already been printed or sent: %s"
+                )
+                % ", ".join(sent_billings.mapped("display_name"))
+            )
 
     @api.constrains("state", "billing_line_ids")
     def _check_account_move_billability(self):
