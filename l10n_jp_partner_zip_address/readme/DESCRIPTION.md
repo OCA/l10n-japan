@@ -1,12 +1,10 @@
-This module introduces a function that automatically retrieves and fills
-in the Japanese address details for a partner using the zipcloud
-service, provided that the following conditions are met.
+本モジュールは、以下の条件を満たす場合に、zipcloudサービスを利用して取引先の
+日本の住所情報を自動的に取得し入力する機能を追加する。
 
-- Country is Japan or no country is set for the partner.
-- A valid postcode is entered for the partner.
+- 取引先の国が日本、または国が未設定である。
+- 取引先に有効な郵便番号が入力されている。
 
-Note that in order to have the prefecture proposed automatically, you
-need to have the prefecture records in Japanese (e.g. "福岡県" instead
-of "Fukuoka"). This can be done by overriding the name of correspoinding
-res.country.state records, or by installing the l10n_jp_country_state
-module.
+都道府県を自動的に提案させるには、都道府県のレコードを日本語（例：「Fukuoka」
+ではなく「福岡県」）で保持しておく必要がある点に注意。これは、対応する
+res.country.stateレコードの名称を上書きするか、l10n_jp_country_state
+モジュールをインストールすることで実現できる。
