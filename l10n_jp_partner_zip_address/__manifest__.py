@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
     "name": "Japan Partner Zip Address",
+    "summary": "郵便番号から取引先の日本の住所を自動入力",
     "version": "18.0.1.0.1",
     "author": "Quartile, Odoo Community Association (OCA)",
     "license": "AGPL-3",
@@ -10,4 +11,5 @@
     "depends": ["base"],
     "external_dependencies": {"python": ["jaconv"]},
     "installable": True,
+    "maintainers": ["yostashiro", "AungKoKoLin1997"],
 }
