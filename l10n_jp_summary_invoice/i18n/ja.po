@@ -335,11 +335,6 @@ msgid "Tax Adjustment Entry"
 msgstr "消費税調整仕訳"
 
 #. module: l10n_jp_summary_invoice
-#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__amount_tax
-msgid "Tax Amount"
-msgstr ""
-
-#. module: l10n_jp_summary_invoice
 #: model:ir.model,name:l10n_jp_summary_invoice.model_account_tax_group
 msgid "Tax Group"
 msgstr "税グループ"
@@ -395,11 +390,6 @@ msgid "Total"
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
-#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__amount_total
-msgid "Total Amount"
-msgstr ""
-
-#. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_billing_tree
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_supplier_billing_tree
 msgid "Total Tax"
@@ -415,11 +405,6 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.bill_line_section_layout
 msgid "Unit Price"
 msgstr "単価"
-
-#. module: l10n_jp_summary_invoice
-#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__amount_untaxed
-msgid "Untaxed Amount"
-msgstr ""
 
 #, python-format
 #~ msgid "All invoices must be posted before validating the billing."
