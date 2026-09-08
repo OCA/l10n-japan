@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -77,6 +77,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_move__billing_id
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_invoice_filter
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_move_form
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_partner_property_form
 msgid "Billing"
 msgstr ""
 
@@ -106,6 +107,11 @@ msgid "Config Settings"
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
+#: model:ir.model,name:l10n_jp_summary_invoice.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,help:l10n_jp_summary_invoice.field_res_company__summary_invoice_remark
 #: model:ir.model.fields,help:l10n_jp_summary_invoice.field_res_config_settings__summary_invoice_remark
 msgid "Content here will be displayed in the summary invoice report."
@@ -127,6 +133,18 @@ msgid "Description"
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__display_name
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_move__display_name
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_move_line__display_name
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_tax__display_name
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_tax_group__display_name
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_res_company__display_name
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_res_partner__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.report_summary_invoice_document
 msgid "Draft Summary Invoice"
 msgstr ""
@@ -134,6 +152,26 @@ msgstr ""
 #. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.res_config_settings_view_form
 msgid "Header Remark"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__id
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_move__id
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_move_line__id
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_tax__id
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_tax_group__id
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_res_company__id
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_res_config_settings__id
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_res_partner__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice
+#: model:ir.model.fields,help:l10n_jp_summary_invoice.field_res_partner__is_not_for_billing
+#: model:ir.model.fields,help:l10n_jp_summary_invoice.field_res_users__is_not_for_billing
+msgid ""
+"If enabled, invoices for this partner will be excluded from the billing "
+"process by default."
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
@@ -183,6 +221,8 @@ msgstr ""
 #. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_bank_statement_line__is_not_for_billing
 #: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_move__is_not_for_billing
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_res_partner__is_not_for_billing
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_res_users__is_not_for_billing
 msgid "Is Not For Billing"
 msgstr ""
 
@@ -313,11 +353,6 @@ msgid "Tax Adjustment Entry"
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
-#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__amount_tax
-msgid "Tax Amount"
-msgstr ""
-
-#. module: l10n_jp_summary_invoice
 #: model:ir.model,name:l10n_jp_summary_invoice.model_account_tax_group
 msgid "Tax Group"
 msgstr ""
@@ -368,33 +403,20 @@ msgstr ""
 
 #. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_billing_tree
-#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_supplier_billing_tree
 msgid "Total"
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
-#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__amount_total
-msgid "Total Amount"
-msgstr ""
-
-#. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_billing_tree
-#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_supplier_billing_tree
 msgid "Total Tax"
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_billing_tree
-#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_supplier_billing_tree
 msgid "Total Untaxed"
 msgstr ""
 
 #. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.bill_line_section_layout
 msgid "Unit Price"
-msgstr ""
-
-#. module: l10n_jp_summary_invoice
-#: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__amount_untaxed
-msgid "Untaxed Amount"
 msgstr ""
