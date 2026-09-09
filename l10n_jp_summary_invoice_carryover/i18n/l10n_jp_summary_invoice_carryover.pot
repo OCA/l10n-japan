@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -74,6 +74,22 @@ msgid "Current Purchase Amt"
 msgstr ""
 
 #. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice_carryover.field_account_billing__display_name
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice_carryover.field_res_company__display_name
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice_carryover.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice_carryover.field_res_partner__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice_carryover.field_account_billing__id
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice_carryover.field_res_company__id
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice_carryover.field_res_config_settings__id
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice_carryover.field_res_partner__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
 #: model:ir.model.fields,help:l10n_jp_summary_invoice_carryover.field_res_company__show_carryover_amounts
 #: model:ir.model.fields,help:l10n_jp_summary_invoice_carryover.field_res_config_settings__show_carryover_amounts
 msgid ""
@@ -89,6 +105,13 @@ msgstr ""
 #. module: l10n_jp_summary_invoice_carryover
 #: model:ir.model.fields,help:l10n_jp_summary_invoice_carryover.field_account_billing__prev_billed_amount_manual
 msgid "Manual override for previous billed amount."
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model.fields,help:l10n_jp_summary_invoice_carryover.field_account_billing__payment_amount
+msgid ""
+"Net decrease of the receivables billed on the previous billing, i.e. the "
+"previous billed amount less what still stands open of it."
 msgstr ""
 
 #. module: l10n_jp_summary_invoice_carryover
@@ -110,11 +133,6 @@ msgstr ""
 #. module: l10n_jp_summary_invoice_carryover
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice_carryover.report_summary_invoice_document_carryover
 msgid "Payment Amt"
-msgstr ""
-
-#. module: l10n_jp_summary_invoice_carryover
-#: model:ir.model.fields,help:l10n_jp_summary_invoice_carryover.field_account_billing__payment_amount
-msgid "Payments received on previous billing invoices."
 msgstr ""
 
 #. module: l10n_jp_summary_invoice_carryover
