@@ -1,0 +1,217 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_jp_summary_invoice_carryover
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice_carryover.view_account_billing_form_carryover
+msgid "<span class=\"text-muted ms-2\">Manual Adj.</span>"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice_carryover.report_summary_invoice_document_carryover
+msgid "<strong>Total Billed Amt</strong>"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model,name:l10n_jp_summary_invoice_carryover.model_account_billing
+msgid "Account Billing"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice_carryover.view_account_billing_form_carryover
+msgid "Carryover"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice_carryover.field_account_billing__carryover_amount
+msgid "Carryover Amount"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice_carryover.report_summary_invoice_document_carryover
+msgid "Carryover Amt"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model.fields,help:l10n_jp_summary_invoice_carryover.field_account_billing__total_billed_amount
+msgid "Carryover plus current billed amount."
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model,name:l10n_jp_summary_invoice_carryover.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model,name:l10n_jp_summary_invoice_carryover.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model,name:l10n_jp_summary_invoice_carryover.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice_carryover.view_account_billing_form_carryover
+msgid "Current Purchase Amount"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice_carryover.report_summary_invoice_document_carryover
+msgid "Current Purchase Amt"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model.fields,help:l10n_jp_summary_invoice_carryover.field_res_company__show_carryover_amounts
+#: model:ir.model.fields,help:l10n_jp_summary_invoice_carryover.field_res_config_settings__show_carryover_amounts
+msgid ""
+"If enabled, carryover amount fields will be displayed in the summary invoice"
+" report."
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model.fields,help:l10n_jp_summary_invoice_carryover.field_account_billing__payment_amount_manual
+msgid "Manual override for payment amount."
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model.fields,help:l10n_jp_summary_invoice_carryover.field_account_billing__prev_billed_amount_manual
+msgid "Manual override for previous billed amount."
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model.fields.selection,name:l10n_jp_summary_invoice_carryover.selection__res_partner__show_carryover_amounts__no
+msgid "No"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice_carryover.field_account_billing__payment_amount
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice_carryover.view_account_billing_form_carryover
+msgid "Payment Amount"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice_carryover.field_account_billing__payment_amount_manual
+msgid "Payment Amount (Manual)"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice_carryover.report_summary_invoice_document_carryover
+msgid "Payment Amt"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model.fields,help:l10n_jp_summary_invoice_carryover.field_account_billing__payment_amount
+msgid "Payments received on previous billing invoices."
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice_carryover.field_account_billing__prev_billed_amount
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice_carryover.view_account_billing_form_carryover
+msgid "Previous Billed Amount"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice_carryover.field_account_billing__prev_billed_amount_manual
+msgid "Previous Billed Amount (Manual)"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice_carryover.report_summary_invoice_document_carryover
+msgid "Previous Billed Amt"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice_carryover.field_account_billing__prev_billing_id
+msgid "Previous Billing"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice_carryover.field_account_billing__prev_billing_candidate_ids
+msgid "Previous Billing Candidates"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model.fields,help:l10n_jp_summary_invoice_carryover.field_account_billing__carryover_amount
+msgid "Previous billing amount minus payments."
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice_carryover.field_account_billing__show_carryover_amounts
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice_carryover.field_res_company__show_carryover_amounts
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice_carryover.field_res_config_settings__show_carryover_amounts
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice_carryover.field_res_partner__show_carryover_amounts
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice_carryover.field_res_users__show_carryover_amounts
+msgid "Show Carryover Amounts"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice_carryover.view_partner_form_carryover
+msgid "Summary Invoice"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice_carryover.res_config_settings_view_form
+msgid ""
+"The carryover amounts will appear in the summary invoice report if selected"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice_carryover.field_account_billing__total_billed_amount
+msgid "Total Billed Amount"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice_carryover.report_summary_invoice_document_carryover
+msgid "Total Billed Amt"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model.fields,help:l10n_jp_summary_invoice_carryover.field_account_billing__prev_billed_amount
+msgid "Total billed amount from the previous billing."
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model.fields.selection,name:l10n_jp_summary_invoice_carryover.selection__res_partner__show_carryover_amounts__default
+msgid "Use Company Default"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice_carryover.field_account_billing__use_payment_amount_manual
+msgid "Use Manual Payment Amount"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model.fields,field_description:l10n_jp_summary_invoice_carryover.field_account_billing__use_prev_billed_amount_manual
+msgid "Use Manual Previous Billed Amount"
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model.fields,help:l10n_jp_summary_invoice_carryover.field_account_billing__show_carryover_amounts
+msgid "Whether to show carryover amounts in the summary invoice report."
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model.fields,help:l10n_jp_summary_invoice_carryover.field_res_partner__show_carryover_amounts
+#: model:ir.model.fields,help:l10n_jp_summary_invoice_carryover.field_res_users__show_carryover_amounts
+msgid ""
+"Whether to show carryover amounts in the summary invoice report. If set to "
+"'Use Company Default', the company setting will be used."
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model.fields.selection,name:l10n_jp_summary_invoice_carryover.selection__res_partner__show_carryover_amounts__yes
+msgid "Yes"
+msgstr ""
