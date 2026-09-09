@@ -256,6 +256,56 @@ class TestSummaryInvoice(TransactionCase):
         self.assertFalse(inv1.billing_id)
         self.assertFalse(inv2.billing_id)
 
+    def test_create_untaxed_adjustment_entry(self):
+        """3 invoices at 100.3 JPY: only untaxed rounding diff, no tax diff."""
+        inv_1 = self._create_invoice(100.3, self.tax_10)
+        inv_2 = self._create_invoice(100.3, self.tax_10)
+        inv_3 = self._create_invoice(100.3, self.tax_10)
+        # Each invoice: amount_untaxed = round(100.3) = 100
+        self.assertEqual(inv_1.amount_untaxed, 100)
+        # Each invoice: tax = round(100.3 * 0.1) = round(10.03) = 10
+        self.assertEqual(inv_1.amount_tax, 10)
+        invoices = inv_1 + inv_2 + inv_3
+        action = invoices.action_create_billing()
+        billing = self.env["account.billing"].browse(action["res_id"])
+        billing.with_company(self.company).validate_billing()
+        # Billing: amount_untaxed = round(300.9) = 301
+        self.assertEqual(billing.amount_untaxed, 301)
+        # No tax adjustment: billing tax = round(30.09) = 30, invoices tax = 30
+        self.assertFalse(billing.tax_adjustment_entry_id)
+        # Untaxed adjustment: 301 - 300 = 1
+        untaxed_adj = billing.untaxed_adjustment_entry_id
+        self.assertTrue(untaxed_adj)
+        self.assertEqual(untaxed_adj.amount_total_signed, 1)
+        # Cancel and verify cleanup
+        billing.action_cancel()
+        self.assertEqual(untaxed_adj.state, "cancel")
+        self.assertFalse(billing.untaxed_adjustment_entry_id)
+
+    def test_create_both_adjustment_entries(self):
+        """3 invoices at 102.5 JPY: both tax and untaxed rounding diffs."""
+        inv_1 = self._create_invoice(102.5, self.tax_10)
+        inv_2 = self._create_invoice(102.5, self.tax_10)
+        inv_3 = self._create_invoice(102.5, self.tax_10)
+        # Each invoice: amount_untaxed = round(102.5) = 103
+        self.assertEqual(inv_1.amount_untaxed, 103)
+        # Each invoice: tax = round(10.25) = 10
+        self.assertEqual(inv_1.amount_tax, 10)
+        invoices = inv_1 + inv_2 + inv_3
+        action = invoices.action_create_billing()
+        billing = self.env["account.billing"].browse(action["res_id"])
+        billing.with_company(self.company).validate_billing()
+        # Billing: amount_untaxed = round(307.5) = 308
+        self.assertEqual(billing.amount_untaxed, 308)
+        # Tax adjustment: billing tax = round(30.75) = 31, invoices tax = 30, diff = 1
+        tax_adj = billing.tax_adjustment_entry_id
+        self.assertTrue(tax_adj)
+        self.assertEqual(tax_adj.amount_total_signed, 1)
+        # Untaxed adjustment: 308 - 309 = -1 (credit note)
+        untaxed_adj = billing.untaxed_adjustment_entry_id
+        self.assertTrue(untaxed_adj)
+        self.assertEqual(untaxed_adj.amount_total_signed, -1)
+
     def test_check_tax_adjustment_with_currency_rounding_issue(self):
         self.assertEqual(self.env.company.currency_id, self.env.ref("base.JPY"))
         currency_usd = self.env.ref("base.USD")

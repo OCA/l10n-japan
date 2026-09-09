@@ -23,6 +23,7 @@ class AccountBilling(models.Model):
         exportable=False,
     )
     tax_adjustment_entry_id = fields.Many2one("account.move")
+    untaxed_adjustment_entry_id = fields.Many2one("account.move")
     company_partner_id = fields.Many2one(
         related="company_id.partner_id", string="Company Partner", store=True
     )
@@ -196,9 +197,33 @@ class AccountBilling(models.Model):
             move_type="out_invoice",
         )
 
+    def _create_adjustment_entry(self, ref, line_vals_list):
+        """Create, post, and return an adjustment journal entry."""
+        self.ensure_one()
+        is_refund = sum(vals.get("price_unit", 0) for vals in line_vals_list) < 0
+        if is_refund:
+            line_vals_list = [
+                {**vals, "price_unit": -vals.get("price_unit", 0)}
+                for vals in line_vals_list
+            ]
+        adjustment_move = self.env["account.move"].create(
+            {
+                "move_type": "out_refund" if is_refund else "out_invoice",
+                "partner_id": self.partner_id.id,
+                "currency_id": self.currency_id.id,
+                "date": self.date,
+                "invoice_origin": self.name,
+                "ref": ref,
+                "is_not_for_billing": True,
+                "line_ids": [Command.create(vals) for vals in line_vals_list],
+            }
+        )
+        adjustment_move.action_post()
+        return adjustment_move
+
     def validate_billing(self):
         res = super().validate_billing()
-        # Tax journal entry will be created only for customer invoice billings.
+        # Adjustment entries will be created only for customer invoice billings.
         for rec in self.filtered(lambda x: x.bill_type == "out_invoice"):
             tax_totals = rec.tax_totals
             if not tax_totals:
@@ -218,25 +243,23 @@ class AccountBilling(models.Model):
                 tax_diff = tax_amount_invoices - tax_amount_bill
                 if not rec.currency_id.is_zero(tax_diff):
                     tax_group_diff_dict[tax_group_id] = tax_diff
-            if not tax_group_diff_dict:
+            # --- Compute untaxed diff ---
+            src_moves = rec.billing_line_ids.move_id
+            sum_invoices_untaxed = sum(
+                inv.amount_untaxed * (-inv.direction_sign) for inv in src_moves
+            )
+            untaxed_diff = rec.amount_untaxed - sum_invoices_untaxed
+            has_untaxed_diff = not rec.currency_id.is_zero(untaxed_diff)
+            if not tax_group_diff_dict and not has_untaxed_diff:
                 continue
-            invoice_vals = {
-                "move_type": "out_invoice",
-                "partner_id": rec.partner_id.id,
-                "currency_id": rec.currency_id.id,
-                "date": rec.date,
-                "invoice_origin": rec.name,
-                "ref": f"Tax adjustment for {rec.name}",
-                "is_not_for_billing": True,
-                "line_ids": [],
-            }
             inv_line_account_id = rec._get_inv_line_account_id()
-            diff_balance = 0.0
-            for tax_group_id, diff in tax_group_diff_dict.items():
-                tax_group = self.env["account.tax.group"].browse(tax_group_id)
-                adjustment_tax = tax_group._get_adjustment_tax()
-                invoice_vals["line_ids"].append(
-                    Command.create(
+            # --- Create tax adjustment entry ---
+            if tax_group_diff_dict:
+                line_vals_list = []
+                for tax_group_id, diff in tax_group_diff_dict.items():
+                    tax_group = self.env["account.tax.group"].browse(tax_group_id)
+                    adjustment_tax = tax_group._get_adjustment_tax()
+                    line_vals_list.append(
                         {
                             "name": f"Tax adjustment for {tax_group.name}",
                             "account_id": inv_line_account_id,
@@ -245,13 +268,23 @@ class AccountBilling(models.Model):
                             "tax_ids": [Command.set(adjustment_tax.ids)],
                         },
                     )
+                rec.tax_adjustment_entry_id = rec._create_adjustment_entry(
+                    f"Tax adjustment for {rec.name}", line_vals_list
                 )
-                diff_balance += diff
-            adjustment_move = self.env["account.move"].create(invoice_vals)
-            if diff_balance < 0:
-                adjustment_move.action_switch_move_type()
-            adjustment_move.action_post()
-            rec.tax_adjustment_entry_id = adjustment_move
+            # --- Create untaxed adjustment entry ---
+            if has_untaxed_diff:
+                rec.untaxed_adjustment_entry_id = rec._create_adjustment_entry(
+                    f"Untaxed amount adjustment for {rec.name}",
+                    [
+                        {
+                            "name": f"Untaxed amount adjustment for {rec.name}",
+                            "account_id": inv_line_account_id,
+                            "quantity": 1,
+                            "price_unit": untaxed_diff,
+                            "tax_ids": [Command.set([])],
+                        }
+                    ],
+                )
         return res
 
     def action_cancel(self):
@@ -260,4 +293,7 @@ class AccountBilling(models.Model):
             rec.tax_adjustment_entry_id.button_draft()
             rec.tax_adjustment_entry_id.button_cancel()
             rec.tax_adjustment_entry_id = False
+            rec.untaxed_adjustment_entry_id.button_draft()
+            rec.untaxed_adjustment_entry_id.button_cancel()
+            rec.untaxed_adjustment_entry_id = False
         return res

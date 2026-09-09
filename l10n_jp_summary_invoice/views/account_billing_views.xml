@@ -79,12 +79,21 @@
             </xpath>
             <xpath expr="//notebook" position="inside">
                 <page
-                    string="Tax Adjustment"
-                    invisible="tax_adjustment_entry_id == False"
+                    string="Adjustments"
+                    invisible="not tax_adjustment_entry_id and not untaxed_adjustment_entry_id"
                 >
                     <group>
                         <group>
-                            <field name="tax_adjustment_entry_id" readonly="1" />
+                            <field
+                                name="tax_adjustment_entry_id"
+                                readonly="1"
+                                invisible="not tax_adjustment_entry_id"
+                            />
+                            <field
+                                name="untaxed_adjustment_entry_id"
+                                readonly="1"
+                                invisible="not untaxed_adjustment_entry_id"
+                            />
                         </group>
                     </group>
                 </page>
