@@ -1,4 +1,5 @@
 from . import account_billing
+from . import ir_actions_report
 from . import account_move_line
 from . import account_move
 from . import account_tax_group

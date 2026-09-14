@@ -1,7 +1,7 @@
 # Copyright 2024 Quartile
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo.exceptions import ValidationError
+from odoo.exceptions import UserError, ValidationError
 from odoo.fields import Command
 from odoo.tests.common import TransactionCase
 
@@ -288,6 +288,87 @@ class TestSummaryInvoice(TransactionCase):
         billing.with_company(self.company).validate_billing()
         self.assertEqual(billing.state, "billed")
         self.assertFalse(billing.tax_adjustment_entry_id)
+
+    def test_print_draft_billing_does_not_set_is_billing_sent(self):
+        """Printing a still-draft (unnumbered) billing must not lock it."""
+        invoice = self._create_invoice(100, self.tax_10)
+        billing = self.env["account.billing"].create(
+            {
+                "partner_id": self.partner.id,
+                "billing_line_ids": [Command.create({"move_id": invoice.id})],
+            }
+        )
+        self.assertEqual(billing.state, "draft")
+        self.assertFalse(billing.name)
+        report = self.env.ref("l10n_jp_summary_invoice.report_jp_summary_invoice")
+        report._render_qweb_pdf(report.id, billing.ids)
+        self.assertFalse(billing.is_billing_sent)
+        billing.unlink()
+        self.assertFalse(billing.exists())
+
+    def test_render_qweb_pdf_sets_is_billing_sent_after_validate(self):
+        invoice = self._create_invoice(100, self.tax_10)
+        billing = self.env["account.billing"].create(
+            {
+                "partner_id": self.partner.id,
+                "bill_type": "out_invoice",
+                "billing_line_ids": [Command.create({"move_id": invoice.id})],
+            }
+        )
+        billing.with_company(self.company).validate_billing()
+        self.assertFalse(billing.is_billing_sent)
+        report = self.env.ref("l10n_jp_summary_invoice.report_jp_summary_invoice")
+        report._render_qweb_pdf(report.id, billing.ids)
+        self.assertTrue(billing.is_billing_sent)
+
+    def test_render_qweb_pdf_other_report_also_sets_is_billing_sent(self):
+        """Any report bound to account.billing sets the flag, not just the JP one."""
+        invoice = self._create_invoice(100, self.tax_10)
+        billing = self.env["account.billing"].create(
+            {
+                "partner_id": self.partner.id,
+                "bill_type": "out_invoice",
+                "billing_line_ids": [Command.create({"move_id": invoice.id})],
+            }
+        )
+        billing.with_company(self.company).validate_billing()
+        report = self.env.ref("account_billing.report_account_billing")
+        report._render_qweb_pdf(report.id, billing.ids)
+        self.assertTrue(billing.is_billing_sent)
+
+    def test_unlink_blocked_once_billing_sent(self):
+        invoice = self._create_invoice(100, self.tax_10)
+        billing = self.env["account.billing"].create(
+            {
+                "partner_id": self.partner.id,
+                "bill_type": "out_invoice",
+                "billing_line_ids": [Command.create({"move_id": invoice.id})],
+            }
+        )
+        billing.with_company(self.company).validate_billing()
+        billing.is_billing_sent = True
+        with self.assertRaises(UserError):
+            billing.unlink()
+        billing.action_cancel()
+        with self.assertRaises(UserError):
+            billing.unlink()
+        billing.action_cancel_draft()
+        with self.assertRaises(UserError):
+            billing.unlink()
+
+    def test_unlink_allowed_when_never_sent(self):
+        invoice = self._create_invoice(100, self.tax_10)
+        billing = self.env["account.billing"].create(
+            {
+                "partner_id": self.partner.id,
+                "bill_type": "out_invoice",
+                "billing_line_ids": [Command.create({"move_id": invoice.id})],
+            }
+        )
+        billing.with_company(self.company).validate_billing()
+        self.assertFalse(billing.is_billing_sent)
+        billing.unlink()
+        self.assertFalse(billing.exists())
 
     def test_is_not_for_billing(self):
         self.partner.is_not_for_billing = True
