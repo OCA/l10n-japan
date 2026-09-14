@@ -1,0 +1,46 @@
+# Copyright 2026 Takahiro SUNAGA <t.sunaga@takahii.co>
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+{
+    "name": "Connector freee Base",
+    "version": "18.0.1.0.0",
+    "category": "Connector",
+    "summary": "Base connector module for the freee Accounting API "
+    "(authentication, backend model, API client).",
+    "author": "Takahiro SUNAGA <t.sunaga@takahii.co>, Odoo Community Association (OCA)",
+    "maintainers": ["takahii03"],
+    "website": "https://github.com/OCA/l10n-japan",
+    "license": "AGPL-3",
+    "depends": [
+        "account",
+        "account_tax_rounding_method",
+        "analytic",
+        "product",
+        "mail",
+        "connector",
+        "queue_job",
+    ],
+    "external_dependencies": {
+        "python": ["cryptography", "requests"],
+    },
+    "data": [
+        "security/freee_security.xml",
+        "security/ir.model.access.csv",
+        "wizards/freee_company_fetch_wizard_views.xml",
+        "wizards/freee_account_item_fetch_wizard_views.xml",
+        "wizards/freee_tax_code_fetch_wizard_views.xml",
+        "wizards/freee_partner_fetch_wizard_views.xml",
+        "wizards/freee_item_fetch_wizard_views.xml",
+        "wizards/freee_section_fetch_wizard_views.xml",
+        "wizards/freee_walletable_fetch_wizard_views.xml",
+        "views/account_account_views.xml",
+        "views/account_journal_views.xml",
+        "views/account_tax_views.xml",
+        "views/account_analytic_account_views.xml",
+        "views/res_partner_views.xml",
+        "views/product_template_views.xml",
+        "views/freee_backend_views.xml",
+        "views/freee_menu.xml",
+    ],
+    "development_status": "Alpha",
+    "installable": True,
+}

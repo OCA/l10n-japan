@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Takahiro SUNAGA <t.sunaga@takahii.co>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_freee_company_fetch_wizard_form" model="ir.ui.view">
+        <field name="name">freee.company.fetch.wizard.form</field>
+        <field name="model">freee.company.fetch.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Select freee Company">
+                <field name="backend_id" invisible="1" />
+                <p class="text-muted">
+                    Companies returned by
+                    <code>GET /api/1/companies</code>. Click
+                    <em>Use this</em> on the row you want to bind to this
+                    backend.
+                </p>
+                <field name="line_ids" nolabel="1">
+                    <list create="false" delete="false">
+                        <field name="external_id" />
+                        <field name="display_name" />
+                        <field name="name" optional="hide" />
+                        <field name="name_kana" optional="hide" />
+                        <field name="role" />
+                        <button
+                            name="action_select"
+                            type="object"
+                            string="Use this"
+                            class="btn-primary"
+                            icon="fa-check"
+                        />
+                    </list>
+                </field>
+                <footer>
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

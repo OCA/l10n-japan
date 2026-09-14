@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_freee_backend_user,freee.backend user,model_freee_backend,group_freee_user,1,0,0,0
+access_freee_backend_admin,freee.backend admin,model_freee_backend,group_freee_admin,1,1,1,1
+access_freee_company_fetch_wizard_admin,freee.company.fetch.wizard admin,model_freee_company_fetch_wizard,group_freee_admin,1,1,1,1
+access_freee_company_fetch_wizard_line_admin,freee.company.fetch.wizard.line admin,model_freee_company_fetch_wizard_line,group_freee_admin,1,1,1,1
+access_freee_account_item_fetch_wizard_admin,freee.account.item.fetch.wizard admin,model_freee_account_item_fetch_wizard,group_freee_admin,1,1,1,1
+access_freee_account_item_fetch_wizard_line_admin,freee.account.item.fetch.wizard.line admin,model_freee_account_item_fetch_wizard_line,group_freee_admin,1,1,1,1
+access_freee_tax_code_fetch_wizard_admin,freee.tax.code.fetch.wizard admin,model_freee_tax_code_fetch_wizard,group_freee_admin,1,1,1,1
+access_freee_tax_code_fetch_wizard_line_admin,freee.tax.code.fetch.wizard.line admin,model_freee_tax_code_fetch_wizard_line,group_freee_admin,1,1,1,1
+access_freee_partner_fetch_wizard_admin,freee.partner.fetch.wizard admin,model_freee_partner_fetch_wizard,group_freee_admin,1,1,1,1
+access_freee_partner_fetch_wizard_line_admin,freee.partner.fetch.wizard.line admin,model_freee_partner_fetch_wizard_line,group_freee_admin,1,1,1,1
+access_freee_item_fetch_wizard_admin,freee.item.fetch.wizard admin,model_freee_item_fetch_wizard,group_freee_admin,1,1,1,1
+access_freee_item_fetch_wizard_line_admin,freee.item.fetch.wizard.line admin,model_freee_item_fetch_wizard_line,group_freee_admin,1,1,1,1
+access_freee_section_fetch_wizard_admin,freee.section.fetch.wizard admin,model_freee_section_fetch_wizard,group_freee_admin,1,1,1,1
+access_freee_section_fetch_wizard_line_admin,freee.section.fetch.wizard.line admin,model_freee_section_fetch_wizard_line,group_freee_admin,1,1,1,1
+access_freee_walletable_fetch_wizard_admin,freee.walletable.fetch.wizard admin,model_freee_walletable_fetch_wizard,group_freee_admin,1,1,1,1
+access_freee_walletable_fetch_wizard_line_admin,freee.walletable.fetch.wizard.line admin,model_freee_walletable_fetch_wizard_line,group_freee_admin,1,1,1,1

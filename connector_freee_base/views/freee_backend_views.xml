@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Takahiro SUNAGA <t.sunaga@takahii.co>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_freee_backend_form" model="ir.ui.view">
+        <field name="name">freee.backend.form</field>
+        <field name="model">freee.backend</field>
+        <field name="arch" type="xml">
+            <form string="freee Backend">
+                <header>
+                    <button
+                        name="action_authorize"
+                        type="object"
+                        string="Authorize with freee"
+                        class="oe_highlight"
+                        groups="connector_freee_base.group_freee_admin"
+                        invisible="state == 'authorized'"
+                    />
+                    <button
+                        name="action_test_connection"
+                        type="object"
+                        string="Test Connection"
+                        groups="connector_freee_base.group_freee_admin"
+                        invisible="state != 'authorized'"
+                    />
+                    <button
+                        name="action_fetch_companies"
+                        type="object"
+                        string="Fetch Company IDs"
+                        groups="connector_freee_base.group_freee_admin"
+                        invisible="state != 'authorized'"
+                        help="List companies your freee account can access and pick one to bind to this backend."
+                    />
+                    <button
+                        name="action_revoke"
+                        type="object"
+                        string="Revoke Tokens"
+                        confirm="This will clear stored tokens. Continue?"
+                        groups="connector_freee_base.group_freee_admin"
+                        invisible="state != 'authorized'"
+                    />
+                    <field
+                        name="state"
+                        widget="statusbar"
+                        statusbar_visible="draft,authorized"
+                    />
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" />
+                        <h1>
+                            <field name="name" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field
+                                name="company_id"
+                                groups="base.group_multi_company"
+                            />
+                            <field name="active" />
+                            <field name="external_company_id" readonly="1" />
+                            <field
+                                name="external_company_name"
+                                readonly="1"
+                                invisible="not external_company_name"
+                            />
+                            <field name="export_from_date" />
+                            <field name="lock_date" />
+                            <field name="request_timeout" />
+                            <field
+                                name="debug_log_request_payload"
+                                groups="base.group_no_one"
+                            />
+                        </group>
+                        <group>
+                            <field name="api_base_url" />
+                            <field name="oauth_base_url" />
+                            <field name="redirect_uri" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page
+                            string="Credentials"
+                            groups="connector_freee_base.group_freee_admin"
+                        >
+                            <group>
+                                <field name="client_id" />
+                                <field name="client_secret" password="1" />
+                                <field name="token_expires_at" readonly="1" />
+                            </group>
+                            <p class="text-muted">
+                                Register the
+                                <strong>Redirect URI</strong> shown above
+                                in the freee developer console, then click
+                                <em>Authorize with freee</em>.
+                            </p>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter />
+            </form>
+        </field>
+    </record>
+
+    <record id="view_freee_backend_tree" model="ir.ui.view">
+        <field name="name">freee.backend.list</field>
+        <field name="model">freee.backend</field>
+        <field name="arch" type="xml">
+            <list string="freee Backends">
+                <field name="name" />
+                <field name="company_id" groups="base.group_multi_company" />
+                <field name="external_company_name" />
+                <field name="external_company_id" optional="hide" />
+                <field
+                    name="state"
+                    decoration-success="state == 'authorized'"
+                    decoration-warning="state == 'draft'"
+                    decoration-danger="state == 'error'"
+                />
+            </list>
+        </field>
+    </record>
+
+    <record id="action_freee_backend" model="ir.actions.act_window">
+        <field name="name">freee Backends</field>
+        <field name="res_model">freee.backend</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

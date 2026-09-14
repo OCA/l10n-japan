@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Takahiro SUNAGA <t.sunaga@takahii.co>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_account_tax_form_freee" model="ir.ui.view">
+        <field name="name">account.tax.form.freee</field>
+        <field name="model">account.tax</field>
+        <field name="inherit_id" ref="account.view_tax_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page
+                    name="freee_mapping"
+                    string="freee Mapping"
+                    groups="connector_freee_base.group_freee_admin"
+                >
+                    <group>
+                        <field name="freee_tax_code" readonly="1" />
+                        <field name="freee_tax_name" readonly="1" />
+                        <div colspan="2">
+                            <button
+                                name="action_open_freee_tax_code_wizard"
+                                type="object"
+                                string="Pick from freee"
+                                class="btn-secondary"
+                                icon="fa-search"
+                            />
+                            <button
+                                name="action_clear_freee_tax_code"
+                                type="object"
+                                string="Clear mapping"
+                                class="btn-link"
+                                icon="fa-times"
+                                invisible="not freee_tax_code"
+                                confirm="Clear the freee tax code? Invoices using this tax will fail to export until a tax code is mapped again."
+                            />
+                        </div>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_tax_tree_freee" model="ir.ui.view">
+        <field name="name">account.tax.list.freee</field>
+        <field name="model">account.tax</field>
+        <field name="inherit_id" ref="account.view_tax_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="inside">
+                <field
+                    name="freee_tax_code"
+                    optional="hide"
+                    readonly="1"
+                    groups="connector_freee_base.group_freee_admin"
+                />
+                <field
+                    name="freee_tax_name"
+                    optional="hide"
+                    readonly="1"
+                    groups="connector_freee_base.group_freee_admin"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

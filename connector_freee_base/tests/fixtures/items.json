@@ -1,0 +1,31 @@
+{
+  "items": [
+    {
+      "id": 241425920,
+      "company_id": 12195334,
+      "name": "イラストデザイン",
+      "shortcut1": null,
+      "shortcut2": null,
+      "update_date": "2025-09-23",
+      "available": true
+    },
+    {
+      "id": 241425932,
+      "company_id": 12195334,
+      "name": "インターネット関連費",
+      "shortcut1": null,
+      "shortcut2": null,
+      "update_date": "2025-09-23",
+      "available": true
+    },
+    {
+      "id": 241425943,
+      "company_id": 12195334,
+      "name": "カード年会費",
+      "shortcut1": null,
+      "shortcut2": null,
+      "update_date": "2025-09-23",
+      "available": true
+    }
+  ]
+}

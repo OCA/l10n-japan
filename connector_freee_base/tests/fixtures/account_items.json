@@ -1,0 +1,80 @@
+{
+  "account_items": [
+    {
+      "id": 972197136,
+      "name": "その他有価証券評価差額金",
+      "tax_code": 2,
+      "shortcut": "SONOTAYU",
+      "shortcut_num": "570",
+      "account_category_id": 66,
+      "corresponding_income_name": "未収入金",
+      "corresponding_expense_name": "未払金",
+      "corresponding_income_id": 972197064,
+      "corresponding_expense_id": 972197106,
+      "group_name": "その他有価証券評価差額金",
+      "group_id": 857327919,
+      "default_tax_code": 2,
+      "account_category": "他有価証券評価差額金",
+      "categories": [
+        "負債及び純資産",
+        "純資産",
+        "評価・換算差額等",
+        "他有価証券評価差額金"
+      ],
+      "available": true,
+      "walletable_id": null,
+      "update_date": "2025-09-23"
+    },
+    {
+      "id": 972197219,
+      "name": "ソフトウェア",
+      "tax_code": 34,
+      "shortcut": "SOFUTO",
+      "shortcut_num": "225",
+      "account_category_id": 43,
+      "corresponding_income_name": "未収入金",
+      "corresponding_expense_name": "未払金",
+      "corresponding_income_id": 972197064,
+      "corresponding_expense_id": 972197106,
+      "group_name": "ソフトウェア",
+      "group_id": 857327922,
+      "default_tax_code": 136,
+      "account_category": "無形固定資産",
+      "categories": ["資産", "固定資産", "無形固定資産"],
+      "available": true,
+      "walletable_id": null,
+      "update_date": "2025-09-23"
+    },
+    {
+      "id": 972197181,
+      "name": "リース料",
+      "tax_code": 34,
+      "shortcut": "RI-SU",
+      "shortcut_num": "768",
+      "account_category_id": 93,
+      "corresponding_income_name": "未収収益",
+      "corresponding_expense_name": "未払金",
+      "corresponding_income_id": 972197062,
+      "corresponding_expense_id": 972197106,
+      "group_name": "リース料",
+      "group_id": 857327924,
+      "default_tax_code": 136,
+      "account_category": "販売管理費",
+      "categories": [
+        "負債及び純資産",
+        "純資産",
+        "株主資本",
+        "利益剰余金",
+        "その他利益剰余金",
+        "当期純損益金額",
+        "税引前当期純損益金額",
+        "経常損益金額",
+        "営業損益金額",
+        "販売管理費"
+      ],
+      "available": true,
+      "walletable_id": null,
+      "update_date": "2025-09-23"
+    }
+  ]
+}

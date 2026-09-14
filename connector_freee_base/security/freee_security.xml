@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Takahiro SUNAGA <t.sunaga@takahii.co>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="module_category_connector_freee" model="ir.module.category">
+        <field name="name">freee Connector</field>
+        <field name="sequence">90</field>
+    </record>
+
+    <record id="group_freee_user" model="res.groups">
+        <field name="name">freee User</field>
+        <field name="category_id" ref="module_category_connector_freee" />
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+    </record>
+
+    <record id="group_freee_admin" model="res.groups">
+        <field name="name">freee Administrator</field>
+        <field name="category_id" ref="module_category_connector_freee" />
+        <field name="implied_ids" eval="[(4, ref('group_freee_user'))]" />
+        <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+    </record>
+
+    <record id="freee_backend_company_rule" model="ir.rule">
+        <field name="name">freee Backend: multi-company</field>
+        <field name="model_id" ref="model_freee_backend" />
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+</odoo>
