@@ -52,8 +52,9 @@ class AccountBilling(models.Model):
     payment_amount = fields.Monetary(
         compute="_compute_carryover_amounts",
         store=True,
-        help="Net decrease of the receivables billed on the previous billing, i.e. "
-        "the previous billed amount less what still stands open of it.",
+        help="Net decrease of the receivables carried by the previous billing, i.e. "
+        "the previous billed amount less what still stands open across every "
+        "earlier billing in the same billing stream.",
     )
     carryover_amount = fields.Monetary(
         compute="_compute_carryover_amounts",
@@ -84,20 +85,37 @@ class AccountBilling(models.Model):
             ),
             ("bill_type", "=", self.bill_type),
             ("currency_id", "=", self.currency_id.id),
+            # Invoices with different recipient banks cannot share a billing (see
+            # account.move._get_partner_bank()), so billings that differ by
+            # remit-to bank are separate billing streams and must not carry each
+            # other's balances.
+            ("remit_to_bank_id", "=", self.remit_to_bank_id.id),
             ("state", "=", "billed"),
             ("date", "<", self.date or fields.Date.today()),
             ("id", "!=", self.id),
         ]
 
     @api.depends(
-        "partner_id", "bill_type", "currency_id", "date", "state", "company_id"
+        "partner_id",
+        "bill_type",
+        "currency_id",
+        "date",
+        "state",
+        "company_id",
+        "remit_to_bank_id",
     )
     def _compute_prev_billing_candidate_ids(self):
         for rec in self:
             rec.prev_billing_candidate_ids = self.search(rec._get_prev_billing_domain())
 
     @api.depends(
-        "partner_id", "bill_type", "currency_id", "date", "state", "company_id"
+        "partner_id",
+        "bill_type",
+        "currency_id",
+        "date",
+        "state",
+        "company_id",
+        "remit_to_bank_id",
     )
     def _compute_prev_billing_id(self):
         for rec in self:
@@ -143,10 +161,10 @@ class AccountBilling(models.Model):
             prev_billing = rec.prev_billing_id
             if prev_billing:
                 rec.prev_billed_amount = prev_billing.total_billed_amount
-                # The amount still outstanding is the residual of every previous
-                # billing in the chain, not just the immediately previous one: each
-                # invoice belongs to a single billing, so the unpaid amount carried
-                # over from older periods only lives on those earlier billings.
+                # Outstanding spans every earlier billing in the stream: an invoice
+                # belongs to one billing, so older unpaid amounts live there. Their
+                # residuals are absent from @api.depends (the candidate set is a
+                # search); the prev_billing_id.total_billed_amount chain retriggers.
                 prior_billings = rec.prev_billing_candidate_ids
                 outstanding = sum(
                     prior_billings.billing_line_ids.mapped("amount_residual")
