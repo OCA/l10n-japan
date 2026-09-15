@@ -398,11 +398,12 @@ Only for development or testing purpose, do not use in production.
 <ul class="simple">
 <li><a class="reference internal" href="#configuration" id="toc-entry-1">Configuration</a></li>
 <li><a class="reference internal" href="#usage" id="toc-entry-2">Usage</a></li>
-<li><a class="reference internal" href="#bug-tracker" id="toc-entry-3">Bug Tracker</a></li>
-<li><a class="reference internal" href="#credits" id="toc-entry-4">Credits</a><ul>
-<li><a class="reference internal" href="#authors" id="toc-entry-5">Authors</a></li>
-<li><a class="reference internal" href="#contributors" id="toc-entry-6">Contributors</a></li>
-<li><a class="reference internal" href="#maintainers" id="toc-entry-7">Maintainers</a></li>
+<li><a class="reference internal" href="#known-issues-roadmap" id="toc-entry-3">Known issues / Roadmap</a></li>
+<li><a class="reference internal" href="#bug-tracker" id="toc-entry-4">Bug Tracker</a></li>
+<li><a class="reference internal" href="#credits" id="toc-entry-5">Credits</a><ul>
+<li><a class="reference internal" href="#authors" id="toc-entry-6">Authors</a></li>
+<li><a class="reference internal" href="#contributors" id="toc-entry-7">Contributors</a></li>
+<li><a class="reference internal" href="#maintainers" id="toc-entry-8">Maintainers</a></li>
 </ul>
 </li>
 </ul>
@@ -449,8 +450,24 @@ ensures that subsequent payments on previous invoices do not affect
 the validated billing’s carryover amounts.</li>
 </ol>
 </div>
+<div class="section" id="known-issues-roadmap">
+<h2><a class="toc-backref" href="#toc-entry-3">Known issues / Roadmap</a></h2>
+<ul class="simple">
+<li><strong>Billings sharing customer, date and remit-to bank cannot be
+chained.</strong> Neither is the other's previous billing, yet both count
+toward the outstanding balance, so <strong>Payment Amount</strong> can report a
+payment that was never received, and can go negative. Reached by one
+invoice per site or department (rolled up by commercial partner), or
+a same-day catch-up run. Workaround: set the amounts with the
+<strong>Manual Adj.</strong> toggles before validating.</li>
+<li><strong>Previous Billing is not re-pointed when other billings change.</strong>
+Creating, back-dating or cancelling another billing leaves existing
+billings on a stale chain, understating their carryover. Validated
+billings are exempt by design.</li>
+</ul>
+</div>
 <div class="section" id="bug-tracker">
-<h2><a class="toc-backref" href="#toc-entry-3">Bug Tracker</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-4">Bug Tracker</a></h2>
 <p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/l10n-japan/issues">GitHub Issues</a>.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
@@ -458,15 +475,15 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 <p>Do not contact contributors directly about support or help with technical issues.</p>
 </div>
 <div class="section" id="credits">
-<h2><a class="toc-backref" href="#toc-entry-4">Credits</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-5">Credits</a></h2>
 <div class="section" id="authors">
-<h3><a class="toc-backref" href="#toc-entry-5">Authors</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-6">Authors</a></h3>
 <ul class="simple">
 <li>Quartile</li>
 </ul>
 </div>
 <div class="section" id="contributors">
-<h3><a class="toc-backref" href="#toc-entry-6">Contributors</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-7">Contributors</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="https://www.quartile.co">Quartile</a>:<ul>
 <li>Yoshi Tashiro</li>
@@ -476,7 +493,7 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 </ul>
 </div>
 <div class="section" id="maintainers">
-<h3><a class="toc-backref" href="#toc-entry-7">Maintainers</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-8">Maintainers</a></h3>
 <p>This module is maintained by the OCA.</p>
 <a class="reference external image-reference" href="https://odoo-community.org">
 <img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" />
