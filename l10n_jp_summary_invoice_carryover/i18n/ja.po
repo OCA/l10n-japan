@@ -95,6 +95,14 @@ msgid "Manual override for previous billed amount."
 msgstr "前回請求額の手入力値。"
 
 #. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model.fields,help:l10n_jp_summary_invoice_carryover.field_account_billing__payment_amount
+msgid ""
+"Net decrease of the receivables carried by the previous billing, i.e. the "
+"previous billed amount less what still stands open across every earlier "
+"billing in the same billing stream."
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
 #: model:ir.model.fields.selection,name:l10n_jp_summary_invoice_carryover.selection__res_partner__show_carryover_amounts__no
 msgid "No"
 msgstr "いいえ"
@@ -114,11 +122,6 @@ msgstr "入金額(手入力)"
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice_carryover.report_summary_invoice_document_carryover
 msgid "Payment Amt"
 msgstr "入金額"
-
-#. module: l10n_jp_summary_invoice_carryover
-#: model:ir.model.fields,help:l10n_jp_summary_invoice_carryover.field_account_billing__payment_amount
-msgid "Payments received on previous billing invoices."
-msgstr "前回請求書に対する入金額。"
 
 #. module: l10n_jp_summary_invoice_carryover
 #: model:ir.model.fields,field_description:l10n_jp_summary_invoice_carryover.field_account_billing__prev_billed_amount
@@ -202,11 +205,6 @@ msgid "Use Manual Previous Billed Amount"
 msgstr "前回請求額を手入力"
 
 #. module: l10n_jp_summary_invoice_carryover
-#: model:ir.model.fields,help:l10n_jp_summary_invoice_carryover.field_account_billing__show_carryover_amounts
-msgid "Whether to show carryover amounts in the summary invoice report."
-msgstr "合計請求書レポートに繰越額を表示するかどうか。"
-
-#. module: l10n_jp_summary_invoice_carryover
 #: model:ir.model.fields,help:l10n_jp_summary_invoice_carryover.field_res_partner__show_carryover_amounts
 #: model:ir.model.fields,help:l10n_jp_summary_invoice_carryover.field_res_users__show_carryover_amounts
 msgid ""
@@ -217,6 +215,20 @@ msgstr ""
 "合は、会社の設定が使用されます。"
 
 #. module: l10n_jp_summary_invoice_carryover
+#: model:ir.model.fields,help:l10n_jp_summary_invoice_carryover.field_account_billing__show_carryover_amounts
+msgid ""
+"Whether to show carryover amounts in the summary invoice report. Set from "
+"the partner, falling back to the company, when the billing is created; it "
+"can be adjusted per billing afterwards."
+msgstr ""
+
+#. module: l10n_jp_summary_invoice_carryover
 #: model:ir.model.fields.selection,name:l10n_jp_summary_invoice_carryover.selection__res_partner__show_carryover_amounts__yes
 msgid "Yes"
 msgstr "はい"
+
+#~ msgid "Payments received on previous billing invoices."
+#~ msgstr "前回請求書に対する入金額。"
+
+#~ msgid "Whether to show carryover amounts in the summary invoice report."
+#~ msgstr "合計請求書レポートに繰越額を表示するかどうか。"
