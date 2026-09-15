@@ -71,7 +71,10 @@ class AccountBilling(models.Model):
         compute="_compute_show_carryover_amounts",
         store=True,
         readonly=False,
-        help="Whether to show carryover amounts in the summary invoice report.",
+        precompute=True,
+        help="Whether to show carryover amounts in the summary invoice report. "
+        "Set from the partner, falling back to the company, when the billing is "
+        "created; it can be adjusted per billing afterwards.",
     )
 
     def _get_prev_billing_domain(self):
@@ -177,11 +180,14 @@ class AccountBilling(models.Model):
             rec.carryover_amount = prev_billed_amount - payment_amount
             rec.total_billed_amount = rec.carryover_amount + rec.amount_total
 
-    @api.depends(
-        "partner_id.commercial_partner_id.show_carryover_amounts",
-        "company_id.show_carryover_amounts",
-    )
+    @api.depends("partner_id", "company_id")
     def _compute_show_carryover_amounts(self):
+        """Resolve the partner setting, then the company one, at creation.
+
+        Deliberately keyed on the relations rather than on the settings they
+        carry: the value is a snapshot, so that a later partner- or
+        company-level change cannot discard a per-billing adjustment.
+        """
         for rec in self:
             partner = rec.partner_id.commercial_partner_id
             if partner.show_carryover_amounts == "yes":

@@ -11,6 +11,8 @@ levels:
     - *Yes*: Always show carryover amounts
     - *No*: Never show carryover amounts
 
-3.  **Billing** (per-billing override): In the billing form under the
-    *Carryover* tab, the **Show Carryover Amounts** checkbox is computed
-    from the partner setting but can be manually adjusted.
+3.  **Billing** (override for a single billing): In the billing form under
+    the *Carryover* tab, the **Show Carryover Amounts** checkbox is set from
+    the settings above when the billing is created, and can be adjusted
+    afterwards. Later changes to those settings apply to new billings only,
+    so a per-billing adjustment is never discarded.
