@@ -293,22 +293,32 @@ class TestSummaryInvoiceCarryover(TransactionCase):
         self.assertEqual(billing3.total_billed_amount, 5500)
 
     def test_show_carryover_amounts_company_default(self):
-        """With the partner on 'default', the company setting decides, and a change
-        of the company setting refreshes existing billings."""
+        """With the partner on 'default', the company setting decides at creation."""
         self.partner.show_carryover_amounts = "default"
-        billing = self._create_billing(1000)
-        self.assertTrue(billing.show_carryover_amounts)
+        self.assertTrue(self._create_billing(1000).show_carryover_amounts)
         self.company.show_carryover_amounts = False
-        self.assertFalse(billing.show_carryover_amounts)
+        self.assertFalse(self._create_billing(1000).show_carryover_amounts)
 
-    def test_show_carryover_amounts_partner_override(self):
-        """An explicit partner setting overrides the company default and refreshes
-        existing billings when it changes."""
-        billing = self._create_billing(1000)
+    def test_show_carryover_amounts_partner_setting(self):
+        """An explicit partner setting overrides the company default."""
+        self.company.show_carryover_amounts = True
         self.partner.show_carryover_amounts = "no"
-        self.assertFalse(billing.show_carryover_amounts)
+        self.assertFalse(self._create_billing(1000).show_carryover_amounts)
         self.partner.show_carryover_amounts = "yes"
+        self.company.show_carryover_amounts = False
+        self.assertTrue(self._create_billing(1000).show_carryover_amounts)
+
+    def test_show_carryover_amounts_is_a_snapshot(self):
+        """The value is taken at creation, so a per-billing adjustment is not
+        discarded by later partner or company changes."""
+        billing = self._create_billing(1000, date(2025, 1, 15), validate=True)
         self.assertTrue(billing.show_carryover_amounts)
+        billing.show_carryover_amounts = False
+        self.company.show_carryover_amounts = False
+        self.company.show_carryover_amounts = True
+        self.partner.show_carryover_amounts = "yes"
+        self.env.flush_all()
+        self.assertFalse(billing.show_carryover_amounts)
 
     def test_validate_billing_does_not_refreeze(self):
         """Re-validating an already-validated billing must keep the frozen manual
