@@ -74,9 +74,11 @@ three levels:
    -  *Yes*: Always show carryover amounts
    -  *No*: Never show carryover amounts
 
-3. **Billing** (per-billing override): In the billing form under the
-   *Carryover* tab, the **Show Carryover Amounts** checkbox is computed
-   from the partner setting but can be manually adjusted.
+3. **Billing** (override for a single billing): In the billing form
+   under the *Carryover* tab, the **Show Carryover Amounts** checkbox is
+   set from the settings above when the billing is created, and can be
+   adjusted afterwards. Later changes to those settings apply to new
+   billings only, so a per-billing adjustment is never discarded.
 
 Usage
 =====
@@ -98,6 +100,21 @@ Usage
    automatically frozen by enabling the manual override toggles. This
    ensures that subsequent payments on previous invoices do not affect
    the validated billing's carryover amounts.
+
+Known issues / Roadmap
+======================
+
+- **Billings sharing customer, date and remit-to bank cannot be
+  chained.** Neither is the other's previous billing, yet both count
+  toward the outstanding balance, so **Payment Amount** can report a
+  payment that was never received, and can go negative. Reached by one
+  invoice per site or department (rolled up by commercial partner), or a
+  same-day catch-up run. Workaround: set the amounts with the **Manual
+  Adj.** toggles before validating.
+- **Previous Billing is not re-pointed when other billings change.**
+  Creating, back-dating or cancelling another billing leaves existing
+  billings on a stale chain, understating their carryover. Validated
+  billings are exempt by design.
 
 Bug Tracker
 ===========
