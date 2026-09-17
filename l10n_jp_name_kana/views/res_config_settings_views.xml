@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Quartile
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.name.kana</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='contacts_settings']" position="after">
+                <block title="Japanese Kana Names" name="kana_name_settings">
+                    <setting
+                        id="kana_format"
+                        string="Kana Format"
+                        help="Format readings are stored in. Changing it applies to the readings saved from then on; the ones already stored keep the format they were saved in until they are saved again. A model given a format of its own under Technical &gt; System Parameters follows that one instead."
+                    >
+                        <field name="kana_format" />
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>
