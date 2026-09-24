@@ -1,0 +1,105 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_jp_kana
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-21 14:47+0000\n"
+"PO-Revision-Date: 2026-09-21 14:47+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_jp_kana
+#. odoo-python
+#: code:addons/l10n_jp_kana/models/kana_mixin.py:0
+msgid ""
+"%(format)s is not a valid kana format. Check the %(parameter)s system "
+"parameters; expected one of: %(supported)s."
+msgstr "%(format)s は有効なカナ形式ではありません。%(parameter)s システムパラメータを確認してください。指定可能な値: %(supported)s。"
+
+#. module: l10n_jp_kana
+#: model:ir.model,name:l10n_jp_kana.model_res_config_settings
+msgid "Config Settings"
+msgstr "構成設定"
+
+#. module: l10n_jp_kana
+#: model:ir.model.fields,field_description:l10n_jp_kana.field_ir_config_parameter__display_name
+#: model:ir.model.fields,field_description:l10n_jp_kana.field_kana_mixin__display_name
+#: model:ir.model.fields,field_description:l10n_jp_kana.field_name_kana_mixin__display_name
+#: model:ir.model.fields,field_description:l10n_jp_kana.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr "表示名"
+
+#. module: l10n_jp_kana
+#: model_terms:ir.ui.view,arch_db:l10n_jp_kana.res_config_settings_view_form
+msgid ""
+"Format readings are stored in. Changing it applies to the readings saved "
+"from then on; the ones already stored keep the format they were saved in "
+"until they are saved again. A model given a format of its own under "
+"Technical > System Parameters follows that one instead."
+msgstr "カナを保存する形式です。変更後に保存されるカナに適用され、すでに保存されているカナは、再度保存されるまで保存時の形式のままです。技術設定 > システムパラメータで独自の形式が設定されたモデルは、そちらに従います。"
+
+#. module: l10n_jp_kana
+#: model:ir.model.fields.selection,name:l10n_jp_kana.selection__res_config_settings__kana_format__full_width_katakana
+msgid "Full-width Katakana"
+msgstr "全角カタカナ"
+
+#. module: l10n_jp_kana
+#: model:ir.model.fields.selection,name:l10n_jp_kana.selection__res_config_settings__kana_format__half_width_katakana
+msgid "Half-width Katakana"
+msgstr "半角カタカナ"
+
+#. module: l10n_jp_kana
+#: model:ir.model.fields.selection,name:l10n_jp_kana.selection__res_config_settings__kana_format__hiragana
+msgid "Hiragana"
+msgstr "ひらがな"
+
+#. module: l10n_jp_kana
+#: model:ir.model.fields,field_description:l10n_jp_kana.field_ir_config_parameter__id
+#: model:ir.model.fields,field_description:l10n_jp_kana.field_kana_mixin__id
+#: model:ir.model.fields,field_description:l10n_jp_kana.field_name_kana_mixin__id
+#: model:ir.model.fields,field_description:l10n_jp_kana.field_res_config_settings__id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_jp_kana
+#: model_terms:ir.ui.view,arch_db:l10n_jp_kana.res_config_settings_view_form
+msgid "Japanese Kana"
+msgstr "日本語カナ"
+
+#. module: l10n_jp_kana
+#: model:ir.model.fields,field_description:l10n_jp_kana.field_res_config_settings__kana_format
+#: model_terms:ir.ui.view,arch_db:l10n_jp_kana.res_config_settings_view_form
+msgid "Kana Format"
+msgstr "カナ形式"
+
+#. module: l10n_jp_kana
+#: model:ir.model,name:l10n_jp_kana.model_kana_mixin
+msgid "Kana Mixin"
+msgstr "カナミクシン"
+
+#. module: l10n_jp_kana
+#: model:ir.model,name:l10n_jp_kana.model_name_kana_mixin
+msgid "Kana Name Mixin"
+msgstr "カナ名称ミクシン"
+
+#. module: l10n_jp_kana
+#: model:ir.model.fields,field_description:l10n_jp_kana.field_name_kana_mixin__name_kana
+msgid "Name (Kana)"
+msgstr "フリガナ"
+
+#. module: l10n_jp_kana
+#: model:ir.model.fields,field_description:l10n_jp_kana.field_name_kana_mixin__name_kana_search
+msgid "Name (Kana) Search"
+msgstr "フリガナ検索"
+
+#. module: l10n_jp_kana
+#: model:ir.model,name:l10n_jp_kana.model_ir_config_parameter
+msgid "System Parameter"
+msgstr "システムパラメタ"
