@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 =====================
 Japan Summary Invoice
 =====================
@@ -17,7 +13,7 @@ Japan Summary Invoice
 .. |badge1| image:: https://img.shields.io/badge/maturity-Alpha-red.png
     :target: https://odoo-community.org/page/development-status
     :alt: Alpha
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fl10n--japan-lightgray.png?logo=github
@@ -91,6 +87,12 @@ Usage
    the summary of the tax amounts in the selected invoices.
 3. Print the summary invoice report (合計請求書) from *Print > JP
    Summary Invoice* of the billing.
+4. Once a validated summary invoice has been printed or sent at least
+   once, the **Printed/Sent** field is checked automatically, and trying
+   to delete the billing raises an error, so that its sequence number is
+   never orphaned from accounting reports. Cancel it instead if it is no
+   longer valid. If you still need to delete it, uncheck the
+   **Printed/Sent** field manually first.
 
 Bug Tracker
 ===========

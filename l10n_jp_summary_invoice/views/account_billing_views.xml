@@ -53,6 +53,7 @@
                 <field name="company_partner_id" invisible="1" />
                 <field name="remit_to_bank_id" invisible="bill_type != 'out_invoice'" />
                 <field name="report_subtitle" />
+                <field name="is_billing_sent" />
             </xpath>
             <xpath expr="//field[@name='date']" position="after">
                 <field name="date_due" invisible="bill_type != 'out_invoice'" />
