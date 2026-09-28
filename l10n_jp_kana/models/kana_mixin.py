@@ -6,7 +6,7 @@ from collections.abc import Set as AbstractSet
 
 import jaconv
 
-from odoo import api, models
+from odoo import api, models, tools
 from odoo.exceptions import UserError
 
 DEFAULT_KANA_FORMAT = "full_width_katakana"
@@ -34,34 +34,46 @@ class KanaMixin(models.AbstractModel):
 
     @api.model_create_multi
     def create(self, vals_list):
-        kana_fields = self._get_kana_fields()
-        normalized_vals_list = []
-        for vals in vals_list:
-            vals = dict(vals)
-            for field_name in kana_fields:
-                if field_name in vals:
-                    vals[field_name] = self._normalize_name_kana_write_value(
-                        vals[field_name]
-                    )
-            normalized_vals_list.append(vals)
-        return super().create(normalized_vals_list)
+        return super().create([self._normalize_kana_vals(vals) for vals in vals_list])
 
     def write(self, vals):
-        kana_fields = [name for name in self._get_kana_fields() if name in vals]
-        if kana_fields:
-            vals = dict(vals)
-            for field_name in kana_fields:
-                vals[field_name] = self._normalize_name_kana_write_value(
-                    vals[field_name]
-                )
-        return super().write(vals)
+        return super().write(self._normalize_kana_vals(vals))
 
+    def _normalize_kana_vals(self, vals):
+        kana_fields = self._get_kana_fields()
+        to_normalize = [name for name in kana_fields if name in vals]
+        if not to_normalize:
+            return vals
+        vals = dict(vals)
+        for field_name in to_normalize:
+            owner = self.env[kana_fields[field_name]]
+            vals[field_name] = owner._normalize_name_kana_write_value(vals[field_name])
+        return vals
+
+    def _normalize_kana_field(self, field_name):
+        """Normalize one field in place; intended to be called from the model's
+        @api.onchange.
+        """
+        owner = self.env[self._get_kana_fields()[field_name]]
+        for record in self:
+            record[field_name] = owner._normalize_name_kana_write_value(
+                record[field_name]
+            )
+
+    @api.model
+    @tools.ormcache()
     def _get_kana_fields(self):
-        return [
-            name
-            for name, field in self._fields.items()
-            if getattr(field, "kana", False)
-        ]
+        """The fields to normalize, each mapped to the model that stores it.
+
+        An inherited field (e.g. name_kana on product.product) uses the format of
+        the parent model (product.template), since the value is stored there.
+        """
+        kana_fields = {}
+        for name, field in self._fields.items():
+            source = field.inherited_field if field.inherited else field
+            if getattr(source, "kana", False):
+                kana_fields[name] = source.model_name
+        return kana_fields
 
     @api.model
     def _get_kana_format(self):
