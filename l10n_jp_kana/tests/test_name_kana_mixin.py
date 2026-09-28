@@ -56,7 +56,10 @@ class TestNameKanaMixin(KanaCase):
         """kana.mixin can be taken on its own, with the consumer declaring the
         Char fields it wants normalized (see USAGE).
         """
-        self.assertEqual(self.alias_model._get_kana_fields(), ["alias_kana"])
+        self.assertEqual(
+            self.alias_model._get_kana_fields(),
+            {"alias_kana": self.alias_model._name},
+        )
         record = self.alias_model.create({"name": "Record", "alias_kana": "ﾔﾏﾀﾞ"})
         self.assertEqual(record.alias_kana, "ヤマダ")
         record.alias_kana = "すずき"

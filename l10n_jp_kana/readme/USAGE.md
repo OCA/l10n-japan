@@ -18,6 +18,11 @@ For a reading of something other than the name -- an address, say -- inherit
 normalized on create and write like a name reading; add an `onchange` on them
 if the form should show the stored form before saving.
 
+On a model that delegates to another one (`_inherits`, as a product variant
+does to its template), inherit `kana.mixin` there as well. The reading is
+stored on the parent, and the child would otherwise keep the value as it was
+typed until the record is read from the database again.
+
 `name.kana.mixin` needs `kana.mixin` beside it, which is where the
 normalization lives. Neither derives from the other, so a module extending
 `kana.mixin` reaches every model that took it.
