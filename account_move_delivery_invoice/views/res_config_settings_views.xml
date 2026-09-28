@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_invoice_config_settings" model="ir.ui.view">
+        <field name="name">res.config.settings</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//setting[@id='show_sale_receipts']" position="after">
+                <setting
+                    id="invoice_report_titles"
+                    company_dependent="1"
+                    string="Invoice Report (PDF) Titles"
+                    help="Configure custom titles for invoice-related PDF reports. If left blank, default titles will be used."
+                >
+                    <div class="text-muted">Invoice Report Title</div>
+                    <field name="invoice_report_title" />
+                    <div class="text-muted">Credit Note Report Title</div>
+                    <field name="invoice_report_credit_note_title" />
+                    <div class="text-muted">Delivery Note Report Title</div>
+                    <field name="invoice_report_delivery_note_title" />
+                    <div class="text-muted">Return Slip Report Title</div>
+                    <field name="invoice_report_return_slip_title" />
+                </setting>
+                <setting
+                    id="use_delivery_note_narration"
+                    company_dependent="1"
+                    string="Delivery Note Comment"
+                    help="Enable delivery note comment field on customer invoices and credit notes."
+                >
+                    <field name="use_delivery_note_narration" />
+                </setting>
+                <setting
+                    id="hide_narration_on_delivery_note"
+                    company_dependent="1"
+                    string="Hide Narration on Delivery Note"
+                    help="Hide the standard invoice narration (terms and conditions) on delivery note and return slip reports."
+                >
+                    <field name="hide_narration_on_delivery_note" />
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>
