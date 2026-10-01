@@ -42,8 +42,7 @@ class NameKanaMixin(models.AbstractModel):
 
     @api.onchange("name_kana")
     def _onchange_name_kana(self):
-        for record in self:
-            record.name_kana = self._normalize_name_kana_write_value(record.name_kana)
+        self._normalize_kana_field("name_kana")
 
     @api.model
     def _search_display_name(self, operator, value):
