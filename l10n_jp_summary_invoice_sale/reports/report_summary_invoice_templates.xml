@@ -1,0 +1,46 @@
+<odoo>
+    <template
+        id="bill_line_section_layout_sale"
+        inherit_id="l10n_jp_summary_invoice.bill_line_section_layout"
+    >
+        <xpath expr="//t[@t-set='invoice_lines']" position="after">
+            <t
+                t-set="show_order_number"
+                t-value="o.company_id.show_sale_order_number and any(invoice_lines.mapped('sale_line_ids.order_id'))"
+            />
+            <t
+                t-set="show_reference"
+                t-value="o.company_id.show_sale_order_reference and any(invoice_lines.mapped('sale_line_ids.order_id.client_order_ref'))"
+            />
+        </xpath>
+        <xpath expr="//t[@t-set='line_columns']" position="after">
+            <t
+                t-set="line_columns"
+                t-value="line_columns + int(show_order_number) + int(show_reference)"
+            />
+        </xpath>
+        <xpath expr="//thead/tr/th[@name='th_description']" position="before">
+            <th
+                t-if="show_order_number"
+                name="th_order_num"
+                class="text-start"
+            >Order No.</th>
+            <th
+                t-if="show_reference"
+                name="th_order_ref"
+                class="text-start"
+            >Reference</th>
+        </xpath>
+        <xpath expr="//t[@name='invoice_line']/tr" position="before">
+            <t t-set="order" t-value="line.sale_line_ids.order_id" />
+        </xpath>
+        <xpath expr="//tbody//tr/td[@name='td_description']" position="before">
+            <td t-if="show_order_number" name="td_order_num">
+                <span t-esc="order.name" />
+            </td>
+            <td t-if="show_reference" name="td_order_ref">
+                <span t-esc="order.client_order_ref" />
+            </td>
+        </xpath>
+    </template>
+</odoo>

@@ -12,11 +12,6 @@ class ResCompany(models.Model):
         default="下記の通り御請求申し上げます。",
         help="Content here will be displayed in the summary invoice report.",
     )
-    show_sale_order_number = fields.Boolean(
-        "Show Sales Order Number",
-        help="If enabled, the sales order number will be displayed in the summary "
-        "invoice report lines.",
-    )
     show_invoice_narration = fields.Boolean(
         default=True,
         help="If enabled, the invoice narration will be displayed in the summary "
