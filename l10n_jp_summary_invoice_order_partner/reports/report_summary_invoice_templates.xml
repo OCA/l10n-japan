@@ -1,0 +1,24 @@
+<odoo>
+    <template
+        id="bill_line_section_layout_inherit"
+        inherit_id="l10n_jp_summary_invoice.bill_line_section_layout"
+    >
+        <xpath
+            expr="//td[@name='td_invoice_reference']//span[@t-field='invoice.name']"
+            position="after"
+        >
+            <t t-if="o.company_id.show_order_partner and invoice.order_partner_id">
+                <br />
+                <strong>Sold-to:</strong>
+                <span t-field="invoice.order_partner_id" />
+            </t>
+            <t
+                t-if="o.company_id.show_order_shipping_partner and invoice.partner_shipping_id"
+            >
+                <br />
+                <strong>Shipping Address:</strong>
+                <span t-field="invoice.partner_shipping_id" />
+            </t>
+        </xpath>
+    </template>
+</odoo>
