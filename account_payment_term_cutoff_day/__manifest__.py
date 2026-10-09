@@ -4,7 +4,7 @@
 {
     "name": "Account Payment Term Cutoff Day",
     "summary": "支払条件に締日の概念を追加",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "depends": ["account"],
     "author": "Quartile, Odoo Community Association (OCA)",
     "license": "AGPL-3",
