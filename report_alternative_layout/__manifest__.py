@@ -3,7 +3,7 @@
 {
     "name": "Report Alternative Layout",
     "summary": "対外帳票に日本用の代替レイアウトを適用",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Reporting",
     "license": "AGPL-3",
     "author": "Quartile, Odoo Community Association (OCA)",

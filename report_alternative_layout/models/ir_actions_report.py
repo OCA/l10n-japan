@@ -38,11 +38,11 @@ class Report(models.Model):
 
     def _render_qweb_pdf(self, report_ref, res_ids=None, data=None):
         report = self._get_report(report_ref)
-        self = self.with_context(
+        report_model = self.with_context(
             apply_alternative_layout=report.paperformat_id.apply_alternative_layout,
             show_address_in_header=report.paperformat_id.show_address_in_header,
         )
-        return super()._render_qweb_pdf(report_ref, res_ids, data)
+        return super(Report, report_model)._render_qweb_pdf(report_ref, res_ids, data)
 
     def _get_report_partner(self, record):
         self.ensure_one()
