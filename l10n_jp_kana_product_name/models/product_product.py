@@ -7,7 +7,7 @@ from odoo.fields import Domain
 
 class ProductProduct(models.Model):
     _name = "product.product"
-    _inherit = ["product.product", "kana.mixin"]
+    _inherit = ("product.product", "kana.mixin")
 
     @api.onchange("name_kana")
     def _onchange_name_kana(self):
