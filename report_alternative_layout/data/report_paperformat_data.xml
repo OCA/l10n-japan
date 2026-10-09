@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo noupdate="1">
     <record id="report_paperformat_a4_alt" model="report.paperformat">
         <field name="name">A4 alt.: no addresses in header</field>

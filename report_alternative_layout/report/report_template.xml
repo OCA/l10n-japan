@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <template id="report_custom_address_layout">
         <div class="pt-1">
@@ -6,7 +6,7 @@
             <div class="row" name="address_layout">
                 <div class="col-7" name="partner_address">
                     <div
-                        t-esc="report_partner"
+                        t-out="report_partner"
                         t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": true}'
                     />
                 </div>
@@ -14,16 +14,16 @@
                     <ul class="list-unstyled">
                         <li t-if="company.is_company_details_empty">
                             <t
-                                t-esc="company.partner_id"
+                                t-out="company.partner_id"
                                 t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'
                             />
                         </li>
                         <li t-else="">
-                            <t t-esc="company.company_details" />
+                            <t t-out="company.company_details" />
                         </li>
                         <li t-if="forced_vat">
-                            <t t-esc="company.country_id.vat_label or 'Tax ID'" />:
-                            <span t-esc="forced_vat" />
+                            <t t-out="company.country_id.vat_label or 'Tax ID'" />:
+                            <span t-out="forced_vat" />
                         </li>
                     </ul>
                 </div>
@@ -58,7 +58,7 @@
                     </t>
                     <!-- Display the document number in header -->
                     <t t-if="report and report.show_document_number">
-                        <div class="col text-end" t-if="o.name">
+                        <div t-if="o.name" class="col text-end">
                             <strong>
                                 Document No:
                                 <span t-field="o.name" />
@@ -70,9 +70,9 @@
                         <t t-set="date_value" t-value="report._get_date_value(o)" />
                         <t t-if="date_value">
                             <div class="col text-end">
-                                <span t-esc="report._get_date_field_label()" />:<span
+                                <span t-out="report._get_date_field_label()" />:<span
                             >&#xa0;</span>
-                                <span t-esc="date_value" />
+                                <span t-out="date_value" />
                             </div>
                         </t>
                     </t>
@@ -112,7 +112,7 @@
                             <t t-out="information_block" />
                         </div>
                     </div>
-                    <div name="remit_to_bank" t-if="remit_to_bank" class="mt-3 col-5">
+                    <div t-if="remit_to_bank" class="mt-3 col-5" name="remit_to_bank">
                         <strong>Remit-to:</strong>
                         <ul class="list-unstyled">
                             <li>
