@@ -13,7 +13,7 @@ class KanaTestRecord(models.Model):
 
     _name = "kana.test.record"
     _description = "Kana Test Record"
-    _inherit = ["kana.mixin", "name.kana.mixin"]
+    _inherit = ("kana.mixin", "name.kana.mixin")
 
     name = fields.Char(required=True)
 
@@ -26,7 +26,7 @@ class KanaTestAlias(models.Model):
 
     _name = "kana.test.alias"
     _description = "Kana Test Alias"
-    _inherit = ["kana.mixin"]
+    _inherit = ("kana.mixin",)
 
     name = fields.Char(required=True)
     alias_kana = fields.Char(kana=True)

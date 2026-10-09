@@ -90,4 +90,4 @@ class TestKanaMixin(KanaCase):
         settings = self.env["res.config.settings"].create({})
         settings.kana_format = "hiragana"
         settings.set_values()
-        self.assertEqual(self.param.get_param(KANA_FORMAT_PARAM), "hiragana")
+        self.assertEqual(self.param.get_str(KANA_FORMAT_PARAM), "hiragana")

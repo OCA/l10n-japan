@@ -6,7 +6,7 @@ from collections.abc import Set as AbstractSet
 
 import jaconv
 
-from odoo import api, models, tools
+from odoo import api, models
 from odoo.exceptions import UserError
 
 DEFAULT_KANA_FORMAT = "full_width_katakana"
@@ -61,7 +61,7 @@ class KanaMixin(models.AbstractModel):
             )
 
     @api.model
-    @tools.ormcache()
+    @api.ormcache()
     def _get_kana_fields(self):
         """The fields to normalize, each mapped to the model that stores it.
 
@@ -82,10 +82,10 @@ class KanaMixin(models.AbstractModel):
         System parameters, not company fields: partner and product rows are
         shared between companies.
         """
-        get_param = self.env["ir.config_parameter"].sudo().get_param
+        get_str = self.env["ir.config_parameter"].sudo().get_str
         return (
-            get_param(f"{KANA_FORMAT_PARAM}.{self._name}")
-            or get_param(KANA_FORMAT_PARAM)
+            get_str(f"{KANA_FORMAT_PARAM}.{self._name}")
+            or get_str(KANA_FORMAT_PARAM)
             or DEFAULT_KANA_FORMAT
         )
 

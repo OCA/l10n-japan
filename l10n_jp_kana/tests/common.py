@@ -29,4 +29,4 @@ class KanaCase(TransactionCase):
 
     def _set_format(self, value, model=None):
         key = f"{KANA_FORMAT_PARAM}.{model}" if model else KANA_FORMAT_PARAM
-        self.param.set_param(key, value)
+        self.param.set_str(key, value)

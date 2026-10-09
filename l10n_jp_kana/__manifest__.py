@@ -4,7 +4,7 @@
 {
     "name": "Japanese Kana",
     "summary": "Normalized kana readings for any model, and their format setting",
-    "version": "19.0.1.0.1",
+    "version": "20.0.1.0.0",
     "category": "Localization/Japan",
     "author": "Quartile, Odoo Community Association (OCA)",
     "maintainers": ["AungKoKoLin1997"],
