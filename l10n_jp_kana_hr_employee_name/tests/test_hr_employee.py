@@ -41,8 +41,8 @@ class TestHrEmployeeNameKana(TransactionCase):
                     self.assertIn(employee.id, found.ids)
 
     def test_public_employee_follows_the_employee_format(self):
-        self.param.set_param(KANA_FORMAT_PARAM, "full_width_katakana")
-        self.param.set_param(f"{KANA_FORMAT_PARAM}.hr.employee", "hiragana")
+        self.param.set_str(KANA_FORMAT_PARAM, "full_width_katakana")
+        self.param.set_str(f"{KANA_FORMAT_PARAM}.hr.employee", "hiragana")
         employee = self.employee_model.create(
             {"name": "Hiragana Employee", "name_kana": "ﾔﾏﾀﾞ ﾀﾛｳ"}
         )

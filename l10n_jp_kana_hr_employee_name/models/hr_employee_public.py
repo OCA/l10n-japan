@@ -6,7 +6,7 @@ from odoo import api, fields, models
 
 class HrEmployeePublic(models.Model):
     _name = "hr.employee.public"
-    _inherit = ["hr.employee.public", "kana.mixin", "name.kana.mixin"]
+    _inherit = ("hr.employee.public", "kana.mixin", "name.kana.mixin")
 
     # Readonly like the other fields this SQL view takes from hr.employee.
     name_kana = fields.Char(readonly=True)
