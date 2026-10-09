@@ -68,13 +68,15 @@ class TestKanaMixin(KanaCase):
         self.assertEqual(kana_param.value, "romaji")
 
     def test_unsupported_format_is_not_converted(self):
-        with patch.object(
-            self.env.registry["kana.mixin"],
-            "_get_kana_format",
-            return_value="romaji",
+        with (
+            patch.object(
+                self.env.registry["kana.mixin"],
+                "_get_kana_format",
+                return_value="romaji",
+            ),
+            self.assertRaises(UserError),
         ):
-            with self.assertRaises(UserError):
-                self.mixin._normalize_name_kana("ﾔﾏﾀﾞ")
+            self.mixin._normalize_name_kana("ﾔﾏﾀﾞ")
 
     def test_the_two_callers_treat_a_blank_differently(self):
         for value in ("   ", "　", "", False):
