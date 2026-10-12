@@ -1,0 +1,145 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_move_delivery_invoice
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_move_delivery_invoice
+#: model:ir.actions.report,print_report_name:account_move_delivery_invoice.report_delivery_note
+msgid ""
+"'Delivery Note-%s%s' % (object.name, object.state == 'draft' and '-draft' or"
+" '')"
+msgstr ""
+
+#. module: account_move_delivery_invoice
+#: model:ir.model,name:account_move_delivery_invoice.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: account_move_delivery_invoice
+#: model:ir.model,name:account_move_delivery_invoice.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: account_move_delivery_invoice
+#: model_terms:ir.ui.view,arch_db:account_move_delivery_invoice.view_invoice_config_settings
+msgid ""
+"Configure custom titles for invoice-related PDF reports. If left blank, "
+"default titles will be used."
+msgstr ""
+
+#. module: account_move_delivery_invoice
+#: model_terms:ir.ui.view,arch_db:account_move_delivery_invoice.view_invoice_config_settings
+msgid "Credit Note Report Title"
+msgstr ""
+
+#. module: account_move_delivery_invoice
+#. odoo-python
+#: code:addons/account_move_delivery_invoice/models/res_company.py:0
+msgid "Delivery Note"
+msgstr ""
+
+#. module: account_move_delivery_invoice
+#: model:ir.model.fields,field_description:account_move_delivery_invoice.field_account_bank_statement_line__delivery_note_narration
+#: model:ir.model.fields,field_description:account_move_delivery_invoice.field_account_move__delivery_note_narration
+#: model_terms:ir.ui.view,arch_db:account_move_delivery_invoice.view_invoice_config_settings
+#: model_terms:ir.ui.view,arch_db:account_move_delivery_invoice.view_move_form
+msgid "Delivery Note Comment"
+msgstr ""
+
+#. module: account_move_delivery_invoice
+#: model:ir.actions.report,name:account_move_delivery_invoice.report_delivery_note
+msgid "Delivery Note PDF"
+msgstr ""
+
+#. module: account_move_delivery_invoice
+#: model_terms:ir.ui.view,arch_db:account_move_delivery_invoice.view_invoice_config_settings
+msgid "Delivery Note Report Title"
+msgstr ""
+
+#. module: account_move_delivery_invoice
+#: model_terms:ir.ui.view,arch_db:account_move_delivery_invoice.view_invoice_config_settings
+msgid ""
+"Enable delivery note comment field on customer invoices and credit notes."
+msgstr ""
+
+#. module: account_move_delivery_invoice
+#: model:ir.model.fields,field_description:account_move_delivery_invoice.field_res_company__hide_narration_on_delivery_note
+#: model:ir.model.fields,field_description:account_move_delivery_invoice.field_res_config_settings__hide_narration_on_delivery_note
+#: model_terms:ir.ui.view,arch_db:account_move_delivery_invoice.view_invoice_config_settings
+msgid "Hide Narration on Delivery Note"
+msgstr ""
+
+#. module: account_move_delivery_invoice
+#: model_terms:ir.ui.view,arch_db:account_move_delivery_invoice.view_invoice_config_settings
+msgid ""
+"Hide the standard invoice narration (terms and conditions) on delivery note "
+"and return slip reports."
+msgstr ""
+
+#. module: account_move_delivery_invoice
+#: model_terms:ir.ui.view,arch_db:account_move_delivery_invoice.view_invoice_config_settings
+msgid "Invoice Report (PDF) Titles"
+msgstr ""
+
+#. module: account_move_delivery_invoice
+#: model:ir.model.fields,field_description:account_move_delivery_invoice.field_res_company__invoice_report_credit_note_title
+#: model:ir.model.fields,field_description:account_move_delivery_invoice.field_res_config_settings__invoice_report_credit_note_title
+msgid "Invoice Report Credit Note Title"
+msgstr ""
+
+#. module: account_move_delivery_invoice
+#: model:ir.model.fields,field_description:account_move_delivery_invoice.field_res_company__invoice_report_delivery_note_title
+#: model:ir.model.fields,field_description:account_move_delivery_invoice.field_res_config_settings__invoice_report_delivery_note_title
+msgid "Invoice Report Delivery Note Title"
+msgstr ""
+
+#. module: account_move_delivery_invoice
+#: model:ir.model.fields,field_description:account_move_delivery_invoice.field_res_company__invoice_report_return_slip_title
+#: model:ir.model.fields,field_description:account_move_delivery_invoice.field_res_config_settings__invoice_report_return_slip_title
+msgid "Invoice Report Return Slip Title"
+msgstr ""
+
+#. module: account_move_delivery_invoice
+#: model:ir.model.fields,field_description:account_move_delivery_invoice.field_res_company__invoice_report_title
+#: model:ir.model.fields,field_description:account_move_delivery_invoice.field_res_config_settings__invoice_report_title
+#: model_terms:ir.ui.view,arch_db:account_move_delivery_invoice.view_invoice_config_settings
+msgid "Invoice Report Title"
+msgstr ""
+
+#. module: account_move_delivery_invoice
+#: model:ir.model,name:account_move_delivery_invoice.model_account_move
+msgid "Journal Entry"
+msgstr ""
+
+#. module: account_move_delivery_invoice
+#. odoo-python
+#: code:addons/account_move_delivery_invoice/models/res_company.py:0
+msgid "Return Slip"
+msgstr ""
+
+#. module: account_move_delivery_invoice
+#: model_terms:ir.ui.view,arch_db:account_move_delivery_invoice.view_invoice_config_settings
+msgid "Return Slip Report Title"
+msgstr ""
+
+#. module: account_move_delivery_invoice
+#: model:ir.model.fields,field_description:account_move_delivery_invoice.field_account_bank_statement_line__show_delivery_note_narration
+#: model:ir.model.fields,field_description:account_move_delivery_invoice.field_account_move__show_delivery_note_narration
+msgid "Show Delivery Note Narration"
+msgstr ""
+
+#. module: account_move_delivery_invoice
+#: model:ir.model.fields,field_description:account_move_delivery_invoice.field_res_company__use_delivery_note_narration
+#: model:ir.model.fields,field_description:account_move_delivery_invoice.field_res_config_settings__use_delivery_note_narration
+msgid "Use Delivery Note Comment"
+msgstr ""
