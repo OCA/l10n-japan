@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Takahiro SUNAGA <t.sunaga@takahii.co>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_res_partner_form_freee" model="ir.ui.view">
+        <field name="name">res.partner.form.freee</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page
+                    name="freee_mapping"
+                    string="freee Mapping"
+                    groups="connector_freee_base.group_freee_admin"
+                >
+                    <group>
+                        <field name="freee_partner_id" readonly="1" />
+                        <field name="freee_partner_code" readonly="1" />
+                        <field name="freee_partner_name" readonly="1" />
+                        <div colspan="2">
+                            <button
+                                name="action_open_freee_partner_wizard"
+                                type="object"
+                                string="Pick from freee"
+                                class="btn-secondary"
+                                icon="fa-search"
+                            />
+                            <button
+                                name="action_clear_freee_partner"
+                                type="object"
+                                string="Clear mapping"
+                                class="btn-link"
+                                icon="fa-times"
+                                invisible="not freee_partner_id and not freee_partner_code"
+                                confirm="Clear the freee partner mapping? Invoices for this partner will FAIL to export until a freee partner is mapped again — the connector refuses to create freee deals without a partner."
+                            />
+                        </div>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_partner_tree_freee" model="ir.ui.view">
+        <field name="name">res.partner.list.freee</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="inside">
+                <field
+                    name="freee_partner_id"
+                    optional="hide"
+                    readonly="1"
+                    groups="connector_freee_base.group_freee_admin"
+                />
+                <field
+                    name="freee_partner_code"
+                    optional="hide"
+                    readonly="1"
+                    groups="connector_freee_base.group_freee_admin"
+                />
+                <field
+                    name="freee_partner_name"
+                    optional="hide"
+                    readonly="1"
+                    groups="connector_freee_base.group_freee_admin"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

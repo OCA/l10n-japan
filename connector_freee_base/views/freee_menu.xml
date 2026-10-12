@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Takahiro SUNAGA <t.sunaga@takahii.co>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <menuitem
+        id="menu_freee_root"
+        name="freee"
+        parent="connector.menu_connector_root"
+        sequence="50"
+        groups="connector_freee_base.group_freee_user"
+    />
+
+    <menuitem
+        id="menu_freee_backend"
+        name="Backends"
+        parent="menu_freee_root"
+        action="action_freee_backend"
+        sequence="10"
+    />
+</odoo>

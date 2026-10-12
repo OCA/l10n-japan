@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Takahiro SUNAGA <t.sunaga@takahii.co>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_freee_walletable_fetch_wizard_form" model="ir.ui.view">
+        <field name="name">freee.walletable.fetch.wizard.form</field>
+        <field name="model">freee.walletable.fetch.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Map freee Walletable">
+                <group>
+                    <field name="journal_id" readonly="1" />
+                    <field name="backend_id" />
+                </group>
+                <p class="text-muted">
+                    Pick the freee Backend, click
+                    <em>Fetch from freee</em> to load
+                    <code>/api/1/walletables</code>, then click
+                    <em>Use this</em> on the walletable that settles
+                    this journal's invoices. Invoices on this journal will
+                    then be exported as <strong>settled</strong> deals;
+                    clear the mapping to go back to unsettled.
+                </p>
+                <field name="line_ids" nolabel="1" readonly="1">
+                    <list create="false" delete="false" edit="false">
+                        <field name="external_id" readonly="1" />
+                        <field name="name" readonly="1" />
+                        <field name="walletable_type" readonly="1" />
+                        <field name="bank_id" optional="hide" readonly="1" />
+                        <button
+                            name="action_select"
+                            type="object"
+                            string="Use this"
+                            class="btn-primary"
+                            icon="fa-check"
+                        />
+                    </list>
+                </field>
+                <footer>
+                    <button
+                        name="action_fetch"
+                        type="object"
+                        string="Fetch from freee"
+                        class="btn-primary"
+                    />
+                    <button string="Close" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
