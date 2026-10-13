@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <template id="bill_line_section_layout">
         <t
@@ -23,18 +24,18 @@
                 <tr>
                     <th
                         t-if="show_order_number"
-                        name="th_order_num"
                         class="text-start"
+                        name="th_order_num"
                     >Order No.</th>
                     <th
                         t-if="show_reference"
-                        name="th_order_ref"
                         class="text-start"
+                        name="th_order_ref"
                     >Reference</th>
                     <th name="th_description" class="text-start">Description</th>
                     <th name="th_quantity" class="text-end">Quantity</th>
                     <th name="th_unit_price" class="text-end">Unit Price</th>
-                    <th name="th_discount" t-if="display_discount" class="text-end">
+                    <th t-if="display_discount" class="text-end" name="th_discount">
                         <span>Disc.%</span>
                     </th>
                     <th name="th_taxes" class="text-start">Taxes</th>
@@ -70,10 +71,10 @@
                         />
                         <tr name="invoice_line_row">
                             <td t-if="show_order_number" name="td_order_num">
-                                <span t-esc="order.name" />
+                                <span t-out="order.name" />
                             </td>
                             <td t-if="show_reference" name="td_order_ref">
-                                <span t-esc="order.client_order_ref" />
+                                <span t-out="order.client_order_ref" />
                             </td>
                             <td name="td_description">
                                 <span
@@ -93,19 +94,19 @@
                                 <span class="text-nowrap" t-field="line.price_unit" />
                             </td>
                             <td
-                                name="td_discount"
                                 t-if="display_discount"
                                 class="text-end"
+                                name="td_discount"
                             >
                                 <span class="text-nowrap" t-field="line.discount" />
                             </td>
                             <td name="td_taxes">
-                                <span t-esc="taxes" />
+                                <span t-out="taxes" />
                             </td>
                             <td name="td_subtotal" class="text-end">
                                 <span
                                     class="text-nowrap"
-                                    t-esc="line.price_subtotal * (-1 if line.move_type in ['out_refund', 'in_refund'] else 1)"
+                                    t-out="line.price_subtotal * (-1 if line.move_type in ['out_refund', 'in_refund'] else 1)"
                                     t-options='{"widget": "monetary", "display_currency": o.currency_id}'
                                 />
                             </td>
@@ -129,7 +130,7 @@
                         <td class="text-end">
                             <span
                                 class="text-nowrap"
-                                t-esc="invoice.amount_untaxed * (-1 if line.move_type in ['out_refund', 'in_refund'] else 1)"
+                                t-out="invoice.amount_untaxed * (-1 if line.move_type in ['out_refund', 'in_refund'] else 1)"
                                 t-options='{"widget": "monetary", "display_currency": o.currency_id}'
                             />
                         </td>

@@ -42,8 +42,10 @@ class AccountBilling(models.Model):
         for rec in self:
             invoices = rec.billing_line_ids.move_id
             invoice_not_for_billing = invoices.filtered(
-                lambda x: len(x.billing_ids.filtered(lambda x: x.state != "cancel")) > 1
-                or x.is_not_for_billing
+                lambda x: (
+                    len(x.billing_ids.filtered(lambda x: x.state != "cancel")) > 1
+                    or x.is_not_for_billing
+                )
             )[:1]
             if invoice_not_for_billing:
                 raise ValidationError(
@@ -130,7 +132,6 @@ class AccountBilling(models.Model):
             bill.amount_untaxed = tax_totals.get("base_amount_currency", 0.0)
             bill.amount_total = tax_totals.get("total_amount_currency", 0.0)
             bill.amount_tax = bill.amount_total - bill.amount_untaxed
-        return
 
     def _update_remit_to_bank_id(self):
         for rec in self:
@@ -152,13 +153,16 @@ class AccountBilling(models.Model):
         moves = super()._get_moves(date, types=types)
         if self.remit_to_bank_id:
             moves = moves.filtered(
-                lambda x: x.partner_bank_id == self.remit_to_bank_id
-                or not x.partner_bank_id
+                lambda x: (
+                    x.partner_bank_id == self.remit_to_bank_id or not x.partner_bank_id
+                )
             )
         # Prevent the billing from adding already billed invoices
         moves -= moves.filtered(
-            lambda x: x.billing_ids.filtered(lambda x: x.state != "cancel")
-            or x.is_not_for_billing
+            lambda x: (
+                x.billing_ids.filtered(lambda x: x.state != "cancel")
+                or x.is_not_for_billing
+            )
         )
         return moves
 
