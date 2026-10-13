@@ -8,6 +8,8 @@ from odoo.addons.base.tests.common import BaseCommon
 
 
 class TestSummaryInvoice(BaseCommon):
+    _test_user_groups = None
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -45,7 +47,7 @@ class TestSummaryInvoice(BaseCommon):
         cls.bank_account = cls.env["res.partner.bank"].create(
             {
                 "partner_id": cls.env.company.partner_id.id,
-                "acc_number": "1234567890",
+                "account_number": "1234567890",
                 "allow_out_payment": True,
             }
         )
@@ -139,7 +141,7 @@ class TestSummaryInvoice(BaseCommon):
         other_bank = self.env["res.partner.bank"].create(
             {
                 "partner_id": self.env.company.partner_id.id,
-                "acc_number": "other_bank_acc",
+                "account_number": "other_bank_acc",
             }
         )
         with self.assertRaises(ValidationError):

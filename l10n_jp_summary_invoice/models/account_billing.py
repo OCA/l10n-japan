@@ -126,12 +126,13 @@ class AccountBilling(models.Model):
 
     @api.depends("billing_line_ids", "partner_id", "currency_id")
     def _compute_amount(self):
-        super()._compute_amount()
+        res = super()._compute_amount()
         for bill in self:
             tax_totals = bill.tax_totals or {}
             bill.amount_untaxed = tax_totals.get("base_amount_currency", 0.0)
             bill.amount_total = tax_totals.get("total_amount_currency", 0.0)
             bill.amount_tax = bill.amount_total - bill.amount_untaxed
+        return res
 
     def _update_remit_to_bank_id(self):
         for rec in self:
@@ -194,11 +195,14 @@ class AccountBilling(models.Model):
 
     def _get_inv_line_account_id(self):
         self.ensure_one()
-        return self.env["account.account"]._get_most_frequent_account_for_partner(
+        account_model = self.env["account.account"]
+        account_ids = account_model._get_most_frequent_accounts_for_partner(
             company_id=self.company_id.id,
             partner_id=self.partner_id.commercial_partner_id.id,
             move_type="out_invoice",
+            limit=1,
         )
+        return account_ids[0] if account_ids else False
 
     def validate_billing(self):
         res = super().validate_billing()

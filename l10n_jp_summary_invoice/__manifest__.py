@@ -3,7 +3,7 @@
 {
     "name": "Japan Summary Invoice",
     "summary": "Generate summary invoices for multiple invoices",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Japanese Localization",
     "author": "Quartile, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/l10n-japan",
