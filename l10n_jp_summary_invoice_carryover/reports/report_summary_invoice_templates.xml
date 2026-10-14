@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <template
         id="report_summary_invoice_document_carryover"
@@ -34,13 +35,13 @@
                             <tr>
                                 <td class="text-end">
                                     <span
-                                        t-esc="o._get_prev_billed_amount()"
+                                        t-out="o._get_prev_billed_amount()"
                                         t-options='{"widget": "monetary", "display_currency": o.currency_id}'
                                     />
                                 </td>
                                 <td class="text-end">
                                     <span
-                                        t-esc="o._get_payment_amount()"
+                                        t-out="o._get_payment_amount()"
                                         t-options='{"widget": "monetary", "display_currency": o.currency_id}'
                                     />
                                 </td>
