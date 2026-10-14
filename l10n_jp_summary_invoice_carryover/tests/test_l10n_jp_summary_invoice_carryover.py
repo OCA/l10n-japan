@@ -57,12 +57,12 @@ class TestSummaryInvoiceCarryover(TransactionCase):
         cls.bank_a, cls.bank_b = cls.env["res.partner.bank"].create(
             [
                 {
-                    "acc_number": "JP-A-0001",
+                    "account_number": "JP-A-0001",
                     "partner_id": cls.company.partner_id.id,
                     "allow_out_payment": True,
                 },
                 {
-                    "acc_number": "JP-B-0002",
+                    "account_number": "JP-B-0002",
                     "partner_id": cls.company.partner_id.id,
                     "allow_out_payment": True,
                 },
