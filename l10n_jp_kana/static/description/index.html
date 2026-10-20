@@ -444,6 +444,14 @@ the model name appended to the global one, and whose value is one of
 format.</p>
 <p>Changing a format affects only the readings saved afterwards – see
 Known Issues.</p>
+<p>To refuse readings with characters a receiving system cannot take,
+enable <em>Restrict Characters</em> under the same settings. A reading may then
+hold only the kana of its format and spaces, plus what <em>Additional
+Characters</em> allows: a regular expression matching one character, e.g.
+<tt class="docutils literal"><span class="pre">[0-9A-Za-z]</span></tt>. Both are checked on the reading once normalized, when
+it is saved, and the error names the characters refused. A model can
+take its own additional characters with the system parameter
+<tt class="docutils literal"><span class="pre">l10n_jp_kana.allowed_chars.&lt;model&gt;</span></tt>.</p>
 </div>
 <div class="section" id="usage">
 <h2><a class="toc-backref" href="#toc-entry-2">Usage</a></h2>
