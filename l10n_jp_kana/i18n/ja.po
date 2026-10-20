@@ -19,12 +19,42 @@ msgstr ""
 #. module: l10n_jp_kana
 #. odoo-python
 #: code:addons/l10n_jp_kana/models/kana_mixin.py:0
+msgid "%(field)s contains characters that are not allowed: %(chars)s"
+msgstr "%(field)sに使用できない文字があります: %(chars)s"
+
+#. module: l10n_jp_kana
+#. odoo-python
+#: code:addons/l10n_jp_kana/models/kana_mixin.py:0
 msgid ""
 "%(format)s is not a valid kana format. Check the %(parameter)s system "
 "parameters; expected one of: %(supported)s."
 msgstr ""
 "%(format)s は有効なカナ形式ではありません。%(parameter)s システムパラメータを"
 "確認してください。指定可能な値: %(supported)s。"
+
+#. module: l10n_jp_kana
+#. odoo-python
+#: code:addons/l10n_jp_kana/models/kana_mixin.py:0
+msgid ""
+"%(pattern)s is not a valid regular expression for the %(parameter)s system "
+"parameters: %(error)s"
+msgstr ""
+"%(pattern)s は %(parameter)s システムパラメータの正規表現として無効です: "
+"%(error)s"
+
+#. module: l10n_jp_kana
+#: model_terms:ir.ui.view,arch_db:l10n_jp_kana.res_config_settings_view_form
+msgid ""
+"A regular expression matching one character, checked on the normalized "
+"reading. Leave empty to allow the kana alone."
+msgstr ""
+"1文字に一致する正規表現です。正規化後のカナに対してチェックします。空欄の場合"
+"はカナのみを許可します。"
+
+#. module: l10n_jp_kana
+#: model_terms:ir.ui.view,arch_db:l10n_jp_kana.res_config_settings_view_form
+msgid "Additional Characters"
+msgstr "追加で許可する文字"
 
 #. module: l10n_jp_kana
 #: model:ir.model,name:l10n_jp_kana.model_res_config_settings
@@ -80,6 +110,11 @@ msgid "Japanese Kana"
 msgstr "日本語カナ"
 
 #. module: l10n_jp_kana
+#: model:ir.model.fields,field_description:l10n_jp_kana.field_res_config_settings__kana_allowed_chars
+msgid "Kana Allowed Chars"
+msgstr "カナの許可文字"
+
+#. module: l10n_jp_kana
 #: model:ir.model.fields,field_description:l10n_jp_kana.field_res_config_settings__kana_format
 #: model_terms:ir.ui.view,arch_db:l10n_jp_kana.res_config_settings_view_form
 msgid "Kana Format"
@@ -96,6 +131,11 @@ msgid "Kana Name Mixin"
 msgstr "カナ名称ミクシン"
 
 #. module: l10n_jp_kana
+#: model:ir.model.fields,field_description:l10n_jp_kana.field_res_config_settings__kana_restrict_chars
+msgid "Kana Restrict Chars"
+msgstr "カナの文字制限"
+
+#. module: l10n_jp_kana
 #: model:ir.model.fields,field_description:l10n_jp_kana.field_name_kana_mixin__name_kana
 msgid "Name (Kana)"
 msgstr "フリガナ"
@@ -104,6 +144,20 @@ msgstr "フリガナ"
 #: model:ir.model.fields,field_description:l10n_jp_kana.field_name_kana_mixin__name_kana_search
 msgid "Name (Kana) Search"
 msgstr "フリガナ検索"
+
+#. module: l10n_jp_kana
+#: model_terms:ir.ui.view,arch_db:l10n_jp_kana.res_config_settings_view_form
+msgid ""
+"Refuse a reading, when it is saved, that holds anything but the kana of its "
+"format and spaces, besides the additional characters below."
+msgstr ""
+"保存時に、形式に応じたカナと空白、および下記の追加文字以外を含むカナを拒否し"
+"ます。"
+
+#. module: l10n_jp_kana
+#: model_terms:ir.ui.view,arch_db:l10n_jp_kana.res_config_settings_view_form
+msgid "Restrict Characters"
+msgstr "文字を制限する"
 
 #. module: l10n_jp_kana
 #: model:ir.model,name:l10n_jp_kana.model_ir_config_parameter

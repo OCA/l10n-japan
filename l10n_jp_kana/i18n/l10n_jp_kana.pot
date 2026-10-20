@@ -16,9 +16,35 @@ msgstr ""
 #. module: l10n_jp_kana
 #. odoo-python
 #: code:addons/l10n_jp_kana/models/kana_mixin.py:0
+msgid "%(field)s contains characters that are not allowed: %(chars)s"
+msgstr ""
+
+#. module: l10n_jp_kana
+#. odoo-python
+#: code:addons/l10n_jp_kana/models/kana_mixin.py:0
 msgid ""
 "%(format)s is not a valid kana format. Check the %(parameter)s system "
 "parameters; expected one of: %(supported)s."
+msgstr ""
+
+#. module: l10n_jp_kana
+#. odoo-python
+#: code:addons/l10n_jp_kana/models/kana_mixin.py:0
+msgid ""
+"%(pattern)s is not a valid regular expression for the %(parameter)s system "
+"parameters: %(error)s"
+msgstr ""
+
+#. module: l10n_jp_kana
+#: model_terms:ir.ui.view,arch_db:l10n_jp_kana.res_config_settings_view_form
+msgid ""
+"A regular expression matching one character, checked on the normalized "
+"reading. Leave empty to allow the kana alone."
+msgstr ""
+
+#. module: l10n_jp_kana
+#: model_terms:ir.ui.view,arch_db:l10n_jp_kana.res_config_settings_view_form
+msgid "Additional Characters"
 msgstr ""
 
 #. module: l10n_jp_kana
@@ -72,6 +98,11 @@ msgid "Japanese Kana"
 msgstr ""
 
 #. module: l10n_jp_kana
+#: model:ir.model.fields,field_description:l10n_jp_kana.field_res_config_settings__kana_allowed_chars
+msgid "Kana Allowed Chars"
+msgstr ""
+
+#. module: l10n_jp_kana
 #: model:ir.model.fields,field_description:l10n_jp_kana.field_res_config_settings__kana_format
 #: model_terms:ir.ui.view,arch_db:l10n_jp_kana.res_config_settings_view_form
 msgid "Kana Format"
@@ -88,6 +119,11 @@ msgid "Kana Name Mixin"
 msgstr ""
 
 #. module: l10n_jp_kana
+#: model:ir.model.fields,field_description:l10n_jp_kana.field_res_config_settings__kana_restrict_chars
+msgid "Kana Restrict Chars"
+msgstr ""
+
+#. module: l10n_jp_kana
 #: model:ir.model.fields,field_description:l10n_jp_kana.field_name_kana_mixin__name_kana
 msgid "Name (Kana)"
 msgstr ""
@@ -95,6 +131,18 @@ msgstr ""
 #. module: l10n_jp_kana
 #: model:ir.model.fields,field_description:l10n_jp_kana.field_name_kana_mixin__name_kana_search
 msgid "Name (Kana) Search"
+msgstr ""
+
+#. module: l10n_jp_kana
+#: model_terms:ir.ui.view,arch_db:l10n_jp_kana.res_config_settings_view_form
+msgid ""
+"Refuse a reading, when it is saved, that holds anything but the kana of its "
+"format and spaces, besides the additional characters below."
+msgstr ""
+
+#. module: l10n_jp_kana
+#: model_terms:ir.ui.view,arch_db:l10n_jp_kana.res_config_settings_view_form
+msgid "Restrict Characters"
 msgstr ""
 
 #. module: l10n_jp_kana
