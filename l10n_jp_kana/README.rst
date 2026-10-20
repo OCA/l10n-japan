@@ -42,6 +42,11 @@ full-width ASCII and digits fold to half-width (ＡＢＣショウジ is stored
 as ABCショウジ), and spacing collapses to single half-width spaces. A
 search term goes through the same normalization before it is compared.
 
+ヵ and ヶ become カ in every format, as they stand for 箇. In half-width
+katakana, kana with no half-width form fold to the nearest one that has:
+ヮ to ﾜ, ヰ and ヱ to ｲ and ｴ, ヷ-ヺ to ｳﾞ with a small vowel, and the
+small katakana for Ainu to their full-size forms.
+
 This module adds no field to any model of its own; the readings live in
 the modules that apply the mixins to a model.
 
@@ -84,9 +89,9 @@ Usage
 
 Install the module that carries the reading to the model you need:
 
-- ``l10n_jp_kana_partner_name`` -- contacts
-- ``l10n_jp_kana_product_name`` -- products
-- ``l10n_jp_kana_hr_employee_name`` -- employees
+-  ``l10n_jp_kana_partner_name`` -- contacts
+-  ``l10n_jp_kana_product_name`` -- products
+-  ``l10n_jp_kana_hr_employee_name`` -- employees
 
 To give another model a reading of its name, inherit ``kana.mixin`` and
 ``name.kana.mixin`` alongside the model and add the ``name_kana`` field
@@ -124,6 +129,10 @@ Pick the format when the module is installed. If it has to change
 afterwards, re-save the affected readings separately -- writing a
 reading back through the ORM normalizes it to the current format.
 
+The iteration marks ヽ and ヾ stay full-width in half-width katakana:
+expanding them would mean repeating the preceding kana, which is left to
+the user.
+
 Bug Tracker
 ===========
 
@@ -145,9 +154,9 @@ Authors
 Contributors
 ------------
 
-- `Quartile <https://www.quartile.co>`__:
+-  `Quartile <https://www.quartile.co>`__:
 
-  - Aung Ko Ko Lin
+   -  Aung Ko Ko Lin
 
 Maintainers
 -----------

@@ -22,6 +22,39 @@ KANA_FORMAT_SELECTION = [
 
 SUPPORTED_KANA_FORMATS = dict(KANA_FORMAT_SELECTION)
 
+# ヵ/ヶ stand for 箇, read カ.
+KANA_FOLD = str.maketrans({"ヵ": "カ", "ヶ": "カ", "ゕ": "か", "ゖ": "か"})
+
+# Kana with no half-width form; jaconv.z2h would keep them full-width.
+HALF_WIDTH_FOLD = str.maketrans(
+    {
+        "ヮ": "ワ",
+        "ヰ": "イ",
+        "ヱ": "エ",
+        "ヷ": "ヴァ",
+        "ヸ": "ヴィ",
+        "ヹ": "ヴェ",
+        "ヺ": "ヴォ",
+        # Small katakana for Ainu (U+31F0-U+31FF)
+        "ㇰ": "ク",
+        "ㇱ": "シ",
+        "ㇲ": "ス",
+        "ㇳ": "ト",
+        "ㇴ": "ヌ",
+        "ㇵ": "ハ",
+        "ㇶ": "ヒ",
+        "ㇷ": "フ",
+        "ㇸ": "ヘ",
+        "ㇹ": "ホ",
+        "ㇺ": "ム",
+        "ㇻ": "ラ",
+        "ㇼ": "リ",
+        "ㇽ": "ル",
+        "ㇾ": "レ",
+        "ㇿ": "ロ",
+    }
+)
+
 
 class KanaMixin(models.AbstractModel):
     """Normalize the Char fields declared with ``kana=True`` on create and write."""
@@ -114,11 +147,12 @@ class KanaMixin(models.AbstractModel):
         kana_format = self._get_kana_format()
         self._validate_kana_format(kana_format)
         value = unicodedata.normalize("NFKC", value)
-        value = " ".join(value.split())
+        value = " ".join(value.split()).translate(KANA_FOLD)
         if kana_format == "hiragana":
             return jaconv.kata2hira(value)
         value = jaconv.hira2kata(value)
         if kana_format == "half_width_katakana":
+            value = value.translate(HALF_WIDTH_FOLD)
             return jaconv.z2h(value, kana=True, digit=False, ascii=False)
         return value
 

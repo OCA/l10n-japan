@@ -6,3 +6,6 @@ current format, they stop being found by it until they are saved again.
 Pick the format when the module is installed. If it has to change afterwards,
 re-save the affected readings separately -- writing a reading back through the
 ORM normalizes it to the current format.
+
+The iteration marks ヽ and ヾ stay full-width in half-width katakana: expanding
+them would mean repeating the preceding kana, which is left to the user.
