@@ -39,8 +39,8 @@ msgid ""
 "%(pattern)s is not a valid regular expression for the %(parameter)s system "
 "parameters: %(error)s"
 msgstr ""
-"%(pattern)s は %(parameter)s システムパラメータの正規表現として無効です: "
-"%(error)s"
+"%(pattern)s は %(parameter)s システムパラメータの正規表現として無効です: %"
+"(error)s"
 
 #. module: l10n_jp_kana
 #: model_terms:ir.ui.view,arch_db:l10n_jp_kana.res_config_settings_view_form
@@ -163,3 +163,8 @@ msgstr "文字を制限する"
 #: model:ir.model,name:l10n_jp_kana.model_ir_config_parameter
 msgid "System Parameter"
 msgstr "システムパラメタ"
+
+#. module: l10n_jp_kana
+#: model_terms:ir.ui.view,arch_db:l10n_jp_kana.res_config_settings_view_form
+msgid "[0-9A-Za-z]"
+msgstr ""
