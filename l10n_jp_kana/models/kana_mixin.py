@@ -1,18 +1,21 @@
 # Copyright 2026 Quartile (https://www.quartile.co)
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 
+import re
 import unicodedata
 from collections.abc import Set as AbstractSet
 
 import jaconv
 
 from odoo import api, models, tools
-from odoo.exceptions import UserError
+from odoo.exceptions import UserError, ValidationError
 
 DEFAULT_KANA_FORMAT = "full_width_katakana"
 
 # A model-specific key is this one suffixed with the model name.
 KANA_FORMAT_PARAM = "l10n_jp_kana.format"
+KANA_RESTRICT_CHARS_PARAM = "l10n_jp_kana.restrict_chars"
+KANA_ALLOWED_CHARS_PARAM = "l10n_jp_kana.allowed_chars"
 
 KANA_FORMAT_SELECTION = [
     ("full_width_katakana", "Full-width Katakana"),
@@ -21,6 +24,46 @@ KANA_FORMAT_SELECTION = [
 ]
 
 SUPPORTED_KANA_FORMATS = dict(KANA_FORMAT_SELECTION)
+
+# The kana a normalized reading holds in each format, plus the space.
+KANA_FORMAT_CHARS = {
+    "full_width_katakana": re.compile("[ァ-ヺー ]"),
+    "half_width_katakana": re.compile("[ｦ-ﾟ ]"),
+    "hiragana": re.compile("[ぁ-ゔー ]"),
+}
+
+# ヵ/ヶ stand for 箇, read カ.
+KANA_FOLD = str.maketrans({"ヵ": "カ", "ヶ": "カ", "ゕ": "か", "ゖ": "か"})
+
+# Kana with no half-width form; jaconv.z2h would keep them full-width.
+HALF_WIDTH_FOLD = str.maketrans(
+    {
+        "ヮ": "ワ",
+        "ヰ": "イ",
+        "ヱ": "エ",
+        "ヷ": "ヴァ",
+        "ヸ": "ヴィ",
+        "ヹ": "ヴェ",
+        "ヺ": "ヴォ",
+        # Small katakana for Ainu (U+31F0-U+31FF)
+        "ㇰ": "ク",
+        "ㇱ": "シ",
+        "ㇲ": "ス",
+        "ㇳ": "ト",
+        "ㇴ": "ヌ",
+        "ㇵ": "ハ",
+        "ㇶ": "ヒ",
+        "ㇷ": "フ",
+        "ㇸ": "ヘ",
+        "ㇹ": "ホ",
+        "ㇺ": "ム",
+        "ㇻ": "ラ",
+        "ㇼ": "リ",
+        "ㇽ": "ル",
+        "ㇾ": "レ",
+        "ㇿ": "ロ",
+    }
+)
 
 
 class KanaMixin(models.AbstractModel):
@@ -47,7 +90,11 @@ class KanaMixin(models.AbstractModel):
         vals = dict(vals)
         for field_name in to_normalize:
             owner = self.env[kana_fields[field_name]]
-            vals[field_name] = owner._normalize_name_kana_write_value(vals[field_name])
+            value = owner._normalize_name_kana_write_value(vals[field_name])
+            owner._check_kana_allowed_chars(
+                value, self._fields[field_name]._description_string(self.env)
+            )
+            vals[field_name] = value
         return vals
 
     def _normalize_kana_field(self, field_name):
@@ -105,6 +152,54 @@ class KanaMixin(models.AbstractModel):
         )
 
     @api.model
+    def _get_kana_allowed_chars(self):
+        """A regular expression for the characters allowed besides the kana of
+        the format. A model-specific parameter wins over the global one.
+        """
+        get_param = self.env["ir.config_parameter"].sudo().get_param
+        return get_param(f"{KANA_ALLOWED_CHARS_PARAM}.{self._name}") or get_param(
+            KANA_ALLOWED_CHARS_PARAM
+        )
+
+    @api.model
+    def _validate_kana_allowed_chars(self, pattern):
+        try:
+            re.compile(pattern)
+        except re.error as error:
+            raise UserError(
+                self.env._(
+                    "%(pattern)s is not a valid regular expression for the "
+                    "%(parameter)s system parameters: %(error)s",
+                    pattern=pattern,
+                    parameter=f"{KANA_ALLOWED_CHARS_PARAM}*",
+                    error=error,
+                )
+            ) from error
+
+    @api.model
+    def _check_kana_allowed_chars(self, value, label):
+        """Checked on the normalized value, so what normalization fixes passes."""
+        get_param = self.env["ir.config_parameter"].sudo().get_param
+        if not value or not get_param(KANA_RESTRICT_CHARS_PARAM):
+            return
+        kana = KANA_FORMAT_CHARS[self._get_kana_format()]
+        pattern = self._get_kana_allowed_chars()
+        extra = re.compile(pattern) if pattern else None
+        invalid = dict.fromkeys(
+            char
+            for char in value
+            if not kana.fullmatch(char) and not (extra and extra.fullmatch(char))
+        )
+        if invalid:
+            raise ValidationError(
+                self.env._(
+                    "%(field)s contains characters that are not allowed: %(chars)s",
+                    field=label,
+                    chars=" ".join(invalid),
+                )
+            )
+
+    @api.model
     def _normalize_name_kana(self, value):
         """NFKC (folds the width of kana, ASCII and digits), single spaces, then
         the configured kana format.
@@ -114,11 +209,12 @@ class KanaMixin(models.AbstractModel):
         kana_format = self._get_kana_format()
         self._validate_kana_format(kana_format)
         value = unicodedata.normalize("NFKC", value)
-        value = " ".join(value.split())
+        value = " ".join(value.split()).translate(KANA_FOLD)
         if kana_format == "hiragana":
             return jaconv.kata2hira(value)
         value = jaconv.hira2kata(value)
         if kana_format == "half_width_katakana":
+            value = value.translate(HALF_WIDTH_FOLD)
             return jaconv.z2h(value, kana=True, digit=False, ascii=False)
         return value
 

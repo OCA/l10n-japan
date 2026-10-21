@@ -19,3 +19,11 @@ An empty or absent per-model key means the model follows the global format.
 
 Changing a format affects only the readings saved afterwards -- see Known
 Issues.
+
+To refuse readings with characters a receiving system cannot take, enable
+*Restrict Characters* under the same settings. A reading may then hold only
+the kana of its format and spaces, plus what *Additional Characters* allows: a
+regular expression matching one character, e.g. `[0-9A-Za-z]`. Both are
+checked on the reading once normalized, when it is saved, and the error names
+the characters refused. A model can take its own additional characters with
+the system parameter `l10n_jp_kana.allowed_chars.<model>`.

@@ -1,9 +1,11 @@
 # Copyright 2026 Quartile (https://www.quartile.co)
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 
+from odoo.exceptions import ValidationError
 from odoo.orm.model_classes import add_to_registry
 from odoo.tests import Form
 
+from ..models.kana_mixin import KANA_ALLOWED_CHARS_PARAM, KANA_RESTRICT_CHARS_PARAM
 from .common import KANA_CASES, KanaCase
 
 
@@ -170,6 +172,53 @@ class TestNameKanaMixin(KanaCase):
                 self.assertIn(ime.id, found)
                 self.assertIn(imported.id, found)
                 self.assertIn(padded.id, found)
+
+    def test_restricted_reading_holds_only_kana_and_spaces(self):
+        self._set_format("half_width_katakana")
+        self.param.set_param(KANA_RESTRICT_CHARS_PARAM, True)
+        record = self.model.create({"name": "Record", "name_kana": "やまだ　たろう"})
+        self.assertEqual(record.name_kana, "ﾔﾏﾀﾞ ﾀﾛｳ")
+        with self.assertRaisesRegex(ValidationError, "3 M"):
+            record.name_kana = "3Mｼﾞｬﾊﾟﾝ"
+        with self.assertRaises(ValidationError):
+            self.alias_model.create({"name": "Alias", "alias_kana": "ﾔﾏﾀﾞ1"})
+
+    def test_restricted_kana_follow_the_format(self):
+        self.param.set_param(KANA_RESTRICT_CHARS_PARAM, True)
+        record = self.model.create({"name": "Record", "name_kana": "ﾔﾏﾀﾞ"})
+        self.assertEqual(record.name_kana, "ヤマダ")
+        self._set_format("hiragana")
+        record.name_kana = "ヤマダー"
+        self.assertEqual(record.name_kana, "やまだー")
+
+    def test_additional_chars_extend_the_kana(self):
+        self._set_format("half_width_katakana")
+        self.param.set_param(KANA_RESTRICT_CHARS_PARAM, True)
+        self.param.set_param(KANA_ALLOWED_CHARS_PARAM, "[0-9A-Za-z]")
+        record = self.model.create({"name": "Record", "name_kana": "ＡＢＣ　やまだ"})
+        self.assertEqual(record.name_kana, "ABC ﾔﾏﾀﾞ")  # checked once normalized
+        with self.assertRaisesRegex(ValidationError, "Φ ×"):
+            record.name_kana = "ﾁｭｰﾌﾞΦ6×10"
+
+    def test_model_additional_chars_override_global_ones(self):
+        self.param.set_param(KANA_RESTRICT_CHARS_PARAM, True)
+        self.param.set_param(KANA_ALLOWED_CHARS_PARAM, "[0-9]")
+        self.param.set_param(f"{KANA_ALLOWED_CHARS_PARAM}.{self.model._name}", ".")
+        record = self.model.create({"name": "Record", "name_kana": "Φ"})
+        self.assertEqual(record.name_kana, "Φ")
+        with self.assertRaises(ValidationError):
+            self.alias_model.create({"name": "Alias", "alias_kana": "Φ"})
+
+    def test_additional_chars_alone_restrict_nothing(self):
+        self.param.set_param(KANA_ALLOWED_CHARS_PARAM, "[0-9]")
+        record = self.model.create({"name": "Record", "name_kana": "ABCΦ"})
+        self.assertEqual(record.name_kana, "ABCΦ")
+
+    def test_restriction_does_not_apply_to_search(self):
+        record = self.model.create({"name": "Record", "name_kana": "ﾔﾏﾀﾞΦ"})
+        self.param.set_param(KANA_RESTRICT_CHARS_PARAM, True)
+        found = self.model.search([("name_kana_search", "ilike", "Φ")])
+        self.assertEqual(found, record)
 
     def test_search_field_normalizes_the_term(self):
         """A search view compares the term to the column as typed, so it filters

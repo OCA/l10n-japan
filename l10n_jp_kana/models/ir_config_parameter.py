@@ -3,7 +3,7 @@
 
 from odoo import api, models
 
-from .kana_mixin import KANA_FORMAT_PARAM
+from .kana_mixin import KANA_ALLOWED_CHARS_PARAM, KANA_FORMAT_PARAM
 
 
 class IrConfigParameter(models.Model):
@@ -14,14 +14,20 @@ class IrConfigParameter(models.Model):
         for vals in vals_list:
             if self._is_kana_format_key(vals.get("key")):
                 self._check_kana_format_value(vals.get("value"))
+            if self._is_kana_allowed_chars_key(vals.get("key")):
+                self._check_kana_allowed_chars_value(vals.get("value"))
         return super().create(vals_list)
 
     def write(self, vals):
         # Against the key the record ends up with, so a rename onto a kana key
         # cannot carry an unchecked value in.
         for record in self:
-            if self._is_kana_format_key(vals.get("key", record.key)):
-                self._check_kana_format_value(vals.get("value", record.value))
+            key = vals.get("key", record.key)
+            value = vals.get("value", record.value)
+            if self._is_kana_format_key(key):
+                self._check_kana_format_value(value)
+            if self._is_kana_allowed_chars_key(key):
+                self._check_kana_allowed_chars_value(value)
         return super().write(vals)
 
     def _is_kana_format_key(self, key):
@@ -35,3 +41,13 @@ class IrConfigParameter(models.Model):
         # parameter is refused too.
         if value:
             self.env["kana.mixin"]._validate_kana_format(value)
+
+    def _is_kana_allowed_chars_key(self, key):
+        return bool(key) and (
+            key == KANA_ALLOWED_CHARS_PARAM
+            or key.startswith(f"{KANA_ALLOWED_CHARS_PARAM}.")
+        )
+
+    def _check_kana_allowed_chars_value(self, value):
+        if value:
+            self.env["kana.mixin"]._validate_kana_allowed_chars(value)

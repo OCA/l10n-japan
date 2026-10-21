@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="Docutils: https://docutils.sourceforge.io/" />
-<title>Japanese Kana</title>
+<title>README.rst</title>
 <style type="text/css">
 
 /*
@@ -383,6 +383,10 @@ matches however it was typed: kana take the configured format,
 full-width ASCII and digits fold to half-width (ＡＢＣショウジ is stored
 as ABCショウジ), and spacing collapses to single half-width spaces. A
 search term goes through the same normalization before it is compared.</p>
+<p>ヵ and ヶ become カ in every format, as they stand for 箇. In half-width
+katakana, kana with no half-width form fold to the nearest one that has:
+ヮ to ﾜ, ヰ and ヱ to ｲ and ｴ, ヷ-ヺ to ｳﾞ with a small vowel, and the
+small katakana for Ainu to their full-size forms.</p>
 <p>This module adds no field to any model of its own; the readings live in
 the modules that apply the mixins to a model.</p>
 <p><strong>Table of contents</strong></p>
@@ -440,6 +444,14 @@ the model name appended to the global one, and whose value is one of
 format.</p>
 <p>Changing a format affects only the readings saved afterwards – see
 Known Issues.</p>
+<p>To refuse readings with characters a receiving system cannot take,
+enable <em>Restrict Characters</em> under the same settings. A reading may then
+hold only the kana of its format and spaces, plus what <em>Additional
+Characters</em> allows: a regular expression matching one character, e.g.
+<tt class="docutils literal"><span class="pre">[0-9A-Za-z]</span></tt>. Both are checked on the reading once normalized, when
+it is saved, and the error names the characters refused. A model can
+take its own additional characters with the system parameter
+<tt class="docutils literal"><span class="pre">l10n_jp_kana.allowed_chars.&lt;model&gt;</span></tt>.</p>
 </div>
 <div class="section" id="usage">
 <h2><a class="toc-backref" href="#toc-entry-2">Usage</a></h2>
@@ -479,6 +491,9 @@ they are saved again.</p>
 <p>Pick the format when the module is installed. If it has to change
 afterwards, re-save the affected readings separately – writing a
 reading back through the ORM normalizes it to the current format.</p>
+<p>The iteration marks ヽ and ヾ stay full-width in half-width katakana:
+expanding them would mean repeating the preceding kana, which is left to
+the user.</p>
 </div>
 <div class="section" id="bug-tracker">
 <h2><a class="toc-backref" href="#toc-entry-4">Bug Tracker</a></h2>

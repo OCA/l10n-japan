@@ -16,6 +16,29 @@
                     >
                         <field name="kana_format" />
                     </setting>
+                    <setting
+                        id="kana_restrict_chars"
+                        string="Restrict Characters"
+                        help="Refuse a reading, when it is saved, that holds anything but the kana of its format and spaces, besides the additional characters below."
+                    >
+                        <field name="kana_restrict_chars" />
+                        <div class="mt8" invisible="not kana_restrict_chars">
+                            <label
+                                for="kana_allowed_chars"
+                                string="Additional Characters"
+                            />
+                            <div>
+                                <field
+                                    name="kana_allowed_chars"
+                                    placeholder="[0-9A-Za-z]"
+                                    class="w-100"
+                                />
+                            </div>
+                            <div class="text-muted">
+                                A regular expression matching one character, checked on the normalized reading. Leave empty to allow the kana alone.
+                            </div>
+                        </div>
+                    </setting>
                 </block>
             </xpath>
         </field>

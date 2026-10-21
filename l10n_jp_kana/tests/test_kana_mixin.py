@@ -5,7 +5,7 @@ from unittest.mock import patch
 
 from odoo.exceptions import UserError
 
-from ..models.kana_mixin import KANA_FORMAT_PARAM
+from ..models.kana_mixin import KANA_ALLOWED_CHARS_PARAM, KANA_FORMAT_PARAM
 from .common import KANA_CASES, KanaCase
 
 
@@ -27,6 +27,35 @@ class TestKanaMixin(KanaCase):
         self.assertEqual(self.mixin._normalize_name_kana("やまだしょうじ"), "ﾔﾏﾀﾞｼｮｳｼﾞ")
         self.assertEqual(self.mixin._normalize_name_kana("ヤマダショウジ"), "ﾔﾏﾀﾞｼｮｳｼﾞ")
 
+    def test_small_ka_ke_fold_to_ka_in_every_format(self):
+        cases = [
+            ("full_width_katakana", "サンヶゲツ", "サンカゲツ"),
+            ("full_width_katakana", "ゖ", "カ"),
+            ("half_width_katakana", "サンヶゲツ", "ｻﾝｶｹﾞﾂ"),
+            ("hiragana", "サンヵゲツ", "さんかげつ"),
+        ]
+        for kana_format, value, expected in cases:
+            with self.subTest(kana_format=kana_format, value=value):
+                self._set_format(kana_format)
+                self.assertEqual(self.mixin._normalize_name_kana(value), expected)
+
+    def test_half_width_folds_kana_without_a_half_width_form(self):
+        self._set_format("half_width_katakana")
+        cases = [
+            ("ヷ", "ｳﾞｧ"),  # one character becomes two
+            ("ゑ", "ｴ"),  # hiragana goes through katakana first
+            ("ㇰ", "ｸ"),
+        ]
+        for value, expected in cases:
+            with self.subTest(value=value):
+                self.assertEqual(self.mixin._normalize_name_kana(value), expected)
+
+    def test_other_formats_keep_kana_without_a_half_width_form(self):
+        self._set_format("full_width_katakana")
+        self.assertEqual(self.mixin._normalize_name_kana("ヮヰ"), "ヮヰ")
+        self._set_format("hiragana")
+        self.assertEqual(self.mixin._normalize_name_kana("ヮヰ"), "ゎゐ")
+
     def test_hiragana(self):
         self._set_format("hiragana")
         self.assertEqual(self.mixin._normalize_name_kana("ﾔﾏﾀﾞｼｮｳｼﾞ"), "やまだしょうじ")
@@ -45,6 +74,12 @@ class TestKanaMixin(KanaCase):
         self.assertEqual(self.mixin._normalize_name_kana("やまだ"), "ﾔﾏﾀﾞ")
         self._set_format(False, model=self.mixin._name)
         self.assertEqual(self.mixin._normalize_name_kana("ヤマダ"), "やまだ")
+
+    def test_invalid_allowed_chars_parameter_is_refused(self):
+        with self.assertRaises(UserError):
+            self.param.set_param(KANA_ALLOWED_CHARS_PARAM, "[ｦ-ﾟ")
+        with self.assertRaises(UserError):
+            self.param.set_param(f"{KANA_ALLOWED_CHARS_PARAM}.res.partner", "(")
 
     def test_invalid_format_parameter_is_refused(self):
         with self.assertRaises(UserError):
