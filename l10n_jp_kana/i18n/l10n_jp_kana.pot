@@ -149,3 +149,8 @@ msgstr ""
 #: model:ir.model,name:l10n_jp_kana.model_ir_config_parameter
 msgid "System Parameter"
 msgstr ""
+
+#. module: l10n_jp_kana
+#: model_terms:ir.ui.view,arch_db:l10n_jp_kana.res_config_settings_view_form
+msgid "[0-9A-Za-z]"
+msgstr ""
