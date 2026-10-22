@@ -4,10 +4,13 @@
 from datetime import date
 
 from odoo import Command
-from odoo.tests.common import TransactionCase
+from odoo.tests import tagged
+
+from odoo.addons.account.tests.common import AccountTestInvoicingCommon
 
 
-class TestBillingFromCutoff(TransactionCase):
+@tagged("post_install", "-at_install")
+class TestBillingFromCutoff(AccountTestInvoicingCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -22,7 +25,6 @@ class TestBillingFromCutoff(TransactionCase):
         cls.payment_term.line_ids.write(
             {"has_cutoff_day": True, "months": 1, "cutoff_day": 20}
         )
-        cls.product = cls.env.ref("product.product_product_4")
         cls.currency_eur = cls.env.ref("base.EUR")
         cls.currency_eur.active = True
         cls.currency_usd = cls.env.ref("base.USD")

@@ -4,7 +4,7 @@
 {
     "name": "Account Billing From Cutoff",
     "summary": "Create billings based on invoice cutoff dates",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "depends": [
         "account_billing",
         "account_payment_term_cutoff_day",
