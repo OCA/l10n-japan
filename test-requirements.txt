@@ -1,0 +1,1 @@
+odoo-addon-l10n_jp_partner_zip @ git+https://github.com/OCA/l10n-japan.git@refs/pull/160/head#subdirectory=l10n_jp_partner_zip
