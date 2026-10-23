@@ -5,7 +5,7 @@ import logging
 
 import requests
 
-from odoo import _, api, models
+from odoo import api, models
 from odoo.exceptions import UserError
 
 try:
@@ -21,10 +21,10 @@ class ZipSearchMixin(models.AbstractModel):
     def sanitize_zip(self, zipcode):
         field = jaconv.z2h(zipcode, ascii=True, digit=True).replace("-", "")
         if not field.isdigit():
-            raise UserError(_("Only digits are allowed."))
+            raise UserError(self.env._("Only digits are allowed."))
         elif len(field) != 7:
             field = False
-            raise UserError(_("Postcode should be 7 digits."))
+            raise UserError(self.env._("Postcode should be 7 digits."))
         return field
 
     def _make_zip_request(self, request_url):
