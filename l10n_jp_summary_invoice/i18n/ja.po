@@ -7,14 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 02:50+0000\n"
-"PO-Revision-Date: 2025-03-24 02:50+0000\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2026-10-23 05:46+0000\n"
+"Last-Translator: Yurika Mori <yurika@quartile.co>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: l10n_jp_summary_invoice
 #: model:ir.actions.report,print_report_name:l10n_jp_summary_invoice.report_jp_summary_invoice
@@ -69,12 +70,12 @@ msgstr "金額"
 #. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_invoice_filter
 msgid "Billable Invoices"
-msgstr ""
+msgstr "合計請求対象の請求書"
 
 #. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_invoice_filter
 msgid "Billed Invoices"
-msgstr ""
+msgstr "合計請求済の請求書"
 
 #. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_bank_statement_line__billing_id
@@ -82,7 +83,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_invoice_filter
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_move_form
 msgid "Billing"
-msgstr ""
+msgstr "合計請求書"
 
 #. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__tax_totals
@@ -102,7 +103,7 @@ msgstr "会社"
 #. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__company_partner_id
 msgid "Company Partner"
-msgstr ""
+msgstr "会社取引先"
 
 #. module: l10n_jp_summary_invoice
 #: model:ir.model,name:l10n_jp_summary_invoice.model_res_config_settings
@@ -118,7 +119,7 @@ msgstr "こちらの内容は合計請求書に表示されます。"
 #. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_billing_search
 msgid "Currency"
-msgstr ""
+msgstr "通貨"
 
 #. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__date_due
@@ -138,7 +139,7 @@ msgstr "ドラフト合計請求書"
 #. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.res_config_settings_view_form
 msgid "Header Remark"
-msgstr ""
+msgstr "ヘッダーコメント"
 
 #. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,help:l10n_jp_summary_invoice.field_res_company__show_invoice_narration
@@ -205,7 +206,7 @@ msgstr "仕訳"
 #. module: l10n_jp_summary_invoice
 #: model:ir.model,name:l10n_jp_summary_invoice.model_account_move_line
 msgid "Journal Item"
-msgstr ""
+msgstr "仕訳明細"
 
 #. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.bill_line_section_layout
@@ -221,7 +222,7 @@ msgstr "振込先が同じ請求書を選択してください。"
 #. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_billing_form_inherit
 msgid "Print Summary Invoice"
-msgstr ""
+msgstr "合計請求書を印刷"
 
 #. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.bill_line_section_layout
@@ -241,7 +242,7 @@ msgstr "振込先銀行"
 #. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__report_subtitle
 msgid "Report Subtitle"
-msgstr ""
+msgstr "レポートサブタイトル"
 
 #. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_tax__rounding_adjustment
@@ -274,7 +275,7 @@ msgstr "合計請求書明細行に販売オーダ番号を表示"
 #. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_move_line__signed_quantity
 msgid "Signed Quantity"
-msgstr ""
+msgstr "符号付数量"
 
 #. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.res_config_settings_view_form
@@ -285,7 +286,7 @@ msgstr "合計請求書ヘッダーに表示するコメントを指定してく
 #. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,help:l10n_jp_summary_invoice.field_account_billing__report_subtitle
 msgid "Subtitle to be printed below the title of the summary invoice report."
-msgstr ""
+msgstr "合計請求書レポートのタイトル下に印刷されるサブタイトル。"
 
 #. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.report_summary_invoice_document
@@ -321,7 +322,7 @@ msgstr "消費税調整仕訳"
 #. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__amount_tax
 msgid "Tax Amount"
-msgstr ""
+msgstr "消費税額"
 
 #. module: l10n_jp_summary_invoice
 #: model:ir.model,name:l10n_jp_summary_invoice.model_account_tax_group
@@ -337,7 +338,7 @@ msgstr "消費税"
 #: model:ir.model.fields,help:l10n_jp_summary_invoice.field_account_move_line__signed_quantity
 msgid ""
 "Technical field used to display the value with the correct sign in reports."
-msgstr ""
+msgstr "レポートで正しい符号付きで値を表示するために使用する技術的フィールド。"
 
 #. module: l10n_jp_summary_invoice
 #. odoo-python
@@ -376,24 +377,24 @@ msgstr "閾日タイプ"
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_billing_tree
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_supplier_billing_tree
 msgid "Total"
-msgstr ""
+msgstr "合計"
 
 #. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__amount_total
 msgid "Total Amount"
-msgstr ""
+msgstr "合計金額"
 
 #. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_billing_tree
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_supplier_billing_tree
 msgid "Total Tax"
-msgstr ""
+msgstr "税合計"
 
 #. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_billing_tree
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_account_supplier_billing_tree
 msgid "Total Untaxed"
-msgstr ""
+msgstr "税抜合計"
 
 #. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.bill_line_section_layout
@@ -403,7 +404,7 @@ msgstr "単価"
 #. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__amount_untaxed
 msgid "Untaxed Amount"
-msgstr ""
+msgstr "税抜金額"
 
 #, python-format
 #~ msgid "All invoices must be posted before validating the billing."
