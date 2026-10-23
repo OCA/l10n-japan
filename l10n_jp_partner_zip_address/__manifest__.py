@@ -7,7 +7,6 @@
     "license": "AGPL-3",
     "website": "https://github.com/OCA/l10n-japan",
     "category": "Localization",
-    "depends": ["base"],
-    "external_dependencies": {"python": ["jaconv"]},
+    "depends": ["l10n_jp_partner_zip"],
     "installable": True,
 }
