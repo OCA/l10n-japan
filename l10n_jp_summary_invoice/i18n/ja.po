@@ -7,14 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 02:50+0000\n"
-"PO-Revision-Date: 2025-03-24 02:50+0000\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2026-10-27 10:47+0000\n"
+"Last-Translator: Yurika Mori <yurika@quartile.co>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: l10n_jp_summary_invoice
 #: model:ir.actions.report,print_report_name:l10n_jp_summary_invoice.report_jp_summary_invoice
@@ -31,6 +32,9 @@ msgid ""
 "specific.\" aria-label=\"Values set here are company-specific.\" "
 "groups=\"base.group_multi_company\" role=\"img\"/>"
 msgstr ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
+"specific.\" aria-label=\"Values set here are company-specific.\" "
+"groups=\"base.group_multi_company\" role=\"img\"/>"
 
 #. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.bill_line_section_layout
@@ -84,7 +88,7 @@ msgstr "金額"
 #. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.view_partner_property_form
 msgid "Billing"
-msgstr ""
+msgstr "合計請求書"
 
 #. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_billing__tax_totals
@@ -109,7 +113,7 @@ msgstr "コンフィグ設定"
 #. module: l10n_jp_summary_invoice
 #: model:ir.model,name:l10n_jp_summary_invoice.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "連絡先"
 
 #. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,help:l10n_jp_summary_invoice.field_res_company__summary_invoice_remark
@@ -144,6 +148,8 @@ msgid ""
 "If enabled, invoices for this partner will be excluded from the billing "
 "process by default."
 msgstr ""
+"選択した場合、この取引先の請求書はデフォルトで合計請求書への追加対象外となり"
+"ます。"
 
 #. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,help:l10n_jp_summary_invoice.field_res_company__show_invoice_narration
@@ -214,7 +220,7 @@ msgstr "仕訳"
 #. module: l10n_jp_summary_invoice
 #: model:ir.model,name:l10n_jp_summary_invoice.model_account_move_line
 msgid "Journal Item"
-msgstr ""
+msgstr "仕訳明細"
 
 #. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.bill_line_section_layout
@@ -279,7 +285,7 @@ msgstr "合計請求書明細行に販売オーダ番号を表示"
 #. module: l10n_jp_summary_invoice
 #: model:ir.model.fields,field_description:l10n_jp_summary_invoice.field_account_move_line__signed_quantity
 msgid "Signed Quantity"
-msgstr ""
+msgstr "符号付数量"
 
 #. module: l10n_jp_summary_invoice
 #: model_terms:ir.ui.view,arch_db:l10n_jp_summary_invoice.res_config_settings_view_form
@@ -332,7 +338,7 @@ msgstr "消費税"
 #: model:ir.model.fields,help:l10n_jp_summary_invoice.field_account_move_line__signed_quantity
 msgid ""
 "Technical field used to display the value with the correct sign in reports."
-msgstr ""
+msgstr "レポートで正しい符号付きで値を表示するために使用する技術的フィールド。"
 
 #. module: l10n_jp_summary_invoice
 #. odoo-python
