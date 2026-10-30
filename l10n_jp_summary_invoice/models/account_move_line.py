@@ -11,7 +11,7 @@ class AccountMoveLine(models.Model):
     # the report, as it prevents the display adjustments by report_qweb_field_option.
     signed_quantity = fields.Float(
         compute="_compute_signed_quantity",
-        digits="Product Unit of Measure",
+        digits="Product Unit",
         help="Technical field used to display the value with the correct sign in "
         "reports.",
     )
