@@ -1,9 +1,10 @@
 [project]
 name = "odoo-addons-oca-l10n-japan"
-version = "20.0.20261015.0"
+version = "20.0.20261103.0"
 dependencies = [
     "odoo-addon-account_payment_term_cutoff_day==20.0.*",
     "odoo-addon-l10n_jp_address_layout==20.0.*",
+    "odoo-addon-l10n_jp_kana==20.0.*",
 ]
 classifiers=[
     "Programming Language :: Python",
