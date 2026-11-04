@@ -1,0 +1,1 @@
+odoo-addon-account_move_order_partner @ git+https://github.com/OCA/account-invoicing.git@refs/pull/2166/head#subdirectory=account_move_order_partner
