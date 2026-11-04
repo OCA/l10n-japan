@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field
+            name="name"
+        >res.config.settings.view.form - l10n_jp_summary_invoice</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <block id="invoicing_settings" position="after">
+                <block title="Summary Invoices" id="summary_invoice_settings">
+                    <setting
+                        id="summary_invoice_remark"
+                        string="Header Remark"
+                        help="Specify the header remark to be displayed on the printed summary invoice"
+                    >
+                        <field name="summary_invoice_remark" />
+                    </setting>
+                    <setting
+                        id="show_sale_order_number"
+                        help="Show the sales order number in the summary invoice report lines"
+                    >
+                        <field name="show_sale_order_number" />
+                    </setting>
+                    <setting
+                        id="show_invoice_narration"
+                        help="The narration will appear for each invoice in the summary invoice report if selected"
+                    >
+                        <field name="show_invoice_narration" />
+                    </setting>
+                    <setting
+                        id="show_invoice_total_amount"
+                        help="The total amount per invoice will appear in the summary invoice report if selected"
+                    >
+                        <field name="show_invoice_total_amount" />
+                    </setting>
+                </block>
+            </block>
+        </field>
+    </record>
+</odoo>
