@@ -34,7 +34,7 @@ class ResPartner(models.Model):
         format_ = (
             self.env["ir.config_parameter"]
             .sudo()
-            .get_param("l10n_jp_partner_zip.format", "hyphen")
+            .get_str("l10n_jp_partner_zip.format", "hyphen")
         )
         return format_ != "digits"
 

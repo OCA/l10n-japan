@@ -4,7 +4,7 @@
 {
     "name": "Japanese Partner Postcode Format",
     "summary": "Store Japanese postcodes of contacts in one format",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Localization/Japan",
     "author": "Quartile, Odoo Community Association (OCA)",
     "maintainers": ["yostashiro"],
