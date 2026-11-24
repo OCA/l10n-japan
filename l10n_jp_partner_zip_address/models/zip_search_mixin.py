@@ -21,7 +21,7 @@ class ZipSearchMixin(models.AbstractModel):
         except requests.exceptions.HTTPError as http_err:
             return {"status": response.status_code, "message": str(http_err)}
         except requests.exceptions.RequestException as req_err:
-            return {"status": 500, "message": f"Request error: {str(req_err)}"}
+            return {"status": 500, "message": f"Request error: {req_err!s}"}
 
     def _l10n_jp_zip_search_applies(self):
         """Return whether the postcode of the record is to be looked up."""
