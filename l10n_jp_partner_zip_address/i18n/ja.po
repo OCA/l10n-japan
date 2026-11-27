@@ -1,0 +1,40 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_jp_partner_zip_address
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-07 08:04+0000\n"
+"PO-Revision-Date: 2024-02-07 08:04+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_jp_partner_zip_address
+#: model:ir.model,name:l10n_jp_partner_zip_address.model_res_partner
+msgid "Contact"
+msgstr "連絡先"
+
+#. module: l10n_jp_partner_zip_address
+#. odoo-python
+#: code:addons/l10n_jp_partner_zip_address/models/zip_search_mixin.py:0
+#, python-format
+msgid "Only digits are allowed."
+msgstr "数値のみで入力してください。"
+
+#. module: l10n_jp_partner_zip_address
+#. odoo-python
+#: code:addons/l10n_jp_partner_zip_address/models/zip_search_mixin.py:0
+#, python-format
+msgid "Postcode should be 7 digits."
+msgstr "郵便番号には7桁の数値を入れてください。"
+
+#. module: l10n_jp_partner_zip_address
+#: model:ir.model,name:l10n_jp_partner_zip_address.model_zip_search_mixin
+msgid "zip.search.mixin"
+msgstr ""
