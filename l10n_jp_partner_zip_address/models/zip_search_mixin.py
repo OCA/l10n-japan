@@ -54,7 +54,7 @@ class ZipSearchMixin(models.AbstractModel):
             if (
                 not self.state_id
                 and self.env.lang != "ja_JP"
-                and "ja_JP" in self.env["res.lang"].get_installed()
+                and "ja_JP" in dict(self.env["res.lang"].get_installed())
             ):
                 self.state_id = (
                     self.env["res.country.state"]
